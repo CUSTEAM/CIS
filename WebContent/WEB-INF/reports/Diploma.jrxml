@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="Diploma"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="A" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="B" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="C" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="D" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="E" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="F" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="G" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="H" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="I" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="J" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="K" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="L" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="M" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="N" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="O" isForPrompting="false" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="694"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="339"
+						y="194"
+						width="180"
+						height="15"
+						key="textField-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="11" isBold="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["(" + $P{A} + ") " + "中華院" + $P{N} + "字第" + $P{B} + "號"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="367"
+						y="209"
+						width="152"
+						height="15"
+						key="textField-2"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="11" isBold="true" isItalic="false" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["身分證字號 " + $P{C}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+<<<<<<< .working
+					<reportElement
+						x="51"
+						y="220"
+						width="432"
+						height="247"
+=======
+					<reportElement
+						x="51"
+						y="220"
+						width="432"
+						height="213"
+>>>>>>> .merge-right.r4903
+						key="textField-3"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" lineSpacing="Single">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="22" isBold="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["學生" + $P{D} + "中華民國" + $P{E} + "年" + $P{F} + "月" + $P{G} + "日生  在本校" + $P{M} + "\n" + $P{H} + "\n修業期滿成績及格准予畢業依學位授予法之規定授予 " + $P{I} + " 學 位\n據該生申明前領" + $P{O} + "學位證書遺失經查屬實   特 予 證 明\n此 證"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="38"
+						y="612"
+						width="458"
+						height="28"
+						key="textField-4"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="22" isBold="false" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["中 華 民 國 " + $P{J} + " 年 " + $P{K} + " 月 " + $P{L} + " 日 "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="55"
+						y="142"
+						width="424"
+						height="37"
+						key="textField-5"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="30" isBold="true" isPdfEmbedded ="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["中華技術學院" + $P{O} + "學位證明書"]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

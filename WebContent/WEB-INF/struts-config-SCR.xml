@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+	   	<form-bean name="ScoreMenuForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="scrMenuAction" type="java.lang.String" initial="">
+	   		</form-property>
+	   	</form-bean>
+  		<form-bean name="ScoreHistForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="student_no" type="java.lang.String" initial="" />
+	  		<form-property name="student_name" type="java.lang.String" initial="" />
+	  		<form-property name="student_class" type="java.lang.String" initial="" />
+	  		<form-property name="student_classname" type="java.lang.String" initial="" />
+	  		<form-property name="school_year" type="java.lang.String" initial="" />
+	  		<form-property name="school_term" type="java.lang.String" initial="" />
+	  		<form-property name="scrHistAction" type="java.lang.String" />
+	   	</form-bean>
+  		<form-bean
+	  		name="ScoreHistEditForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="mode" type="java.lang.String" initial="" />
+	  		<form-property name="student_no" type="java.lang.String" initial="" />
+	  		<form-property name="school_year" type="java.lang.String" initial="" />
+	  		<form-property name="school_term" type="java.lang.String" initial="" />
+	  		<form-property name="evgr_type" type="java.lang.String" initial="" />
+	  		<form-property name="cscode" type="java.lang.String"/>
+	  		<form-property name="opt" type="java.lang.String"/>
+	  		<form-property name="credit" type="java.lang.String"/>
+	  		<form-property name="score" type="java.lang.String"/>
+	  		<form-property name="stdepart_class" type="java.lang.String"/>
+	  		<form-property name="scrHistEditAction" type="java.lang.String"/>
+	  		<form-property name="student_name" type="java.lang.String"/>
+	  		<form-property name="student_class" type="java.lang.String"/>
+	  		<form-property name="student_classname" type="java.lang.String"/>
+	  		<form-property name="cscode_name" type="java.lang.String"/>
+	  		<form-property name="stdepclass_name" type="java.lang.String"/>
+	   	</form-bean>
+  		<form-bean name="ScoreHistAvgForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="student_no" type="java.lang.String" initial="" />
+	  		<form-property name="student_name" type="java.lang.String" initial="" />
+	  		<form-property name="student_class" type="java.lang.String" initial="" />
+	  		<form-property name="student_classname" type="java.lang.String" initial="" />
+	  		<form-property name="school_year" type="java.lang.String" initial="" />
+	  		<form-property name="school_term" type="java.lang.String" initial="" />
+	  		<form-property name="scrHistAction" type="java.lang.String" />
+	   	</form-bean>
+  		<form-bean
+	  		name="ScoreHistAvgEditForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="mode" type="java.lang.String" initial="" />
+	  		<form-property name="student_no" type="java.lang.String" initial="" />
+	  		<form-property name="school_year" type="java.lang.String" initial="" />
+	  		<form-property name="school_term" type="java.lang.String" initial="" />
+	  		<form-property name="credit" type="java.lang.String"/>
+	  		<form-property name="score" type="java.lang.String"/>
+	  		<form-property name="stdepart_class" type="java.lang.String"/>
+	  		<form-property name="scrHistEditAction" type="java.lang.String"/>
+	  		<form-property name="student_name" type="java.lang.String"/>
+	  		<form-property name="student_class" type="java.lang.String"/>
+	  		<form-property name="student_classname" type="java.lang.String"/>
+	  		<form-property name="stdepclass_name" type="java.lang.String"/>
+	   	</form-bean>
+  		<form-bean name="ScoreInputForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="cscode" type="java.lang.String" initial="" />
+	  		<form-property name="dtimeoid" type="java.lang.String" initial="" />
+	  		<form-property name="scoretype" type="java.lang.String" initial="" />
+	  		<form-property name="regsyn" type="java.lang.String" initial="" />
+	  		<form-property name="yn" type="java.lang.String" initial="" />
+	  		<form-property name="studentNo" type="java.lang.String[]"/>
+	  		<form-property name="scrinput" type="java.lang.String[]"/>
+	   	</form-bean>
+
+  		<form-bean
+	  		name="ScorePrintForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="cscode" type="java.lang.String" initial="" />
+	  		<form-property name="dtimeoid" type="java.lang.String" initial="" />
+	  		<form-property name="scoretype" type="java.lang.String" initial="" />
+	  		<form-property name="regsyn" type="java.lang.String" initial="" />
+	  		<form-property name="yn" type="java.lang.String" initial="" />
+	   	</form-bean>
+
+		<form-bean name="ScorePatchRegsForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="sterm" type="java.lang.String"></form-property>
+			<form-property name="opmode" type="java.lang.String"></form-property>
+		</form-bean>
+
+	   	<!-- 輸入碩士班論文成績 -->
+		<form-bean name="ScoreMasterForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="student_no" type="java.lang.String" initial="" />
+	  		<form-property name="student_name" type="java.lang.String" initial="" />
+	  		<form-property name="student_class" type="java.lang.String" initial="" />
+	  		<form-property name="student_classname" type="java.lang.String" initial="" />
+	  		<form-property name="school_year" type="java.lang.String" initial="" />
+	  		<form-property name="school_term" type="java.lang.String" initial="" />
+	  		<form-property name="chineseThesis" type="java.lang.String" initial="" />
+	  		<form-property name="englishThesis" type="java.lang.String" initial=""/>
+	  		<form-property name="thesisScore" type="java.lang.String" initial="" />
+	  		<form-property name="evgrScore" type="java.lang.String" initial="" />
+	  		<form-property name="gradScore" type="java.lang.String" initial="" />
+	  		<form-property name="onlineFileDate" type="java.lang.String" initial="" />
+	  		<form-property name="remark" type="java.lang.String" initial="" />
+	  		<form-property name="oid" type="java.lang.String" initial="" />
+	  		<!-- form-property name="scrHistAction" type="java.lang.String"></form-property -->
+	   	</form-bean>
+	
+		<!-- 報表列印 -->   	
+		<form-bean name="ReportPringForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="classLess" type="java.lang.String" />
+	  		<form-property name="year" type="java.lang.String[]" />
+	  	  	<form-property name="sterm" type="java.lang.String" />
+	  	  	<form-property name="printOpt" type="java.lang.String" />
+	  	  	<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+		  	<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+		  	<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+		  	<form-property name="classInCharge2" type="java.lang.String" initial="" />
+		  	<form-property name="schoolType" type="java.lang.String" initial="" />
+		  	<form-property name="setupPrinter" type="java.lang.String" initial="" />
+		  	<form-property name="choseType" type="java.lang.String" initial="" />
+		  	<form-property name="scoreType" type="java.lang.String" initial="" />
+		  	<form-property name="printInterClass" type="java.lang.String" initial="" />
+		  	<form-property name="isLiteracy" type="java.lang.String" initial="" />
+		</form-bean>
+
+        <form-bean
+	  		name="CantExamForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="departClass" type="java.lang.String" initial="" />
+	  		<form-property name="campusInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="scope" type="java.lang.String" initial="" />
+	  		<form-property name="sorttype" type="java.lang.String" initial="" />
+	  		<form-property name="range" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+        <form-bean name="ScoreNotUploadForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="classLess" type="java.lang.String" initial="" />
+	  		<form-property name="type" type="java.lang.String" initial="" />
+	  		<form-property name="scope" type="java.lang.String" initial="" />
+	  		<form-property name="ClassName" type="java.lang.String" initial="" />
+	  		<form-property name="target" type="java.lang.String" initial="" />
+	  		
+	  		<form-property name="Oid" type="java.lang.String[]" />
+	  		<form-property name="score2" type="java.lang.String[]" />
+	  		<form-property name="score3" type="java.lang.String[]" />
+	  		<form-property name="score" type="java.lang.String[]" />	  		
+	   	</form-bean>
+
+        <form-bean
+	  		name="ScoreSetDateForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="level" type="java.lang.String" initial="" />
+	   	</form-bean>
+
+        <form-bean
+	  		name="ScoreSetDateAddForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="opmode" type="java.lang.String" initial="" />
+	  		<form-property name="level" type="java.lang.String" initial="" />
+	  		<form-property name="levelSel" type="java.lang.String" initial="" />
+	  		<form-property name="depart" type="java.lang.String" initial="" />
+	  		<form-property name="departSel" type="java.lang.String" initial="" />
+	  		<form-property name="beginDate" type="java.lang.String" initial="" />
+	  		<form-property name="beginTime" type="java.lang.String" initial="" />
+	  		<form-property name="endDate" type="java.lang.String" initial="" />
+	  		<form-property name="endTime" type="java.lang.String" initial="" />
+	   	</form-bean>
+
+        <form-bean
+	  		name="ScoreSetDateModifyForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="opmode" type="java.lang.String" initial="" />
+	  		<form-property name="level" type="java.lang.String[]" initial="" />
+	  		<form-property name="depart" type="java.lang.String[]" initial="" />
+	  		<form-property name="beginDate" type="java.lang.String[]" initial="" />
+	  		<form-property name="beginTime" type="java.lang.String[]" initial="" />
+	  		<form-property name="endDate" type="java.lang.String[]" initial="" />
+	  		<form-property name="endTime" type="java.lang.String[]" initial="" />
+	   	</form-bean>
+	   	
+        <form-bean
+	  		name="StudSeldExamUpdateAllForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<!-- form-property name="CodeId" type="java.lang.String" initial="" / -->
+	  		<form-property name="opmode" type="java.lang.String" initial="" />
+	  		<form-property name="campusInChargeSAF" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInChargeSAF" type="java.lang.String" initial="" />
+	  		<form-property name="deptInChargeSAF" type="java.lang.String" initial="" />
+	  		<form-property name="classInChargeSAF" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="SetViewDateForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		
+	   		<form-property name="level" type="java.lang.String[]" initial="" />
+	   		<form-property name="depart" type="java.lang.String[]" initial="" />
+	   		<form-property name="view_date" type="java.lang.String[]" initial="" />
+	   		<form-property name="Oid" type="java.lang.String[]" initial="" />
+	   	
+	   		<form-property name="aLevel" type="java.lang.String" initial="" />
+	   		<form-property name="aDepart" type="java.lang.String" initial="" />
+	   		<form-property name="aView_date" type="java.lang.String" initial="" />
+	   		<form-property name="aOid" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+  		<form-bean name="ScoreRateAdjustedQueryForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="campusInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="teacherId" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+		<form-bean name="ScoreWarehouseForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="CampuseNo" type="java.lang.String" initial="" />
+	  		<form-property name="SchoolType" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="ScoreAvgForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="year" type="java.lang.String" initial="" />
+	   		<form-property name="term" type="java.lang.String" initial="" />
+	  		<form-property name="CampuseNo" type="java.lang.String" initial="" />
+	  		<form-property name="SchoolType" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<!-- 歷年操行 Form Leo 20120201 -->
+	   	<form-bean name="JustToHistoryForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="year" type="java.lang.String" initial="" />
+	   		<form-property name="term" type="java.lang.String" initial="" />
+	  		<form-property name="CampuseNo" type="java.lang.String" initial="" />
+	  		<form-property name="SchoolType" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	
+	</form-beans>
+
+    <!-- =================================== Global Exception Definitions -->
+
+    <!-- =================================== Global Forward Definitions -->
+
+
+    <!-- =================================== Action Mapping Definitions -->
+
+    <action-mappings>
+
+	    <action path="/Score/Directory"
+		   type="tw.edu.chit.struts.action.score.DirectoryAction"
+	       scope="session"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Score/ScoreMain"
+		   type="tw.edu.chit.struts.action.score.ScoreMainAction"
+	       scope="session"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Score/ScoreMenu"
+	       name="ScoreMenuForm"
+		   type="tw.edu.chit.struts.action.score.ScoreMenuAction"
+	       scope="session"
+	       parameter="scrMenuAction"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Score/ScoreHist"
+	       name="ScoreHistForm"
+		   type="tw.edu.chit.struts.action.score.ScoreHistAction"
+	       scope="session"
+	       parameter="scrHistAction"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Score/ScoreHistEdit"
+	       name="ScoreHistEditForm"
+		   type="tw.edu.chit.struts.action.score.ScoreHistEditAction"
+	       scope="session"
+	       parameter="scrHistEditAction"
+		   input="/Welcome.do">
+		   <forward name="success_create" path="/Score/ScoreHist.do?scrHistAction=scr_histadd"/>
+		   <forward name="success_modify" path="/Score/ScoreHist.do?scrHistAction=scr_histqry"/>
+	    </action>
+
+	    <action path="/Score/ScoreHistAvg"
+	       name="ScoreHistForm"
+		   type="tw.edu.chit.struts.action.score.ScoreHistAvgAction"
+	       scope="session"
+	       parameter="scrHistAction"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Score/ScoreHistAvgEdit"
+	       name="ScoreHistAvgEditForm"
+		   type="tw.edu.chit.struts.action.score.ScoreHistAvgEditAction"
+	       scope="session"
+	       parameter="scrHistEditAction"
+		   input="/Welcome.do">
+		   <forward name="success_create" path="/Score/ScoreHistAvg.do?scrHistAction=scr_histadd"/>
+		   <forward name="success_modify" path="/Score/ScoreHistAvg.do?scrHistAction=scr_histqry"/>
+	    </action>
+
+	    <action path="/Score/ScoreInput"
+	       name="ScoreInputForm"
+		   type="tw.edu.chit.struts.action.score.ScoreInputAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Score/ScorePrint"
+	       name="ScorePrintForm"
+		   type="tw.edu.chit.struts.action.score.ScorePrintAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+		<!-- 修補學期 Regs 教師上傳成績檔  -->
+	    <action path="/Score/ScorePatchRegs"
+	       name="ScorePatchRegsForm"
+		   type="tw.edu.chit.struts.action.score.ScorePatchRegsAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 負責將歷史資料維護內子Module清單取出並顯示  -->
+	    <action path="/Score/ScoreHistList"
+	    	type="tw.edu.chit.struts.action.score.ScoreHistListAction"
+	    	scope="request"
+		   	input="/Welcome.do"/>
+
+	    <!-- 負責將歷史資料維護內子Module清單取出並顯示  -->
+	    <action path="/Score/ScoreBatch"
+	    	type="tw.edu.chit.struts.action.score.ScoreBatchAction"
+	    	scope="request"
+		   	input="/Welcome.do"/>
+		   	
+	    <!-- 負責將成績查詢列印內子Module清單取出並顯示  -->
+	    <action path="/Score/ScoreQueryPrint"
+	    	type="tw.edu.chit.struts.action.score.ScoreQueryPrintAction"
+	    	scope="request"
+		   	input="/Welcome.do"/>
+
+
+		<!-- 負責將暑修資料維護內子Module清單取出並顯示  -->
+	    <action path="/Score/ScoreSummerList"
+	    	type="tw.edu.chit.struts.action.score.ScoreSummerListAction"
+	    	scope="request"
+		   	input="/Welcome.do"/>
+
+		<!-- 輸入碩士班論文成績  -->
+		<action path="/Score/ScoreMaster"
+	       name="ScoreMasterForm"
+		   type="tw.edu.chit.struts.action.score.ScoreMasterAction"
+	       scope="session"
+	       parameter="scrMasterAction"
+		   input="/Welcome.do">
+		   <forward name="success" path="/Score/ScoreHistEdit.do" />
+	    </action>
+	    
+	    <!-- 報表列印 -->
+	    <action path="/Score/ReportPrint"
+	       name="ReportPringForm"
+		   type="tw.edu.chit.struts.action.score.ReportPrintAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+		   <forward name="success" path="/Score/ScoreQueryPrint.do" />
+	    </action>
+
+		<!-- 學生扣考查詢列印 -->
+		<action path="/Score/CantExam"
+	       name="CantExamForm"
+		   type="tw.edu.chit.struts.action.score.CantExamAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+		<!-- 老師未上傳成績查詢列印 -->
+		<action path="/Score/ScoreNotUpload"
+	       name="ScoreNotUploadForm"
+		   type="tw.edu.chit.struts.action.score.ScoreNotUploadAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+		<!-- 老師上傳成績時間設定 -->
+		<action path="/Score/ScoreSetDate"
+	       name="ScoreSetDateForm"
+		   type="tw.edu.chit.struts.action.score.ScoreSetDateAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+		<!-- 新增老師上傳成績時間 -->
+		<action path="/Score/ScoreSetDateAdd"
+	       name="ScoreSetDateAddForm"
+		   type="tw.edu.chit.struts.action.score.ScoreSetDateAddAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+		<!-- 修改老師上傳成績時間 -->
+		<action path="/Score/ScoreSetDateModify"
+	       name="ScoreSetDateModifyForm"
+		   type="tw.edu.chit.struts.action.score.ScoreSetDateModifyAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 批次更新Seld曠缺紀錄 -->
+ 	    <action path="/Score/StudSeldExamUpdateAll"
+ 	       name="StudConductUpdateAllForm"
+		   type="tw.edu.chit.struts.action.score.StudSeldExamUpdateAllAction"
+	       parameter="method"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 開放成績查詢時間 -->
+	    <action path="/Score/SetViewDate"
+ 	       name="SetViewDateForm"
+		   type="tw.edu.chit.struts.action.score.SetViewDateAction"
+	       parameter="method"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 查詢列印科目成績比例變更資料 -->
+	    <action path="/Score/ScoreRateAdjustedQuery"
+ 	       name="ScoreRateAdjustedQueryForm"
+		   type="tw.edu.chit.struts.action.score.ScoreRateAdjustedQueryAction"
+	       parameter="method"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 成績轉歷年 -->
+	    <action path="/Score/ScoreWarehouse"
+ 	       name="ScoreWarehouseForm"
+		   type="tw.edu.chit.struts.action.score.ScoreWarehouseAction"
+	       parameter="method"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 歷年平均 -->
+	    <action path="/Score/ScoreAvg"
+ 	       name="ScoreAvgForm"
+		   type="tw.edu.chit.struts.action.score.ScoreAvgAction"
+	       parameter="method"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 歷年操行 Leo 20120201 -->
+	    <action path="/Score/JustToHistory"
+ 	       name="JustToHistoryForm"
+		   type="tw.edu.chit.struts.action.score.JustToHistoryAction"
+	       parameter="method"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+    </action-mappings>
+
+
+    <!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.score" null="false" key="SCR" />
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+</struts-config>
+
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="synchronStudentAdvice" class="tw.edu.chit.service.aop.StudentSyncAdvice" />
+	
+	<bean id="synchronStudentAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="mappedName" value="updateStudent" />
+		<property name="advice" ref="synchronStudentAdvice" />
+	</bean>
+    
+    <bean id="synchronStudentProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+    	<property name="proxyInterfaces" value="tw.edu.chit.service.MemberManager"/>
+		<property name="target" ref="memberManager" />
+		<property name="interceptorNames">
+			<list>
+				<value>synchronStudentAdvisor</value>	
+			</list>
+		</property>    
+    </bean>
+
+</beans>

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="#DeptAssistant#AbilityExamine" NAME="action0"
+  PATH="/DeptAssistant/AbilityExamine" SHAPE="32,1393,0,0"
+  TITLE="AbilityExamineForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#StudConductUploadModify" NAME="action1"
+  PATH="/Teacher/StudConductUploadModify" SHAPE="240,1409,0,0"
+  TITLE="StudConductUploadModifyForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Drillmaster" NAME="action2"
+  PATH="/Teacher/Drillmaster" SHAPE="448,1393,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Article_Statistics" NAME="action3"
+  PATH="/Teacher/Article_Statistics" SHAPE="656,1409,0,0"
+  TITLE="Article_StatisticsForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#QueryRcact" NAME="action4"
+  PATH="/Teacher/QueryRcact" SHAPE="32,17,0,0" TITLE="QueryRcactForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="QueryRcact" NAME="forward0"
+   PATH="/pages/teacher/QueryRcact.jsp" TARGET="page0"
+   TITLE="QueryRcact" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#TeachBookSuggest" NAME="action5"
+  PATH="/Teacher/TeachBookSuggest" SHAPE="864,1393,0,0"
+  TITLE="TechIntroductionForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeacherMain" NAME="action6"
+  PATH="/Teacher/TeacherMain" SHAPE="1072,1409,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcproj_Manager" NAME="action7"
+  PATH="/Teacher/Rcproj_Manager" SHAPE="32,1505,0,0"
+  TITLE="Rcproj_ManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Language#ReportPrint" NAME="action8"
+  PATH="/Language/ReportPrint" SHAPE="240,1521,0,0"
+  TITLE="DeptAssistReportPringForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcconf_Query" NAME="action9"
+  PATH="/Teacher/Rcconf_Query" SHAPE="448,1505,0,0"
+  TITLE="Rcconf_QueryForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcconf_Manager" NAME="action10"
+  PATH="/Teacher/Rcconf_Manager" SHAPE="656,1521,0,0"
+  TITLE="Rcconf_ManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rchono_Manager" NAME="action11"
+  PATH="/Teacher/Rchono_Manager" SHAPE="864,1505,0,0"
+  TITLE="Rchono_ManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcproj_Query" NAME="action12"
+  PATH="/Teacher/Rcproj_Query" SHAPE="1072,1521,0,0"
+  TITLE="Rcproj_QueryForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcbook_View" NAME="action13"
+  PATH="/Teacher/Rcbook_View" SHAPE="32,1617,0,0"
+  TITLE="Rcbook_ViewForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Coansw4Tech" NAME="action14"
+  PATH="/Teacher/Coansw4Tech" SHAPE="240,1633,0,0"
+  TITLE="Coansw4TechForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#GraduateInvestigationList"
+  NAME="action15" PATH="/Teacher/Tutor/GraduateInvestigationList"
+  SHAPE="448,1617,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DepAssistant#DtimeManager" NAME="action16"
+  PATH="/DepAssistant/DtimeManager" SHAPE="656,1633,0,0"
+  TITLE="DtimeReserveManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Drillmaster#StudentInfo" NAME="action17"
+  PATH="/Teacher/Drillmaster/StudentInfo" SHAPE="864,1617,0,0"
+  TITLE="StudentListForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#SchoolCalendar" NAME="action18"
+  PATH="/Teacher/SchoolCalendar" SHAPE="1072,1633,0,0"
+  TITLE="SummerLifeForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#CounselingModify" NAME="action19"
+  PATH="/Teacher/CounselingModify" SHAPE="32,1729,0,0"
+  TITLE="CounselingFormL" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#StudConductUpload" NAME="action20"
+  PATH="/Teacher/StudConductUpload" SHAPE="240,1745,0,0"
+  TITLE="StudConductUploadForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#AssistantTeacherSchedOfficeHoursPrint"
+  NAME="action21"
+  PATH="/DeptAssistant/AssistantTeacherSchedOfficeHoursPrint"
+  SHAPE="448,1729,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#PhoneAndAddress" NAME="action22"
+  PATH="/Teacher/PhoneAndAddress" SHAPE="656,1745,0,0"
+  TITLE="PhoneAndAddressForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcpet" NAME="action23" PATH="/Teacher/Rcpet"
+  SHAPE="864,1729,0,0" TITLE="RcpetForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#SummerRat" NAME="action24"
+  PATH="/Teacher/SummerRat" SHAPE="1072,1745,0,0" TITLE="SummerRatForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rchono_Query" NAME="action25"
+  PATH="/Teacher/Rchono_Query" SHAPE="32,1841,0,0"
+  TITLE="Rchono_QueryForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rchono_View" NAME="action26"
+  PATH="/Teacher/Rchono_View" SHAPE="240,1857,0,0"
+  TITLE="Rchono_ViewForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#Counseling" NAME="action27"
+  PATH="/Teacher/Tutor/Counseling" SHAPE="32,129,0,0"
+  TITLE="CounselingForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="fail" NAME="forward0"
+   PATH="/Teacher/Tutor/CounselingT.do" TARGET="action48" TITLE="fail"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Tutor#BonusPenaltySearch" NAME="action28"
+  PATH="/Teacher/Tutor/BonusPenaltySearch" SHAPE="448,1841,0,0"
+  TITLE="StudentListFormT" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#QueryRchono" NAME="action29"
+  PATH="/Teacher/QueryRchono" SHAPE="32,241,0,0" TITLE="QueryRchonoForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="QueryRchono" NAME="forward0"
+   PATH="/pages/teacher/QueryRchono.jsp" TARGET="page1"
+   TITLE="QueryRchono" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Rchono" NAME="action30"
+  PATH="/Teacher/Rchono" SHAPE="656,1857,0,0" TITLE="RchonoForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeachIntroduction" NAME="action31"
+  PATH="/Teacher/TeachIntroduction" SHAPE="864,1841,0,0"
+  TITLE="TechIntroductionForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#AQ#LoginQform" NAME="action32"
+  PATH="/Teacher/AQ/LoginQform" SHAPE="1072,1857,0,0" TITLE="Qform"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcbook_Query" NAME="action33"
+  PATH="/Teacher/Rcbook_Query" SHAPE="32,1953,0,0"
+  TITLE="Rcbook_QueryForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#AssistantTeachSyllabus"
+  NAME="action34" PATH="/DeptAssistant/AssistantTeachSyllabus"
+  SHAPE="240,1969,0,0" TITLE="TechSyllabusForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#StudentList" NAME="action35"
+  PATH="/DeptAssistant/StudentList" SHAPE="448,1953,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#StdinfoSh" NAME="action36"
+  PATH="/Teacher/StdinfoSh" SHAPE="656,1969,0,0" TITLE="StdinfoShForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#SportRat" NAME="action37"
+  PATH="/Teacher/SportRat" SHAPE="256,369,0,0" TITLE="SportRatForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcjour_View" NAME="action38"
+  PATH="/Teacher/Rcjour_View" SHAPE="864,1953,0,0"
+  TITLE="Rcjour_ViewForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DepAssistant#DtimeReserveOption" NAME="action39"
+  PATH="/DepAssistant/DtimeReserveOption" SHAPE="1072,1969,0,0"
+  TITLE="DtimereserveOptionForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#CounselingL" NAME="action40"
+  PATH="/Teacher/CounselingL" SHAPE="464,609,0,0"
+  TITLE="CounselingFormL" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="success_create" NAME="forward0"
+   PATH="/Teacher/CounselingL.do" TARGET="action40"
+   TITLE="success_create" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Directory" NAME="action41"
+  PATH="/Teacher/Directory" SHAPE="32,2065,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcact_Query" NAME="action42"
+  PATH="/Teacher/Rcact_Query" SHAPE="240,2081,0,0"
+  TITLE="Rcact_QueryForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Military#ReportPrint" NAME="action43"
+  PATH="/Teacher/Military/ReportPrint" SHAPE="448,2065,0,0"
+  TITLE="MilitaryReportPrintForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#EngRat" NAME="action44"
+  PATH="/Teacher/EngRat" SHAPE="256,513,0,0" TITLE="EngRatForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DepAssistant#DtimeReserveManager" NAME="action45"
+  PATH="/DepAssistant/DtimeReserveManager" SHAPE="656,2081,0,0"
+  TITLE="DtimeReserveManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeachSyllabus" NAME="action46"
+  PATH="/Teacher/TeachSyllabus" SHAPE="864,2065,0,0"
+  TITLE="TechSyllabusForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcjour_Query" NAME="action47"
+  PATH="/Teacher/Rcjour_Query" SHAPE="1072,2081,0,0"
+  TITLE="Rcjour_QueryForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#CounselingT" NAME="action48"
+  PATH="/Teacher/Tutor/CounselingT" SHAPE="240,145,0,0"
+  TITLE="CounselingForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#GraduateInfoInput" NAME="action49"
+  PATH="/Teacher/Tutor/GraduateInfoInput" SHAPE="32,2177,0,0"
+  TITLE="StudentListFormT" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#StdSkillAdd" NAME="action50"
+  PATH="/DeptAssistant/StdSkillAdd" SHAPE="240,2193,0,0"
+  TITLE="StdSkillForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcjour" NAME="action51"
+  PATH="/Teacher/Rcjour" SHAPE="448,2177,0,0" TITLE="RcjourForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#QueryRcjour" NAME="action52"
+  PATH="/Teacher/QueryRcjour" SHAPE="32,721,0,0" TITLE="QueryRcjourForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="QueryRcjour" NAME="forward0"
+   PATH="/pages/teacher/QueryRcjour.jsp" TARGET="page2"
+   TITLE="QueryRcjour" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#QueryRcproj" NAME="action53"
+  PATH="/Teacher/QueryRcproj" SHAPE="32,833,0,0" TITLE="QueryRcprojForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="QueryRcproj" NAME="forward0"
+   PATH="/pages/teacher/QueryRcproj.jsp" TARGET="page3"
+   TITLE="QueryRcproj" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#AQ#Qform" NAME="action54"
+  PATH="/Teacher/AQ/Qform" SHAPE="656,2193,0,0" TITLE="Qform"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcproj_View" NAME="action55"
+  PATH="/Teacher/Rcproj_View" SHAPE="864,2177,0,0"
+  TITLE="Rcproj_ViewForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#CounselingEdit" NAME="action56"
+  PATH="/Teacher/Tutor/CounselingEdit" SHAPE="1072,2193,0,0"
+  TITLE="CounselingForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcconf" NAME="action57"
+  PATH="/Teacher/Rcconf" SHAPE="32,2289,0,0" TITLE="RcconfForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreMidTermEdit" NAME="action58"
+  PATH="/Teacher/ScoreMidTermEdit" SHAPE="240,2305,0,0"
+  TITLE="ScoreMidTermEditForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#ReportPrint" NAME="action59"
+  PATH="/DeptAssistant/ReportPrint" SHAPE="448,2289,0,0"
+  TITLE="DeptAssistReportPringForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreInputList" NAME="action60"
+  PATH="/Teacher/ScoreInputList" SHAPE="656,2305,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ClassCadreSearch" NAME="action61"
+  PATH="/Teacher/ClassCadreSearch" SHAPE="864,2289,0,0"
+  TITLE="StudentListFormT" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#CounselingEdit" NAME="action62"
+  PATH="/Teacher/CounselingEdit" SHAPE="32,609,0,0"
+  TITLE="CounselingFormL" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="cancel" NAME="forward0"
+   PATH="/Teacher/Counseling.do" TARGET="action101" TITLE="cancel"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Rcact" NAME="action63" PATH="/Teacher/Rcact"
+  SHAPE="1072,2305,0,0" TITLE="RcactForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcpet_Query" NAME="action64"
+  PATH="/Teacher/Rcpet_Query" SHAPE="32,2401,0,0"
+  TITLE="Rcpet_QueryForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreUpload" NAME="action65"
+  PATH="/Teacher/ScoreUpload" SHAPE="240,2417,0,0"
+  TITLE="ScoreUploadForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeacherStayTimeSearch" NAME="action66"
+  PATH="/Teacher/TeacherStayTimeSearch" SHAPE="448,2401,0,0"
+  TITLE="TeacherStayTimeForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Language#Directory" NAME="action67"
+  PATH="/Language/Directory" SHAPE="656,2417,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreMidTermEdit1" NAME="action68"
+  PATH="/Teacher/ScoreMidTermEdit1" SHAPE="864,2401,0,0"
+  TITLE="ScoreMidTermEditForm1" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Article_Query" NAME="action69"
+  PATH="/Teacher/Article_Query" SHAPE="1072,2417,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeachIntroductionSearch" NAME="action70"
+  PATH="/Teacher/TeachIntroductionSearch" SHAPE="32,2513,0,0"
+  TITLE="TechIntroductionForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreUploadAll" NAME="action71"
+  PATH="/Teacher/ScoreUploadAll" SHAPE="32,353,0,0"
+  TITLE="ScoreUploadAllForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="forward2Sport" NAME="forward0"
+   PATH="/Teacher/SportRat.do?method=" TARGET="action37"
+   TITLE="forward2Sport" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="forward2English" NAME="forward1"
+   PATH="/Teacher/EngRat.do?method=" TARGET="action44"
+   TITLE="forward2English" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Tutor#StudentInfo" NAME="action72"
+  PATH="/Teacher/Tutor/StudentInfo" SHAPE="240,2529,0,0"
+  TITLE="StudentListFormT" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DepAssistant#FestTimetabling" NAME="action73"
+  PATH="/DepAssistant/FestTimetabling" SHAPE="448,2513,0,0"
+  TITLE="FestTimetablingForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcpet_Manager" NAME="action74"
+  PATH="/Teacher/Rcpet_Manager" SHAPE="656,2529,0,0"
+  TITLE="Rcpet_ManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#DeptCourseInfo" NAME="action75"
+  PATH="/DeptAssistant/DeptCourseInfo" SHAPE="864,2513,0,0"
+  TITLE="DeptCourseInfoForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#StdSkill" NAME="action76"
+  PATH="/DeptAssistant/StdSkill" SHAPE="1072,2529,0,0"
+  TITLE="StdSkillForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Chairman#DtimeInfo" NAME="action77"
+  PATH="/Teacher/Chairman/DtimeInfo" SHAPE="32,2625,0,0"
+  TITLE="DtimeInfoForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#StudentInfoSearch" NAME="action78"
+  PATH="/Teacher/StudentInfoSearch" SHAPE="240,2641,0,0"
+  TITLE="StudentListFormT" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#InvestigationSearch" NAME="action79"
+  PATH="/DeptAssistant/InvestigationSearch" SHAPE="448,2625,0,0"
+  TITLE="ClassCadreForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreMidTerm" NAME="action80"
+  PATH="/Teacher/ScoreMidTerm" SHAPE="656,2641,0,0"
+  TITLE="ScoreMidTermForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DepAssistant#Timetabling" NAME="action81"
+  PATH="/DepAssistant/Timetabling" SHAPE="864,2625,0,0"
+  TITLE="TimetablingForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TimeOffUploadRecord" NAME="action82"
+  PATH="/Teacher/TimeOffUploadRecord" SHAPE="240,961,0,0"
+  TITLE="TimeOffUploadRecordForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreManager" NAME="action83"
+  PATH="/Teacher/ScoreManager" SHAPE="1072,2641,0,0"
+  TITLE="ScoreManager" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#StdSkillUpdate" NAME="action84"
+  PATH="/DeptAssistant/StdSkillUpdate" SHAPE="32,2737,0,0"
+  TITLE="StdSkillForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#AbilityExamineEnroll" NAME="action85"
+  PATH="/DeptAssistant/AbilityExamineEnroll" SHAPE="240,2753,0,0"
+  TITLE="AbilityExamineEnrollForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreFinalTermEdit" NAME="action86"
+  PATH="/Teacher/ScoreFinalTermEdit" SHAPE="448,2737,0,0"
+  TITLE="ScoreFinalTermEditForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcact_View" NAME="action87"
+  PATH="/Teacher/Rcact_View" SHAPE="656,2753,0,0" TITLE="Rcact_ViewForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcjour_Manager" NAME="action88"
+  PATH="/Teacher/Rcjour_Manager" SHAPE="864,2737,0,0"
+  TITLE="Rcjour_ManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ClassCadre" NAME="action89"
+  PATH="/Teacher/ClassCadre" SHAPE="1072,2753,0,0"
+  TITLE="ClassCadreForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreRateChange" NAME="action90"
+  PATH="/Teacher/ScoreRateChange" SHAPE="32,2849,0,0"
+  TITLE="ScoreRateChangeForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor" NAME="action91" PATH="/Teacher/Tutor"
+  SHAPE="240,2865,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcpet_View" NAME="action92"
+  PATH="/Teacher/Rcpet_View" SHAPE="448,2849,0,0" TITLE="Rcpet_ViewForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#Directory" NAME="action93"
+  PATH="/DeptAssistant/Directory" SHAPE="656,2865,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#CounselingModify" NAME="action94"
+  PATH="/Teacher/Tutor/CounselingModify" SHAPE="864,2849,0,0"
+  TITLE="CounselingForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#QueryRcconf" NAME="action95"
+  PATH="/Teacher/QueryRcconf" SHAPE="32,1057,0,0"
+  TITLE="QueryRcconfForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="QueryRcconf" NAME="forward0"
+   PATH="/pages/teacher/QueryRcconf.jsp" TARGET="page4"
+   TITLE="QueryRcconf" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Rcbook" NAME="action96"
+  PATH="/Teacher/Rcbook" SHAPE="1072,2865,0,0" TITLE="RcbookForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Chairman#StudentInfo" NAME="action97"
+  PATH="/Teacher/Chairman/StudentInfo" SHAPE="32,2961,0,0"
+  TITLE="StudentListFormC" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Course#DtimeManager" NAME="action98"
+  PATH="/Course/DtimeManager" SHAPE="240,2977,0,0"
+  TITLE="DtimeReserveManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreThisTermEdit" NAME="action99"
+  PATH="/Teacher/ScoreThisTermEdit" SHAPE="448,2961,0,0"
+  TITLE="ScoreThisTermEditForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcproj" NAME="action100"
+  PATH="/Teacher/Rcproj" SHAPE="656,2977,0,0" TITLE="RcprojForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Counseling" NAME="action101"
+  PATH="/Teacher/Counseling" SHAPE="240,625,0,0" TITLE="CounselingFormL"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="fail" NAME="forward0"
+   PATH="/Teacher/CounselingL.do" TARGET="action40" TITLE="fail"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Military#Directory" NAME="action102"
+  PATH="/Teacher/Military/Directory" SHAPE="864,2961,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Chairman" NAME="action103"
+  PATH="/Teacher/Chairman" SHAPE="1072,2977,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Article" NAME="action104"
+  PATH="/Teacher/Article" SHAPE="32,3073,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcbook_Manager" NAME="action105"
+  PATH="/Teacher/Rcbook_Manager" SHAPE="240,3089,0,0"
+  TITLE="Rcbook_ManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#GraduateInvestigation"
+  NAME="action106" PATH="/Teacher/Tutor/GraduateInvestigation"
+  SHAPE="448,3073,0,0" TITLE="InvestigationForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#DtirmReserveDirectory"
+  NAME="action107" PATH="/DeptAssistant/DtirmReserveDirectory"
+  SHAPE="656,3089,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#StayTimeInput" NAME="action108"
+  PATH="/Teacher/StayTimeInput" SHAPE="864,3073,0,0"
+  TITLE="TeachStayTimeForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#QueryRcpet" NAME="action109"
+  PATH="/Teacher/QueryRcpet" SHAPE="32,1169,0,0" TITLE="QueryRcpetForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="QueryRcpet" NAME="forward0"
+   PATH="/pages/teacher/QueryRcpet.jsp" TARGET="page5"
+   TITLE="QueryRcpet" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#DeptAssistant#AbilityExamineLanguage"
+  NAME="action110" PATH="/DeptAssistant/AbilityExamineLanguage"
+  SHAPE="1072,3089,0,0" TITLE="AbilityExamineLanguageForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#QueryRcbook" NAME="action111"
+  PATH="/Teacher/QueryRcbook" SHAPE="32,1281,0,0"
+  TITLE="QueryRcbookForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="QueryRcbook" NAME="forward0"
+   PATH="/pages/teacher/QueryRcbook.jsp" TARGET="page6"
+   TITLE="QueryRcbook" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#Teacher#Rcact_Manager" NAME="action112"
+  PATH="/Teacher/Rcact_Manager" SHAPE="32,3185,0,0"
+  TITLE="Rcact_ManagerForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeacherBonusPenaltySearch" NAME="action113"
+  PATH="/Teacher/TeacherBonusPenaltySearch" SHAPE="240,3201,0,0"
+  TITLE="StudentListFormT" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeachSyllabusSearch" NAME="action114"
+  PATH="/Teacher/TeachSyllabusSearch" SHAPE="448,3185,0,0"
+  TITLE="TechSyllabusForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#CourseInfo" NAME="action115"
+  PATH="/Teacher/CourseInfo" SHAPE="656,3201,0,0" TITLE="CourseInfoForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Article_Manager" NAME="action116"
+  PATH="/Teacher/Article_Manager" SHAPE="864,3185,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#StayTimeSearch" NAME="action117"
+  PATH="/Teacher/StayTimeSearch" SHAPE="1072,3201,0,0"
+  TITLE="StudentListFormT" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#DeptAssistant#CheckCsGroup" NAME="action118"
+  PATH="/DeptAssistant/CheckCsGroup" SHAPE="32,3297,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#ScoreEditAll" NAME="action119"
+  PATH="/Teacher/ScoreEditAll" SHAPE="240,3313,0,0"
+  TITLE="ScoreEditAllForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TimeOffClassBook" NAME="action120"
+  PATH="/Teacher/TimeOffClassBook" SHAPE="448,3297,0,0"
+  TITLE="TimeOffClassBookForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Rcconf_View" NAME="action121"
+  PATH="/Teacher/Rcconf_View" SHAPE="656,3313,0,0"
+  TITLE="Rcconf_ViewForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#NewEngRat" NAME="action122"
+  PATH="/Teacher/NewEngRat" SHAPE="864,3297,0,0" TITLE="NewEngRatForm"
+  TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TeacherSearchMain" NAME="action123"
+  PATH="/Teacher/TeacherSearchMain" SHAPE="1072,3313,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#Tutor#LifeCounseling" NAME="action124"
+  PATH="/Teacher/Tutor/LifeCounseling" SHAPE="32,3409,0,0"
+  TITLE="LifeCounselingForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#Teacher#TimeOffInput" NAME="action125"
+  PATH="/Teacher/TimeOffInput" SHAPE="32,945,0,0"
+  TITLE="TimeOffInputForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="redirectForward" NAME="forward0"
+   PATH="/Teacher/TimeOffUploadRecord.do?method=" TARGET="action82"
+   TITLE="redirectForward" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page0" PATH="/pages/teacher/QueryRcact.jsp"
+  SHAPE="240,34,0,0" SUBTYPE="jsp" TITLE="QueryRcact.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/Teacher/QueryRcact.do"
+   SUBTYPE="confirmed" TARGET="action4" TITLE="/Teacher/QueryRcact.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page1" PATH="/pages/teacher/QueryRchono.jsp"
+  SHAPE="240,258,0,0" SUBTYPE="jsp" TITLE="QueryRchono.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/Teacher/QueryRchono.do"
+   SUBTYPE="confirmed" TARGET="action29" TITLE="/Teacher/QueryRchono.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page2" PATH="/pages/teacher/QueryRcjour.jsp"
+  SHAPE="240,738,0,0" SUBTYPE="jsp" TITLE="QueryRcjour.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/Teacher/QueryRcjour.do"
+   SUBTYPE="confirmed" TARGET="action52" TITLE="/Teacher/QueryRcjour.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page3" PATH="/pages/teacher/QueryRcproj.jsp"
+  SHAPE="240,850,0,0" SUBTYPE="jsp" TITLE="QueryRcproj.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/Teacher/QueryRcproj.do"
+   SUBTYPE="confirmed" TARGET="action53" TITLE="/Teacher/QueryRcproj.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page4" PATH="/pages/teacher/QueryRcconf.jsp"
+  SHAPE="240,1074,0,0" SUBTYPE="jsp" TITLE="QueryRcconf.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/Teacher/QueryRcconf.do"
+   SUBTYPE="confirmed" TARGET="action95" TITLE="/Teacher/QueryRcconf.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page5" PATH="/pages/teacher/QueryRcpet.jsp"
+  SHAPE="240,1186,0,0" SUBTYPE="jsp" TITLE="QueryRcpet.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/Teacher/QueryRcpet.do"
+   SUBTYPE="confirmed" TARGET="action109" TITLE="/Teacher/QueryRcpet.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page6" PATH="/pages/teacher/QueryRcbook.jsp"
+  SHAPE="240,1298,0,0" SUBTYPE="jsp" TITLE="QueryRcbook.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/Teacher/QueryRcbook.do"
+   SUBTYPE="confirmed" TARGET="action111"
+   TITLE="/Teacher/QueryRcbook.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+</PROCESS>

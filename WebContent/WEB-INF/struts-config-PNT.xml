@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans/>    
+    
+    <action-mappings>    		     		
+	     
+	    <!-- 班級數計算 -->
+		<action path="/Print/CountClasses"	       
+		 		type="tw.edu.chit.struts.action.report.course.CountClasses"
+	     		scope="session"
+	     		parameter="method"/>  
+	       
+		<!-- 班級數計算 -->
+		<action path="/Print/portfolio/List4UserManager"	       
+		 		type="tw.edu.chit.struts.action.report.portfolio.List4UserManager"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學生成績圖表資料 -->
+		<action path="/Print/registration/CsCore2XML4One"	       
+		 		type="tw.edu.chit.struts.action.report.registration.CsCore2XML4One"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 課程核心圖表資料 -->
+		<action path="/Print/course/csCoreChart"	       
+		 		type="tw.edu.chit.struts.action.report.course.CsCoreChart"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 系total核心圖表資料 -->
+		<action path="/Print/course/DepTotalChart"	       
+		 		type="tw.edu.chit.struts.action.report.course.DepTotalChart"
+	     		scope="session"
+	     		parameter="method"/>
+	     
+	    <!-- 學生total核心圖表資料 -->
+		<action path="/Print/course/StudentChart"	       
+		 		type="tw.edu.chit.struts.action.report.course.StudentChart"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 招生活動及進度表 -->
+		<action path="/Print/registration/ScheduleDoc"	       
+		 		type="tw.edu.chit.struts.action.report.registration.ScheduleDoc"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	   	<!-- 招生活動及進度表 -->
+		<action path="/Print/registration/RecruitQueryList"	       
+		 		type="tw.edu.chit.struts.action.report.registration.RecruitQueryList"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學生核心圖表資料-加權 -->
+		<action path="/Print/course/StudentChartPlus"	       
+		 		type="tw.edu.chit.struts.action.report.course.StudentChartPlus"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	   	<!-- 學生核心圖表資料-無加權 -->
+		<action path="/Print/course/StudentChartNoPlus"	       
+		 		type="tw.edu.chit.struts.action.report.course.StudentChartNoPlus"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 招生活動清單報表 -->
+		<action path="/Print/registration/ScheduleListDoc"	       
+		 		type="tw.edu.chit.struts.action.report.registration.recruit.ScheduleListDoc"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學士學位證書橫(四技) -->
+		<action path="/Print/registration/Diploma64"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma64"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	     		
+	    <!-- 學士學位證明書橫(四技) -->
+		<action path="/Print/registration/Diploma64Reissue"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma64Reissue"
+	     		scope="session"
+	     		parameter="method"/>
+	    
+	    
+	    <!-- 碩士學位證書橫 -->
+		<action path="/Print/registration/Diploma1G"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma1G"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	     		
+	    <!-- 產碩士學位證書橫 -->
+		<action path="/Print/registration/Diploma8G"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma8G"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 副學士學位證書橫 -->
+		<action path="/Print/registration/Diploma12"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma12"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 副學士學位證明書橫(四技) -->
+		<action path="/Print/registration/Diploma12Reissue"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma12Reissue"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學士學位證書橫(二技) -->
+		<action path="/Print/registration/Diploma14"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma14"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 副學士學位證書橫(二技) -->
+		<action path="/Print/registration/Diploma14Reissue"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma14Reissue"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學士學位證書橫(學院) -->
+		<action path="/Print/registration/Diploma72"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma72"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 副學士學位證書橫(學院) -->
+		<action path="/Print/registration/Diploma32"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma32"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學士學位證明書橫(學院) -->
+		<action path="/Print/registration/Diploma72Reissue"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma72Reissue"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 副學士學位證明書橫(學院) -->
+		<action path="/Print/registration/Diploma32Reissue"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.Diploma32Reissue"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 修業證明(中文 -->
+		<action path="/Print/registration/DropOutCht"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.DropOutCht"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 修業證明(英文 -->
+		<action path="/Print/registration/DropOutEng"	       
+		 		type="tw.edu.chit.struts.action.report.registration.diploma.DropOutEng"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 教室借用申請書 -->
+		<action path="/Print/publicAccess/NabbrBoroDoc"	       
+		 		type="tw.edu.chit.struts.action.report.publicAccess.NabbrBoroDoc"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學程統計 -->
+		<action path="/Print/registration/CsGroupStdCount"	       
+		 		type="tw.edu.chit.struts.action.report.registration.csgroup.CsGroupStdCount"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 班級學生選課列表 -->
+		<action path="/Print/course/ListSeld4Class"	       
+		 		type="tw.edu.chit.struts.action.report.course.ListSeld4Class"
+	     		scope="session"
+	     		parameter="method"/>
+	    
+	    <!-- ??? -->
+		<action path="/Print/reserve/List4Grade"	       
+		 		type="tw.edu.chit.struts.action.deptassist.reserve.List4Grade"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- ??? -->
+		<action path="/Print/reserve/List4Class"	       
+		 		type="tw.edu.chit.struts.action.deptassist.reserve.List4Class"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	   	<!-- 班級教師 -->
+		<action path="/Print/reserve/CheckList"	       
+		 		type="tw.edu.chit.struts.action.deptassist.reserve.report.CheckList"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學程證書 -->
+		<action path="/Print/registration/Diploma4Csgroup"	       
+		 		type="tw.edu.chit.struts.action.report.registration.csgroup.Diploma4Csgroup"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學程成績單 -->
+		<action path="/Print/registration/Transcript4Csgroup"	       
+		 		type="tw.edu.chit.struts.action.report.registration.csgroup.Transcript4Csgroup"
+	     		scope="session"
+	     		parameter="method"/>
+	    
+	    <!-- 學程成績單 -->
+		<action path="/Print/registration/ListGra"	       
+		 		type="tw.edu.chit.struts.action.report.registration.ListGra"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 健康中心報表 -->
+		<action path="/Print/publicAccess/AppointmentView"	       
+		 		type="tw.edu.chit.struts.action.report.publicAccess.AppointmentView"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 學籍卡 -->
+		<action path="/Print/registration/StDetail"	       
+		 		type="tw.edu.chit.struts.action.report.registration.StDetail"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 可選課程 -->
+		<action path="/Print/MyCourse"	       
+		 		type="tw.edu.chit.struts.action.report.student.MyCourses"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 套用簡介-->
+		<action path="/Print/Ajax/MyIntor"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.MyIntor"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 套用大綱-->
+		<action path="/Print/Ajax/MySyl"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.MySyl"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 簡介報表 -->
+		<action path="/Print/teacher/IntorDoc"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.IntorDoc"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 大綱報表 -->
+		<action path="/Print/teacher/SylDoc"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.SylDoc"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 一般成績冊 -->
+		<action path="/Print/teacher/NorRat"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.NorRat"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 英文成績冊 -->
+		<action path="/Print/teacher/EngRat"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.EngRat"
+	     		scope="session"
+	     		parameter="method"/>
+	     		
+	    <!-- 體育成績冊 -->
+		<action path="/Print/teacher/SpoRat"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.SpoRat"
+	     		scope="session"
+	     		parameter="method"/>
+	    
+	    <!-- 可選課程 -->
+		<action path="/Print/MyCourseSearh"	       
+		 		type="tw.edu.chit.struts.action.report.student.MyCourseSearh"
+	     		scope="session"
+	     		parameter="method"/>
+	   
+	    <!-- 行事曆 -->
+		<action path="/Print/MyCalendar"	       
+		 		type="tw.edu.chit.struts.action.report.teacher.MyCalendar"
+	     		scope="session"
+	     		parameter="method"/> 		
+  </action-mappings>
+
+</struts-config>
+
+

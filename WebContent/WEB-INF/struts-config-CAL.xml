@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+    
+    	<form-bean name="PubManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="sendMail" type="java.lang.String[]" initial="" />
+			<form-property name="delOid" type="java.lang.String[]" initial="" />			
+			<form-property name="Oid" type="java.lang.String[]" initial="" />
+			<form-property name="account" type="java.lang.String[]" initial="" />
+			<form-property name="name" type="java.lang.String[]" initial="" />
+			<form-property name="place" type="java.lang.String[]" initial="" />			
+			<form-property name="members" type="java.lang.String[]" initial="" />
+			<form-property name="note" type="java.lang.String[]" initial="" />		
+			<form-property name="addFile" type="org.apache.struts.upload.FormFile" />			
+			<form-property name="color" type="java.lang.String[]" initial="" />
+			<form-property name="type" type="java.lang.String[]" initial="" />			
+			<form-property name="beginDate" type="java.lang.String[]" initial="" />
+			<form-property name="beginTime" type="java.lang.String[]" initial="" />			
+			<!-- form-property name="endDate" type="java.lang.String[]" initial="" /-->
+			<form-property name="endTime" type="java.lang.String[]" initial="" />
+		</form-bean>
+		
+		<form-bean name="TxtGroupManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="account" type="java.lang.String[]" initial="" />
+			<form-property name="name" type="java.lang.String[]" initial="" />
+			<form-property name="members" type="java.lang.String[]" initial="" />
+			<form-property name="delOid" type="java.lang.String[]" initial="" />
+    	</form-bean>
+    
+    </form-beans>
+    
+    <action-mappings>    		     		
+	     
+	    <!-- 行事曆 -->
+	    <action path="/Calendar/Directory"
+		   	type="tw.edu.chit.struts.action.calendar.DirectoryAction" 
+	       	scope="request"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 行事曆 -->
+	    <action path="/Calendar/SubDirectory"
+	       	name="PubManagerForm"
+		   	type="tw.edu.chit.struts.action.calendar.DirectorySubAction"
+	       	scope="request"
+	       	parameter="method">
+	    </action>
+	    
+	    <!-- 學校行事曆管理 -->
+	    <action path="/Calendar/PubManager"
+	       	name="PubManagerForm"
+		   	type="tw.edu.chit.struts.action.calendar.PubManagerAction"
+	       	scope="request"
+	       	parameter="method">
+	    </action>
+	    
+	    <!-- 個人行事曆管理 -->
+	    <action path="/Calendar/PriManager"
+	       	name="PubManagerForm"
+		   	type="tw.edu.chit.struts.action.calendar.PriManagerAction"
+	       	scope="request"
+	       	parameter="method">
+	    </action>
+	    
+	    <!-- 公共行事曆 -->
+	    <action path="/Calendar/CalendarManager"
+		   	type="tw.edu.chit.struts.action.calendar.management.DirectoryAction" 
+	       	scope="request"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 個人群組管理 -->
+	    <action path="/Calendar/TxtGroupManager"
+	       	name="TxtGroupManagerForm"
+		   	type="tw.edu.chit.struts.action.calendar.TxtGroupManagerAction"
+	       	scope="request"
+	       	parameter="method">
+	    </action>
+	    
+	    <!-- 個人群組管理 -->
+	    <action path="/Calendar/TxtGroupPubManager"
+	       name="TxtGroupManagerForm"
+		   type="tw.edu.chit.struts.action.calendar.TxtGroupPubManagerAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    
+	     		
+  </action-mappings>
+
+</struts-config>
+
+

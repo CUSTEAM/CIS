@@ -1,0 +1,1727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>中華科技大學校務資訊系統</display-name>
+	<context-param>
+		<param-name>crystal_image_uri</param-name>
+		<param-value>/CIS/crystalreportviewers</param-value>
+	</context-param>
+	
+	<!-- 動作過濾 -->    
+    <filter>
+    	<filter-name>CheckReg</filter-name>
+    	<filter-class>tw.edu.chit.service.filter.CheckReg</filter-class>
+	</filter>
+
+	<filter-mapping>
+	    <filter-name>CheckReg</filter-name>
+	    <url-pattern>*.do</url-pattern>
+	    <url-pattern>/AjaxGlobal</url-pattern>
+	</filter-mapping>
+	
+	
+    
+    <filter>
+		<filter-name>hibernateFilter</filter-name>
+			<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+			</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/Score/ReportPrint.do</url-pattern>
+	</filter-mapping>
+
+	
+	<!-- 錯誤處理 -->
+	<error-page> 
+		<error-code>404</error-code> 
+		<location>/pages/Error.jsp</location>
+	</error-page>
+	
+	<error-page> 
+		<error-code>500</error-code> 
+		<location>/pages/Error.jsp</location>
+	</error-page>
+	
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>
+			tw.edu.chit.web.ContextSetupListener
+		</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>jsp</servlet-name>
+		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+		<init-param>
+			<param-name>fork</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>trimSpaces</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>
+				/WEB-INF/struts-config.xml,
+				/WEB-INF/struts-config-REG.xml,
+				/WEB-INF/struts-config-SCR.xml,
+				/WEB-INF/struts-config-COU.xml,
+				/WEB-INF/struts-config-ADM.xml,
+				/WEB-INF/struts-config-AMS.xml,
+				/WEB-INF/struts-config-TCH.xml,
+				/WEB-INF/struts-config-STD.xml,
+				/WEB-INF/struts-config-PSN.xml,
+				/WEB-INF/struts-config-SAF.xml,
+				/WEB-INF/struts-config-IDV.xml,
+				/WEB-INF/struts-config-EMP.xml,
+				/WEB-INF/struts-config-GEA.xml,
+				/WEB-INF/struts-config-ALL.xml,
+				/WEB-INF/struts-config-SUM.xml,
+				/WEB-INF/struts-config-CHF.xml,
+				/WEB-INF/struts-config-LIT.xml,
+				/WEB-INF/struts-config-RAD.xml,
+				/WEB-INF/struts-config-MIDP.xml,
+				/WEB-INF/struts-config-PNT.xml,
+				/WEB-INF/struts-config-EXM.xml,
+				/WEB-INF/struts-config-POR.xml,
+				/WEB-INF/struts-config-FEE.xml,
+				/WEB-INF/struts-config-CAL.xml,
+				/WEB-INF/struts-config-PUB.xml,
+				/WEB-INF/struts-config-EX.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		
+		<load-on-startup>1</load-on-startup>
+		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<session-config>
+		<session-timeout>35</session-timeout>
+	</session-config>
+	
+	<mime-mapping>
+		<extension>xls</extension>
+		<mime-type>application/vnd.ms-excel</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>doc</extension>
+		<mime-type>application/vnd.ms-word</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>jnlp</extension>
+		<mime-type>application/x-java-jnlp-file</mime-type>
+	</mime-mapping>
+
+	<mime-mapping>
+		<extension>jar</extension>
+		<mime-type>application/java.archive</mime-type>
+	</mime-mapping>
+	
+	<servlet>
+		<servlet-name>AjaxGetStudentTimeOff</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.student.AjaxGetStudentTimeOff
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetStudentTimeOff</servlet-name>
+		<url-pattern>/AjaxGetStudentTimeOff</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>AjaxGetChart4Gist</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.AjaxGetChart4Gist
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetChart4Gist</servlet-name>
+		<url-pattern>/AjaxGetChart4Gist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CountStudent</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CountStudent
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CountStudent</servlet-name>
+		<url-pattern>/CountStudent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>StudentSel</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.StudentSel
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentSel</servlet-name>
+		<url-pattern>/StudentSel</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>List4Dtime13</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4Dtime13
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Dtime13</servlet-name>
+		<url-pattern>/List4Dtime13</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AjaxGetStudentInfo</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.AjaxGetStudentInfo
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetStudentInfo</servlet-name>
+		<url-pattern>/AjaxGetStudentInfo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CountStudentByClass</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CountStudentByClass
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CountStudentByClass</servlet-name>
+		<url-pattern>/CountStudentByClass</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>List4DtimeG</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4DtimeG
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4DtimeG</servlet-name>
+		<url-pattern>/List4DtimeG</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>List4Dtime32</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4Dtime32
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Dtime32</servlet-name>
+		<url-pattern>/List4Dtime32</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxGetStudentJust</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.AjaxGetStudentJust
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetStudentJust</servlet-name>
+		<url-pattern>/AjaxGetStudentJust</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxGetRunningStatus</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.AjaxGetRunningStatus
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetRunningStatus</servlet-name>
+		<url-pattern>/AjaxGetRunningStatus</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>FilterAdvice</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.FilterAdvice
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FilterAdvice</servlet-name>
+		<url-pattern>/FilterAdvice</url-pattern>
+	</servlet-mapping>
+
+	<!-- 教學評量 - 教師介面ajax -->
+	<servlet>
+		<servlet-name>CoanswForTech</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CoanswForTech
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CoanswForTech</servlet-name>
+		<url-pattern>/CoanswForTech</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>list4SportRat</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.list4SportRat
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>list4SportRat</servlet-name>
+		<url-pattern>/list4SportRat</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>FilterAdvice1</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.FilterAdvice1
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FilterAdvice1</servlet-name>
+		<url-pattern>/FilterAdvice1</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxGetNameOrNumber</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.AjaxGetNameOrNumber
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetNameOrNumber</servlet-name>
+		<url-pattern>/AjaxGetNameOrNumber</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RollCallBook</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.RollCallBook
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RollCallBook</servlet-name>
+		<url-pattern>/RollCallBook</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>List4Seld52</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4Seld52
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Seld52</servlet-name>
+		<url-pattern>/List4Seld52</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SstudentSel</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.SstudentSel
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SstudentSel</servlet-name>
+		<url-pattern>/SstudentSel</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>List4SummerRat</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4SummerRat
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4SummerRat</servlet-name>
+		<url-pattern>/List4SummerRat</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>List4SummerSseld</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4SummerSseld
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4SummerSseld</servlet-name>
+		<url-pattern>/List4SummerSseld</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AdviceOfSummer</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.AdviceOfSummer
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdviceOfSummer</servlet-name>
+		<url-pattern>/AdviceOfSummer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AjaxGetStmdOrGstmd</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.AjaxGetStmdOrGstmd
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetStmdOrGstmd</servlet-name>
+		<url-pattern>/AjaxGetStmdOrGstmd</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ShowImage</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.ShowImage
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowImage</servlet-name>
+		<url-pattern>/ShowImage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>StudentCardForOne</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.StudentCardForOne
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentCardForOne</servlet-name>
+		<url-pattern>/StudentCardForOne</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>List4Student</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4Student
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Student</servlet-name>
+		<url-pattern>/List4Student</url-pattern>
+	</servlet-mapping>
+
+	<!--  servlet>
+		<servlet-name>List4NewStudents</servlet-name>
+		<servlet-class>
+		tw.edu.chit.struts.action.course.ajax.List4NewStudents
+		</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>List4NewStudents</servlet-name>
+		<url-pattern>/List4NewStudents</url-pattern>
+		</servlet-mapping-->
+
+	<servlet>
+		<servlet-name>List4Course35</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.List4Course35
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Course35</servlet-name>
+		<url-pattern>/List4Course35</url-pattern>
+	</servlet-mapping>
+	<!-- 教師任教時數統計表 -->
+	<servlet>
+		<servlet-name>TeacherCounterTime</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.TeacherCounterTime
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeacherCounterTime</servlet-name>
+		<url-pattern>/TeacherCounterTime</url-pattern>
+	</servlet-mapping>
+	<!-- 科目教師對照表 -->
+	<servlet>
+		<servlet-name>TeacherCounterCourse</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.TeacherCounterCourse
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeacherCounterCourse</servlet-name>
+		<url-pattern>/TeacherCounterCourse</url-pattern>
+	</servlet-mapping>
+	<!-- 教師科目對照表 -->
+	<servlet>
+		<servlet-name>CourseCounterTeacher</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CourseCounterTeacher
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CourseCounterTeacher</servlet-name>
+		<url-pattern>/CourseCounterTeacher</url-pattern>
+	</servlet-mapping>
+	<!-- 年齡統計表 -->
+	<servlet>
+		<servlet-name>CountStudentAge</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CountStudentAge
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CountStudentAge</servlet-name>
+		<url-pattern>/CountStudentAge</url-pattern>
+	</servlet-mapping>
+	<!-- 學生統計表 -->
+	<servlet>
+		<servlet-name>CountStudents4StudentManager</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CountStudents4StudentManager
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CountStudents4StudentManager</servlet-name>
+		<url-pattern>/CountStudents4StudentManager</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CountStudents4StudentManager1</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CountStudents4StudentManager1
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CountStudents4StudentManager1</servlet-name>
+		<url-pattern>/CountStudents4StudentManager1</url-pattern>
+	</servlet-mapping>
+
+	<!-- 考場記載表 -->
+	<servlet>
+		<servlet-name>ExamStudentList</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.ExamStudentList
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExamStudentList</servlet-name>
+		<url-pattern>/ExamStudentList</url-pattern>
+	</servlet-mapping>
+	<!-- 試卷封條 -->
+	<servlet>
+		<servlet-name>ExamPacketFace</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.ExamPacketFace
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExamPacketFace</servlet-name>
+		<url-pattern>/ExamPacketFace</url-pattern>
+	</servlet-mapping>
+
+	<!-- Multi purpose Ajax Servlet
+		method : Your request method
+		parameters : Parameters with your http GET request like
+		whole URL like : /AjaxGlobal?method=GetTimeOff&studentNo=95143007
+	-->
+	<servlet>
+		<servlet-name>AjaxGlobal</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.AjaxGlobal
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGlobal</servlet-name>
+		<url-pattern>/AjaxGlobal</url-pattern>
+	</servlet-mapping>
+
+	<!-- 授課時間表 -->
+	<servlet>
+		<servlet-name>TechTimetable</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.TechTimetable
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TechTimetable</servlet-name>
+		<url-pattern>/TechTimetable</url-pattern>
+	</servlet-mapping>
+	<!-- 教室課表 -->
+	<servlet>
+		<servlet-name>RoomTimetable</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.RoomTimetable
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoomTimetable</servlet-name>
+		<url-pattern>/RoomTimetable</url-pattern>
+	</servlet-mapping>
+	<!-- 班級課表 -->
+	<servlet>
+		<servlet-name>ClassTimetable</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ClassTimetable
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClassTimetable</servlet-name>
+		<url-pattern>/ClassTimetable</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 通識課表 -->
+	<servlet>
+		<servlet-name>ClassTimetable40</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ClassTimetable40
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClassTimetable40</servlet-name>
+		<url-pattern>/ClassTimetable40</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 學生選課表 -->
+	<servlet>
+		<servlet-name>StuSeltable</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.StuSeltable
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StuSeltable</servlet-name>
+		<url-pattern>/StuSeltable</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CoanswForTechE</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.CoanswForTechE
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CoanswForTechE</servlet-name>
+		<url-pattern>/CoanswForTechE</url-pattern>
+	</servlet-mapping>
+
+	<!-- 遠距人員對照表 -->
+	<servlet>
+		<servlet-name>ElearningOrg</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ElearningOrg
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ElearningOrg</servlet-name>
+		<url-pattern>/ElearningOrg</url-pattern>
+	</servlet-mapping>
+
+	<!-- 遠距組織對照表 -->
+	<servlet>
+		<servlet-name>ElearningPer</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ElearningPer
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ElearningPer</servlet-name>
+		<url-pattern>/ElearningPer</url-pattern>
+	</servlet-mapping>
+
+	<!-- 遠距開課對照表 -->
+	<servlet>
+		<servlet-name>ElearningCou</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ElearningCou
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ElearningCou</servlet-name>
+		<url-pattern>/ElearningCou</url-pattern>
+	</servlet-mapping>
+
+	<!-- 遠距選課對照表 -->
+	<servlet>
+		<servlet-name>ElearningSel</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ElearningSel
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ElearningSel</servlet-name>
+		<url-pattern>/ElearningSel</url-pattern>
+	</servlet-mapping>
+
+	<!-- 遠距中輟/復學報表 -->
+	<servlet>
+		<servlet-name>Drop</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.Drop
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Drop</servlet-name>
+		<url-pattern>/Drop</url-pattern>
+	</servlet-mapping>
+
+	<!-- 英文成績冊 -->
+	<servlet>
+		<servlet-name>EngRatReport</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.EngRatReport
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EngRatReport</servlet-name>
+		<url-pattern>/EngRatReport</url-pattern>
+	</servlet-mapping>
+
+	<!-- 畢業(應屆)生名冊 -->
+	<servlet>
+		<servlet-name>GraduateReportPoi</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.GraduateReportPoi
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GraduateReportPoi</servlet-name>
+		<url-pattern>/GraduateReportPoi</url-pattern>
+	</servlet-mapping>
+
+	<!-- 學期成績總表 -->
+	<servlet>
+		<servlet-name>Score4Class</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.Score4Class
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Score4Class</servlet-name>
+		<url-pattern>/Score4Class</url-pattern>
+	</servlet-mapping>
+
+	<!-- 學期成績(個人郵寄) -->
+	<servlet>
+		<servlet-name>Score4Personal</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.Score4Personal
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Score4Personal</servlet-name>
+		<url-pattern>/Score4Personal</url-pattern>
+	</servlet-mapping>
+
+	<!-- 畢業證書 -->
+	<servlet>
+		<servlet-name>Diploma</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.Diploma
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Diploma</servlet-name>
+		<url-pattern>/Diploma</url-pattern>
+	</servlet-mapping>
+
+	<!-- 肄業證書 -->
+	<servlet>
+		<servlet-name>Diploma4NoGraduate</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.Diploma4NoGraduate
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Diploma4NoGraduate</servlet-name>
+		<url-pattern>/Diploma4NoGraduate</url-pattern>
+	</servlet-mapping>
+
+	<!-- 名條 -->
+	<servlet>
+		<servlet-name>StudentList</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.StudentList
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentList</servlet-name>
+		<url-pattern>/StudentList</url-pattern>
+	</servlet-mapping>
+
+	<!-- 混合處理empl, dempl -->
+	<servlet>
+		<servlet-name>AjaxGetEmplOrDempl</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.AjaxGetEmplOrDempl
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetEmplOrDempl</servlet-name>
+		<url-pattern>/AjaxGetEmplOrDempl</url-pattern>
+	</servlet-mapping>
+
+	<!-- 學生選課單簽收名冊 -->
+	<servlet>
+		<servlet-name>StuSelConfirmTable</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.StuSelConfirmTable
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StuSelConfirmTable</servlet-name>
+		<url-pattern>/StuSelConfirmTable</url-pattern>
+	</servlet-mapping>
+
+	<!-- 教師課表個別列印 -->
+	<servlet>
+		<servlet-name>TechTimetable4One</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.TechTimetable4One
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TechTimetable4One</servlet-name>
+		<url-pattern>/TechTimetable4One</url-pattern>
+	</servlet-mapping>
+
+	<!-- 轉學生名冊 -->
+	<servlet>
+		<servlet-name>StudentList4Transfer</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.StudentList4Transfer
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentList4Transfer</servlet-name>
+		<url-pattern>/StudentList4Transfer</url-pattern>
+	</servlet-mapping>
+
+	<!-- 網頁取得教室課表 -->
+	<servlet>
+		<servlet-name>RoomTimetable4HTML</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.RoomTimetable4HTML
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoomTimetable4HTML</servlet-name>
+		<url-pattern>/RoomTimetable4HTML</url-pattern>
+	</servlet-mapping>
+
+	<!-- 收/退費明細 -->
+	<servlet>
+		<servlet-name>PayBack4Student</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.PayBack4Student
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PayBack4Student</servlet-name>
+		<url-pattern>/PayBack4Student</url-pattern>
+	</servlet-mapping>
+
+	<!-- 收費三連單(收據) -->
+	<servlet>
+		<servlet-name>Receipt4Student</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.Receipt4Student
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Receipt4Student</servlet-name>
+		<url-pattern>/Receipt4Student</url-pattern>
+	</servlet-mapping>
+
+	<!-- 加退選總表 -->
+	<servlet>
+		<servlet-name>List4Adcd</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.List4Adcd
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Adcd</servlet-name>
+		<url-pattern>/List4Adcd</url-pattern>
+	</servlet-mapping>
+
+	<!-- 收據三連單(選課清單) -->
+	<servlet>
+		<servlet-name>ReceiptList4Student</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ReceiptList4Student
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReceiptList4Student</servlet-name>
+		<url-pattern>/ReceiptList4Student</url-pattern>
+	</servlet-mapping>
+
+	<!-- 休學原因統計 -->
+	<servlet>
+		<servlet-name>LeaveCauseList</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.LeaveCauseList
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LeaveCauseList</servlet-name>
+		<url-pattern>/LeaveCauseList</url-pattern>
+	</servlet-mapping>
+
+	<!-- 休學歷史統計 -->
+	<servlet>
+		<servlet-name>LeaveHistList</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.LeaveHistList
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LeaveHistList</servlet-name>
+		<url-pattern>/LeaveHistList</url-pattern>
+	</servlet-mapping>
+
+	<!-- 人事通用表格 -->
+	<servlet>
+		<servlet-name>List4EmplGeneral</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.List4EmplGeneral
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4EmplGeneral</servlet-name>
+		<url-pattern>/List4EmplGeneral</url-pattern>
+	</servlet-mapping>
+
+	<!-- 被當人數詳細 -->
+	<servlet>
+		<servlet-name>List4Idiot</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.List4Idiot
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Idiot</servlet-name>
+		<url-pattern>/List4Idiot</url-pattern>
+	</servlet-mapping>
+
+	<!-- 畢業證明書 -->
+	<servlet>
+		<servlet-name>DiplomaReissue</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.DiplomaReissue
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DiplomaReissue</servlet-name>
+		<url-pattern>/DiplomaReissue</url-pattern>
+	</servlet-mapping>
+
+	<!-- 修課異常 -->
+	<servlet>
+		<servlet-name>SelectException</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.SelectException
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SelectException</servlet-name>
+		<url-pattern>/SelectException</url-pattern>
+	</servlet-mapping>
+
+	<!-- 被當明細 -->
+	<servlet>
+		<servlet-name>List4IdiotSummer</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.List4IdiotSummer
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4IdiotSummer</servlet-name>
+		<url-pattern>/List4IdiotSummer</url-pattern>
+	</servlet-mapping>
+
+	<!-- 取得ModuleHelp -->
+	<servlet>
+		<servlet-name>getModuleHelp</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.getModuleHelp
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getModuleHelp</servlet-name>
+		<url-pattern>/getModuleHelp</url-pattern>
+	</servlet-mapping>
+
+	<!-- 取得DeAnsw XML -->
+	<servlet>
+		<servlet-name>getDeAnsw</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.getDeAnsw
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getDeAnsw</servlet-name>
+		<url-pattern>/getDeAnsw</url-pattern>
+	</servlet-mapping>
+
+	<!-- 表1-1教師基本資料表 -->
+	<servlet>
+		<servlet-name>List4Emp11</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.List4Emp11
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Emp11</servlet-name>
+		<url-pattern>/List4Emp11</url-pattern>
+	</servlet-mapping>
+
+	<!-- 聘書 -->
+	<servlet>
+		<servlet-name>Contract4Teacher</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.Contract4Teacher
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Contract4Teacher</servlet-name>
+		<url-pattern>/Contract4Teacher</url-pattern>
+	</servlet-mapping>
+
+	<!-- 聘書 -->
+	<servlet>
+		<servlet-name>Contract4TeacherPOI</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.Contract4TeacherPOI
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Contract4TeacherPOI</servlet-name>
+		<url-pattern>/Contract4TeacherPOI</url-pattern>
+	</servlet-mapping>
+
+	<!-- 表1-2-1 -->
+	<servlet>
+		<servlet-name>List4Emp121</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.List4Emp121
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Emp121</servlet-name>
+		<url-pattern>/List4Emp121</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SM</servlet-name>
+		<servlet-class>tw.edu.chit.util.ShowImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SM</servlet-name>
+		<url-pattern>/SM</url-pattern>
+	</servlet-mapping>
+
+	<!-- 表1-2-2 -->
+	<servlet>
+		<servlet-name>List4Emp122</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.List4Emp122
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Emp122</servlet-name>
+		<url-pattern>/List4Emp122</url-pattern>
+	</servlet-mapping>
+
+	<!-- 表1-14 -->
+	<servlet>
+		<servlet-name>List4Emp1d</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.List4Emp1d
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4Emp1d</servlet-name>
+		<url-pattern>/List4Emp1d</url-pattern>
+	</servlet-mapping>
+
+	<!-- 取下一人 -->
+	<servlet>
+		<servlet-name>Graduate4Next</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.Graduate4Next
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Graduate4Next</servlet-name>
+		<url-pattern>/Graduate4Next</url-pattern>
+	</servlet-mapping>
+
+	<!-- 取扣繳稅額 -->
+	<servlet>
+		<servlet-name>AjaxGetTaxPay</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.AjaxGetTaxPay
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxGetTaxPay</servlet-name>
+		<url-pattern>/AjaxGetTaxPay</url-pattern>
+	</servlet-mapping>
+
+	<!-- 休(退)學生名冊 -->
+	<servlet>
+		<servlet-name>StudentList4Retire</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.registration.servlet.StudentList4Retire
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentList4Retire</servlet-name>
+		<url-pattern>/StudentList4Retire</url-pattern>
+	</servlet-mapping>
+
+	<!-- 休(退)比例統計 -->
+	<servlet>
+		<servlet-name>LeaveAvg</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.registration.servlet.LeaveAvg
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LeaveAvg</servlet-name>
+		<url-pattern>/LeaveAvg</url-pattern>
+	</servlet-mapping>
+
+	<!-- 英文畢業證書 -->
+	<servlet>
+		<servlet-name>DiplomaEng</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.registration.servlet.DiplomaEng
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DiplomaEng</servlet-name>
+		<url-pattern>/DiplomaEng</url-pattern>
+	</servlet-mapping>
+
+	<!-- 學程綜合表1 -->
+	<servlet>
+		<servlet-name>List4CsGroup</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.List4CsGroup
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4CsGroup</servlet-name>
+		<url-pattern>/List4CsGroup</url-pattern>
+	</servlet-mapping>
+
+	<!-- 學生證 new -->
+	<servlet>
+		<servlet-name>StudentCard</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.StudentCard
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StudentCard</servlet-name>
+		<url-pattern>/StudentCard</url-pattern>
+	</servlet-mapping>
+
+	<!-- 學程資格報表 new -->
+	<servlet>
+		<servlet-name>List4CheckCsGroup</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.registration.servlet.List4CheckCsGroup
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4CheckCsGroup</servlet-name>
+		<url-pattern>/List4CheckCsGroup</url-pattern>
+	</servlet-mapping>
+
+	<!-- 新生名冊 -->
+	<servlet>
+		<servlet-name>List4NewStudents</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.registration.servlet.List4NewStudents
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4NewStudents</servlet-name>
+		<url-pattern>/List4NewStudents</url-pattern>
+	</servlet-mapping>
+
+	<!-- 線上點名 -->
+	<servlet>
+		<servlet-name>TeacherPointListClassServlet</servlet-name>
+		<servlet-class>
+			tw.edu.chit.midp.teacher.TeacherPointListClassServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TeacherPointListClassServlet</servlet-name>
+		<url-pattern>
+			/midp/teacher/TeacherPointListClassServlet
+		</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>
+			TeacherPointListClassStudentsServlet
+		</servlet-name>
+		<servlet-class>
+			tw.edu.chit.midp.teacher.TeacherPointListClassStudentsServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>
+			TeacherPointListClassStudentsServlet
+		</servlet-name>
+		<url-pattern>
+			/midp/teacher/TeacherPointListClassStudentsServlet
+		</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>
+			TeacherPointListClassDilgSubmitServlet
+		</servlet-name>
+		<servlet-class>
+			tw.edu.chit.midp.teacher.TeacherPointListClassDilgSubmitServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>
+			TeacherPointListClassDilgSubmitServlet
+		</servlet-name>
+		<url-pattern>
+			/midp/teacher/TeacherPointListClassDilgSubmitServlet
+		</url-pattern>
+	</servlet-mapping>
+
+	<!-- 線上申請書-->
+	<servlet>
+		<servlet-name>getOnlineServiceDoc</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.onlineService.servlet.getOnlineServiceDoc
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getOnlineServiceDoc</servlet-name>
+		<url-pattern>/getOnlineServiceDoc</url-pattern>
+	</servlet-mapping>
+
+	<!-- 線上申請書-->
+	<servlet>
+		<servlet-name>ListCsGroup4Now</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.ListCsGroup4Now
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListCsGroup4Now</servlet-name>
+		<url-pattern>/ListCsGroup4Now</url-pattern>
+	</servlet-mapping>
+
+	<!-- 線上申請書-->
+	<servlet>
+		<servlet-name>List4OnlineServices</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.onlineService.servlet.List4OnlineServices
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>List4OnlineServices</servlet-name>
+		<url-pattern>/List4OnlineServices</url-pattern>
+	</servlet-mapping>
+
+	<!-- 舊生資料-->
+	<servlet>
+		<servlet-name>OldStudentInfo</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.registration.servlet.OldStudentInfo
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OldStudentInfo</servlet-name>
+		<url-pattern>/OldStudentInfo</url-pattern>
+	</servlet-mapping>
+
+	<!-- 期中期末成績圖表-->
+	<servlet>
+		<servlet-name>MyScoreChart</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.MyScoreChart
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyScoreChart</servlet-name>
+		<url-pattern>/MyScoreChart</url-pattern>
+	</servlet-mapping>
+
+	<!-- 管理學習歷程 ajax-->
+	<servlet>
+		<servlet-name>editPortfolio</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.portfolio.servlet.editPortfolio
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>editPortfolio</servlet-name>
+		<url-pattern>/editPortfolio</url-pattern>
+	</servlet-mapping>
+
+	<!-- 取得學習程程 ajax-->
+	<servlet>
+		<servlet-name>getMyPortfolio</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.portfolio.servlet.getMyPortfolio
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getMyPortfolio</servlet-name>
+		<url-pattern>/getMyPortfolio</url-pattern>
+	</servlet-mapping>
+
+	<!-- 學習歷程檔案管理 -->
+	<servlet>
+		<servlet-name>Connector</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.portfolio.ConnectorServlet
+		</servlet-class>
+		<init-param>
+			<param-name>baseDir</param-name>
+			<param-value>/UserFiles/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Connector</servlet-name>
+		<url-pattern>/Connector</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 上傳檔案 -->
+	<servlet>
+		<servlet-name>SimpleUploader</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.portfolio.SimpleUploaderServlet
+		</servlet-class>
+		<init-param>
+			<param-name>baseDir</param-name>
+			<param-value>/UserFiles/</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>enabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AllowedExtensionsFile</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsFile</param-name>
+			<param-value>
+				php|php3|php5|phtml|asp|aspx|ascx|jsp|cfm|cfc|pl|bat|exe|dll|reg|cgi
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>AllowedExtensionsImage</param-name>
+			<param-value>jpg|gif|jpeg|png|bmp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsImage</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>AllowedExtensionsFlash</param-name>
+			<param-value>swf|fla</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DeniedExtensionsFlash</param-name>
+			<param-value></param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SimpleUploader</servlet-name>
+		<url-pattern>/Simpleuploader</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 下載履歷-->
+	<servlet>
+		<servlet-name>Portfolio/DownloadPortfolio</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.portfolio.servlet.DownloadPortfolio
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Portfolio/DownloadPortfolio</servlet-name>
+		<url-pattern>/Portfolio/DownloadPortfolio</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 一科目多教師 -->
+	<servlet>
+		<servlet-name>Course/TeachersTimeTable</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.TeachersTimeTable
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Course/TeachersTimeTable</servlet-name>
+		<url-pattern>/Course/TeachersTimeTable</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 同步並開啟OpenWebMail-->
+	<servlet>
+		<servlet-name>Student/OpenWebMail</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.student.servlet.OpenWebMail
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Student/OpenWebMail</servlet-name>
+		<url-pattern>/Student/OpenWebMail</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 同步並開啟OpenElearning-->
+	<servlet>
+		<servlet-name>Student/OpenElearning</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.student.servlet.OpenElearning
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Student/OpenElearning</servlet-name>
+		<url-pattern>/Student/OpenElearning</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 學程申請書 -->
+	<servlet>
+		<servlet-name>Course/CsGroupPetition</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.form.CsGroupPetition
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Course/CsGroupPetition</servlet-name>
+		<url-pattern>/Course/CsGroupPetition</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 學分數查核報表 -->
+	<servlet>
+		<servlet-name>Registration/List4CheckCredit</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.registration.servlet.List4CheckCredit
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Registration/List4CheckCredit</servlet-name>
+		<url-pattern>/Registration/List4CheckCredit</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 取教職員照片 -->
+	<servlet>
+		<servlet-name>Personnel/getFTPhoto4Empl</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.getFTPhoto4Empl
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Personnel/getFTPhoto4Empl</servlet-name>
+		<url-pattern>/Personnel/getFTPhoto4Empl</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 教學評量印表 -->
+	<servlet>
+		<servlet-name>Course/CoanswReview</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.form.CoanswReview
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Course/CoanswReview</servlet-name>
+		<url-pattern>/Course/CoanswReview</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 出勤刷卡 - 完整 -->
+	<servlet>
+		<servlet-name>CardReader</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.CardReader
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CardReader</servlet-name>
+		<url-pattern>/CardReader</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 出勤刷卡 - 精簡 -->
+	<servlet>
+		<servlet-name>CardReaderSimple</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.CardReaderSimple
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CardReaderSimple</servlet-name>
+		<url-pattern>/CardReaderSimple</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 職員證 -->
+	<servlet>
+		<servlet-name>EmplCard</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.EmplCard
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmplCard</servlet-name>
+		<url-pattern>/EmplCard</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 職員證 -->
+	<servlet>
+		<servlet-name>EmplCard4PartTime</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.EmplCard4PartTime
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmplCard4PartTime</servlet-name>
+		<url-pattern>/EmplCard4PartTime</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 出勤刷卡 - 斷線重送 -->
+	<servlet>
+		<servlet-name>CardReaderOffline</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.CardReaderOffline
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CardReaderOffline</servlet-name>
+		<url-pattern>/CardReaderOffline</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 取得班級 -->
+	<servlet>
+		<servlet-name>getDepartClass</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.getDepartClass
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getDepartClass</servlet-name>
+		<url-pattern>/getDepartClass</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 取條碼 -->
+	<servlet>
+		<servlet-name>getBarcode39</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.getBarcode39
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getBarcode39</servlet-name>
+		<url-pattern>/getBarcode39</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 取申請書 -->
+	<servlet>
+		<servlet-name>CsGroupDoc</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.servlet.CsGroupDoc
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CsGroupDoc</servlet-name>
+		<url-pattern>/CsGroupDoc</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AjaxEmplsSearch</servlet-name>
+		<servlet-class>tw.edu.chit.struts.action.util.AjaxEmplsSearch</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxEmplsSearch</servlet-name>
+		<url-pattern>/AjaxEmplsSearch</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AjaxStmdsSearch</servlet-name>
+		<servlet-class>tw.edu.chit.struts.action.util.AjaxStmdsSearch</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxStmdsSearch</servlet-name>
+		<url-pattern>/AjaxStmdsSearch</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AjaxRegisterSearch</servlet-name>
+		<servlet-class>tw.edu.chit.struts.action.util.AjaxRegisterSearch</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxRegisterSearch</servlet-name>
+		<url-pattern>/AjaxRegisterSearch</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AjaxLicenseCodeSearch</servlet-name>
+		<servlet-class>tw.edu.chit.struts.action.util.AjaxLicenseCodeSearch</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxLicenseCodeSearch</servlet-name>
+		<url-pattern>/AjaxLicenseCodeSearch</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CountImage</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.CountImage
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CountImage</servlet-name>
+		<url-pattern>/CountImage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SendTestMail</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.SendTestMail
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SendTestMail</servlet-name>
+		<url-pattern>/SendTestMail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getProject_name</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.getProject_name
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getProject_name</servlet-name>
+		<url-pattern>/getProject_name</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getProject_leader</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.getProject_leader
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getProject_leader</servlet-name>
+		<url-pattern>/getProject_leader</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 取公文 -->
+	<servlet>
+		<servlet-name>getDocument</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.personnel.servlet.getDocument
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getDocument</servlet-name>
+		<url-pattern>/Personnel/getDocument</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ShowImage4T</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.ShowImage4T
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowImage4T</servlet-name>
+		<url-pattern>/ShowImage4T</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 網頁取得教師/教室 規劃課表 -->
+	<servlet>
+		<servlet-name>ReserveTechTable</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.ReserveTechTable
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReserveTechTable</servlet-name>
+		<url-pattern>/ReserveTechTable</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 取線上訊息 -->
+	<servlet>
+		<servlet-name>getOnleneMsg</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.msg.getMsg
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getOnleneMsg</servlet-name>
+		<url-pattern>/getOnleneMsg</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 取線上訊息 -->
+	<servlet>
+		<servlet-name>sendOnleneMsg</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.msg.sendMsg
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sendOnleneMsg</servlet-name>
+		<url-pattern>/sendOnleneMsg</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 群組郵件查詢 -->
+	<servlet>
+		<servlet-name>shMember</servlet-name>
+		<servlet-class>
+			tw.edu.chit.struts.action.course.ajax.shMember
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>shMember</servlet-name>
+		<url-pattern>/shMember</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

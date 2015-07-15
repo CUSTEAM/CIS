@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+		
+		<form-bean
+	  		name="ChangePasswordForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property
+	  			name="oldPassword"
+	  			type="java.lang.String"
+	  			initial="" />
+	  		<form-property
+	  			name="newPassword"
+	  			type="java.lang.String"
+	  			initial="" />
+	  		<form-property
+	  			name="newPassword2"
+	  			type="java.lang.String"
+	  			initial="" />	  			
+	  	</form-bean>
+		
+	</form-beans>
+	
+	<global-exceptions />
+	<global-forwards />
+
+    <action-mappings>
+
+	    <action path="/Individual/Directory"
+		   type="tw.edu.chit.struts.action.individual.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <action path="/Individual/ChangePassword"
+	       name="ChangePasswordForm" 
+		   type="tw.edu.chit.struts.action.individual.ChangePasswordAction"
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+    </action-mappings>
+
+    <controller />
+
+    <!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.individual" null="false" key="IDV" />
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+
+</struts-config>
+

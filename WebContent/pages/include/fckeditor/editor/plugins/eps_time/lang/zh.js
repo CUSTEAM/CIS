@@ -1,0 +1,1 @@
+FCKLang.insertClock      = '加入網頁時鐘';

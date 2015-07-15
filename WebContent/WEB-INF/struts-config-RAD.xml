@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<form-beans>
+
+		<form-bean name="InvestigationSearchForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<!-->form-property name="scoretype" type="java.lang.String"	initial="" /-->
+		</form-bean>
+		
+		<form-bean name="InvestigationMakeForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property  name="year" type="java.lang.String" initial=""/>
+			<form-property  name="years" type="java.lang.String[]" initial="{}"/>
+			<form-property  name="sterm" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+		<form-bean name="GstmdEmailForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="year" type="java.lang.String" initial="" />
+			<form-property name="years" type="java.lang.String[]" initial="{}" />
+			<form-property name="subject" type="java.lang.String" initial=""/>
+			<form-property name="image" type="org.apache.struts.upload.FormFile" />
+			<form-property name="replyTo" type="java.lang.String" initial=""/>
+			<form-property name="replyToName" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+		<!-- 報表列印 -->   	
+		<form-bean name="ReportPringForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="classLess" type="java.lang.String" />
+	  		<form-property name="year" type="java.lang.String[]" />
+	  	  	<form-property name="sterm" type="java.lang.String" />
+	  	  	<form-property name="printOpt" type="java.lang.String" />
+	  	  	<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+		  	<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+		  	<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+		  	<form-property name="classInCharge2" type="java.lang.String" initial="" />
+		  	<form-property name="schoolType" type="java.lang.String" initial="" />
+		  	<form-property name="setupPrinter" type="java.lang.String" initial="" />
+		  	<form-property name="choseType" type="java.lang.String" initial="" />
+		  	<form-property name="scoreType" type="java.lang.String" initial="" />
+		  	<form-property name="printInterClass" type="java.lang.String" initial="" />
+		</form-bean>
+
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/Research/Directory"
+			type="tw.edu.chit.struts.action.research.DirectoryAction"
+			scope="request" input="/Welcome.do">
+		</action>
+		
+		<!-- 建立應屆畢業生資料 -->
+		<action path="/Research/InvestigationMake"
+			name="InvestigationMakeForm"
+			type="tw.edu.chit.struts.action.research.InvestigationMakeAction"
+			scope="session" parameter="method" input="/Welcome.do">
+		</action>
+
+		<action path="/Research/InvestigationSearch"
+			name="InvestigationSearchForm"
+			type="tw.edu.chit.struts.action.research.InvestigationSearchAction"
+			scope="request" parameter="method" input="/Welcome.do">
+		</action>
+		
+		<action path="/Research/GstmdEmail"
+			name="GstmdEmailForm"
+			type="tw.edu.chit.struts.action.research.GstmdEmailAction"
+			scope="session" parameter="method">
+		</action>
+		
+		<!-- 報表列印 -->
+		<action path="/Research/ReportPrint"
+	    	name="ReportPringForm"
+		   	type="tw.edu.chit.struts.action.research.ReportPrintAction"
+	       	scope="session"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+
+	</action-mappings>
+
+	<message-resources parameter="messages.research" null="false" key="RAD" />
+
+</struts-config>

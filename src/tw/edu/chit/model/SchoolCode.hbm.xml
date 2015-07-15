@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="tw.edu.chit.model.SchoolCode" table="SchoolCode" catalog="CIS">
+    
+        <id name="oid" type="java.lang.Integer" column="Oid">
+			<generator class="native">
+				<param name="sequence">shoolCode_seq</param>
+			</generator>
+		</id>
+		
+        <property name="code" type="java.lang.String">
+            <column name="Code" length="5" not-null="true" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="Name" length="50" not-null="true" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

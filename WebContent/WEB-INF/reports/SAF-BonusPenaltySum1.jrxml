@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="SAF-BonusPenaltySum1"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="10"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="SchoolYear" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[學年]]></parameterDescription>
+	</parameter>
+	<parameter name="SchoolTerm" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[學期]]></parameterDescription>
+	</parameter>
+	<parameter name="PrintDate" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[列印日期]]></parameterDescription>
+	</parameter>
+	<parameter name="Clazz" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[班級]]></parameterDescription>
+	</parameter>
+
+	<field name="merit1" class="java.lang.Integer"/>
+	<field name="meritP1" class="java.lang.Integer"/>
+	<field name="merit2" class="java.lang.Integer"/>
+	<field name="meritP2" class="java.lang.Integer"/>
+	<field name="merit3" class="java.lang.Integer"/>
+	<field name="meritP3" class="java.lang.Integer"/>
+	<field name="merit4" class="java.lang.Integer"/>
+	<field name="meritP4" class="java.lang.Integer"/>
+	<field name="merit5" class="java.lang.Integer"/>
+	<field name="clazz" class="java.lang.String"/>
+	<field name="meritP5" class="java.lang.Integer"/>
+	<field name="merit6" class="java.lang.Integer"/>
+	<field name="meritP6" class="java.lang.Integer"/>
+	<field name="meritP" class="java.lang.Integer"/>
+	<field name="meritSum" class="java.lang.Integer"/>
+	<field name="offenseP" class="java.lang.Integer"/>
+	<field name="offenseSum" class="java.lang.Integer"/>
+
+	<variable name="SUM_merit1_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{merit1}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritP1_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritP1}]]></variableExpression>
+	</variable>
+	<variable name="SUM_merit2_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{merit2}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritP2_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritP2}]]></variableExpression>
+	</variable>
+	<variable name="SUM_merit3_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{merit3}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritP3_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritP3}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritP_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritP}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritSum_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritSum}]]></variableExpression>
+	</variable>
+	<variable name="SUM_merit4_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{merit4}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritP4_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritP4}]]></variableExpression>
+	</variable>
+	<variable name="SUM_merit5_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{merit5}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritP5_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritP5}]]></variableExpression>
+	</variable>
+	<variable name="SUM_merit6_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{merit6}]]></variableExpression>
+	</variable>
+	<variable name="SUM_meritP6_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{meritP6}]]></variableExpression>
+	</variable>
+	<variable name="SUM_offenseP_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{offenseP}]]></variableExpression>
+	</variable>
+	<variable name="SUM_offenseSum_1" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{offenseSum}]]></variableExpression>
+	</variable>
+	<variable name="SUM_merit3_2" class="java.lang.Integer" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{merit3}]]></variableExpression>
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="4"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="32"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="100"
+						y="6"
+						width="309"
+						height="24"
+						key="textField-1"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{SchoolYear}+" 學年 第"+$P{SchoolTerm}+" 學期期末獎懲人次統計表"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="440"
+						y="18"
+						width="83"
+						height="14"
+						key="textField-2"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" isBold="true" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["頁次："+$V{PAGE_NUMBER}.toString()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="440"
+						y="4"
+						width="83"
+						height="14"
+						key="textField-3"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" isBold="true" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["日期："+$P{PrintDate}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="28"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="4"
+						y="1"
+						width="51"
+						height="16"
+						key="staticText-3"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[班  級]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="102"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-4"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[大功]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="266"
+						y="1"
+						width="60"
+						height="16"
+						key="staticText-11"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[功人數/功次數]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="7"
+						y="22"
+						width="545"
+						height="0"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="1.0" lineStyle="Dotted"/>
+</graphicElement>
+				</line>
+				<staticText>
+					<reportElement
+						x="128"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-12"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[人數]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="155"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-13"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[小功]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="182"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-14"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[人數]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="210"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-15"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[嘉獎]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="238"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-16"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[人數]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="330"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-17"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[大過]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="356"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-18"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[人數]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="383"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-19"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[小過]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="410"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-20"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[人數]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="437"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-21"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[申戒]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="465"
+						y="1"
+						width="25"
+						height="16"
+						key="staticText-22"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[人數]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="493"
+						y="1"
+						width="60"
+						height="16"
+						key="staticText-23"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[過人數/過次數]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="15"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="102"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-6"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{merit1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="0"
+						width="86"
+						height="15"
+						key="textField-27"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font pdfFontName="MHei-Medium" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{clazz}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="127"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-30"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritP1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="155"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-31"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{merit2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="180"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-32"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritP2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="211"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-33"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{merit3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="236"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-34"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritP3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="331"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-35"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{merit4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="356"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-36"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritP4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="383"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-37"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{merit5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="408"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-38"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritP5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="438"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-39"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{merit6}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="463"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-40"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritP6}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="271"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-41"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritP}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="301"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-42"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{meritSum}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="291"
+						y="0"
+						width="10"
+						height="15"
+						key="staticText-24"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[/]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="496"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-43"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{offenseP}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="516"
+						y="0"
+						width="10"
+						height="15"
+						key="staticText-25"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[/]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="526"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-44"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{offenseSum}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="15"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="97"
+						y="0"
+						width="25"
+						height="15"
+						key="textField"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_merit1_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="123"
+						y="0"
+						width="25"
+						height="15"
+						key="textField-45"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritP1_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="150"
+						y="0"
+						width="25"
+						height="15"
+						key="textField-46"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_merit2_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="176"
+						y="0"
+						width="25"
+						height="15"
+						key="textField-47"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritP2_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="206"
+						y="0"
+						width="25"
+						height="15"
+						key="textField-48"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_merit3_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="232"
+						y="0"
+						width="25"
+						height="15"
+						key="textField-49"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritP3_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="331"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-50"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_merit4_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="357"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-51"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritP4_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="383"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-52"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_merit5_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="409"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-53"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritP5_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="438"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-54"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_merit6_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="464"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-55"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritP6_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="496"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-56"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_offenseP_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="526"
+						y="0"
+						width="20"
+						height="15"
+						key="textField-57"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_offenseSum_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="261"
+						y="0"
+						width="30"
+						height="15"
+						key="textField-58"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritP_1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="301"
+						y="0"
+						width="30"
+						height="15"
+						key="textField-59"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="MHei-Medium" size="8" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$V{SUM_meritSum_1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="4"
+						y="0"
+						width="51"
+						height="15"
+						key="staticText-26"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isUnderline="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[** 總計 **]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="291"
+						y="0"
+						width="10"
+						height="15"
+						key="staticText-27"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[/]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="516"
+						y="0"
+						width="10"
+						height="15"
+						key="staticText-28"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="9" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[/]]></text>
+				</staticText>
+			</band>
+		</summary>
+</jasperReport>

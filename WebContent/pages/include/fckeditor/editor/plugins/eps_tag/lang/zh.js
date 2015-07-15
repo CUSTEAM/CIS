@@ -1,0 +1,1 @@
+FCKLang.SysMenu      = '加入系統選單';

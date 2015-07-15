@@ -1,0 +1,289 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"  %>
+<%@ include file="/taglibs.jsp"%>
+<script src="/CIS/pages/include/decorate.js"></script>
+
+<script>
+  history.go(1);
+</script>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <html:form action="/Teacher/Rcact_Manager" method="post" enctype="multipart/form-data" onsubmit="init('系統處理中...')">
+<!-- 標題列 start -->
+    <tr>
+      <td class="fullColorTable" width="100%">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr height="30">
+            <td align="center" valign="middle"><b>教師/職員參加學術活動資料維護&nbsp;</b></td>
+          </tr>
+        </table>
+      </td>
+    </tr>	    
+<!-- 標題列 end -->		
+       
+    <tr>
+      <td>      
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>            
+              <table>
+                <tr>
+                                    
+                </tr>
+              </table>   
+			  <table width="99%" class="hairLineTable">                
+                <tr>                  
+                  <td width="20%" class="hairLineTdF">查詢條件
+                    <select name="select_type" onChange="showSpecs()">
+                      <option value="">請選擇</option>
+                      <option value="N">教師姓名</option>
+                      <option value="U">單位名稱</option>                      
+                      <option value="UnitTeach">教師類</option>
+                      <option value="Unit">職員類</option>
+                    </select>
+                  </td>
+                  <td width="30%" class="hairLineTd" align="left" id="nullName" >選擇要依教師或是系所做查詢</td>
+                  <td width="30%" class="hairLineTd" align="left" id="tchName" style="display:none">
+			        <input type=hidden name="fsidno" id="fsidno" size="12" value=""/>
+			        <input type="text" name="fscname" id="fscname" size="10" value=""
+				           onMouseOver="showHelpMessage('姓名輸入這裡, 若您貼上文字, 請按一下鍵盤右側的方向鍵, 自動完成姓名', 'inline', this.id)" 
+				           onMouseOut="showHelpMessage('', 'none', this.id)"										
+					       onkeyup="if(this.value.length>0)GgetAny(this.value, 'fscname', 'fsidno', 'dempl', 'name')" 
+					       onClick="clearQuery()" />
+			      </td>                  
+                  <td width="30%" class="hairLineTd" id="unitName" style="display:none">
+                    <select name=Tch_Unit>
+					  <option value=""></option>
+					  <c:forEach items="${Tch_Unit}" var="c">
+					    <option value="${c.idno}">${c.name}</option>
+					  </c:forEach>
+					</select>
+                  </td>                 
+                  <td width="15%" align="center" class="hairLineTdF">年度</td>
+                  <td class="hairLineTd">
+                    <input type="text" name="schoolYear" id="schoolYear" size="1" value=""
+                           onMouseOver="showHelpMessage('民國年', 'inline', this.id)" 
+                           onMouseOut="showHelpMessage('', 'none', this.id)"/>
+                  </td>                          
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              <table width="99%" class="hairLineTable">
+                <tr>
+                  <td width="15%" class="hairLineTdF" align="center">活動名稱</td>
+                  <td class="hairLineTd">
+                    <input type="text" name="actname" id="actname" value="" size="45"
+                           onMouseOver="showHelpMessage('輸入關鍵字即可搜尋', 'inline', this.id)" 
+                           onMouseOut="showHelpMessage('', 'none', this.id)" />
+                  </td>
+                  <td width="15%" align="center" class="hairLineTdF">主辦單位(進修機構)</td>
+                  <td class="hairLineTd">
+                    <input type="text" name="sponoff" id="sponoff"  value="" size="45" 
+                           onMouseOver="showHelpMessage('輸入關鍵字即可搜尋', 'inline', this.id)" 
+                           onMouseOut="showHelpMessage('', 'none', this.id)" />
+                  </td>
+                </tr>
+                <tr>
+                  <td width="15%" align="center" class="hairLineTdF">活動種類</td>
+                  <td class="hairLineTd">
+                    <select name=kindid>
+					  <option value=""></option>
+					  <c:forEach items="${kindid}" var="c">
+					    <option <c:if test="${aEmpl.kindid==c.Oid}">selected</c:if> value="${c.Oid}">${c.name}</option>
+					  </c:forEach>
+					</select>
+                  </td>
+                  <td width="15%" align="center" class="hairLineTdF">活動類型</td>
+                  <td class="hairLineTd">
+                    <select name=typeid>
+					  <option value=""></option>
+					  <c:forEach items="${typeid}" var="c">
+					    <option <c:if test="${aEmpl.typeid==c.Oid}">selected</c:if> value="${c.Oid}">${c.name}</option>
+					  </c:forEach>
+					</select>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="15%" align="center" class="hairLineTdF">活動地點</td>
+                  <td class="hairLineTd">
+                    <select name=placeid>
+					  <option value=""></option>
+					  <c:forEach items="${placeid}" var="c">
+					    <option <c:if test="${aEmpl.placeid==c.Oid}">selected</c:if> value="${c.Oid}">${c.name}</option>
+					  </c:forEach>
+					</select>
+                  </td>
+                  <td width="15%" align="center" class="hairLineTdF">參與情形</td>
+                  <td class="hairLineTd">
+                    <select name=joinid>
+					  <option value=""></option>
+					  <c:forEach items="${joinid}" var="c">
+					    <option <c:if test="${aEmpl.joinid==c.Oid}">selected</c:if> value="${c.Oid}">${c.name}</option>
+					  </c:forEach>
+					</select>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="15%" class="hairLineTdF">
+                  	研習心得
+                  </td>
+                  <td class="hairLineTd">
+                    <input type="text" name="intor" id="intor" size="45" value=""
+                           onMouseOver="showHelpMessage('輸入關鍵字即可搜尋', 'inline', this.id)" 
+                           onMouseOut="showHelpMessage('', 'none', this.id)" />
+                  </td>
+                  <td width="15%" class="hairLineTdF">審查狀態</td>
+                  <td class="hairLineTd">
+                    <select name=approve>
+					  <option value="">不分狀態</option>
+					  <c:forEach items="${approve}" var="c">
+					    <option <c:if test="${aEmpl.joinid==c.Oid}">selected</c:if> value="${c.Oid}">${c.name}</option>
+					  </c:forEach>
+					</select>
+                  </td>
+                </tr>
+                 
+              </table>
+              <table class="ds_box" cellpadding="0" cellspacing="0" id="ds_conclass" style="display: none;">
+		        <tr>
+				  <td id="ds_calclass"></td>
+			    </tr>
+			  </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="hairLineTd" align="center">
+              <!-- input type="submit" name="method" value="<bean:message key='Create'/>" onClick="return mySave()" class="CourseButton"/ -->
+              <input type="submit" name="method" value="查詢" Key="Query" class="CourseButton"/>              
+            </td>
+          </tr>
+        </table>		
+      </td>
+    </tr>
+    <c:if test="${RcactList != null}" >
+	  <%@include file="/pages/include/Displaytag4Checkbox.inc"%>
+	  <tr>
+	    <td bgcolor="#CCCCFF">
+	      <c:if test="${Approve == ''}" ><font color="red"><b>審核狀態/不分狀態</b></font></c:if>
+	      <c:if test="${Approve != ''}" ><font color="red"><b>審核狀態/${Approve }</b></font></c:if>
+	      <c:if test="${kind != ''}" ><font color="blue"><b>活動種類/${kind } ; </b></font></c:if>
+	      <c:if test="${type != ''}" ><font color="blue"><b>活動類型/${type } ; </b></font></c:if>
+	      <c:if test="${place != ''}" ><font color="blue"><b>活動種類/${place } ; </b></font></c:if>
+	      <c:if test="${join != ''}" ><font color="blue"><b>活動類型/${join } ;</b></font></c:if>
+	      <table width="100%" cellpadding="0" cellspacing="0">
+		    <tr>
+		      <td align="center">  
+	            <display:table name="${RcactList}" export="false" id="row" pagesize="20" sort="list" excludedParams="*" class="list">
+	  		      <c:if test="${empty RcactList}">
+	     		    <%@ include file="../include/NoBanner.jsp" %>
+	  		      </c:if>
+	              <display:column title="<script>generateTriggerAll(${fn:length(RcactList)}, 'rcact');</script>" class="center" >
+	                <script>generateCheckbox("${row.oid}", "rcact");</script></display:column>
+ 	              <display:column title="年度"		property="school_year"	sortable="true" class="center" />
+ 	              <display:column title="教師姓名"	property="idno"		    sortable="true" class="center" />
+	              <display:column title="活動名稱"	property="actname"		sortable="true" class="center" />
+	              <display:column title="開始日期" 	property="bdate"		sortable="true" class="center" />
+	              <display:column title="結束日期" 	property="edate"		sortable="true" class="center" />
+	              <display:column title="審核狀態"	property="approve"		sortable="true" class="center" />              	              
+ 	            </display:table>
+ 	          </td>
+ 	        </tr>	      
+	      </table>
+	    </td>
+	  </tr>
+	  <tr>        
+        <td class="hairLineTd" align="center">
+          <input type="submit" name="method" value="檢視" key="View" onClick="return myTest()" class="CourseButton"/>
+          <c:if test="${UserUnit == '技研服務組' || UserUnit == '軟體開發組'}" >
+            <input type="submit" name="method" value="刪除" Key="Delete" onClick="return myTest2()" class="CourseButton"/>   
+          </c:if>       
+          <input name="Submit04" type="submit" value="匯出Excel" class="CourseButton"
+                 onclick="MM_goToURL('parent','/CIS/pages/teacher/Article/RcactSel.jsp');return document.MM_returnValue"/>
+        </td>
+      </tr>
+    </c:if>
+  </html:form>
+</table>
+
+<script>
+  function MM_goToURL() { //v3.0 匯出Excel
+    var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+    for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+  }
+  function showSpecs() 
+  {
+    
+    if(document.getElementById("select_type").value == 'N') 
+    {
+      document.getElementById("tchName").style.display = 'inline';
+      document.getElementById("unitName").style.display = 'none';
+      document.getElementById("nullName").style.display = 'none';      
+    } 
+    else if(document.getElementById("select_type").value == 'U')
+    {
+      document.getElementById("tchName").style.display = 'none';
+      document.getElementById("unitName").style.display = 'inline';
+      document.getElementById("nullName").style.display = 'none';      				
+    }
+    else
+    {
+      document.getElementById("tchName").style.display = 'none';
+      document.getElementById("unitName").style.display = 'none';
+      document.getElementById("nullName").style.display = 'inline';
+    }
+  }
+  
+  function myTest() 
+  {
+    var iCount;
+    iCount = getCookie("rcactCount");    
+    if (iCount == 0) 
+    {
+      alert("請勾選一項資料進行檢視!!");
+      return false;
+    } 
+    else if(iCount > 1) 
+    {
+      alert("請僅勾選一項資料進行檢視!!");
+      return false;
+    }
+    Oid = getCookie("rcact");
+    //alert(Oid);
+    return true;
+  }
+  
+  function myTest2() 
+  {
+    var iCount;
+    iCount = getCookie("rcactCount");    
+    if (iCount == 0) 
+    {
+      alert("您未勾選任何資料!!");
+      return false;
+    } 
+    else if(iCount > 1) 
+    {
+      alert("每次僅能刪除一筆!!");
+      return false;
+    }
+    
+    var ret = confirm("您確定要刪除此筆資料!?");
+    if(ret == true){
+      return true;
+    }else{
+      return false;
+    }
+    
+    Oid = getCookie("rcact");
+    //alert(Oid);
+    return true;
+  }
+</script>
+
+<%@ include file="/pages/include/AjaxUniMod.jsp" %>
+<%@ include file="/pages/include/ajaxGetMate.jsp" %>
+<%@ include file="/pages/include/AjaxGetEmplOrDempl.jsp" %>
+<%@ include file="/pages/include/leo_Calendar.jsp" %>

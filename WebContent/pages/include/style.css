@@ -1,0 +1,183 @@
+BODY {
+	BACKGROUND-COLOR: #D39D91;
+	COLOR: #333333;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+
+.CampusDiv{
+	BACKGROUND-COLOR: #B0CA65;
+	COLOR: #333333;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 36px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:150px;
+}
+
+.CampusDivOn{
+	BACKGROUND-COLOR: #ff3737;
+	COLOR: #ffffff;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 36px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:150px;
+}
+
+.SchoolDiv{
+	BACKGROUND-COLOR: #B0CA65;
+	COLOR: #333333;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 28px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:250px;
+}
+
+.SchoolDivOn{
+	BACKGROUND-COLOR: #ff3737;
+	COLOR: #ffffff;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 28px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:250px;
+}
+
+.DeptDiv{
+	BACKGROUND-COLOR: #B0CA65;
+	COLOR: #333333;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 20px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:250px;
+}
+
+.DeptDivOn{
+	BACKGROUND-COLOR: #ff3737;
+	COLOR: #ffffff;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 20px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:250px;
+}
+
+.GradeDiv{
+	BACKGROUND-COLOR: #B0CA65;
+	COLOR: #333333;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 36px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:150px;
+}
+
+.GradeDivOn{
+	BACKGROUND-COLOR: #ff3737;
+	COLOR: #ffffff;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 36px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:150px;
+}
+
+.ClassDiv{
+	BACKGROUND-COLOR: #B0CA65;
+	COLOR: #333333;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 36px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:250px;
+}
+
+.ClassDivOn{
+	BACKGROUND-COLOR: #ff3737;
+	COLOR: #ffffff;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	FONT-size: 36px;
+	font-weight: bold;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	width:250px;
+}
+
+.xb1, .xb2, .xb3, .xb4, .xb5, .xb6, .xb7 {display:block; overflow:hidden; font-size:0;}
+.xb1, .xb2, .xb3, .xb4, .xb5, .xb6 {height:1px;}
+.xb4, .xb5, .xb6, .xb7 {background:#B0CA65; border-left:1px solid #B0CA65; border-right:1px solid #B0CA65;}
+
+.xb1 {margin:0 5px; background:#B0CA65;}
+.xb2 {margin:0 3px; background:#B0CA65;}
+.xb3 {margin:0 2px; background:#B0CA65;}
+.xb4 {margin:0 1px; background:#B0CA65;}
+.xb5 {margin:0 2px; background:#B0CA65;}
+.xb6 {margin:0 2px; background:#B0CA65;} 
+.xb7 {margin:0 1px; background:#B0CA65;} 
+
+.xa1, .xa2, .xa3, .xa4, .xa5, .xa6, .xa7 {display:block; overflow:hidden; font-size:0;}
+.xa1, .xa2, .xa3, .xa4, .xa5, .xa6 {height:1px;}
+.xa4, .xa5, .xa6, .xa7 {background:#ff3737; border-left:1px solid #ff3737; border-right:1px solid #ff3737;}
+
+.xa1 {margin:0 5px; background:#ff3737;}
+.xa2 {margin:0 3px; background:#ff3737;}
+.xa3 {margin:0 2px; background:#ff3737;}
+.xa4 {margin:0 1px; background:#ff3737;}
+.xa5 {margin:0 2px; background:#ff3737;}
+.xa6 {margin:0 2px; background:#ff3737;} 
+.xa7 {margin:0 1px; background:#ff3737;} 
+
+.area{
+	float:left; 
+	filter:shadow(color=#000000,direction=150, strength=4); 
+	color:#ffffff; 
+	font-size:44px;
+	font-weight: bold;
+	font-family:微軟正黑體,Arial,新細明體;
+}

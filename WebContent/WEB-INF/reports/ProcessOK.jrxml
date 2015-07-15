@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="ProcessOK"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="AllSectionsNoDetail"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<style 
+		name="ScoreNotPassStyle"
+		isDefault="false"
+		mode="Opaque"
+		isStyledText="true"
+	>
+
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean(Float.parseFloat($F{score}) < Float.parseFloat($P{PASSSCORE}))]]></conditionExpression>
+			<style 
+				isDefault="false"
+				forecolor="#FF0033"
+				isStyledText="true"
+			>
+			</style>
+		</conditionalStyle>
+	</style>
+	<style 
+		name="TotalScoreNotPassStyle"
+		isDefault="false"
+		mode="Opaque"
+		isStyledText="true"
+	>
+
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean(Float.parseFloat($P{J}) < Float.parseFloat($P{PASSSCORE}))]]></conditionExpression>
+			<style 
+				isDefault="false"
+				forecolor="#FF0033"
+				isStyledText="true"
+			>
+			</style>
+		</conditionalStyle>
+	</style>
+
+	<parameter name="IMAGE" isForPrompting="false" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="87"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="427"
+						y="34"
+						width="101"
+						height="18"
+						key="textField-3"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["日期：" + new SimpleDateFormat("yyyy/MM/dd", Locale.TAIWAN).format(new Date())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="153"
+						y="23"
+						width="219"
+						height="40"
+						key="staticText-39"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="24" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[中華科技大學 ]]></text>
+				</staticText>
+				<image  scaleImage="RetainShape" vAlign="Middle" hAlign="Center" isLazy="true" isUsingCache="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Transparent"
+						x="7"
+						y="8"
+						width="94"
+						height="70"
+						key="image-1"
+						positionType="Float"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+</graphicElement>
+					<imageExpression class="java.lang.String"><![CDATA[$P{IMAGE}]]></imageExpression>
+				</image>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="415"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="379"
+						y="392"
+						width="147"
+						height="19"
+						forecolor="#000000"
+						key="staticText-14"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[電算中心 軟體開發組]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="41"
+						y="331"
+						width="362"
+						height="20"
+						forecolor="#000000"
+						key="staticText-20"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[1.覺得該功能執行有問題，則盡速與我們連絡。  ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="41"
+						y="351"
+						width="330"
+						height="19"
+						forecolor="#000000"
+						key="staticText-21"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[2.謝謝。]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="8"
+						y="331"
+						width="33"
+						height="20"
+						forecolor="#000000"
+						key="staticText-37"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[註：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="76"
+						y="122"
+						width="382"
+						height="57"
+						forecolor="#0033CC"
+						key="staticText-40"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="36" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[程序已處理完成]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

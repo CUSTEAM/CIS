@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.3//EN" "http://www.wapforum.org/DTD/wml13.dtd">
+<wml>
+<card id="card" title="下載校務資訊系統">
+<a href="CISME.jad">CISME</a>
+</card>
+</wml>

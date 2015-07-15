@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    	<form-beans>
+    	
+	    	<form-bean name="FormExampleForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+		   		<form-property name="cscode" type="java.lang.String" initial=""/>
+		   		<form-property name="chi_name" type="java.lang.String" />
+		   	</form-bean>
+		   	
+	    
+	    
+		   	<!-- LEO -->
+		   	<form-bean name="SelectCsno_leoForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+		   		<form-property name="cscode" type="java.lang.String" initial=""/>
+		   		<form-property name="chi_name" type="java.lang.String" />
+		   	</form-bean>
+		   	
+		   	<!--範例_學籍查詢 LEO -->
+		   	<form-bean name="SelectStmd_leoForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+		   		<form-property name="myOpen"     type="java.lang.String" initial="" />
+			    <form-property name="myTest"     type="java.lang.String" initial="" />
+		   		<form-property name="stmd_no"    type="java.lang.String"/>
+		   		<form-property name="stmd_name"  type="java.lang.String" />
+		   		<form-property name="class_no"   type="java.lang.String"/>
+		   		<form-property name="class_name" type="java.lang.String" />
+		   	</form-bean>
+		   	
+		  
+		   	<!--範例_TextStmd  LEO -->
+		   	<form-bean name="TextStmdForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+		   		<form-property name="stmd_no" type="java.lang.String"/>
+		   		<form-property name="stmd_name" type="java.lang.String" />
+		   		<form-property name="class_no" type="java.lang.String"/>
+		   		<form-property name="class_name" type="java.lang.String" />
+		   	</form-bean>
+		   	
+		   	<form-bean name="BatchExampleForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+		   		<form-property name="column1" type="java.lang.String[]" initial=""/>
+		   		<form-property name="column2" type="java.lang.String[]" />
+		   	</form-bean>
+		   	
+		   	<form-bean name="EmailExampleForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+		   		<form-property name="receiver" type="java.lang.String[]"/>
+		   		<form-property name="subject" type="java.lang.String" />
+		   		<form-property name="content" type="java.lang.String" />
+		   		<form-property name="smtp" type="java.lang.String" />
+		   		<form-property name="username" type="java.lang.String" />
+		   		<form-property name="passeord" type="java.lang.String" />
+		   		<form-property name="file" type="org.apache.struts.upload.FormFile" />
+		   	</form-bean>
+	   		
+	   		<form-bean name="FtpExampleForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+		   		<form-property name="host" type="java.lang.String" />
+		   		<form-property name="dir" type="java.lang.String" />
+		   		<form-property name="username" type="java.lang.String" />
+		   		<form-property name="password" type="java.lang.String" />
+		   		<form-property name="file1" type="org.apache.struts.upload.FormFile" />
+		   		<form-property name="file2" type="org.apache.struts.upload.FormFile" />
+		   		<form-property name="file3" type="org.apache.struts.upload.FormFile" />
+		   		<form-property name="file4" type="org.apache.struts.upload.FormFile" />
+		   	</form-bean>
+	   		
+	   	    	
+    </form-beans>
+    
+    <action-mappings>	
+		
+		<!-- 表單範例 -->
+	    <action path="/Example/FormExample"
+	    	name="FormExampleForm"
+	    	type="tw.edu.chit.struts.action.ex.FormExampleAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 表單批次作業範 -->
+	    <action path="/Example/BatchExample"
+	    	name="BatchExampleForm"
+	    	type="tw.edu.chit.struts.action.ex.BatchExampleAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 電子郵件範例 -->
+	    <action path="/Example/EmailExample"
+	    	name="EmailExampleForm"
+	    	type="tw.edu.chit.struts.action.ex.EmailExampleAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 檔案儲存範例 -->
+	    <action path="/Example/FtpExample"
+	    	name="FtpExampleForm"
+	    	type="tw.edu.chit.struts.action.ex.FtpExampleAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    
+	    <!-- 表單範例 LEO -->
+	    <action path="/Example/SelectCsno_leo"
+	    	name="SelectCsno_leoForm"
+	    	type="tw.edu.chit.struts.action.ex.Leo.SelectCsno_leoAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 表單範例_學籍查詢 LEO -->
+	    <action path="/Example/SelectStmd_leo"
+	    	name="SelectStmd_leoForm"
+	    	type="tw.edu.chit.struts.action.ex.Leo.SelectStmd_leoAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    
+	    <!-- 範例_TextStmd  LEO -->
+	    <action path="/Example/TextStmd"
+	    	name="STextStmdForm"
+	    	type="tw.edu.chit.struts.action.ex.Leo.TextStmdAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    
+  </action-mappings>
+
+</struts-config>

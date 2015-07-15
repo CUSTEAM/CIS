@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+	   	<form-bean name="UserPasswordResetForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="account" type="java.lang.String" initial="" />
+	   	</form-bean>
+
+	   	<form-bean name="GroupMemberSetupForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="group" type="java.lang.String" initial="" />
+	  		<form-property name="empIdno" type="java.lang.String" initial="" />
+	   	</form-bean>	
+    
+	   	<form-bean name="ClassInChargeSetupForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="empOid" type="java.lang.Integer" initial="0" />
+	  		<form-property name="idno" type="java.lang.String" initial="" />
+	  		<form-property name="classNo" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean
+	  		name="TermScore2ScoreHistForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="schoolYear" type="java.lang.String" initial="" />
+	  		<form-property name="schoolTerm" type="java.lang.String" initial="" />
+	  		<form-property name="campusInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge" type="java.lang.String" initial="" />
+	  		<!-- form-property name="depart" type="java.lang.String" initial="" / -->
+	  		<form-property name="method" type="java.lang.String" initial="" />
+	  		<form-property name="opmode" type="java.lang.String" initial="" />
+	  		<form-property name="tmode" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="JustScore2HistoryForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="campusInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="method" type="java.lang.String" initial="" />
+	  		<form-property name="opmode" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="RegenAdcdBySeldForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="campusInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="term" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="MailAccountManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   	
+	   	</form-bean>
+	   	
+	   	<form-bean name="TableManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		
+	   		<!-- 表格用 -->
+	   		<form-property name="Oid" type="java.lang.String[]" initial="" />
+	   		<form-property name="tableName" type="java.lang.String[]" initial="" />
+	   		<form-property name="tableSeq" type="java.lang.String[]" initial="" />
+	   		
+	   		<!-- 欄位修改用 -->	  			  		
+	  		<form-property name="fieldOid" type="java.lang.String[]" initial="" />
+	  		<form-property name="tableOid" type="java.lang.String[]" initial="" />
+	  		<form-property name="fieldNames" type="java.lang.String[]" initial="" />
+	  		<form-property name="type" type="java.lang.String[]" initial="" />
+	  		<form-property name="fieldSeq" type="java.lang.String[]" initial="" />
+	  		<form-property name="size" type="java.lang.String[]" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="UserManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="depart_class" type="java.lang.String" initial="" />
+			<form-property name="student_no" type="java.lang.String" initial="" />
+			<form-property name="classLess" type="java.lang.String" initial="" />
+			<form-property name="student_name" type="java.lang.String" initial="" />
+			
+			<form-property name="type" type="java.lang.String" initial="" />
+			<form-property name="searchType" type="java.lang.String" initial="" />
+			<form-property name="dept" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="SendTestMailForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   	
+	   		<form-property name="username" type="java.lang.String" initial="" />
+			<form-property name="password" type="java.lang.String" initial="" />			
+			<form-property name="smtpServer" type="java.lang.String" initial="" />
+			<form-property name="dsplEmail" type="java.lang.String" initial="" />			
+			<form-property name="dsplName" type="java.lang.String" initial="" />
+			<form-property name="dsplDate" type="java.lang.String" initial="" />
+			<form-property name="subject" type="java.lang.String" initial="" />
+			<form-property name="content" type="java.lang.String" initial="" />
+			<form-property name="unit" type="java.lang.String[]" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="SaveDtimeForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   	
+	   		<form-property name="year" type="java.lang.String" initial="" />
+			<form-property name="term" type="java.lang.String" initial="" />
+	   	</form-bean>   	
+    
+	</form-beans>
+    
+    <action-mappings>
+	    <action path="/SysAdmin/Directory"
+		   type="tw.edu.chit.struts.action.sysadmin.DirectoryAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+
+ 	    <action path="/SysAdmin/UserSetup"
+		   type="tw.edu.chit.struts.action.sysadmin.UserSetupAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+
+ 	    <action path="/SysAdmin/UserPasswordReset"
+	       name="UserPasswordResetForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.UserPasswordResetAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>   
+
+ 	    <action path="/SysAdmin/GroupMemberSetup"
+	       name="GroupMemberSetupForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.GroupMemberSetupAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>   
+ 
+ 	    <action path="/SysAdmin/ClassInChargeSetup"
+		   type="tw.edu.chit.struts.action.sysadmin.ClassInChargeSetupDirectoryAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+ 	    <action path="/SysAdmin/ClassInChargeSetup4TeachAffair"
+	       name="ClassInChargeSetupForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.ClassInChargeSetup4TeachAffairAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>   
+    
+ 	    <action path="/SysAdmin/ClassInChargeSetup4StudAffair"
+	       name="ClassInChargeSetupForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.ClassInChargeSetup4StudAffairAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>  
+	    
+ 	    <action path="/SysAdmin/ScoreBatch"
+		   type="tw.edu.chit.struts.action.sysadmin.ScoreBatchAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+ 	    <action path="/SysAdmin/TermScore2ScoreHist"
+	       name="TermScore2ScoreHistForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.TermScore2ScoreHistAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>  
+	    
+ 	    <action path="/SysAdmin/JustScore2History"
+	       name="JustScore2HistoryForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.JustScore2HistoryAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>  
+	    
+	    <action path="/SysAdmin/RegenAdcdBySeld"
+	       name="RegenAdcdBySeldForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.RegenAdcdBySeldAction" 
+		   scope="request"
+		   parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <action path="/SysAdmin/MailAccountManager"
+	       name="MailAccountManagerForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.MailAccountManagerAction" 
+		   scope="request"
+		   parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <action path="/SysAdmin/SendTestMail"
+	       name="SendTestMailForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.SendTestMailAction" 
+		   scope="request"
+		   parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 課程轉歷年 -->
+	    <action path="/SysAdmin/SaveDtime"
+	       name="SaveDtimeForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.SaveDtimeAction" 
+		   scope="request"
+		   parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 課程規劃轉開課 -->
+	    <action path="/SysAdmin/ReserveCheckOut"
+	       name="SaveDtimeForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.ReserveCheckOutAction" 
+		   scope="request"
+		   parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+    </action-mappings>
+
+
+    <!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.sysadmin" null="false" key="ADM" />
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+</struts-config>

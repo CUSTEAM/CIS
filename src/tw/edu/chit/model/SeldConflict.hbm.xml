@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="tw.edu.chit.model.SeldConflict" table="SeldConflict"
+		catalog="CIS">
+
+		<id name="oid" type="java.lang.Integer" column="Oid">
+			<generator class="native">
+				<param name="sequence">seldConflict_seq</param>
+			</generator>
+		</id>
+
+		<property name="emplOid" type="java.lang.Integer">
+			<column name="EmplOid" not-null="true" />
+		</property>
+		<property name="dtimeOid" type="java.lang.Integer">
+			<column name="DtimeOid" not-null="true" />
+		</property>
+		<property name="term" type="java.lang.String">
+			<column name="Term" not-null="true" />
+		</property>
+		<property name="studentNo" type="java.lang.String">
+			<column name="StudentNo" not-null="true" />
+		</property>
+		<property name="lastModified" type="java.util.Date">
+			<column name="LastModified" not-null="true" />
+		</property>
+	</class>
+	
+</hibernate-mapping>

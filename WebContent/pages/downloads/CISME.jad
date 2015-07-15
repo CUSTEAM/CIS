@@ -1,0 +1,11 @@
+MIDlet-1: 校務資訊系統,,tw.com.oscar.midp.CISME
+MIDlet-Description: 中華科技大學-校務資訊系統
+MIDlet-Info-URL: http://ap.chit.edu.tw/CIS
+MIDlet-Jar-Size: 350943
+MIDlet-Jar-URL: http://192.192.237.17:8080/CIS/pages/downloads/CISME.jar
+MIDlet-Name: 中華科技大學-校務資訊系統
+MIDlet-Vendor: 電算中心
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
+URL: http://www.chit.edu.tw/www/index.htm

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+        <form-bean
+	  		name="StudSeldExamUpdateAllForm"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<!-- form-property name="CodeId" type="java.lang.String" initial="" / -->
+	  		<form-property name="opmode" type="java.lang.String" initial="" />
+	  		<form-property name="campusInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge" type="java.lang.String" initial="" />
+	   	</form-bean>
+	   	
+    <form-bean name="CantExamFormC" type="tw.edu.chit.struts.BaseDynaActionForm">
+		<form-property name="departClass" type="java.lang.String" initial="" />
+		<form-property name="campusInCharge" type="java.lang.String" initial="" />
+		<form-property name="schoolInCharge" type="java.lang.String" initial="" />
+		<form-property name="deptInCharge" type="java.lang.String" initial="" />
+		<form-property name="classInCharge" type="java.lang.String" initial="" />
+		<form-property name="scope" type="java.lang.String" initial="" />
+		<form-property name="sorttype" type="java.lang.String" initial="" />
+		<form-property name="range" type="java.lang.String" initial="" />
+	</form-bean>
+
+
+	</form-beans>
+	
+	<global-exceptions />
+	<global-forwards />
+
+    <action-mappings>
+
+	    <action path="/Examine/Directory"
+		   type="tw.edu.chit.struts.action.examine.DirectoryActionExamine"
+	       scope="session"
+		   input="/Welcome.do">
+	    </action>
+
+	    
+	    <!-- 批次更新Seld曠缺紀錄 -->
+ 	    <action path="/Examine/StudSeldExamUpdateAll"
+ 	       name="StudSeldExamUpdateAllForm"
+		   type="tw.edu.chit.struts.action.examine.StudSeldExamUpdateAllAction"
+	       parameter="method"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+		<!-- 學生扣考查詢列印 -->
+		<action path="/Examine/CantExam"
+	       name="CantExamFormC"
+		   type="tw.edu.chit.struts.action.examine.CantExamAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    	    	    	    
+    </action-mappings>
+
+    <controller />
+
+    <!-- ================================ Message Resources Definitions -->
+
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+
+</struts-config>
+

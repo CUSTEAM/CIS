@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<form-beans>
+	   	
+		<!--  -->
+		<form-bean name="FeeCodeForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="feeOid" type="java.lang.String" initial="" />
+			<form-property name="feeNo" type="java.lang.String" initial="" />
+			<form-property name="feeName" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="ClassFeeForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="classLess" type="java.lang.String" />
+ 	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+  			<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+  			<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+  			<form-property name="classInCharge2" type="java.lang.String" initial="" />
+  			<form-property name="feePayOid" type="java.lang.String" initial="" />
+  			<form-property name="classNo" type="java.lang.String" initial="" />
+  			<form-property name="kind" type="java.lang.String" initial="" />
+  			<form-property name="feeCode" type="java.lang.String" initial="" />
+  			<form-property name="feeCodes" type="java.lang.String[]" initial="{}" />
+  			<form-property name="feeCodeNames" type="java.lang.String[]" initial="{}" />
+  			<form-property name="money" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="BankFeePayForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="feePayOid" type="java.lang.String" initial="" />
+			<form-property name="schoolYear" type="java.lang.String" initial="" />
+			<form-property name="schoolTerm" type="java.lang.String" initial="" />
+  			<form-property name="accountNo" type="java.lang.String" initial="" />
+  			<form-property name="payDate" type="java.lang.String" initial="" />
+  			<form-property name="studentNo" type="java.lang.String" initial="" />
+  			<form-property name="students" type="java.util.List"/>
+		</form-bean>
+		
+		<!-- 學生轉帳資料輸入 -->
+		<form-bean name="StdTransferAccountForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="type" type="java.lang.String" initial="" />
+			<form-property name="schoolYear" type="java.lang.String" initial="" />
+			<form-property name="schoolTerm" type="java.lang.String" initial="" />
+			<form-property name="years" type="java.lang.String[]" initial="{}" />
+			<form-property name="year" type="java.lang.String" initial="" />
+			<form-property name="kind" type="java.lang.String" initial="" />
+			<form-property name="studentNo" type="java.lang.String" initial="" />
+			<form-property name="departClass" type="java.lang.String" initial="" />
+			<form-property name="officeNo" type="java.lang.String" initial="" />
+			<form-property name="accountNo" type="java.lang.String" initial="" />
+			<form-property name="money" type="java.lang.String" initial="" />
+			<form-property name="dipostOid" type="java.lang.String" initial=""/>
+			<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+	  		<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="classLess" type="java.lang.String" />
+	   	</form-bean>
+		
+		<!-- 報表列印 -->   	
+		<form-bean name="ReportPrintFormFee" type="tw.edu.chit.struts.BaseDynaActionForm">
+ 			<form-property name="classLess" type="java.lang.String" />
+ 			<form-property name="year" type="java.lang.String[]" />
+ 			<form-property name="syear" type="java.lang.String" />
+ 	  		<form-property name="sterm" type="java.lang.String" />
+ 	  		<form-property name="printOpt" type="java.lang.String" />
+ 	  		<form-property name="campusCode" type="java.lang.String" initial=""/>
+ 	  		<form-property name="feeKind" type="java.lang.String" initial=""/>
+ 	  		<form-property name="emailTo" type="java.lang.String" initial=""/>
+ 	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+  			<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+  			<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+  			<form-property name="classInCharge2" type="java.lang.String" initial="" />
+  			<form-property name="schoolType" type="java.lang.String" initial="" />
+  			<form-property name="setupPrinter" type="java.lang.String" initial="" />
+  			<form-property name="choseType" type="java.lang.String" initial="" />
+  			<form-property name="scoreType" type="java.lang.String" initial="" />
+  			<form-property name="printInterClass" type="java.lang.String" initial="" />
+  			<form-property name="endDate" type="java.lang.String" initial="" />
+  			<form-property name="kindCode" type="java.lang.String" initial="" />
+  			<form-property name="totalMoney" type="java.lang.String" initial="" />
+  			<form-property name="counts" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<!-- 銀行繳費資料更新註冊檔 -->
+		<form-bean name="BankFeeRegister4CForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="years" type="java.lang.String[]" initial="{}"/>
+			<form-property name="year" type="java.lang.String" initial=""/>
+			<form-property name="sterm" type="java.lang.String" initial=""/>
+			<form-property name="xlsFile" type="org.apache.struts.upload.FormFile" />
+			<form-property name="campusCode" type="java.lang.String" initial=""/>
+			<form-property name="feeType" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+		<!-- 更新註冊檔(減免弱勢) -->
+		<form-bean name="ReliefVulnerableAmountForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="schoolYear" type="java.lang.String" initial=""/>
+			<form-property name="schoolTerm" type="java.lang.String" initial=""/>
+			<form-property name="regOid" type="java.lang.String" initial=""/>
+			<form-property name="idno" type="java.lang.String" initial=""/>
+			<form-property name="reliefTuitionAmount" type="java.lang.String" initial=""/>
+			<form-property name="vulnerableAmount" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+	</form-beans>    
+    
+    <action-mappings>
+    
+		<action path="/FEE/Directory"
+			type="tw.edu.chit.struts.action.fee.DirectoryAction" 
+	       	scope="request"
+		   	input="/Welcome.do">
+	    </action>  
+	    
+	    <!-- 收費代碼表維護 -->
+	    <action path="/FEE/FeeCode"
+	    	name="FeeCodeForm"
+			type="tw.edu.chit.struts.action.fee.FeeCodeAction" 
+	       	scope="session"
+		   	parameter="method">
+	    </action>  
+	    
+	    <!-- 班級學雜費資料維護 -->
+	    <action path="/FEE/ClassFee"
+	    	name="ClassFeeForm"
+			type="tw.edu.chit.struts.action.fee.ClassFeePayAction"
+	       	scope="session"
+		   	parameter="method">
+	    </action>
+	    
+	    <!-- 班級學雜費資料維護 -->
+	    <action path="/FEE/ClassFee4C"
+	    	name="ClassFeeForm"
+			type="tw.edu.chit.struts.action.fee.ClassFeePay4CAction"
+	       	scope="session"
+		   	parameter="method">
+	    </action>
+	    
+	    <!-- 銀行繳費資料更新註冊檔(學雜代辦費) -->
+	    <action path="/FEE/BankFeeRegister4C"
+	    	name="BankFeeRegister4CForm"
+			type="tw.edu.chit.struts.action.fee.BankFeeRegister4CAction"
+	       	scope="session"
+		   	parameter="method">
+	    </action>
+	    
+	    <!-- 銀行繳費資料更新註冊檔(就學貸款) -->
+	    <action path="/FEE/BankFeeRegister"
+	    	name="BankFeeRegister4CForm"
+			type="tw.edu.chit.struts.action.fee.BankFeeRegisterAction"
+	       	scope="session"
+		   	parameter="method">
+	    </action>
+	    
+	    <!-- 更新註冊檔(減免弱勢) -->
+	    <action path="/FEE/ReliefVulnerableAmount"
+	    	name="ReliefVulnerableAmountForm"
+			type="tw.edu.chit.struts.action.fee.ReliefVulnerableAmountAction"
+	       	scope="session"
+		   	parameter="method">
+	    </action>
+	    
+	    <!-- 班級學雜費資料維護 -->
+	    <action path="/FEE/ClassFee4C"
+	    	name="ClassFeeForm"
+			type="tw.edu.chit.struts.action.fee.ClassFeePay4CAction"
+	       	scope="session"
+		   	parameter="method">
+	    </action>
+	    
+	    <!-- 虛擬帳號維護 -->
+	    <action path="/FEE/BankFeePay"
+	    	name="BankFeePayForm"
+			type="tw.edu.chit.struts.action.fee.BankFeePayAction" 
+	       	scope="session"
+		   	parameter="method">
+	    </action>
+	    
+	    <!-- 學生轉帳資料輸入  -->
+ 	    <action path="/FEE/StdTransferAccount"
+ 	    	name="StdTransferAccountForm"
+			type="tw.edu.chit.struts.action.fee.StdTransferAccountAction"
+	        scope="session"
+	        parameter="method">
+	    </action>
+	    
+	    <!-- 學生轉帳資料輸入  -->
+ 	    <action path="/FEE/StdTransferAccountAdd"
+ 	    	name="StdTransferAccountForm"
+			type="tw.edu.chit.struts.action.fee.StdTransferAccountAddAction"
+	        scope="session"
+	        parameter="method">
+	    </action>
+	    
+	    <!-- 學生轉帳資料查核  -->
+ 	    <action path="/FEE/StdTransferAccountCheck"
+ 	    	name="ReportPrintFormFee"
+			type="tw.edu.chit.struts.action.fee.StdTransferAccountCheckAction"
+	        scope="session"
+	        parameter="method">
+	    </action>
+	    
+	    <!-- 報表列印 -->
+	    <action path="/FEE/ReportPrint"
+	       name="ReportPrintFormFee"
+		   type="tw.edu.chit.struts.action.fee.ReportPrintAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 報表列印 -->
+	    <action path="/FEE/ReportPrintFee"
+	       name="ReportPrintFormFee"
+		   type="tw.edu.chit.struts.action.fee.ReportPrintFeeAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 報表列印 -->
+	    <action path="/FEE/ReportPrint4C"
+	       name="ReportPrintFormFee"
+		   type="tw.edu.chit.struts.action.fee.ReportPrint4CAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+    </action-mappings>
+    
+    <message-resources parameter="messages.fee" null="false" key="FEE" />
+
+</struts-config>

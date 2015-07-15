@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+    	<form-bean name="RooManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<!-- 查詢用 -->
+			<form-property name="building" type="java.lang.String" initial="" />
+			<form-property name="floor" type="java.lang.String" initial="" />
+			<form-property name="boro" type="java.lang.String" initial="" />
+			
+			<!-- 管理用 -->
+			<form-property name="Oid" type="java.lang.String[]" initial="" />	
+			<form-property name="checkIn" type="java.lang.String[]" initial="" />
+			<form-property name="checker" type="java.lang.String[]" initial="" />
+			
+			<!-- 申請用 -->
+			<form-property name="boro_date" type="java.lang.String" initial="" />
+			<form-property name="begin" type="java.lang.String" initial="" />
+			<form-property name="end" type="java.lang.String" initial="" />
+			<form-property name="place" type="java.lang.String" initial="" />			
+			<form-property name="boro_tel" type="java.lang.String" initial="" />
+			<form-property name="boro_mobile" type="java.lang.String" initial="" />
+			<form-property name="heads" type="java.lang.String" initial="" />
+			<form-property name="title" type="java.lang.String" initial="" />
+			<form-property name="remark" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="ListStudentForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="ClassNo" type="java.lang.String" initial="" />
+			<form-property name="ClassName" type="java.lang.String" initial="" />		
+			<form-property name="CampusNo" type="java.lang.String" initial="" />
+			<form-property name="SchoolNo" type="java.lang.String" initial="" />
+			<form-property name="SchoolType" type="java.lang.String" initial="" />
+			<form-property name="DeptNo" type="java.lang.String" initial="" />
+			<form-property name="Grade" type="java.lang.String" initial="" />
+			<form-property name="Type" type="java.lang.String" initial="" />
+			<form-property name="ShortName" type="java.lang.String" initial="" />		
+			<form-property name="week" type="java.lang.String" initial="" />
+			<form-property name="Oid" type="java.lang.String[]" />
+			<form-property name="checked" type="java.lang.String[]" />	
+			<form-property name="Types" type="java.lang.String[]" />
+		</form-bean>
+		
+		<form-bean name="ListCourseForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+		    <form-property name="term" type="java.lang.String" initial="" />
+			<form-property name="CampusNo" type="java.lang.String" initial="" />
+			<form-property name="SchoolNo" type="java.lang.String" initial="" />
+			<form-property name="DeptNo" type="java.lang.String" initial="" />
+			<form-property name="Grade" type="java.lang.String" initial="" />
+			<form-property name="ClassNo" type="java.lang.String" initial="" />			
+			<form-property name="cname" type="java.lang.String" initial="" />
+			<form-property name="week" type="java.lang.String" initial="" />
+			<form-property name="begin" type="java.lang.String" initial="" />
+			<form-property name="end" type="java.lang.String" initial="" />			
+			<form-property name="chi_name" type="java.lang.String" initial="" />
+			<form-property name="opt" type="java.lang.String" initial="" />
+			<form-property name="open" type="java.lang.String" initial="" />
+			<form-property name="elearning" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		
+		<form-bean name="MailManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<!-- 查詢 -->
+			
+			<form-property name="subject" type="java.lang.String" initial="" />
+			<form-property name="content" type="java.lang.String" initial="" />		
+			<form-property name="receiver" type="java.lang.String" initial="" />
+			<form-property name="file1" type="org.apache.struts.upload.FormFile" />
+			<form-property name="file2" type="org.apache.struts.upload.FormFile" />
+			<form-property name="file3" type="org.apache.struts.upload.FormFile" />
+			<form-property name="file4" type="org.apache.struts.upload.FormFile" />
+			<form-property name="file5" type="org.apache.struts.upload.FormFile" />
+			
+		</form-bean>
+		
+		<form-bean name="DemandManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+		
+		</form-bean>
+		
+		<form-bean name="MyCsTableForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+		
+		</form-bean>
+		
+    
+    </form-beans>    
+    
+	<action-mappings>    		     		
+	     
+	   <!-- 教室借用管理 -->
+		<action path="/Personnel/RooManager"
+	       name="RooManagerForm"
+		   type="tw.edu.chit.struts.action.publicAccess.RooManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 學生人數清單 -->
+		<action path="/Personnel/ListStudent"
+	       name="ListStudentForm"
+		   type="tw.edu.chit.struts.action.publicAccess.ListStudentAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 學生人數清單 -->
+		<action path="/Personnel/ListCourse"
+	       name="ListCourseForm"
+		   type="tw.edu.chit.struts.action.publicAccess.ListCourseAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 群組訊息通訊錄 -->
+		<action path="/Personnel/MailManager"
+	       name="MailManagerForm"
+		   type="tw.edu.chit.struts.action.publicAccess.MailManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 需求管理 -->
+		<action path="/PublicAccess/DemandManager"
+	       name="DemandManagerForm"
+		   type="tw.edu.chit.struts.action.publicAccess.DemandManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 課表查詢 -->
+		<action path="/PublicAccess/MyCsTable"
+	       name="MyCsTableForm"
+		   type="tw.edu.chit.struts.action.publicAccess.MyCsTableAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	     <!-- 編輯行事曆 -->
+	     <action path="/editCalendar"
+		   type="tw.edu.chit.struts.action.course.ajax.editCalendar"
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	</action-mappings>
+</struts-config>
+
+

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+	   	
+	   	<!-- 差勤設定維護_假別資料維護 -->
+		<form-bean name="AskLeaveForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="AL_id" type="java.lang.String" initial="" />
+			<form-property name="AL_name" type="java.lang.String" initial="" />
+			<form-property name="score" type="java.lang.String" initial="" />			
+		</form-bean>
+		
+		<!-- 差勤設定維護_特殊日期設定 -->
+		<form-bean name="HolidayForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="Oid" type="java.lang.String" initial="" />
+			<form-property name="date_s" type="java.lang.String" initial="" />
+			<form-property name="date_e" type="java.lang.String" initial="" />
+			<form-property name="name" type="java.lang.String" initial="" />
+			<form-property name="type" type="java.lang.String" initial="" />
+			<form-property name="startTime" type="java.lang.String" initial="" />
+			<form-property name="endTime" type="java.lang.String" initial="" />
+			<form-property name="emplType" type="java.lang.String" initial="" />
+			<form-property name="saveType" type="java.lang.String" initial="" />
+			<form-property name="sdate" type="java.lang.String" initial="" />
+			<form-property name="edate" type="java.lang.String" initial="" />				
+		</form-bean>
+	   	
+	   	<form-bean name="ShiftManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="id" type="java.lang.String[]" initial="" />
+			<form-property name="name" type="java.lang.String[]" initial="" />
+			<form-property name="in1" type="java.lang.String[]" initial="" />
+			<form-property name="in2" type="java.lang.String[]" initial="" />
+			<form-property name="in3" type="java.lang.String[]" initial="" />
+			<form-property name="in4" type="java.lang.String[]" initial="" />
+			<form-property name="in5" type="java.lang.String[]" initial="" />
+			<form-property name="in6" type="java.lang.String[]" initial="" />
+			<form-property name="in7" type="java.lang.String[]" initial="" />
+			<form-property name="out1" type="java.lang.String[]" initial="" />
+			<form-property name="out2" type="java.lang.String[]" initial="" />
+			<form-property name="out3" type="java.lang.String[]" initial="" />
+			<form-property name="out4" type="java.lang.String[]" initial="" />
+			<form-property name="out5" type="java.lang.String[]" initial="" />
+			<form-property name="out6" type="java.lang.String[]" initial="" />
+			<form-property name="out7" type="java.lang.String[]" initial="" />
+	   	</form-bean>
+	   	
+	   	<!-- 差勤紀錄 -->
+		<form-bean name="AmsInfoForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="fromYears" type="java.lang.String[]" initial="" />
+			<form-property name="fromYear" type="java.lang.String" initial="" />
+			<form-property name="fromMonth" type="java.lang.String" initial="" />
+			<form-property name="fromDays" type="java.lang.String[]" initial="" />
+			<form-property name="fromDay" type="java.lang.String" initial="" />
+			<form-property name="toYears" type="java.lang.String[]" initial="" />
+			<form-property name="toYear" type="java.lang.String" initial="" />
+			<form-property name="toMonth" type="java.lang.String" initial="" />
+			<form-property name="toDays" type="java.lang.String[]" initial="" />
+			<form-property name="toDay" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="EmplShiftManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">			
+			<form-property name="sidno" type="java.lang.String" initial="" />
+			<form-property name="sunit" type="java.lang.String" initial="" />
+			<form-property name="fscname" type="java.lang.String" initial="" />			
+			<form-property name="startDate" type="java.lang.String" initial="" />
+			<form-property name="endDate" type="java.lang.String" initial="" />			
+			<form-property name="idno" type="java.lang.String" initial="" />
+			<form-property name="wdate" type="java.lang.String[]" initial="" />
+			<form-property name="set_in" type="java.lang.String[]" initial="" />
+			<form-property name="set_out" type="java.lang.String[]" initial="" />
+    	</form-bean>
+    	
+		<form-bean name="DocManagerForm" 		type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="opmode" 		type="java.lang.String" initial="" />
+			<form-property name="docType" 		type="java.lang.String" initial="" />
+			<form-property name="oid"			type="java.lang.String" initial="" />
+			<form-property name="idno" 			type="java.lang.String" initial="" />
+			<form-property name="fscname" 		type="java.lang.String" initial="" />			
+			<form-property name="reason" 		type="java.lang.String" initial="" />
+			
+			<form-property name="startYear" 	type="java.lang.String" initial="" />
+			<form-property name="startMonth" 	type="java.lang.String" initial="" />
+			<form-property name="startDay" 		type="java.lang.String" initial="" />
+			<form-property name="startHour" 	type="java.lang.String" initial="" />
+			<form-property name="startMinute" 	type="java.lang.String" initial="" />
+						
+			<form-property name="endYear" 		type="java.lang.String" initial="" />
+			<form-property name="endMonth" 		type="java.lang.String" initial="" />
+			<form-property name="endDay" 		type="java.lang.String" initial="" />
+			<form-property name="endHour" 		type="java.lang.String" initial="" />
+			<form-property name="endMinute" 	type="java.lang.String" initial="" />
+
+			<form-property name="totalHour" 	type="java.lang.String" initial="" />
+			<form-property name="totalDay" 		type="java.lang.String" initial="" />
+			<form-property name="totalMinute" 	type="java.lang.String" initial="" />
+			
+ 			<!-- ask for leave use -->
+			<form-property name="askLeaveType" 	type="java.lang.String" initial="" />
+			<form-property name="teachPeriod" 	type="java.lang.String" initial="" />
+			<form-property name="agent" 		type="java.lang.String" initial="" />
+			<form-property name="memo" 			type="java.lang.String" initial="" />
+
+    	</form-bean>
+    	
+    	<form-bean name="EmplStaticShiftManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="sid" type="java.lang.String" initial="" />
+			<form-property name="sidno" type="java.lang.String" initial="" />
+			<form-property name="sunit" type="java.lang.String" initial="" />
+			<form-property name="fscname" type="java.lang.String" initial="" />				
+			
+			<form-property name="id" type="java.lang.String[]" initial="" />
+			<form-property name="idno" type="java.lang.String[]" initial="" />
+			<form-property name="startDate" type="java.lang.String[]" initial="" />
+			<form-property name="endDate" type="java.lang.String[]" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="EmplHolidayManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="sid" type="java.lang.String" initial="" />
+			<form-property name="sidno" type="java.lang.String" initial="" />
+			<form-property name="sunit" type="java.lang.String" initial="" />
+			<form-property name="fscname" type="java.lang.String" initial="" />
+			<form-property name="vType" type="java.lang.String" initial="" />
+			<form-property name="AdateStart" type="java.lang.String" initial="" />
+			<form-property name="AdateEnd" type="java.lang.String" initial="" />		
+			
+			<form-property name="vTypes" type="java.lang.String[]" initial="" />
+			<form-property name="idnos" type="java.lang.String[]" initial="" />
+			<form-property name="vYears" type="java.lang.String[]" initial="" />
+			<form-property name="dayss" type="java.lang.String[]" initial="" />			
+			<form-property name="validFroms" type="java.lang.String[]" initial="" />
+			<form-property name="validTos" type="java.lang.String[]" initial="" />
+			<form-property name="Oid" type="java.lang.String[]" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="EmplStaticWorkManageForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="sid" type="java.lang.String" initial="" />
+			<form-property name="sidno" type="java.lang.String" initial="" />
+			<form-property name="sunit" type="java.lang.String" initial="" />
+			<form-property name="fscname" type="java.lang.String" initial="" />			
+			<form-property name="WorkShift" type="java.lang.String[]" initial="" />
+			<form-property name="idno" type="java.lang.String[]" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="DocExamineForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="sn" type="java.lang.String" initial="" />
+    		<form-property name="force" type="java.lang.String" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="AmeMeetingForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="schoolYear" type="java.lang.String" initial=""/>
+    		<form-property name="years" type="java.lang.String[]" initial="{}"/>
+    		<form-property name="schoolTerm" type="java.lang.String" initial=""/>
+    		<form-property name="meetingDate" type="java.lang.String" initial=""/>
+    		<form-property name="meetingName" type="java.lang.String" initial=""/>
+    		<form-property name="startNode" type="java.lang.String" initial=""/>
+    		<form-property name="endNode" type="java.lang.String" initial=""/>
+    		<form-property name="emplType" type="java.lang.String" initial=""/>
+    		<form-property name="base" type="java.lang.String" initial=""/>
+    	</form-bean>
+    	
+    	<!-- 差勤設定維護_人工補登 -->
+		<form-bean name="ArtificialInputForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="sidno" type="java.lang.String" initial="" />
+			<form-property name="sunit" type="java.lang.String" initial="" />
+			<form-property name="fscname" type="java.lang.String" initial="" />			
+			<form-property name="startDate" type="java.lang.String" initial="" />
+			<form-property name="endDate" type="java.lang.String" initial="" />			
+			<form-property name="idno" type="java.lang.String[]" initial="" />
+			<form-property name="wdate" type="java.lang.String[]" initial="" />
+			<form-property name="set_in" type="java.lang.String[]" initial="" />
+			<form-property name="set_out" type="java.lang.String[]" initial="" />
+			<form-property name="saveType" type="java.lang.String[]" initial="" />			
+		</form-bean>
+		
+		<!-- 報表列印 -->   	
+		<form-bean name="AmsReportPrintForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+  			<form-property name="classLess" type="java.lang.String" />
+  			<form-property name="year" type="java.lang.String[]" />
+  	  		<form-property name="sterm" type="java.lang.String" />
+  	  		<form-property name="printOpt" type="java.lang.String" />
+  	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+	  		<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolType" type="java.lang.String" initial="" />
+	  		<form-property name="setupPrinter" type="java.lang.String" initial="" />
+	  		<form-property name="choseType" type="java.lang.String" initial="" />
+	  		<form-property name="scoreType" type="java.lang.String" initial="" />
+	  		<form-property name="printInterClass" type="java.lang.String" initial="" />
+	  		<form-property name="startDate" type="java.lang.String" initial="" />
+	  		<form-property name="endDate" type="java.lang.String" initial="" />
+	  		<form-property name="unitCode" type="java.lang.String" initial="" />
+	  		<form-property name="unitCodes" type="java.lang.String[]" initial="{}" />
+	  		<form-property name="unitNames" type="java.lang.String[]" initial="{}" />
+	  		<form-property name="cname2" type="java.lang.String" initial="" />
+	  		<form-property name="conditionCode" type="java.lang.String" initial="" />
+	  		<form-property name="conditionTimes" type="java.lang.String" initial="" />
+		</form-bean>
+    	
+    	<!-- 差勤設定維護_集會出席狀況維護 -->
+		<form-bean name="MeetingAttendForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="smeeting" type="java.lang.String" initial="" />
+			<form-property name="sunit" type="java.lang.String" initial="" />		
+			<form-property name="Idno" type="java.lang.String[]" initial="" />
+			<form-property name="MeetingOid" type="java.lang.String[]" initial="" />
+			<form-property name="Status" type="java.lang.String[]" initial="" />				
+		</form-bean>
+		
+		<!-- 差勤設定維護_重大集會請假單 -->
+		<form-bean name="MeetingAskLeaveForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="Oid"        type="java.lang.String" initial="" />
+			<form-property name="userIdno"   type="java.lang.String" initial="" />
+			<form-property name="meetingOid" type="java.lang.String" initial="" />
+			<form-property name="askleaveId" type="java.lang.String" initial="" />		
+			<form-property name="Temp"       type="java.lang.String" initial="" />
+			<form-property name="askCode"    type="java.lang.String" initial="" />
+			<form-property name="Status"     type="java.lang.String" initial="" />				
+		</form-bean>
+		
+		<form-bean name="Empl7ShiftManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="id" type="java.lang.String" initial="" />
+			<form-property name="name" type="java.lang.String" initial="" />			
+			<form-property name="startDate" type="java.lang.String" initial="" />
+			<form-property name="endDate" type="java.lang.String" initial="" />			
+			<form-property name="in1" type="java.lang.String" initial="" />
+			<form-property name="in2" type="java.lang.String" initial="" />
+			<form-property name="in3" type="java.lang.String" initial="" />
+			<form-property name="in4" type="java.lang.String" initial="" />
+			<form-property name="in5" type="java.lang.String" initial="" />
+			<form-property name="in6" type="java.lang.String" initial="" />
+			<form-property name="in7" type="java.lang.String" initial="" />
+			<form-property name="out1" type="java.lang.String" initial="" />
+			<form-property name="out2" type="java.lang.String" initial="" />
+			<form-property name="out3" type="java.lang.String" initial="" />
+			<form-property name="out4" type="java.lang.String" initial="" />
+			<form-property name="out5" type="java.lang.String" initial="" />
+			<form-property name="out6" type="java.lang.String" initial="" />
+			<form-property name="out7" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="EmplAmsInfoForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="txtUserInput" type="java.lang.String" />
+			<form-property name="startDate" type="java.lang.String" initial="" />
+	  		<form-property name="endDate" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="CheckOvertimeForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="id" type="java.lang.String" initial="" />
+			<form-property name="name" type="java.lang.String" initial="" />
+			<form-property name="begin" type="java.lang.String" initial="" />
+			<form-property name="end" type="java.lang.String" initial="" />
+	  		<form-property name="start" type="java.lang.String" initial="" />
+	  		<form-property name="over" type="java.lang.String" initial="" />
+	  		<form-property name="shiftime" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="LeaveDocManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="Oid" type="java.lang.String[]" initial="" />
+			<form-property name="empl_id" type="java.lang.String[]" initial="" />
+			<form-property name="empl_name" type="java.lang.String[]" initial="" />
+			<form-property name="unit_id" type="java.lang.String[]" initial="" />
+		</form-bean>
+		
+		
+	</form-beans>    
+    
+    <action-mappings>
+	    <action path="/AMS/Directory"
+		   type="tw.edu.chit.struts.action.AMS.DirectoryAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action> 	        
+	    
+	    <action path="/AMS/DocApplyMain"
+		   type="tw.edu.chit.struts.action.AMS.DocApplyMainAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 差勤設定維護 -->
+	    <action path="/AMS/InfoManager"	       
+		   type="tw.edu.chit.struts.action.AMS.InfoManagerAction"
+	       scope="request"
+	       input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 差勤設定維護_假別資料維護 -->
+	    <action path="/AMS/AskLeave"
+	       name="AskLeaveForm"
+		   type="tw.edu.chit.struts.action.AMS.AskLeaveAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+
+	    <!-- 差勤設定維護_特殊日期設定 -->
+	    <action path="/AMS/Holiday"
+	       name="HolidayForm"
+		   type="tw.edu.chit.struts.action.AMS.HolidayAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+
+	    <!-- 班表索引頁 -->
+	    <action path="/AMS/ShiftDirectory"
+		   type="tw.edu.chit.struts.action.AMS.shift.ShiftDirectoryAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+
+	    <!-- 班別管理 -->
+	    <action path="/AMS/ShiftManager"
+	       name="ShiftManagerForm"
+		   type="tw.edu.chit.struts.action.AMS.shift.ShiftManagerAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤紀錄  -->
+	    <action path="/AMS/AmsInfo"
+	       name="AmsInfoForm"
+		   type="tw.edu.chit.struts.action.AMS.AmsInfoAction"
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 個人班表管理  -->
+	    <action path="/AMS/EmplShiftManager"
+	       name="EmplShiftManagerForm"
+		   type="tw.edu.chit.struts.action.AMS.shift.EmplShiftManagerAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤申請單據資料維護 -->
+	    <action path="/AMS/DocManager"
+	       name="DocManagerForm"
+		   type="tw.edu.chit.struts.action.AMS.DocManagerAction"
+	       scope="request"
+	       parameter="method">
+		   <forward name="back" path="/AMS/Directory.do"/>
+	    </action>
+	    
+	    <!-- 固定班別管理 -->
+	    <action path="/AMS/EmplStaticShiftManager"
+	       name="EmplStaticShiftManagerForm"
+		   type="tw.edu.chit.struts.action.AMS.shift.EmplStaticShiftManagerAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 休假日數管理 -->
+	    <action path="/AMS/EmplHolidayManager"
+	       name="EmplHolidayManagerForm"
+		   type="tw.edu.chit.struts.action.AMS.shift.EmplHolidayManagerAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 固定班別管理 -->
+	    <action path="/AMS/EmplStaticWorkManager"
+	       name="EmplStaticWorkManageForm"
+		   type="tw.edu.chit.struts.action.AMS.shift.EmplStaticWorkManageAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤申請單據審查 -->
+	    <action path="/AMS/DocExamine"
+	       name="DocExamineForm"
+		   type="tw.edu.chit.struts.action.AMS.DocExamineAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤設定維護_人工補登 -->
+	    <action path="/AMS/ArtificialInput"
+	       name="ArtificialInputForm"
+		   type="tw.edu.chit.struts.action.AMS.ArtificialInputAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤設定維護_重要集會維護 -->
+	    <action path="/AMS/AmsMeeting"
+	       name="AmeMeetingForm"
+		   type="tw.edu.chit.struts.action.AMS.AmsMeetingAction"
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 報表列印 -->
+	    <action path="/AMS/ReportPrint"
+	       name="AmsReportPrintForm"
+		   type="tw.edu.chit.struts.action.AMS.ReportPrintAction"
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤紀錄查詢 -->
+	    <action path="/AMS/EmplAmsInfo"
+	       name="EmplAmsInfoForm"
+		   type="tw.edu.chit.struts.action.AMS.EmplAmsInfoAction"
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤設定維護_集會出席狀況維護 -->
+	    <action path="/AMS/MeetingAttend"
+	       name="MeetingAttendForm"
+		   type="tw.edu.chit.struts.action.AMS.MeetingAttendAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 重要集會請假單審查 -->
+	    <action path="/AMS/DocMeetingExamine"
+	       name="DocExamineForm"
+		   type="tw.edu.chit.struts.action.AMS.DocMeetingExamineAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 差勤設定維護_重大集會請假單 -->
+	    <action path="/AMS/MeetingAskLeave"
+	       name="MeetingAskLeaveForm"
+		   type="tw.edu.chit.struts.action.AMS.MeetingAskLeaveAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 每週個人排班管理 -->
+	    <action path="/AMS/Empl7ShiftManager"
+	       name="Empl7ShiftManagerForm"
+		   type="tw.edu.chit.struts.action.AMS.shift.Empl7ShiftManagerAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 超時 -->
+	    <action path="/AMS/CheckOvertime"
+	       name="CheckOvertimeForm"
+		   type="tw.edu.chit.struts.action.AMS.CheckOvertimeAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 審核者管理 -->
+	    <action path="/AMS/LeaveDocManager"
+	       name="LeaveDocManagerForm"
+		   type="tw.edu.chit.struts.action.AMS.doc.LeaveDocManagerAction"
+	       scope="request"
+	       parameter="method">
+	    </action>
+	    
+	    
+    </action-mappings>
+    
+    
+    
+    
+    <!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.ams" null="false" key="AMS" />
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+</struts-config>

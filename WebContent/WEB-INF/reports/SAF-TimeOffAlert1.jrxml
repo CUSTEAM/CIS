@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="SAF-TimeOffAlert1"
+		 columnCount="3"
+		 printOrder="Horizontal"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="178"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="AllSectionsNoDetail"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="studentName" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="deptClassName" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="studentNo" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="timeOffSum" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="raiseFlagSum" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="weekNo" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="schoolName" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="schoolAddress" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="serialNo" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="postNo" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="address" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parentName" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="mailLevel" isForPrompting="false" class="java.lang.String"/>
+
+	<field name="tfDate" class="java.lang.String"/>
+	<field name="raiseFlag" class="java.lang.String"/>
+	<field name="timeOff" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="22"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="85"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="40"
+						y="0"
+						width="450"
+						height="20"
+						key="textField-1"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["貴子弟 "+$P{studentName}+" 就讀本校 "+$P{deptClassName}+" ，學號 "+$P{studentNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="10"
+						y="20"
+						width="480"
+						height="20"
+						key="textField-2"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["於第 "+$P{weekNo}+" 週內曠課累計 "+$P{timeOffSum}+" 小時，"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="10"
+						y="40"
+						width="480"
+						height="20"
+						key="staticText-1"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[請督促其勿再曠課，以免影響操行成績。]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="10"
+						y="60"
+						width="480"
+						height="20"
+						key="textField-3"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["貴子弟第 "+$P{weekNo}+" 週缺況紀錄如下："]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="37"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="10"
+						y="5"
+						width="50"
+						height="16"
+						key="staticText-2"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="10" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[日  期]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="93"
+						y="5"
+						width="20"
+						height="16"
+						key="staticText-10"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[曠課]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="10"
+						y="22"
+						width="190"
+						height="13"
+						key="staticText-17"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[-----------------------------------------------------------------------------------------------------------------------]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="16"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="10"
+						y="2"
+						width="50"
+						height="14"
+						key="textField-4"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="10" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{tfDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="93"
+						y="2"
+						width="20"
+						height="14"
+						key="textField-6"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="細明體" pdfFontName="MSung-Light" size="10" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{timeOff}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="380"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="10"
+						y="4"
+						width="480"
+						height="76"
+						key="staticText-29"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[            此    致
+貴  家  長
+
+註：1. 曠課乙節扣操行０.５分
+        2. 按教育部令曠課達 45 小時勒令退學。]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="10"
+						y="134"
+						width="210"
+						height="20"
+						key="textField-13"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["From："+$P{schoolName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="10"
+						y="154"
+						width="210"
+						height="20"
+						key="textField-14"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{schoolAddress}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="10"
+						y="174"
+						width="210"
+						height="20"
+						key="textField-15"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["( " + $P{serialNo} +" )"]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement
+						x="300"
+						y="192"
+						width="140"
+						height="65"
+						key="rectangle-1">
+							<printWhenExpression><![CDATA[new Boolean($P{mailLevel}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="303"
+						y="196"
+						width="133"
+						height="19"
+						key="staticText-30">
+							<printWhenExpression><![CDATA[new Boolean($P{mailLevel}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[國內郵資已付]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="303"
+						y="215"
+						width="133"
+						height="19"
+						key="staticText-31">
+							<printWhenExpression><![CDATA[new Boolean($P{mailLevel}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[北區營收股許可證]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="303"
+						y="234"
+						width="133"
+						height="19"
+						key="staticText-32">
+							<printWhenExpression><![CDATA[new Boolean($P{mailLevel}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[北台字第17573號]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="305"
+						y="258"
+						width="130"
+						height="20"
+						key="staticText-33">
+							<printWhenExpression><![CDATA[new Boolean($P{mailLevel}.equals("1"))]]></printWhenExpression>
+						</reportElement>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[( 掛     號 )]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="50"
+						y="275"
+						width="210"
+						height="20"
+						key="textField-16"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["To："+$P{postNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="50"
+						y="295"
+						width="300"
+						height="20"
+						key="textField-17"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{address}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="50"
+						y="315"
+						width="210"
+						height="30"
+						key="textField-18"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="新細明體" pdfFontName="MHei-Medium" size="16" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parentName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="50"
+						y="354"
+						width="170"
+						height="20"
+						key="staticText-34"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[(無法投遞時請退回)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="342"
+						y="160"
+						width="50"
+						height="20"
+						key="staticText-35"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><!--<![CDATA[印 刷 品]] 20120405 依需求取消印刷品字樣 --></text>
+				</staticText>
+			</band>
+		</summary>
+</jasperReport>

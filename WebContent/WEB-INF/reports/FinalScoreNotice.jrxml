@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="FinalScoreNotice"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="537"
+		 columnSpacing="0"
+		 leftMargin="29"
+		 rightMargin="29"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="AllSectionsNoDetail"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<style 
+		name="ScoreNotPassStyle"
+		isDefault="false"
+		mode="Opaque"
+		isStyledText="true"
+	>
+
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean(Float.parseFloat($F{score}) < Float.parseFloat($P{PASSSCORE}))]]></conditionExpression>
+			<style 
+				isDefault="false"
+				forecolor="#FF0000"
+				isStyledText="true"
+			/>
+		</conditionalStyle>
+	</style>
+	<style 
+		name="TotalScoreNotPassStyle"
+		isDefault="false"
+		mode="Opaque"
+		isStyledText="true"
+	>
+
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean(Float.parseFloat($P{I}) < Float.parseFloat($P{PASSSCORE}))]]></conditionExpression>
+			<style 
+				isDefault="false"
+				forecolor="#FF0000"
+				isStyledText="true"
+			/>
+		</conditionalStyle>
+	</style>
+	<style 
+		name="BehaviousNotPassStyle"
+		isDefault="false"
+	>
+
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean(Float.parseFloat($P{J}) < 60.0F)]]></conditionExpression>
+			<style 
+				name="BehaviousNotPassStyle"
+				isDefault="false"
+				forecolor="#FF0000"
+				isStyledText="true"
+			/>
+		</conditionalStyle>
+	</style>
+
+	<parameter name="A" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="B" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="C" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="D" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="E" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="F" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="G" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="H" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="I" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="J" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="K" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="L" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="M" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="N" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="O" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="PASSSCORE" isForPrompting="false" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["60"]]></defaultValueExpression>
+	</parameter>
+
+	<field name="courseName" class="java.lang.String"/>
+	<field name="credit" class="java.lang.String"/>
+	<field name="opt" class="java.lang.String"/>
+	<field name="score" class="java.lang.String"/>
+	<field name="interClass" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="52"  isSplitAllowed="true" >
+				<elementGroup><!--  Start: 1 !-->
+				<elementGroup><!--  Start: 1.2 !-->
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="138"
+						y="9"
+						width="258"
+						height="20"
+						key="textField-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["中華科技大學" + $P{A} + "校區"]]></textFieldExpression>
+				</textField>
+				</elementGroup><!-- End 1.2 !-->
+				</elementGroup><!-- End 1 !-->
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="401"
+						y="16"
+						width="101"
+						height="18"
+						key="textField-3"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["日期：" + new SimpleDateFormat("yyyy/MM/dd", Locale.TAIWAN).format(new Date())]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="76"
+						y="28"
+						width="383"
+						height="20"
+						key="textField-4"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{B} + "學年度第" + $P{C} + "學期學生學期成績單"]]></textFieldExpression>
+				</textField>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="25"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="352"
+						y="3"
+						width="139"
+						height="20"
+						key="textField-6"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["姓 名：" + $P{G}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="216"
+						y="3"
+						width="132"
+						height="20"
+						key="textField-7"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["學 號：" + $P{F}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="40"
+						y="3"
+						width="176"
+						height="20"
+						key="textField-8"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["班 級：" + $P{E}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="25"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="76"
+						y="3"
+						width="153"
+						height="20"
+						key="staticText-7"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isUnderline="true" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[ 科   目   名   稱 ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="379"
+						y="3"
+						width="63"
+						height="20"
+						key="staticText-8"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isUnderline="true" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[ 學  分 ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="308"
+						y="3"
+						width="63"
+						height="20"
+						key="staticText-9"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isUnderline="true" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[ 選  別 ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="237"
+						y="3"
+						width="63"
+						height="20"
+						key="staticText-10"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isUnderline="true" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[ 成  績 ]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="16"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="86"
+						y="1"
+						width="143"
+						height="14"
+						key="textField-17"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="10" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{courseName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="378"
+						y="1"
+						width="63"
+						height="14"
+						key="textField-19"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="10" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{credit}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="ScoreNotPassStyle"
+						mode="Opaque"
+						x="237"
+						y="1"
+						width="63"
+						height="14"
+						key="textField-20"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" isStyledText="true">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="10" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{score}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="307"
+						y="1"
+						width="63"
+						height="14"
+						key="textField-21"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="10" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{opt}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="168"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="75"
+						y="1"
+						width="115"
+						height="20"
+						key="staticText-12"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[共 修 學 分 數:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="267"
+						y="1"
+						width="113"
+						height="20"
+						key="staticText-13"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[實 得 學 分 數:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="403"
+						y="149"
+						width="73"
+						height="19"
+						key="staticText-14"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[教務處]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="75"
+						y="20"
+						width="115"
+						height="20"
+						key="staticText-17"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[學 業 總 平 均:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="267"
+						y="20"
+						width="74"
+						height="20"
+						key="staticText-18"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[名     次:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="75"
+						y="38"
+						width="115"
+						height="20"
+						key="staticText-19"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[操  行  成  績:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="71"
+						y="59"
+						width="464"
+						height="20"
+						key="staticText-20"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[1.學期學業成績不及格科目之學分數連續兩學期達二分之ㄧ者，應予退學。   ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="71"
+						y="73"
+						width="461"
+						height="19"
+						key="staticText-21"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[2.成績如有錯誤，應於收到本單後兩週內，向註冊組申請更正。]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="194"
+						y="1"
+						width="40"
+						height="20"
+						key="textField-9"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{H}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="345"
+						y="20"
+						width="151"
+						height="20"
+						key="textField-11"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{L}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="BehaviousNotPassStyle"
+						x="194"
+						y="38"
+						width="40"
+						height="20"
+						key="textField-12"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{J}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						style="TotalScoreNotPassStyle"
+						x="194"
+						y="20"
+						width="40"
+						height="20"
+						key="textField-13"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{I}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="384"
+						y="1"
+						width="44"
+						height="20"
+						key="textField-14"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{K}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="71"
+						y="89"
+						width="431"
+						height="19"
+						key="staticText-22"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[3.學生在校期間可點選(學生資訊系統之我的成績)，預先瞭解自己取得成績]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="38"
+						y="59"
+						width="33"
+						height="20"
+						key="staticText-37"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[註：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="71"
+						y="117"
+						width="190"
+						height="19"
+						key="staticText-39"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[4.退學生不得參加暑修。]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="70"
+						y="104"
+						width="280"
+						height="19"
+						key="staticText-40"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[  之資訊，做為選課時修、退選之參考。]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="71"
+						y="130"
+						width="461"
+						height="19"
+						key="staticText-44"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[5.依本校大學部學則第十四條規定：學生如重讀已修習成績及格而名稱相同之科目者]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="71"
+						y="147"
+						width="280"
+						height="16"
+						key="staticText-45"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="12" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[  ，其原修習名稱相同之該一科目，應予註銷。]]></text>
+				</staticText>
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="269"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="51"
+						y="36"
+						width="33"
+						height="19"
+						key="staticText-23"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[115]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="51"
+						y="55"
+						width="162"
+						height="20"
+						key="staticText-24"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[中華科技大學教務處]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="51"
+						y="75"
+						width="229"
+						height="19"
+						key="staticText-25"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[台北市南港區研究院路三段245號]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="111"
+						y="94"
+						width="213"
+						height="19"
+						key="staticText-26"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[電話：(02)2782-1862 分機125]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="51"
+						y="94"
+						width="52"
+						height="19"
+						key="staticText-27"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[註冊組]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="54"
+						y="119"
+						width="134"
+						height="0"
+						key="line-3"/>
+					<graphicElement stretchType="NoStretch" pen="1Point"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="54"
+						y="177"
+						width="134"
+						height="0"
+						key="line-4"/>
+					<graphicElement stretchType="NoStretch" pen="1Point"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="54"
+						y="119"
+						width="0"
+						height="58"
+						key="line-5"/>
+					<graphicElement stretchType="NoStretch" pen="1Point"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="187"
+						y="119"
+						width="0"
+						height="58"
+						key="line-6"/>
+					<graphicElement stretchType="NoStretch" pen="1Point"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="54"
+						y="119"
+						width="133"
+						height="19"
+						key="staticText-28"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[國內郵資已付]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="54"
+						y="138"
+						width="133"
+						height="19"
+						key="staticText-29"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[北區營收股許可證]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="54"
+						y="157"
+						width="133"
+						height="19"
+						key="staticText-30"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[北台字第17573號]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="37"
+						y="19"
+						width="488"
+						height="0"
+						key="line-7"/>
+					<graphicElement stretchType="NoStretch" pen="Dotted"/>
+				</line>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="111"
+						y="185"
+						width="39"
+						height="20"
+						key="textField-10"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{M}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="111"
+						y="225"
+						width="191"
+						height="20"
+						key="textField-15"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{O} + "  先生/小姐收"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="111"
+						y="205"
+						width="359"
+						height="20"
+						key="textField-16"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Left">
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isBold="false" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{N}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="145"
+						y="36"
+						width="47"
+						height="19"
+						key="staticText-38"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="MHei-Medium" size="14" isPdfEmbedded ="true" pdfEncoding ="UniCNS-UCS2-H"/>
+					</textElement>
+				<text><![CDATA[印刷品]]></text>
+				</staticText>
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

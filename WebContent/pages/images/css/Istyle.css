@@ -1,0 +1,548 @@
+input[type=text] {
+	font-size:18px;
+}
+
+input.text {
+	font-size:18px;
+}
+
+#menu {
+	position: relative;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	padding: 2px;
+	margin: 0px;
+	list-style: none;
+}
+
+/*li ul {
+	position: relative;
+	display: none;
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+*/
+li {
+	position: relative;
+	background-color: #ffffff;
+	/*border:0px solid black;*/
+	padding: 1px;
+	margin: 0px;
+	color: #000000;
+}
+
+.subMenu {
+	background-repeat: no-repeat;
+}
+
+.click {
+	background-color: #abb8c9;
+	/*color:#fffab5; <===font color*/
+}
+
+.click ul {
+	display: block;
+}
+
+.hover,ul li a:hover {
+	cursor: pointer;
+	background-color: #abb8c9;
+	/*color:#FFFAB5; <===font color*/
+}
+
+li ul li.hover,li ul li.hover a:hover {
+	background-color: #E6F2CC;
+}
+
+li a {
+	width: 100%;
+}
+
+li a,li ul li a,li.hover ul li a {
+	text-decoration: none;
+	color: #000000;
+}
+
+li.hover a,li ul li.hover a { /*color:#fffab5; <===font color*/
+	text-decoration: underline;
+}
+
+.dbMenu {
+	width: 10em;
+}
+
+.dbMenu .subMenu {
+	background-image: url('down.gif');
+	background-position: bottom right;
+}
+
+.dbMenu .click {
+	background-image: none;
+}
+
+.modulecontainer {
+	padding: 0 8px;
+}
+
+.modulecontainer div {
+	border-style: solid;
+	border-width: 1px;
+	margin: -2px -8px;
+	height: 1em;
+}
+
+html.body .modulecontainer div {
+	height: auto;
+}
+
+.modulecontainer div div {
+	border-style: none;
+	border-width: 0;
+	margin: 0;
+}
+
+.modulecontainer .first,.modulecontainer .last {
+	position: relative;
+	height: 8px;
+	margin: 0;
+}
+
+.modulecontainer .first {
+	border-width: 1px 0 0 0;
+}
+
+.modulecontainer .last {
+	border-width: 0 0 1px 0;
+}
+
+.modulecontainer .first .first,.modulecontainer .first .last,.modulecontainer .last .first,.modulecontainer .last .last
+	{
+	border: 0;
+	position: absolute;
+	z-index: 1;
+	width: 8px;
+	background-repeat: no-repeat;
+}
+
+.modulecontainer .first .first,.modulecontainer .last .first {
+	margin-left: -8px;
+}
+
+.modulecontainer .first .last,.modulecontainer .last .last {
+	right: 0px;
+	margin-right: -8px;
+}
+
+div.r1 {
+	margin: 0 0 0 5px
+}
+
+div.r2 {
+	margin: 0 0 0 3px
+}
+
+div.r3 {
+	margin: 0 0 0 2px
+}
+
+div.rtop div.r4,div.rbottom div.r4 {
+	margin: 0 0 0 1px;
+	height: 2px
+}
+
+/*for full square.. */
+div.r1f {
+	margin: 0 5px;
+}
+
+div.r2f {
+	margin: 0 3px
+}
+
+div.r3f {
+	margin: 0 2px
+}
+
+div.r4f {
+	margin: 0 1px;
+	height: 2px
+}
+
+
+
+
+
+/*full square for msgBox*/
+.mb1, .mb2, .mb3, .mb4, .mb5, .mb6, .mb7 {display:block; overflow:hidden; font-size:0;}
+.mb1, .mb2, .mb3, .mb4, .mb5, .mb6 {height:1px;}
+.mb4, .mb5, .mb6, .mb7 {background:#FAD163; border-left:1px solid #FAD163; border-right:1px solid #FAD163;}
+
+.mb1 {margin:0 5px; background:#FAD163;}
+.mb2 {margin:0 3px; background:#FAD163;}
+.mb3 {margin:0 2px; background:#FAD163;}
+.mb4 {margin:0 1px; background:#FAD163;}
+.mb5 {margin:0 2px; background:#FAD163;}
+.mb6 {margin:0 2px; background:#FAD163;} 
+.mb7 {margin:0 1px; background:#FAD163;}
+
+/*full square for ErroRmsgBox*/
+.eb1, .eb2, .eb3, .eb4, .eb5, .eb6, .eb7 {display:block; overflow:hidden; font-size:0;}
+.eb1, .eb2, .eb3, .eb4, .eb5, .eb6 {height:1px;}
+.eb4, .eb5, .eb6, .eb7 {background:#ff7373; border-left:1px solid #ff7373; border-right:1px solid #ff7373;}
+
+.eb1 {margin:0 5px; background:#ff7373;}
+.eb2 {margin:0 3px; background:#ff7373;}
+.eb3 {margin:0 2px; background:#ff7373;}
+.eb4 {margin:0 1px; background:#ff7373;}
+.eb5 {margin:0 2px; background:#ff7373;}
+.eb6 {margin:0 2px; background:#ff7373;} 
+.eb7 {margin:0 1px; background:#ff7373;}
+
+.counterButton {
+	font: normal 10pt Arial;
+	border: 1px outset white;
+	width: 10px;
+	height: 10px;
+	background-image: url(../16-arrow-upS.png);
+}
+
+.counterButtonDown {
+	font: normal 10pt Arial;
+	border: 1px outset white;
+	width: 10px;
+	height: 10px;
+	background-image: url(../16-arrow-downS.png);
+}
+
+.addCourseButton {
+	font: normal 10pt Arial;
+	border: 1px outset white;
+	width: 110px;
+	height: 22px;
+	background-image: url(../16-clock-add.png);
+}
+
+.addTeacherButton {
+	font: normal 10pt Arial;
+	border: 1px outset white;
+	width: 120px;
+	height: 22px;
+	background-image: url(../16-teacher-add.png);
+}
+
+/*小型輸入框*/
+.smallInput {
+	height: 18px;
+	FONT-SIZE: 10px;
+	font-family: verdana, tahoma, sans-serif;
+}
+
+.smallTextarea {
+	height: 18px;
+	FONT-SIZE: 10px;
+	font-family: verdana, tahoma, sans-serif;
+}
+
+/*大型輸入框*/
+.bigInput {
+	height: 24px;
+	FONT-SIZE: 16px;
+	font-family: 微軟正黑體, Arial;
+}
+
+.bigTextarea {
+	height: 24px;
+	FONT-SIZE: 16px;
+	font-family: 微軟正黑體, Arial;
+}
+
+.bigInputOnFocus{
+	height: 24px;
+	FONT-SIZE: 16px;
+	font-family: 微軟正黑體, Arial;
+	border-width: 2px;	
+	border-style: solid;
+	border-color: #66dd55;
+}
+
+.longTextarea {
+	height: 180px;
+	FONT-SIZE: 10px;
+	font-family: verdana, tahoma, sans-serif;
+}
+
+/*焦點物件*/
+.textOnFocus{
+	border-width: 2px;	
+	border-style: solid;
+	border-color: #66dd55;
+}
+
+.textNonFocus{
+	font-size: 13.5px;
+	border-width: 2px
+}
+
+.selectOnFocus{
+	border-style:solid; 
+	border-width:1px; 
+	border-color: #66dd55;"
+
+}
+
+.selectNonFocus{ 
+	border-style:solid; 
+	border-width:0px; 
+	border-color: #000000;"
+}
+
+input.colorInput { 
+	height: 24px;
+	border: none;
+	background: url(../input.gif); 
+	padding: 4px; 
+}
+td.colorInput {	
+	background: url(../input.gif); 	
+}
+input.gSubmit{
+	background-image:url(../portfolioSubmit.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:82px; 
+	height:26px; 
+	border: 0px;
+	font-size:16px; font-weight:bold;
+	color:#ffffff;
+}
+input.gCancel{
+	background-image:url(../portfolioCancel.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:82px; 
+	height:26px; 
+	border: 0px;
+	font-size:16px; font-weight:bold;
+	color:#ffffff;
+}
+input.gCancle{
+	background-image:url(../portfolioCancel.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:82px; 
+	height:26px; 
+	border: 0px;
+	font-size:16px; font-weight:bold;
+	color:#ffffff;
+}
+input.gCancelSmall{
+	background-image:url(../portfolioSmallCancle.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:54px; 
+	height:25px; 
+	border: 0px;
+	font-size:12px;
+	color:#ffffff;
+}
+input.gSubmitlSmall{
+	background-image:url(../portfolioSmallSubmit.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:54px; 
+	height:25px; 
+	border: 0px;
+	font-size:12px;
+	color:#ffffff;
+}
+
+input.gSubmitSmall{
+	background-image:url(../portfolioSmallSubmit.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:54px; 
+	height:25px; 
+	border: 0px;
+	font-size:12px;
+	color:#ffffff;
+}
+input.gGreen{
+	background-image:url(../portfolioGreen.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:82px; 
+	height:26px; 
+	border: 0px;
+	font-size:16px; font-weight:bold;
+	color:#ffffff;
+}
+input.gGreenSmall{
+	background-image:url(../portfolioSmallGreen.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:54px; 
+	height:25px; 
+	border: 0px;
+	font-size:12px;
+	color:#ffffff;
+}
+
+.colorer {
+	background-image: url(../color_swatch.gif);
+	background-position: 1px 1px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	height: 22px;
+	FONT-SIZE: 8px;
+	border: 1px solid #CCCCCC;
+	color: #000000;
+	font-family: verdana, tahoma, sans-serif;
+	ime-mode:disabled;
+}
+
+.upInput{
+font-size:18px;
+}
+
+.ingreen {
+    text-align:left;
+    background:#f0fcd7;
+    font-size:18px;
+    border:1px solid #cfe69f;
+    position:relative;
+    padding:2px;
+    font-weight:normal;    
+}
+
+.inyel {
+    text-align:left;
+    background:#f9edbe;
+    font-size:18px;
+    border:1px solid #f0c36d;
+    position:relative;
+    padding:2px;
+    font-weight:normal;    
+}
+.inred {
+    text-align:left;
+    background:#ffe3e3;
+    font-size:18px;
+    border:1px solid #f06d6d;
+    position:relative;
+    padding:2px;
+    font-weight:normal;    
+}
+
+input.orange{
+	background-image:url(../portfolioSubmit.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:82px; 
+	height:26px; 
+	border: 0px;
+	font-size:16px; font-weight:bold;
+	color:#ffffff;
+}
+
+input.orangeSmall{
+	background-image:url(../portfolioSmallSubmit.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:54px; 
+	height:25px; 
+	border: 0px;
+	font-size:12px;
+	color:#ffffff;
+}
+
+input.blue{
+	background-image:url(../portfolioCancel.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:82px; 
+	height:26px; 
+	border: 0px;
+	font-size:16px; font-weight:bold;
+	color:#ffffff;
+}
+
+input.blueSmall{
+	background-image:url(../portfolioSmallCancle.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:54px; 
+	height:25px; 
+	border: 0px;
+	font-size:12px;
+	color:#ffffff;
+}
+
+input.green{
+	background-image:url(../portfolioGreen.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:82px; 
+	height:26px; 
+	border: 0px;
+	font-size:16px; font-weight:bold;
+	color:#ffffff;
+}
+
+input.greenSmall{
+	background-image:url(../portfolioSmallGreen.gif); 
+	background-position : center; 
+	background-repeat:no-repeat; 
+	width:54px; 
+	height:25px; 
+	border: 0px;
+	font-size:12px;
+	color:#ffffff;
+}
+
+/*陰影*/
+.outitle{
+	display:block;
+    background:#bbbbbb;
+    padding:4px;
+    text-align:left;
+}
+.out{
+    display:block;
+    background:#777777;
+    /*border:1px solid #aaaaaa;*/
+    position:relative;
+    /*margin:1em 0;*/
+    margin:5px 5px;
+}
+
+.in2{
+    display:block; 
+    background:#ffffff;
+    border:1px solid #bbbbbb;
+    position:relative;
+    padding:1px;
+    margin:1px;    
+}
+
+.in {
+    text-align:center;
+    background:#eeeeee;
+    border:1px solid #bbbbbb;
+    position:relative;
+    padding:0px;
+    font-weight:normal;
+}
+
+.ltin {
+    left:-2px;
+}
+
+.tpin {
+    top:-2px;
+}
+
+.rtin {
+    left:2px;
+}

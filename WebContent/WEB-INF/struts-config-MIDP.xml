@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<form-beans>
+	
+		<form-bean name="TeacherPointListForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+		
+		</form-bean>
+	
+	</form-beans>
+	
+	<action-mappings>
+	
+		<action path="/MIDP/Login" type="tw.edu.chit.struts.action.midp.LoginAction" scope="request"/>
+		
+		<action path="/MIDP/TeacherPointList" name="TeacherPointListForm" parameter="method"
+			type="tw.edu.chit.struts.action.midp.teacher.TeacherPointListAction" scope="request"/>
+			
+	</action-mappings>
+	
+	<message-resources parameter="messages.midp" null="false" key="MIDP" />
+
+</struts-config>

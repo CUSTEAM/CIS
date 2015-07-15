@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+
+	<form-beans>
+
+		<form-bean name="LiteracyTeacherCoursePrintForm"
+			type="tw.edu.chit.struts.BaseDynaActionForm">			
+			<!-->form-property name="scoretype" type="java.lang.String"	initial="" /-->
+		</form-bean>
+		
+		<form-bean name="DeptCourseInfoForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="term" type="java.lang.String" initial="" />
+			<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="techid" type="java.lang.String" initial="" />
+	  		<form-property name="cname" type="java.lang.String" initial="" />
+	  		<form-property name="opt1" type="java.lang.String" initial="" />
+	  		<form-property name="elearning" type="java.lang.String" initial="" />
+		</form-bean>
+
+	</form-beans>
+
+
+	<action-mappings>
+
+		<action path="/Literacy/Directory"
+			type="tw.edu.chit.struts.action.literacy.DirectoryAction"
+			scope="request" input="/Welcome.do">
+		</action>
+
+		<action path="/Literacy/LiteracyTeacherCoursePrint"
+			name="LiteracyTeacherCoursePrintForm"
+			type="tw.edu.chit.struts.action.literacy.LiteracyTeacherCoursePrintAction"
+			scope="request" parameter="method" input="/Welcome.do">
+		</action>
+		
+		<!-- 通識選課狀況 -->
+	    <action path="/Literacy/DeptCourseInfo"
+	    	name="DeptCourseInfoForm"
+		  	type="tw.edu.chit.struts.action.literacy.DeptCourseInfoAction"
+	       	scope="request"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+
+	</action-mappings>
+
+	<message-resources parameter="messages.literacy" null="false" key="LIT" />
+
+</struts-config>

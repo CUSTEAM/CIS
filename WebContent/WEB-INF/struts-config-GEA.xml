@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" 
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  
+    <!-- Form Bean Definitions -->
+
+    <form-beans>
+  		
+  		<!-- 導生查詢 -->
+      	<form-bean
+	  		name="StudentListFormG"
+	  		type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property
+	  			name="campusInCharge2"
+	  			type="java.lang.String"
+	  			initial="" />
+	  		<form-property
+	  			name="schoolInCharge2"
+	  			type="java.lang.String"
+	  			initial="" />
+	  		<form-property
+	  			name="deptInCharge2"
+	  			type="java.lang.String"
+	  			initial="" />
+	  		<form-property
+	  			name="classInCharge2"
+	  			type="java.lang.String"
+	  			initial="" />
+	   	</form-bean>			   	
+
+	</form-beans>
+	
+	<action-mappings>
+
+	    <action path="/GeneralAffair/Directory"
+		   type="tw.edu.chit.struts.action.genaffair.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>    
+	    
+	    <!-- 學生查詢 -->
+	    <action path="/GeneralAffair/StudentInfoSearch"
+	       name="StudentListFormG" 
+		   type="tw.edu.chit.struts.action.genaffair.StudentInfoSearchAction" 
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    	    	    	    
+    </action-mappings>
+
+	<!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.general" null="false" key="GEA" />
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+</struts-config>

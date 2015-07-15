@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="tw.edu.chit.model.StdLoan" table="StdLoan" catalog="CIS">
+    
+    	<id name="oid" type="java.lang.Integer" column="Oid">
+			<generator class="native">
+				<param name="sequence">stdLoan_seq</param>
+			</generator>
+		</id>
+		
+        <property name="dayNight" type="java.lang.String">
+            <column name="DayNight" length="1" not-null="true">
+                <comment>日夜間:1日間, 2夜間, 3假日</comment>
+            </column>
+        </property>
+        <property name="schlCode" type="java.lang.String">
+            <column name="SchlCode" length="1" not-null="true">
+                <comment>學制別:1博士, 2碩士, 3大學醫學系, 4二技, 5四技, 6大專, 7高中職</comment>
+            </column>
+        </property>
+        <property name="locationCode" type="java.lang.String">
+            <column name="LocationCode" length="1" not-null="true">
+                <comment>戶籍地縣市別</comment>
+            </column>
+        </property>
+        <property name="idno" type="java.lang.String">
+            <column name="Idno" length="10" not-null="true">
+                <comment>身份證字號</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="Name" length="10" not-null="true">
+                <comment>姓名</comment>
+            </column>
+        </property>
+        <property name="birth" type="java.lang.String">
+            <column name="Birth" length="7" not-null="true">
+                <comment>生日</comment>
+            </column>
+        </property>
+        <property name="merry" type="java.lang.String">
+            <column name="Merry" length="1" not-null="true">
+                <comment>婚姻狀況:1未婚, 2已婚</comment>
+            </column>
+        </property>
+        <property name="permPhoneCode" type="java.lang.String">
+            <column name="PermPhoneCode" length="3">
+                <comment>戶籍電話區域號碼</comment>
+            </column>
+        </property>
+        <property name="permPhone" type="java.lang.String">
+            <column name="PermPhone" length="15">
+                <comment>戶籍電話</comment>
+            </column>
+        </property>
+        <property name="permPhoneExt" type="java.lang.String">
+            <column name="PermPhoneExt" length="5">
+                <comment>戶籍電話分機</comment>
+            </column>
+        </property>
+        <property name="phoneCode" type="java.lang.String">
+            <column name="PhoneCode" length="3">
+                <comment>聯絡電話區域號碼</comment>
+            </column>
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="Phone" length="15">
+                <comment>聯絡電話</comment>
+            </column>
+        </property>
+        <property name="phoneExt" type="java.lang.String">
+            <column name="PhoneExt" length="5">
+                <comment>聯絡電話分機</comment>
+            </column>
+        </property>
+        <property name="cellPhone" type="java.lang.String">
+            <column name="CellPhone" length="15">
+                <comment>行動電話</comment>
+            </column>
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="Email" length="50">
+                <comment>Email</comment>
+            </column>
+        </property>
+        <property name="permAddrCode" type="java.lang.String">
+            <column name="PermAddrCode" length="5">
+                <comment>戶籍地址郵遞區號</comment>
+            </column>
+        </property>
+        <property name="permAddr" type="java.lang.String">
+            <column name="PermAddr" length="100">
+                <comment>戶籍地址</comment>
+            </column>
+        </property>
+        <property name="addrCode" type="java.lang.String">
+            <column name="AddrCode" length="5">
+                <comment>通訊地址郵遞區號</comment>
+            </column>
+        </property>
+        <property name="addr" type="java.lang.String">
+            <column name="Addr" length="100">
+                <comment>通訊地址</comment>
+            </column>
+        </property>
+        <property name="deptName" type="java.lang.String">
+            <column name="DeptName" length="15">
+                <comment>科系所別</comment>
+            </column>
+        </property>
+        <property name="grade" type="java.lang.String">
+            <column name="Grade" length="1">
+                <comment>年級</comment>
+            </column>
+        </property>
+        <property name="classCode" type="java.lang.String">
+            <column name="ClassCode" length="2">
+                <comment>班級</comment>
+            </column>
+        </property>
+        <property name="studentNo" type="java.lang.String">
+            <column name="StudentNo" length="10">
+                <comment>學號</comment>
+            </column>
+        </property>
+        <property name="graduateYearTerm" type="java.lang.String">
+            <column name="GraduateYearTerm" length="5">
+                <comment>應畢業年月</comment>
+            </column>
+        </property>
+        <property name="schoolYear" type="java.lang.String">
+            <column name="SchoolYear" length="3" not-null="true">
+                <comment>學年度</comment>
+            </column>
+        </property>
+        <property name="schoolTerm" type="java.lang.String">
+            <column name="SchoolTerm" length="1" not-null="true">
+                <comment>學期</comment>
+            </column>
+        </property>
+        <property name="supportAmount" type="java.lang.String">
+            <column name="SupportAmount" length="7" not-null="true">
+                <comment>補助金額</comment>
+            </column>
+        </property>
+        <property name="creditAmount" type="java.lang.String">
+            <column name="CreditAmount" length="7" not-null="true">
+                <comment>申貸額度</comment>
+            </column>
+        </property>
+        <property name="amount" type="java.lang.String">
+            <column name="Amount" length="7" not-null="true">
+                <comment>貸款金額</comment>
+            </column>
+        </property>
+        <property name="fatherStatus" type="java.lang.String">
+            <column name="FatherStatus" length="1">
+                <comment>父親現況:1存, 2歿, 3離異</comment>
+            </column>
+        </property>
+        <property name="fatherIsSponsor" type="java.lang.String">
+            <column name="FatherIsSponsor" length="2">
+                <comment>父親是否兼任連帶保證人</comment>
+            </column>
+        </property>
+        <property name="fatherName" type="java.lang.String">
+            <column name="FatherName" length="10">
+                <comment>父親姓名</comment>
+            </column>
+        </property>
+        <property name="fatherIdno" type="java.lang.String">
+            <column name="FatherIdno" length="10">
+                <comment>父親身份證字號</comment>
+            </column>
+        </property>
+        <property name="fatherPhoneCode" type="java.lang.String">
+            <column name="FatherPhoneCode" length="3">
+                <comment>父親聯絡電話區域號碼</comment>
+            </column>
+        </property>
+        <property name="fatherPhone" type="java.lang.String">
+            <column name="FatherPhone" length="15">
+                <comment>父親聯絡電話</comment>
+            </column>
+        </property>
+        <property name="fatherPhoneExt" type="java.lang.String">
+            <column name="FatherPhoneExt" length="5">
+                <comment>父親聯絡電話分機</comment>
+            </column>
+        </property>
+        <property name="fatherCellPhone" type="java.lang.String">
+            <column name="FatherCellPhone" length="10">
+                <comment>父親行動電話</comment>
+            </column>
+        </property>
+        <property name="fatherPermAddrCode" type="java.lang.String">
+            <column name="FatherPermAddrCode" length="5">
+                <comment>父親戶籍地址郵遞區號</comment>
+            </column>
+        </property>
+        <property name="fatherPermAddr" type="java.lang.String">
+            <column name="FatherPermAddr" length="100">
+                <comment>父親戶籍地址</comment>
+            </column>
+        </property>
+        <property name="motherStatus" type="java.lang.String">
+            <column name="MotherStatus" length="1">
+                <comment>母親現況</comment>
+            </column>
+        </property>
+        <property name="motherIsSponsor" type="java.lang.String">
+            <column name="MotherIsSponsor" length="2">
+                <comment>母親是否兼任連帶保證人</comment>
+            </column>
+        </property>
+        <property name="motherName" type="java.lang.String">
+            <column name="MotherName" length="10">
+                <comment>母親姓名</comment>
+            </column>
+        </property>
+        <property name="motherIdno" type="java.lang.String">
+            <column name="MotherIdno" length="10">
+                <comment>母親身份證字號</comment>
+            </column>
+        </property>
+        <property name="motherPhoneCode" type="java.lang.String">
+            <column name="MotherPhoneCode" length="3">
+                <comment>母親聯絡電話區域號碼</comment>
+            </column>
+        </property>
+        <property name="motherPhone" type="java.lang.String">
+            <column name="MotherPhone" length="15">
+                <comment>母親聯絡電話</comment>
+            </column>
+        </property>
+        <property name="motherPhoneExt" type="java.lang.String">
+            <column name="MotherPhoneExt" length="5">
+                <comment>母親聯絡電話分機</comment>
+            </column>
+        </property>
+        <property name="motherCellPhone" type="java.lang.String">
+            <column name="MotherCellPhone" length="10">
+                <comment>母親行動電話</comment>
+            </column>
+        </property>
+        <property name="motherPermAddrCode" type="java.lang.String">
+            <column name="MotherPermAddrCode" length="5">
+                <comment>母親戶籍地址郵遞區號</comment>
+            </column>
+        </property>
+        <property name="motherPermAddr" type="java.lang.String">
+            <column name="MotherPermAddr" length="100">
+                <comment>母親戶籍地址</comment>
+            </column>
+        </property>
+        <property name="spouseIsSponsor" type="java.lang.String">
+            <column name="SpouseIsSponsor" length="1">
+                <comment>配偶是否兼任連帶保證人</comment>
+            </column>
+        </property>
+        <property name="spouseName" type="java.lang.String">
+            <column name="SpouseName" length="10">
+                <comment>配偶姓名</comment>
+            </column>
+        </property>
+        <property name="spouseIdno" type="java.lang.String">
+            <column name="SpouseIdno" length="10">
+                <comment>配偶身份證字號</comment>
+            </column>
+        </property>
+        <property name="spousePhoneCode" type="java.lang.String">
+            <column name="SpousePhoneCode" length="3">
+                <comment>配偶聯絡電話區域號碼</comment>
+            </column>
+        </property>
+        <property name="spousePhone" type="java.lang.String">
+            <column name="spousePhone" length="15">
+                <comment>配偶聯絡電話</comment>
+            </column>
+        </property>
+        <property name="spousePhoneExt" type="java.lang.String">
+            <column name="SpousePhoneExt" length="5">
+                <comment>配偶聯絡電話分機</comment>
+            </column>
+        </property>
+        <property name="spouseCellPhone" type="java.lang.String">
+            <column name="SpouseCellPhone" length="10">
+                <comment>配偶行動電話</comment>
+            </column>
+        </property>
+        <property name="spousePermAddrCode" type="java.lang.String">
+            <column name="SpousePermAddrCode" length="5">
+                <comment>配偶戶籍地址郵遞區號</comment>
+            </column>
+        </property>
+        <property name="spousePermAddr" type="java.lang.String">
+            <column name="SpousePermAddr" length="100">
+                <comment>配偶戶籍地址</comment>
+            </column>
+        </property>
+        <property name="guardianRelational" type="java.lang.String">
+            <column name="GuardianRelational" length="2">
+                <comment>監護人關係</comment>
+            </column>
+        </property>
+        <property name="guardianName" type="java.lang.String">
+            <column name="GuardianName" length="10">
+                <comment>監護人姓名</comment>
+            </column>
+        </property>
+        <property name="guardianIdno" type="java.lang.String">
+            <column name="GuardianIdno" length="10">
+                <comment>監護人身份證字號</comment>
+            </column>
+        </property>
+        <property name="guardianPhoneCode" type="java.lang.String">
+            <column name="GuardianPhoneCode" length="3">
+                <comment>監護人聯絡電話區域號碼</comment>
+            </column>
+        </property>
+        <property name="guardianPhone" type="java.lang.String">
+            <column name="GuardianPhone" length="15">
+                <comment>監護人聯絡電話</comment>
+            </column>
+        </property>
+        <property name="guardianPhoneExt" type="java.lang.String">
+            <column name="GuardianPhoneExt" length="5">
+                <comment>監護人聯絡電話分機</comment>
+            </column>
+        </property>
+        <property name="guardianCellPhone" type="java.lang.String">
+            <column name="GuardianCellPhone" length="10">
+                <comment>監護人行動電話</comment>
+            </column>
+        </property>
+        <property name="guardianPermAddrCode" type="java.lang.String">
+            <column name="GuardianPermAddrCode" length="5">
+                <comment>監護人戶籍地址郵遞區號</comment>
+            </column>
+        </property>
+        <property name="guardianPermAddr" type="java.lang.String">
+            <column name="GuardianPermAddr" length="100">
+                <comment>監護人戶籍地址</comment>
+            </column>
+        </property>
+        <property name="sponsorRelational" type="java.lang.String">
+            <column name="SponsorRelational" length="2">
+                <comment>連帶保證人關係</comment>
+            </column>
+        </property>
+        <property name="sponsorName" type="java.lang.String">
+            <column name="SponsorName" length="10">
+                <comment>連帶保證人姓名</comment>
+            </column>
+        </property>
+        <property name="sponsorIdno" type="java.lang.String">
+            <column name="SponsorIdno" length="10">
+                <comment>連帶保證人身份證字號</comment>
+            </column>
+        </property>
+        <property name="sponsorPhoneCode" type="java.lang.String">
+            <column name="SponsorPhoneCode" length="3">
+                <comment>連帶保證人聯絡電話區域號碼</comment>
+            </column>
+        </property>
+        <property name="sponsorPhoneExt" type="java.lang.String">
+            <column name="SponsorPhoneExt" length="5">
+                <comment>連帶保證人聯絡電話分機</comment>
+            </column>
+        </property>
+        <property name="sponsorPhone" type="java.lang.String">
+            <column name="SponsorPhone" length="15">
+                <comment>連帶保證人行動電話</comment>
+            </column>
+        </property>
+        <property name="sponsorCellPhone" type="java.lang.String">
+            <column name="SponsorCellPhone" length="10">
+                <comment>連帶保證人行動電話</comment>
+            </column>
+        </property>
+        <property name="sponsorPermAddrCode" type="java.lang.String">
+            <column name="SponsorPermAddrCode" length="5">
+                <comment>連帶保證人戶籍地址郵遞區號</comment>
+            </column>
+        </property>
+        <property name="sponsorPermAddr" type="java.lang.String">
+            <column name="SponsorPermAddr" length="100">
+                <comment>連帶保證人戶籍地址</comment>
+            </column>
+        </property>
+        <property name="bankNo" type="java.lang.String">
+            <column name="BankNo" length="6" not-null="true">
+                <comment>對保編號</comment>
+            </column>
+        </property>
+        <property name="lastModified" type="java.util.Date">
+            <column name="LastModified" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,175 @@
+/*綠色佈景, 深色域=cfe69f; 淺色域=F0FCD7; */
+div#nifty {
+	margin: 0 0%;
+	background: #cfe69f
+}
+
+div.rtop,div.rbottom {
+	display: block;
+	background: #FFF
+}
+
+div.rtop div,div.rbottom div {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #cfe69f
+}
+
+/*full square for decorate page*/ /* Rounded corners */
+div.filled div {
+	border-color: #cfe69f;
+	background-color: #ffffff;
+}
+
+div.filled .first .first {
+	background-image: url(../rc_wc3c5_nw_1.gif);
+}
+
+div.filled .first .last {
+	background-image: url(../rc_wc3c5_ne_1.gif);
+}
+
+div.filled .last .first {
+	background-image: url(../rc_wc3c5_sw_1.gif);
+}
+
+div.filled .last .last {
+	background-image: url(../rc_wc3c5_se_1.gif);
+}
+
+/*full square for decorate page end*/
+td.decorate {
+	background-color: #cfe69f;
+	color: #333333;
+	FONT-FAMILY: Tahoma, Arial, Verdana;
+	font-size: 16px;
+}
+
+/* green style end */ /* bule round table style start*/
+.ds_box {
+	background-color: #FFF;
+	border: 1px solid #cfe69f;
+	position: absolute;
+	z-index: 32767;
+}
+
+.ds_tbl {
+	background-color: #FFF;
+}
+
+.ds_header {
+	background-color: #cfe69f;
+	color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: solid;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+.ds_head {
+	background-color: #F0FCD7;
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: solid;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+.ds_subhead {
+	background-color: #cfe69f;
+	color: #000;
+	font-size: 10px;
+	font-weight: solid;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 12px;
+}
+
+.ds_cell {
+	background-color: #F0FCD7;
+	color: #000;
+	font-size: 10px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 0px;
+	cursor: pointer;
+}
+
+.ds_cell:hover {
+	background-color: #cfe69f;
+}  /* This hover code won't work for IE */
+.transparent {
+	background-color: #cfe69f;
+	border: 1px solid #cfe69f;
+	position: absolute;
+	z-index: 32767;
+	/*filter:Alpha(Opacity=0, FinishOpacity=75, StartX=0, StartY=0, Style=1, -moz-opacity:50) 漸進式但不符合其它*/
+	filter: Alpha(opacity :       0.5);
+	filter: alpha(opacity =     50);
+	opacity: 0.5; /*supported by current Mozilla, Safari, and Opera*/
+	-moz-opacity: 0.5; /*older Mozilla*/
+	-khtml-opacity: 0.5; /*older Safari*/
+	/*filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100,FinishOpacity=15, Style=3, StartX=0, FinishX=100,
+            StartY=0,FinishY=16); /*supported by current IE*/
+}
+
+.non_transparent {
+	position: absolute;
+	top: 50%;
+	left: 40%;
+	margin-top: -25%;
+	margin-left: -25%;
+	margin: auto;
+	z-index: 32768;
+}
+
+.non_transparent_top {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	margin-top: -25%;
+	margin-left: -25%;
+	margin: auto;
+	z-index: 32768;
+}
+
+.myHr {
+	height: 0;
+	border: 0;
+	border-top: 1px solid #cfe69f;
+}
+
+.non_transparent_new {
+	position: absolute;
+	top: 10;
+	left: 10;
+	margin-top: -25%;
+	margin-left: -25%;
+	margin: auto;
+	z-index: 32768;
+}
+
+/* 新圓角 */
+.xb1, .xb2, .xb3, .xb4, .xb5, .xb6, .xb7 {display:block; overflow:hidden; font-size:0;}
+.xb1, .xb2, .xb3, .xb4, .xb5, .xb6 {height:1px;}
+.xb4, .xb5, .xb6, .xb7 {background:#cfe69f; border-left:1px solid #cfe69f; border-right:1px solid #cfe69f;}
+
+.xb1 {margin:0 5px; background:#cfe69f;}
+.xb2 {margin:0 3px; background:#cfe69f;}
+.xb3 {margin:0 2px; background:#cfe69f;}
+.xb4 {margin:0 1px; background:#cfe69f;}
+.xb5 {margin:0 2px; background:#cfe69f;}
+.xb6 {margin:0 2px; background:#cfe69f;} 
+.xb7 {margin:0 1px; background:#cfe69f;} 
+
+.b1, .b2, .b3, .b4, .b5, .b6, .b7 {display:block; overflow:hidden; font-size:0;}
+.b1, .b2, .b3, .b4, .b5, .b6 {height:1px;}
+.b4, .b5, .b6, .b7 {background:#cfe69f; border-left:1px solid #cfe69f; border-right:1px solid #cfe69f;}
+
+.b1 {margin:0 0 0 5px; background:#cfe69f;}
+.b2 {margin:0 0 0 3px; background:#cfe69f;}
+.b3 {margin:0 0 0 2px; background:#cfe69f;}
+.b4 {margin:0 0 0 1px; background:#cfe69f;}

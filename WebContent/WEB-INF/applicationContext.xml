@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.rg/dtd/spring-beans.dtd">
+<beans>
+	<!-- Using Apache Commons DBCP Connection Pool -->
+    <!-- bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"><value>com.mysql.jdbc.Driver</value></property>
+		<property name="url"><value>jdbc:mysql://localhost:3306/CIS</value></property>
+		<property name="username"><value>root</value></property>
+		<property name="password"><value>spring</value></property>
+	</bean-->
+
+	<bean id="dataSource"
+       class="org.springframework.jndi.JndiObjectFactoryBean">
+       <property name="jndiName">
+          <value>java:comp/env/jdbc/mysql</value>
+       </property>
+    </bean>
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref local="dataSource"/></property>
+        <property name="hibernateProperties">
+            <props>
+               <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+               <prop key="hibernate.show_sql">false</prop>
+			   <prop key="hibernate.cache.provider_class">com.opensymphony.oscache.hibernate.OSCacheProvider</prop>
+			   <prop key="hibernate.cache.use_query_cache">true</prop>
+			   <prop key="hibernate.jdbc.batch_size">100</prop>
+               <!-- prop key="hibernate.hbm2ddl.auto">update</prop>
+			   <prop key="hibernate.connection.release_mode">on_close</prop>
+               <prop key="hibernate.c3p0.acquire_increment">1</prop>
+               <prop key="hibernate.c3p0.minPoolSize">2</prop>
+               <prop key="hibernate.c3p0.maxPoolSize">20</prop>
+			   <prop key="hibernate.c3p0.timeout">1800</prop>
+			   <prop key="hibernate.c3p0.max_statement">0</prop>
+			   <prop key="hibernate.c3p0.idle_test_period">600</prop-->
+	     	</props>
+        </property>
+
+        <property name="mappingResources">
+            <list>
+            	<value>tw/edu/chit/model/Adcd.hbm.xml</value>
+            	<value>tw/edu/chit/model/Module.hbm.xml</value>
+				<value>tw/edu/chit/model/Clazz.hbm.xml</value>
+				<value>tw/edu/chit/model/ClassInCharge.hbm.xml</value>
+				<value>tw/edu/chit/model/Code5.hbm.xml</value>
+				<value>tw/edu/chit/model/UnitBelong.hbm.xml</value>
+				<value>tw/edu/chit/model/UnitModule.hbm.xml</value>
+				<value>tw/edu/chit/model/WwPass.hbm.xml</value>
+				<value>tw/edu/chit/model/Employee.hbm.xml</value>
+				<value>tw/edu/chit/model/Student.hbm.xml</value>
+				<value>tw/edu/chit/model/Csno.hbm.xml</value>
+				<value>tw/edu/chit/model/Dtime.hbm.xml</value>
+				<value>tw/edu/chit/model/Entrno.hbm.xml</value>
+				<value>tw/edu/chit/model/Nabbr.hbm.xml</value>
+				<value>tw/edu/chit/model/Empl.hbm.xml</value>
+				<value>tw/edu/chit/model/Graduate.hbm.xml</value>
+				<value>tw/edu/chit/model/QuitResume.hbm.xml</value>
+				<value>tw/edu/chit/model/ScoreHist.hbm.xml</value>
+				<value>tw/edu/chit/model/Seld.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeClass.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeExam.hbm.xml</value>
+				<value>tw/edu/chit/model/SysParameter.hbm.xml</value>
+				<value>tw/edu/chit/model/MasterData.hbm.xml</value>
+				<value>tw/edu/chit/model/Parameter.hbm.xml</value>
+				<value>tw/edu/chit/model/Regs.hbm.xml</value>
+				<value>tw/edu/chit/model/Regstime.hbm.xml</value>
+				<value>tw/edu/chit/model/Rrate.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeTeacher.hbm.xml</value>
+				<value>tw/edu/chit/model/Message.hbm.xml</value>
+				<value>tw/edu/chit/model/Opencs.hbm.xml</value>
+				<value>tw/edu/chit/model/Optime1.hbm.xml</value>
+				<value>tw/edu/chit/model/Stavg.hbm.xml</value>
+				<value>tw/edu/chit/model/CodeEmpl.hbm.xml</value>
+				<value>tw/edu/chit/model/CourseIntroduction.hbm.xml</value>
+				<value>tw/edu/chit/model/DEmpl.hbm.xml</value>
+				<value>tw/edu/chit/model/CourseSyllabus.hbm.xml</value>
+				<value>tw/edu/chit/model/Syllabus.hbm.xml</value>
+				<value>tw/edu/chit/model/Just.hbm.xml</value>
+				<value>tw/edu/chit/model/Dilg.hbm.xml</value>
+				<value>tw/edu/chit/model/TeacherOfficeLocation.hbm.xml</value>
+				<value>tw/edu/chit/model/TeacherStayTime.hbm.xml</value>
+				<value>tw/edu/chit/model/ClassCadre.hbm.xml</value>
+				<value>tw/edu/chit/model/StdAdcd.hbm.xml</value>
+				<value>tw/edu/chit/model/DepartmentInfo.hbm.xml</value>
+				<value>tw/edu/chit/model/ExamDate.hbm.xml</value>
+				<value>tw/edu/chit/model/Code2.hbm.xml</value>
+				<value>tw/edu/chit/model/Desd.hbm.xml</value>
+				<value>tw/edu/chit/model/Code1.hbm.xml</value>
+				<value>tw/edu/chit/model/Subs.hbm.xml</value>
+				<value>tw/edu/chit/model/CoQuestion.hbm.xml</value>
+				<value>tw/edu/chit/model/Coansw.hbm.xml</value>
+				<value>tw/edu/chit/model/SeldStuFilter.hbm.xml</value>
+				<value>tw/edu/chit/model/SeldCouFilter.hbm.xml</value>
+				<value>tw/edu/chit/model/Sabbr.hbm.xml</value>
+				<value>tw/edu/chit/model/Sdtime.hbm.xml</value>
+				<value>tw/edu/chit/model/Sseld.hbm.xml</value>
+				<value>tw/edu/chit/model/Sweek.hbm.xml</value>
+				<value>tw/edu/chit/model/Sdilg.hbm.xml</value>
+				<value>tw/edu/chit/model/StdOpinionSuggestion.hbm.xml</value>
+				<value>tw/edu/chit/model/EmplOpinionSuggestion.hbm.xml</value>
+				<!--value>tw/edu/chit/model/StdImage.hbm.xml</value-->
+				<value>tw/edu/chit/model/Keep.hbm.xml</value>
+				<value>tw/edu/chit/model/SseldReject.hbm.xml</value>
+				<value>tw/edu/chit/model/SeldConflict.hbm.xml</value>
+				<value>tw/edu/chit/model/SchoolCode.hbm.xml</value>
+				<value>tw/edu/chit/model/Tran.hbm.xml</value>
+				<value>tw/edu/chit/model/Tranno.hbm.xml</value>
+				<value>tw/edu/chit/model/DilgMail.hbm.xml</value>
+				<value>tw/edu/chit/model/Gmark.hbm.xml</value>
+				<value>tw/edu/chit/model/Savedesd.hbm.xml</value>
+				<value>tw/edu/chit/model/AbilityExamine.hbm.xml</value>
+				<value>tw/edu/chit/model/StdAbility.hbm.xml</value>
+				<value>tw/edu/chit/model/AdcdHistory.hbm.xml</value>
+				<value>tw/edu/chit/model/ClassScoreSummary.hbm.xml</value>
+				<value>tw/edu/chit/model/TopStudent.hbm.xml</value>
+				<value>tw/edu/chit/model/MidtermExcluded.hbm.xml</value>
+				<value>tw/edu/chit/model/CoanswReview.hbm.xml</value>
+				<value>tw/edu/chit/model/FailStudentsHist.hbm.xml</value>
+				<value>tw/edu/chit/model/MessageFeedback.hbm.xml</value>
+				<value>tw/edu/chit/model/MyDempl.hbm.xml</value>
+				<value>tw/edu/chit/model/NabbrBoro.hbm.xml</value>
+				<value>tw/edu/chit/model/Investigation.hbm.xml</value>
+				<!--<value>tw/edu/chit/model/InvestigationG.hbm.xml</value>-->
+				<value>tw/edu/chit/model/Savedtime.hbm.xml</value>
+				<value>tw/edu/chit/model/Clean.hbm.xml</value>
+				<value>tw/edu/chit/model/RuleTran.hbm.xml</value>
+				<value>tw/edu/chit/model/Cond.hbm.xml</value>
+				<value>tw/edu/chit/model/Comb1.hbm.xml</value>
+				<value>tw/edu/chit/model/Comb2.hbm.xml</value>
+				<value>tw/edu/chit/model/EmplSave.hbm.xml</value>
+				<value>tw/edu/chit/model/Rcact.hbm.xml</value>
+				<value>tw/edu/chit/model/Rcproj.hbm.xml</value>
+				<value>tw/edu/chit/model/Rcjour.hbm.xml</value>
+				<value>tw/edu/chit/model/Rcconf.hbm.xml</value>
+				<value>tw/edu/chit/model/Rcbook.hbm.xml</value>
+				<value>tw/edu/chit/model/Rcpet.hbm.xml</value>
+				<value>tw/edu/chit/model/Rchono.hbm.xml</value>
+				<value>tw/edu/chit/model/Rccode.hbm.xml</value>
+				<value>tw/edu/chit/model/SyncError.hbm.xml</value>
+				<value>tw/edu/chit/model/ScoreHistNote.hbm.xml</value>
+				<value>tw/edu/chit/model/Rmark.hbm.xml</value>
+				<value>tw/edu/chit/model/PageLink.hbm.xml</value>
+				<value>tw/edu/chit/model/EmplContract.hbm.xml</value>
+				<value>tw/edu/chit/model/EmplGrdschl.hbm.xml</value>
+				<value>tw/edu/chit/model/EmplPehist.hbm.xml</value>
+				<value>tw/edu/chit/model/EmplLicence.hbm.xml</value>
+				<value>tw/edu/chit/model/SalarySset.hbm.xml</value>
+				<value>tw/edu/chit/model/Saly.hbm.xml</value>
+				<value>tw/edu/chit/model/SalaryTax.hbm.xml</value>
+				<value>tw/edu/chit/model/RegistrationCard.hbm.xml</value>
+				<value>tw/edu/chit/model/CsGroup.hbm.xml</value>
+				<value>tw/edu/chit/model/CsGroupRule.hbm.xml</value>
+				<value>tw/edu/chit/model/CsGroupSet.hbm.xml</value>
+				<value>tw/edu/chit/model/MailStorage.hbm.xml</value>
+				<value>tw/edu/chit/model/Progress.hbm.xml</value>
+				<value>tw/edu/chit/model/SuggestionDept.hbm.xml</value>
+				<value>tw/edu/chit/model/Dept.hbm.xml</value>
+				<value>tw/edu/chit/model/DilgOne.hbm.xml</value>
+				<value>tw/edu/chit/model/LifeCounseling.hbm.xml</value>
+				<value>tw/edu/chit/model/OnlineService4reg.hbm.xml</value>
+				<value>tw/edu/chit/model/TimeOffUpload.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsContent.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsField.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsTable.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsUser.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsPages.hbm.xml</value>
+				<value>tw/edu/chit/model/Dtimestamp.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsFree.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeStudaffair.hbm.xml</value>
+				<value>tw/edu/chit/model/Dipost.hbm.xml</value>
+				<value>tw/edu/chit/model/StdLoan.hbm.xml</value>
+				<value>tw/edu/chit/model/LicenseCode.hbm.xml</value>
+				<value>tw/edu/chit/model/LicenseCode961.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsAskLeave.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsDocApply.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsHoliday.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsShiftTime.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsPersonalVacation.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsRevokedDoc.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsWorkdate.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsMeeting.hbm.xml</value>
+				<value>tw/edu/chit/model/AmsMeetingAskLeave.hbm.xml</value>
+				<value>tw/edu/chit/model/ContractTeacher.hbm.xml</value>
+				<value>tw/edu/chit/model/CsCore.hbm.xml</value>
+				<value>tw/edu/chit/model/WorkDuty.hbm.xml</value>
+				<value>tw/edu/chit/model/WorkNature.hbm.xml</value>
+				<value>tw/edu/chit/model/CounselingCode.hbm.xml</value>
+				<value>tw/edu/chit/model/StudCounseling.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsActParameter.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsActEvaluator.hbm.xml</value>
+				<value>tw/edu/chit/model/RecruitSchedule.hbm.xml</value>
+				<value>tw/edu/chit/model/RecruitSchool.hbm.xml</value>
+				<value>tw/edu/chit/model/DeptCode4Yun.hbm.xml</value>
+				<value>tw/edu/chit/model/Aborigine.hbm.xml</value>
+				<value>tw/edu/chit/model/FeeCode.hbm.xml</value>
+				<value>tw/edu/chit/model/FeePay.hbm.xml</value>
+				<value>tw/edu/chit/model/SchoolCode4Fee.hbm.xml</value>
+				<value>tw/edu/chit/model/BankFeePay.hbm.xml</value>
+				<value>tw/edu/chit/model/PubCalendar.hbm.xml</value>
+				<value>tw/edu/chit/model/LiteracyType.hbm.xml</value>
+				<value>tw/edu/chit/model/StudDocApply.hbm.xml</value>
+				<value>tw/edu/chit/model/StudDocDetail.hbm.xml</value>
+				<value>tw/edu/chit/model/StudDocExamine.hbm.xml</value>
+				<value>tw/edu/chit/model/StudPublicLeave.hbm.xml</value>
+				<value>tw/edu/chit/model/StudPublicDocExam.hbm.xml</value>
+				<value>tw/edu/chit/model/ExamineRule.hbm.xml</value>
+				<value>tw/edu/chit/model/StdSkill.hbm.xml</value>
+				<value>tw/edu/chit/model/FlwWork.hbm.xml</value>
+				<value>tw/edu/chit/model/FlwStmdWorkData.hbm.xml</value>
+				<value>tw/edu/chit/model/AssessPaper.hbm.xml</value>
+				<value>tw/edu/chit/model/Register.hbm.xml</value>
+				<value>tw/edu/chit/model/TempStmd.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeReserve.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeReserveReady.hbm.xml</value>
+				<value>tw/edu/chit/model/EpsVitae.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeReserveClass.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeReserveTeacher.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeReserveOpencs.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeReserveClassFixed.hbm.xml</value>
+				<value>tw/edu/chit/model/StdImage4t.hbm.xml</value>
+				<value>tw/edu/chit/model/Syllabu.hbm.xml</value>	
+				<value>tw/edu/chit/model/AqAnser.hbm.xml</value>
+				<value>tw/edu/chit/model/Coansw4self.hbm.xml</value>
+				<value>tw/edu/chit/model/DtimeEx.hbm.xml</value>
+				<value>tw/edu/chit/model/ClassEx.hbm.xml</value>
+             </list>
+        </property>
+        <!-- property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+            <prop key="hibernate.show_sql">false</prop>
+            <prop key="c3p0.automaticTestTable">c3p0_test</prop>
+            <prop key="hibernate.c3p0.minPoolSize">5</prop>
+            <prop key="hibernate.c3p0.maxPoolSize">10</prop>
+            <prop key="hibernate.c3p0.timeout">60</prop>
+            <prop key="hibernate.c3p0.max_statement">100</prop>
+            <prop key="hibernate.c3p0.testConnectionOnCheckout">false</prop>
+            <prop key="hibernate.c3p0.idle_test_period">60</prop>
+        </props>
+        </property-->
+    </bean>
+
+    <!-- Hibernate SessionFactory -->
+	<!-- if use hibernate3.0+ change the class to org.springframework.orm.hibernate3.LocalSessionFactoryBean -->
+    <bean id="blobSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <!-- property name="dataSource"><ref local="blobSource"/></property-->
+        <property name="hibernateProperties">
+            <props>
+               <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+               <prop key="hibernate.show_sql">false</prop>
+			   <prop key="hibernate.cache.provider_class">com.opensymphony.oscache.hibernate.OSCacheProvider</prop>
+			   <prop key="hibernate.cache.use_query_cache">true</prop>
+			   <prop key="hibernate.jdbc.batch_size">100</prop>
+	     	</props>
+        </property>
+
+        <property name="mappingResources">
+            <list>
+            	<value>tw/edu/chit/model/StudDocUpload.hbm.xml</value>
+            	<value>tw/edu/chit/model/StudPublicDocUpload.hbm.xml</value>
+             </list>
+        </property>
+    </bean>
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>
+    <bean id="blobTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="blobSessionFactory"/></property>
+    </bean>
+
+    <!-- JdbcDAO: JDBC direct support for none-OO data access -->
+    <bean id="memberJdbcDAO" class="tw.edu.chit.dao.MemberJdbcDAO">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+
+	<bean id="scoreJdbcDAO" class="tw.edu.chit.dao.ScoreJdbcDAO">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="courseJdbcDAO" class="tw.edu.chit.dao.CourseJdbcDAO">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="studAffairJdbcDAO" class="tw.edu.chit.dao.StudAffairJdbcDAO">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <bean id="summerJdbcDAO" class="tw.edu.chit.dao.SummerJdbcDAO">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="amsJdbcDAO" class="tw.edu.chit.dao.AmsJdbcDAO">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- bean id="blobJdbcDAO" class="tw.edu.chit.dao.BlobJdbcDAO">
+    	<property name="dataSource" ref="blobSource"/>
+    </bean-->
+    
+	<!-- Generic DAO - can be used when doing standard CRUD -->
+    <bean id="dao" class="tw.edu.chit.dao.hibernate.BaseDAOHibernate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="blobBaseDao" class="tw.edu.chit.dao.hibernate.BaseDAOHibernate">
+        <property name="sessionFactory" ref="blobSessionFactory"/>
+    </bean>
+
+	<!-- MemberDAO: Hibernate implementation -->
+    <bean id="memberDAO" class="tw.edu.chit.dao.hibernate.MemberDAOImpl" parent="dao"></bean>
+
+	<!-- ScoreDAO: Hibernate implementation -->
+    <bean id="scoreDAO" class="tw.edu.chit.dao.hibernate.ScoreDAOImpl" parent="dao"></bean>
+
+	<!-- CourseDAO: Hibernate implementation -->
+    <bean id="courseDAO" class="tw.edu.chit.dao.hibernate.CourseDAOImpl" parent="dao"></bean>
+
+    <!-- AdminDAO: Hibernate implementation -->
+    <bean id="adminDAO" class="tw.edu.chit.dao.hibernate.AdminDAOImpl" parent="dao"></bean>
+
+    <!-- StudAffairDAO: Hibernate implementation -->
+    <bean id="studAffairDAO" class="tw.edu.chit.dao.hibernate.StudAffairDAOImpl" parent="dao"></bean>
+    
+    <bean id="summerDAO" class="tw.edu.chit.dao.hibernate.SummerDAOImpl" parent="dao"></bean>
+
+    <bean id="amsDAO" class="tw.edu.chit.dao.hibernate.AmsDAOImpl" parent="dao"></bean>
+
+	<!-- blobDAO: Hibernate implementation -->
+    <bean id="blobDAO" class="tw.edu.chit.dao.hibernate.BlobDAOImpl" parent="blobBaseDao"></bean>
+
+    <!-- Transaction template for Managers, from:
+         http://blog.exis.com/colin/archives/2004/07/31/concise-transaction-definitions-spring-11/ -->
+
+    <bean id="txProxyTemplate" abstract="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="transactionAttributes">
+            <props>
+            	<prop key="tx*">PROPAGATION_REQUIRED, -java.lang.Exception</prop>
+                <prop key="save*">PROPAGATION_REQUIRED, -java.lang.Exception</prop>
+                <prop key="create*">PROPAGATION_REQUIRED, -java.lang.Exception</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED, -java.lang.Exception</prop>
+                <prop key="process*">PROPAGATION_REQUIRED, -java.lang.Exception</prop>
+				<prop key="find*">PROPAGATION_REQUIRED, -java.lang.Exception</prop>					 
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+        	 </props>
+        </property>
+    </bean>
+
+    <!-- Generic manager that can be used to do basic CRUD operations on any objects -->
+    <bean id="manager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.BaseManager">
+                <property name="DAO" ref="dao"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- Transaction declarations for business services.  To apply a generic transaction proxy to
+         all managers, you might look into using the BeanNameAutoProxyCreator -->
+
+    <bean id="memberManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.MemberManagerImpl">
+                <property name="memberDAO" ref="memberDAO"/>
+                <property name="jdbcDAO"	ref="memberJdbcDAO"/>
+                <property name="courseJdbcDAO"   ref="courseJdbcDAO"/>
+            </bean>
+        </property>
+        <!-- Override default transaction attributes of methods with name -->
+        <!--
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+
+    <bean id="scoreManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.ScoreManagerImpl">
+            	<property name="memberDAO" ref="memberDAO"/>
+                <property name="scoreDAO" ref="scoreDAO"/>
+                <property name="jdbcDAO"	ref="scoreJdbcDAO"/>
+            </bean>
+        </property>
+        <!-- Override default transaction attributes of methods with name -->
+        <!--
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+
+	<bean id="courseManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.CourseManagerImpl">
+                <property name="courseDAO" ref="courseDAO"/>
+                <property name="jdbcDAO"   ref="courseJdbcDAO"/>
+                <property name="memberDAO" ref="memberDAO"/>
+            </bean>
+        </property>
+        <!-- Override default transaction attributes of methods with name -->
+        <!--
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+
+    <bean id="adminManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.AdminManagerImpl">
+                <property name="adminDAO" ref="adminDAO"/>
+                <property name="memberDAO" ref="memberDAO"/>
+                <property name="jdbcDAO"   ref="courseJdbcDAO"/>
+            </bean>
+        </property>
+        <!-- Override default transaction attributes of methods with name -->
+        <!--
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+
+    <bean id="studAffairManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.StudAffairManagerImpl">
+                <property name="studAffairDAO" ref="studAffairDAO"/>
+                <property name="jdbcDAO"   ref="studAffairJdbcDAO"/>
+                <property name="scoreDAO"  ref="scoreDAO"/>
+                <property name="blobDAO"  ref="blobDAO"/>
+            </bean>
+        </property>
+        <!-- Override default transaction attributes of methods with name -->
+        <!--
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+    
+    <bean id="summerManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.SummerManagerImpl">
+                <property name="courseDAO" ref="courseDAO"/>
+                <property name="courseJdbcDAO"   ref="courseJdbcDAO"/>
+                <property name="summerDAO" ref="summerDAO"/>
+                <property name="summerJdbcDAO"   ref="summerJdbcDAO"/>
+            </bean>
+        </property>
+        <!-- Override default transaction attributes of methods with name -->
+        <!--
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+    
+    <bean id="amsManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="tw.edu.chit.service.impl.AmsManagerImpl">
+                <property name="amsDAO" ref="amsDAO"/>
+                <property name="jdbcDAO"   ref="amsJdbcDAO"/>
+                <property name="memberDAO" ref="memberDAO"/>
+            </bean>
+        </property>
+        <!-- Override default transaction attributes of methods with name -->
+        <!--
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+        -->
+    </bean>
+
+    <!-- 自動排程  start
+    
+    <bean id="emailReportBean" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass">
+            <value>tw.edu.chit.service.quartz.EmailReportJob</value>
+        </property>           
+    </bean>
+    <bean id="emailReporTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="emailReportBean"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 0 8 * * ?</value>
+        </property>
+    </bean>
+	<bean id="sendAskLeaveBean" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass">
+            <value>tw.edu.chit.service.quartz.SendAskLeave</value>
+        </property>
+    </bean>
+    
+    <bean id="sendAskLeaveTriggerBean" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="jobDetail">
+            <ref bean="sendAskLeaveBean"/>
+        </property>
+        <property name="repeatInterval">
+            <value>1000</value>
+        </property>
+    </bean>
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+            </list>
+        </property>
+    </bean>
+    自動排程  end-->
+    
+</beans>

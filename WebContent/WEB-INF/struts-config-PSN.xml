@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+
+  		<form-bean name="EmployeeListForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="cname2" type="java.lang.String" initial="" />
+	  		<form-property name="idNo2" type="java.lang.String" initial="" />
+	  		<form-property name="category2" type="java.lang.String" initial="" />
+		</form-bean>
+
+	   	<form-bean
+	  		name="EmployeeEditForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="mode" type="java.lang.String" initial="" />
+	  		<form-property name="cname" type="java.lang.String" initial="" />
+	  		<form-property name="idno" type="java.lang.String" initial="" />
+	  		<form-property name="sex" type="java.lang.String" initial="" />
+	  		<form-property name="category" type="java.lang.String" initial="" />
+	  		<form-property name="ename" type="java.lang.String" initial="" />
+	  		<form-property name="bdate2" type="java.lang.String" initial="" />
+	  		<form-property name="insno" type="java.lang.String" initial="" />
+
+	  		<form-property name="email" type="java.lang.String" initial="" />
+
+	  		<form-property name="czip" type="java.lang.String" initial="" />
+	  		<form-property name="caddr" type="java.lang.String" initial="" />
+	  		<form-property name="telephone" type="java.lang.String" initial="" />
+
+	  		<form-property name="pzip" type="java.lang.String" initial="" />
+	  		<form-property name="paddr" type="java.lang.String" initial="" />
+	  		<form-property name="cellPhone" type="java.lang.String" initial="" />
+
+	  		<form-property name="unit" type="java.lang.String" initial="" />
+	  		<form-property name="unitSel" type="java.lang.String" initial="" />
+	  		<form-property name="pcode" type="java.lang.String" initial="" />
+	  		<form-property name="pcodeSel" type="java.lang.String" initial="" />
+	  		<form-property name="degree" type="java.lang.String" initial="" />
+	  		<form-property name="degreeSel" type="java.lang.String" initial="" />
+
+	  		<form-property name="tutor" type="java.lang.String" initial="" />
+	  		<form-property name="tutorSel" type="java.lang.String" initial="" />
+
+	  		<form-property name="director" type="java.lang.String" initial="" />
+	  		<form-property name="directorSel" type="java.lang.String" initial="" />
+	  		<form-property name="sname" type="java.lang.String" initial="" />
+
+	  		<form-property name="status" type="java.lang.String" initial="" />
+	  		<form-property name="startDate2" type="java.lang.String" initial="" />
+	  		<form-property name="endDate2" type="java.lang.String" initial="" />
+	  		<form-property name="statusCause" type="java.lang.String" initial="" />
+	  		<form-property name="statusCauseSel" type="java.lang.String" initial="" />
+
+	  		<form-property name="teachStartDate2" type="java.lang.String" initial="" />
+	  			
+	  		<form-property name="remark" type="java.lang.String" initial="" />	
+		
+		</form-bean>
+
+  		<form-bean
+	  		name="QuitEmployeeListForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  		<form-property name="cname3" type="java.lang.String" initial="" />
+	  		<form-property name="idNo3" type="java.lang.String" initial="" />
+	  		<form-property name="category3" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="DegreeHistManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="aIdno" type="java.lang.String" initial=""/>
+			
+			<form-property name="idno" type="java.lang.String[]" initial=""/>
+			<form-property name="no" type="java.lang.String[]" initial=""/>
+			<form-property name="school_name" type="java.lang.String[]" initial=""/>
+			<form-property name="chk" type="java.lang.String[]" initial=""/>
+			<form-property name="chkno" type="java.lang.String[]" initial=""/>
+			<form-property name="dept_name" type="java.lang.String[]" initial=""/>
+			<form-property name="Oid" type="java.lang.String[]" initial=""/>
+			<form-property name="sequence" type="java.lang.String[]" initial=""/>
+		</form-bean>
+		
+		<form-bean name="PehistManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="aIdno" type="java.lang.String" initial=""/>
+			<form-property name="school_year" type="java.lang.String[]" initial=""/>
+			<form-property name="school_term" type="java.lang.String[]" initial=""/>
+			<form-property name="idno" type="java.lang.String[]" initial=""/>
+			<form-property name="inst" type="java.lang.String[]" initial=""/>
+			<form-property name="bdate_certname" type="java.lang.String[]" initial=""/>
+			<form-property name="edate_certno" type="java.lang.String[]" initial=""/>
+			<form-property name="begin" type="java.lang.String[]" initial=""/>
+			<form-property name="end" type="java.lang.String[]" initial=""/>
+			<form-property name="deptNo" type="java.lang.String[]" initial=""/>
+			<form-property name="Oid" type="java.lang.String[]" initial=""/>
+		</form-bean>
+		
+		<form-bean name="LicenceManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="aIdno" type="java.lang.String" initial=""/>
+			<form-property name="Oid" type="java.lang.String[]" initial=""/>
+			<form-property name="idno" type="java.lang.String[]" initial=""/>
+			<form-property name="deptNo" type="java.lang.String[]" initial=""/>
+			<form-property name="school_year" type="java.lang.String[]" initial=""/>
+			<form-property name="school_term" type="java.lang.String[]" initial=""/>
+			<form-property name="licence_type" type="java.lang.String[]" initial=""/>
+			<form-property name="licence_name" type="java.lang.String[]" initial=""/>
+			<form-property name="organ" type="java.lang.String[]" initial=""/>
+			<form-property name="licence_no" type="java.lang.String[]" initial=""/>
+		</form-bean>
+		
+		<form-bean name="JobHistManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<!-- 記錄歷年-->
+			<form-property name="idno" type="java.lang.String" initial=""/>			
+			<form-property name="saveOid" type="java.lang.String[]" initial=""/><!-- 標的主鍵 -->
+			<form-property name="saveCategory" type="java.lang.String[]" initial=""/>
+			<form-property name="saveUnit" type="java.lang.String[]" initial=""/>
+			<form-property name="savePcode" type="java.lang.String[]" initial=""/>
+			<form-property name="saveDirector" type="java.lang.String[]" initial=""/>
+			<form-property name="saveSname" type="java.lang.String[]" initial=""/>
+			<form-property name="saveTutor" type="java.lang.String[]" initial=""/>
+			<form-property name="saveDegree" type="java.lang.String[]" initial=""/>
+			<form-property name="saveStartDate" type="java.lang.String[]" initial=""/>
+			<form-property name="saveEndDate" type="java.lang.String[]" initial=""/>
+			<form-property name="saveRemark" type="java.lang.String[]" initial=""/>
+			<form-property name="saveStatus" type="java.lang.String[]" initial=""/>
+		</form-bean>
+		
+		<form-bean name="ContractHistManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">		
+			<form-property name="aIdno" type="java.lang.String" initial=""/>
+			
+			<form-property name="Oid" type="java.lang.String[]" initial=""/>
+			<form-property name="idno" type="java.lang.String[]" initial=""/>
+			<form-property name="contract_no" type="java.lang.String[]" initial=""/>
+			<form-property name="start_date" type="java.lang.String[]" initial=""/>
+			<form-property name="end_date" type="java.lang.String[]" initial=""/>
+			<form-property name="type" type="java.lang.String[]" initial=""/>
+			<form-property name="level" type="java.lang.String[]" initial=""/>
+			<form-property name="markup" type="java.lang.String[]" initial=""/>
+			<form-property name="license_no" type="java.lang.String[]" initial=""/>
+			<form-property name="extend" type="java.lang.String[]" initial=""/>
+			<form-property name="deptNo" type="java.lang.String[]" initial=""/>
+			<form-property name="partime" type="java.lang.String[]" initial=""/>
+		</form-bean>
+		
+		<form-bean name="HRmanagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="idno" type="java.lang.String" initial=""/>
+			<form-property name="cname" type="java.lang.String" initial=""/>
+			<form-property name="insno" type="java.lang.String" initial=""/>
+			<form-property name="ename" type="java.lang.String" initial=""/>
+			<form-property name="sex" type="java.lang.String" initial=""/>
+			<form-property name="bdate" type="java.lang.String" initial=""/>
+			<form-property name="unit" type="java.lang.String" initial=""/>
+			<form-property name="unit_module" type="java.lang.String" initial=""/>
+			<form-property name="category" type="java.lang.String" initial=""/>
+			<form-property name="pcode" type="java.lang.String" initial=""/>
+			<form-property name="sname" type="java.lang.String" initial=""/>
+			<form-property name="telephone" type="java.lang.String" initial=""/>
+			<form-property name="pzip" type="java.lang.String" initial=""/>
+			<form-property name="paddr" type="java.lang.String" initial=""/>
+			<form-property name="czip" type="java.lang.String" initial=""/>
+			<form-property name="caddr" type="java.lang.String" initial=""/>
+			<form-property name="StartDate" type="java.lang.String" initial=""/>
+			<form-property name="EndDate" type="java.lang.String" initial=""/>
+			<form-property name="Oid" type="java.lang.String" initial=""/>
+			<form-property name="StatusCause" type="java.lang.String" initial=""/>
+			<form-property name="Degree" type="java.lang.String" initial=""/><!-- 兼任主管 -->
+			<form-property name="Status" type="java.lang.String" initial=""/><!-- 任職狀態 -->
+			<form-property name="CellPhone" type="java.lang.String" initial=""/>
+			<form-property name="Email" type="java.lang.String" initial=""/>
+			<form-property name="Tutor" type="java.lang.String" initial=""/><!-- 兼任導師 -->
+			<form-property name="Director" type="java.lang.String" initial=""/>
+			<form-property name="TeachStartDate" type="java.lang.String" initial=""/><!-- 任教職日 -->
+			<form-property name="Remark" type="java.lang.String" initial=""/>
+			
+			<form-property name="fsidno" type="java.lang.String" initial=""/><!-- 快速用id -->
+			<form-property name="fscname" type="java.lang.String" initial=""/><!-- 快速用name -->
+			<form-property name="onjob" type="java.lang.String" initial=""/><!-- 目標 -->
+			<form-property name="exSearch" type="java.lang.String" initial=""/><!-- 是否開啟進階搜尋 -->			
+			<form-property name="Adate" type="java.lang.String" initial=""/><!-- 最初到職日 -->			
+			<form-property name="image" type="org.apache.struts.upload.FormFile" /><!-- 照片 -->
+		</form-bean>
+		
+		<form-bean name="HRCheckerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="checkOpt" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="ContractManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="idno" type="java.lang.String" initial="" />
+			<form-property name="unit" type="java.lang.String" initial="" />
+			
+			<form-property name="teacherName" type="java.lang.String" initial="" />
+			<form-property name="contract_no" type="java.lang.String" initial="" />
+			<form-property name="start_date" type="java.lang.String" initial="" />
+			<form-property name="end_date" type="java.lang.String" initial="" />
+			<form-property name="type" type="java.lang.String" initial="" />
+			<form-property name="level" type="java.lang.String" initial="" />
+			<form-property name="markup" type="java.lang.String" initial="" />
+			<form-property name="license_no" type="java.lang.String" initial="" />
+			
+			<form-property name="category" type="java.lang.String" initial="" /><!-- 員工分類 -->
+			
+			<form-property name="titleText" type="java.lang.String" initial="" /><!-- 聘書冠字 -->
+			<form-property name="contract_startNo" type="java.lang.String" initial="" /><!-- 聘書起號 -->
+			<form-property name="contract_endNo" type="java.lang.String" initial="" /><!-- 聘書末號 -->			
+			
+			<form-property name="Oid" type="java.lang.String[]" initial="" />
+			<form-property name="contract_nos" type="java.lang.String[]" initial="" />
+			
+			<form-property name="start_dates" type="java.lang.String[]" initial="" /><!-- 兩用 -->
+			<form-property name="end_dates" type="java.lang.String[]" initial="" /><!-- 兩用 -->
+			
+			<form-property name="types" type="java.lang.String[]" initial="" />
+			<form-property name="levels" type="java.lang.String[]" initial="" />
+			<form-property name="markups" type="java.lang.String[]" initial="" />
+			<form-property name="license_nos" type="java.lang.String[]" initial="" />			
+			<form-property name="delete" type="java.lang.String[]" initial="" /><!-- 兩用 -->			
+		</form-bean>
+		
+		<!-- 薪資基本設定 -->
+		<form-bean name="TemplateManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="idno" type="java.lang.String" initial=""/>
+			<form-property name="sno" type="java.lang.Integer" initial="0"/>
+			<form-property name="monthly_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="study" type="java.lang.Integer" initial="0"/>
+			<form-property name="technical" type="java.lang.Integer" initial="0"/>
+			<form-property name="hspecial" type="java.lang.Integer" initial="0"/>
+			<form-property name="substitute_course" type="java.lang.Integer" initial="0"/>
+			<form-property name="class_teacher_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="class_teacher_pay_n" type="java.lang.Integer" initial="0"/>
+			<form-property name="transportation" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_in" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_in_note" type="java.lang.String" initial="0"/>
+			<form-property name="overhour_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="night_overhour_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="class_teacher_pay_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="class_teacher_pay_n_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="overhour_pay_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="night_overhour_pay_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="difference" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_out" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_out_note" type="java.lang.String" initial=""/>
+			<form-property name="dedamt" type="java.lang.Integer" initial="0"/>
+			<form-property name="spouse_insure" type="java.lang.Integer" initial="0"/>
+			<form-property name="public_insure" type="java.lang.Integer" initial="0"/>
+			<form-property name="teach_over" type="java.lang.Integer" initial="0"/>
+			<form-property name="hour_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="family_no" type="java.lang.Integer" initial="0"/>
+			<form-property name="notax" type="java.lang.Integer" initial="0"/>
+			<form-property name="tax_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="payamt" type="java.lang.Integer" initial="0"/>
+			<form-property name="real_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="Oid" type="java.lang.Integer" initial="0"/>
+			<form-property name="public_insure_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="spouse_insure_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="tax_pay_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="hour_pay_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="teach_over_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="deposit" type="java.lang.Integer" initial="0"/>
+			<form-property name="deposit_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="labor" type="java.lang.Integer" initial="0"/>
+			<form-property name="labor_dif" type="java.lang.Integer" initial="0"/>
+			<form-property name="banditry" type="java.lang.Integer" initial="0"/>
+			<form-property name="" type="java.lang.Integer" initial="0"/>
+		</form-bean>
+		
+		<!-- 課稅表載入 -->
+		<form-bean name="TaxtableManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="inputExcel" type="org.apache.struts.upload.FormFile"/>
+		</form-bean>
+		
+		<!-- 薪給批次 -->
+		<form-bean name="BatchSalyManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="idno" type="java.lang.String" initial=""/>
+			<form-property name="fscname" type="java.lang.String" initial=""/>			
+			<form-property name="sdate" type="java.lang.String" initial=""/>
+			
+			<form-property name="seqno" type="java.lang.Integer" initial="0"/>
+			<form-property name="monthly_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="inslast" type="java.lang.Integer" initial="0"/>
+			<form-property name="study" type="java.lang.Integer" initial="0"/>
+			<form-property name="technical" type="java.lang.Integer" initial="0"/>
+			<form-property name="hspecial" type="java.lang.Integer" initial="0"/>
+			<form-property name="spec_study" type="java.lang.Integer" initial="0"/>
+			<form-property name="difference" type="java.lang.Integer" initial="0"/>
+			<form-property name="substitute_course" type="java.lang.Integer" initial="0"/>
+			<form-property name="overhour_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="class_teacher_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="transportation" type="java.lang.Integer" initial="0"/>
+			<form-property name="night_transport" type="java.lang.Integer" initial="0"/>
+			<form-property name="supervisor_test" type="java.lang.Integer" initial="0"/>
+			<form-property name="night_overhour_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_in_1" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_in_2" type="java.lang.Integer" initial="0"/>
+			<form-property name="notax" type="java.lang.Integer" initial="0"/>
+			<form-property name="payamt" type="java.lang.Integer" initial="0"/>
+			<form-property name="public_insure" type="java.lang.Integer" initial="0"/>
+			<form-property name="spouse_insure" type="java.lang.Integer" initial="0"/>
+			<form-property name="tax_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="borrow" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_out_1" type="java.lang.Integer" initial="0"/>
+			<form-property name="others_out_2" type="java.lang.Integer" initial="0"/>
+			<form-property name="dedamt" type="java.lang.Integer" initial="0"/>
+			<form-property name="real_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="teach_over" type="java.lang.Integer" initial="0"/>
+			<form-property name="hour_pay" type="java.lang.Integer" initial="0"/>
+			<form-property name="family_no" type="java.lang.Integer" initial="0"/>
+			<form-property name="Oid" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+		<form-bean name="CaseManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="checkOid" type="java.lang.String[]" initial=""/>
+			<form-property name="Oid" type="java.lang.String[]" initial=""/>
+			<form-property name="status" type="java.lang.String[]" initial=""/>
+			<form-property name="note" type="java.lang.String[]" initial=""/>
+			
+			<form-property name="passport" type="java.lang.String[]" initial=""/>
+			<form-property name="idCard" type="java.lang.String[]" initial=""/>
+			<form-property name="familyBook" type="java.lang.String[]" initial=""/>
+			<form-property name="payMoney" type="java.lang.String[]" initial=""/>
+			<form-property name="connects" type="java.lang.String[]" initial=""/>
+			
+		</form-bean>
+		
+		<form-bean name="CaseViewForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<!-- 查詢用 -->
+			<form-property name="student_no" type="java.lang.String" />
+			<form-property name="studentName" type="java.lang.String" />			
+			
+			<form-property name="doc_no" type="java.lang.String" />
+			<form-property name="send_time_start" type="java.lang.String" />
+			<form-property name="send_time_end" type="java.lang.String" />
+			<form-property name="expect_time_start" type="java.lang.String" />
+			<form-property name="expect_time_end" type="java.lang.String" />
+			<form-property name="complete_time_start" type="java.lang.String" />
+			<form-property name="complete_time_end" type="java.lang.String" />
+			<form-property name="get_method" type="java.lang.String" />
+			
+			<form-property name="aStatus" type="java.lang.String" />
+			<!-- 變更用 -->
+			<form-property name="checkOid" type="java.lang.String[]" initial=""/>
+			<form-property name="Oid" type="java.lang.String[]" initial=""/>
+			<form-property name="status" type="java.lang.String[]" initial=""/>
+			<form-property name="note" type="java.lang.String[]" initial=""/>			
+			<form-property name="passport" type="java.lang.String[]" initial=""/>
+			<form-property name="idCard" type="java.lang.String[]" initial=""/>
+			<form-property name="familyBook" type="java.lang.String[]" initial=""/>
+			<form-property name="payMoney" type="java.lang.String[]" initial=""/>
+			<form-property name="connects" type="java.lang.String[]" initial=""/>
+		</form-bean>
+		
+		<form-bean name="WorkingManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="SchoolAddress_Taipei" type="java.lang.String" />
+			<form-property name="SchoolAddress_Hsinchu" type="java.lang.String" />
+			<form-property name="day_working" type="java.lang.String" />
+			<form-property name="night_working" type="java.lang.String" />
+			<form-property name="holiday_working" type="java.lang.String" />
+			
+			<form-property name="SchoolPost_Taipei" type="java.lang.String" />
+			<form-property name="SchoolPost_Hsinchu" type="java.lang.String" />
+			<form-property name="Hsinchu" type="java.lang.String" />				
+		</form-bean>
+		
+		<form-bean name="EditProfileForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="ename" type="java.lang.String"/>
+			<form-property name="Email" type="java.lang.String"/>
+			<form-property name="czip" type="java.lang.String"/>
+			<form-property name="caddr" type="java.lang.String"/>
+			<form-property name="pzip" type="java.lang.String"/>
+			<form-property name="paddr" type="java.lang.String"/>
+			<form-property name="telephone" type="java.lang.String"/>
+			<form-property name="CellPhone" type="java.lang.String"/>
+			<form-property name="image" type="org.apache.struts.upload.FormFile" /><!-- 照片 -->
+		</form-bean>
+		
+		<!-- 報表列印 -->   	
+		<form-bean name="ReportPrintForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+  			<form-property name="classLess" type="java.lang.String" />
+  			<form-property name="year" type="java.lang.String[]" />
+  	  		<form-property name="sterm" type="java.lang.String" />
+  	  		<form-property name="printOpt" type="java.lang.String" />
+  	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+	  		<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolType" type="java.lang.String" initial="" />
+	  		<form-property name="setupPrinter" type="java.lang.String" initial="" />
+	  		<form-property name="choseType" type="java.lang.String" initial="" />
+	  		<form-property name="scoreType" type="java.lang.String" initial="" />
+	  		<form-property name="printInterClass" type="java.lang.String" initial="" />
+	  		<form-property name="unitCode" type="java.lang.String" initial="" />
+	  		<form-property name="deptCodeOpt" type="java.lang.String" initial="" />
+	  		<form-property name="licenseValidDateStart" type="java.lang.String" initial=""/>
+	 	  	<form-property name="licenseValidDateEnd" type="java.lang.String" initial=""/>
+	 	  	<form-property name="dayCode" type="java.lang.String" initial=""/>
+	 	  	<form-property name="nodeCode" type="java.lang.String" initial=""/>
+	 	  	<form-property name="campusCode" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+		<!-- 報表列印 -->   	
+		<form-bean name="ReportPring4PForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+  			<form-property name="classLess" type="java.lang.String" />
+  			<form-property name="year" type="java.lang.String[]" />
+  	  		<form-property name="sterm" type="java.lang.String" />
+  	  		<form-property name="printOpt" type="java.lang.String" />
+  	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="deptInCharge2"	type="java.lang.String"	initial="" />
+	  		<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  		<form-property name="schoolType" type="java.lang.String" initial="" />
+	  		<form-property name="setupPrinter" type="java.lang.String" initial="" />
+	  		<form-property name="choseType" type="java.lang.String" initial="" />
+	  		<form-property name="scoreType" type="java.lang.String" initial="" />
+	  		<form-property name="printInterClass" type="java.lang.String" initial="" />
+	  		<form-property name="unitCode" type="java.lang.String" initial="" />
+	  		<form-property name="unitCodes" type="java.lang.String[]" initial="{}" />
+	  		<form-property name="unitNames" type="java.lang.String[]" initial="{}" />
+	  		<form-property name="month" type="java.lang.String" initial="" />
+	  		<form-property name="dayCode" type="java.lang.String" />
+	 	  	<form-property name="nodeCode" type="java.lang.String" />
+		</form-bean>
+		
+		<form-bean name="StayTimeSetupForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="year" type="java.lang.String[]" initial="{}" />
+			<form-property name="begin" type="java.lang.String" initial="" />
+			<form-property name="end" type="java.lang.String" initial="" />
+			<form-property name="dead" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="CalendarForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="fromYears" type="java.lang.String[]" initial="" />
+			<form-property name="fromYear" type="java.lang.String" initial="" />
+			<form-property name="fromMonth" type="java.lang.String" initial="" />
+			<form-property name="fromDays" type="java.lang.String[]" initial="" />
+			<form-property name="fromDay" type="java.lang.String" initial="" />
+			<form-property name="toYears" type="java.lang.String[]" initial="" />
+			<form-property name="toYear" type="java.lang.String" initial="" />
+			<form-property name="toMonth" type="java.lang.String" initial="" />
+			<form-property name="toDays" type="java.lang.String[]" initial="" />
+			<form-property name="toDay" type="java.lang.String" initial="" />			
+			<form-property name="oid" type="java.lang.String" initial="" />
+			<form-property name="title" type="java.lang.String" initial="" />
+			<form-property name="content" type="java.lang.String" initial="" />
+			<form-property name="location" type="java.lang.String" initial="" />
+			<form-property name="host" type="java.lang.String" initial="" />
+			<form-property name="startTime" type="java.lang.String" initial="" />
+	  		<form-property name="startMin" type="java.lang.String" initial="" />
+	  		<form-property name="range" type="java.lang.String" initial="" />			
+		</form-bean>
+		
+		<!-- 會議紀錄/法規-資料維護-->
+		<form-bean name="File_ApproveForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="myOpen"      type="java.lang.String" initial="" />
+			<form-property name="myTest"      type="java.lang.String" initial="" />
+			<form-property name="FN_Oid"      type="java.lang.String" initial="" />
+			<form-property name="FN_name"     type="java.lang.String" initial="" />
+			<form-property name="FN_type"     type="java.lang.String" initial="" />	
+			<form-property name="Funit"       type="java.lang.String" initial="" />	
+			<form-property name="FU_fnoid"    type="java.lang.String[]" initial="" />
+			<form-property name="FU_emplidno" type="java.lang.String[]" initial="" />
+			<form-property name="FU_type"     type="java.lang.String[]" initial="" />
+			<form-property name="FU_type1"     type="java.lang.String" initial="" />
+			<form-property name="sunit"       type="java.lang.String" initial="" />
+			<form-property name="FN_Unit"       type="java.lang.String" initial="" />
+			<form-property name="fsidno"     type="java.lang.String" initial="" />
+			<form-property name="approve" type="java.lang.String" initial="" />
+			<form-property name="approveTemp" type="java.lang.String" initial="" />	
+			<form-property name="FL_Oid" type="java.lang.String" initial="" />
+			<form-property name="fscname"     type="java.lang.String[]" initial="" />
+			<form-property name="FU_Oid" type="java.lang.String[]" initial="" />
+			<form-property name="startDate" type="java.lang.String[]" initial="" />
+			<form-property name="endDate" type="java.lang.String[]" initial="" />
+		</form-bean>
+		
+
+		<!-- 會議紀錄/法規-資料設定 -->
+		<form-bean name="File_SchemeForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="myOpen"      type="java.lang.String" initial="" />
+			<form-property name="myTest"      type="java.lang.String" initial="" />
+			<form-property name="FN_Oid"      type="java.lang.String" initial="" />
+			<form-property name="FN_name"     type="java.lang.String" initial="" />
+			<form-property name="FN_type"     type="java.lang.String" initial="" />	
+			<form-property name="Funit"       type="java.lang.String" initial="" />	
+			<form-property name="FU_fnoid"    type="java.lang.String[]" initial="" />
+			<form-property name="FU_emplidno" type="java.lang.String[]" initial="" />
+			<form-property name="FU_type"     type="java.lang.String[]" initial="" />
+			<form-property name="FU_type1"    type="java.lang.String" initial="" />
+			<form-property name="sunit"       type="java.lang.String" initial="" />
+			<form-property name="FN_Unit"     type="java.lang.String" initial="" />
+			<form-property name="fsidno"      type="java.lang.String" initial="" />
+			<form-property name="fscname"     type="java.lang.String[]" initial="" />
+			<form-property name="Share"       type="java.lang.String" initial="" />
+			<form-property name="OpenLine"    type="java.lang.String" initial="" />
+			<form-property name="FU_Oid" type="java.lang.String[]" initial="" />
+			<form-property name="startDate" type="java.lang.String[]" initial="" />
+			<form-property name="endDate" type="java.lang.String[]" initial="" />
+		</form-bean>
+		
+		<!-- 會議紀錄/法規-資料上傳 -->
+		<form-bean name="File_UploadForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="myOpen"      type="java.lang.String" initial="" />
+			<form-property name="showType"    type="java.lang.String" initial="" />			
+			<form-property name="FN_Oid"      type="java.lang.String" initial="" />
+			<form-property name="FN_name"     type="java.lang.String" initial="" />
+			<form-property name="FN_Type"     type="java.lang.String" initial="" />	
+			<form-property name="schoolYear"  type="java.lang.String" initial="" />	
+			<form-property name="schoolTerm"  type="java.lang.String" initial="" />
+			<form-property name="Data_name"   type="java.lang.String" initial="" />
+			<form-property name="ShareType"   type="java.lang.String" initial="" />	
+			<form-property name="FL_Oid"      type="java.lang.String" initial="" />		
+			<form-property name="KeyWords"    type="java.lang.String" initial="" />
+			<form-property name="approve"     type="java.lang.String" initial="" />
+			<form-property name="approveTemp" type="java.lang.String" initial="" />
+			<form-property name="DocNo"       type="java.lang.String" initial="" />
+			<form-property name="DocDate"       type="java.lang.String" initial="" />
+			<form-property name="MeetingType" type="java.lang.String" initial="" />
+			<form-property name="MeetingDate" type="java.lang.String" initial="" />		
+			<form-property name="myImage"     type="org.apache.struts.upload.FormFile" />
+		</form-bean>
+		
+		<!-- 會議紀錄/法規-資料下載 -->
+		<form-bean name="File_DownloadForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="myOpen"      type="java.lang.String" initial="" />
+			<form-property name="showType"    type="java.lang.String" initial="" />			
+			<form-property name="FN_Oid"      type="java.lang.String" initial="" />
+			<form-property name="FN_name"     type="java.lang.String" initial="" />
+			<form-property name="FN_Type"     type="java.lang.String" initial="" />	
+			<form-property name="schoolYear"  type="java.lang.String" initial="" />	
+			<form-property name="schoolTerm"  type="java.lang.String" initial="" />
+			<form-property name="Data_name"   type="java.lang.String" initial="" />
+			<form-property name="ShareType"   type="java.lang.String" initial="" />	
+			<form-property name="FL_Oid"      type="java.lang.String" initial="" />		
+			<form-property name="FN_Unit"   type="java.lang.String" initial="" />	
+			<form-property name="FN_type"      type="java.lang.String" initial="" />
+			<form-property name="FD_ShareType"      type="java.lang.String" initial="" />
+			<form-property name="myImage"     type="org.apache.struts.upload.FormFile" />
+			<form-property name="check_CM"   type="java.lang.String" initial="" />	
+			<form-property name="CM_FN"   type="java.lang.String" initial="" />
+		</form-bean>		
+		
+		<!-- 會議紀錄/法規-校外下載 -->
+		<form-bean name="File_OutDownloadForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="myOpen"      type="java.lang.String" initial="" />
+			<form-property name="showType"    type="java.lang.String" initial="" />			
+			<form-property name="FN_Oid"      type="java.lang.String" initial="" />
+			<form-property name="FN_name"     type="java.lang.String" initial="" />
+			<form-property name="FN_Type"     type="java.lang.String" initial="" />	
+			<form-property name="schoolYear"  type="java.lang.String" initial="" />	
+			<form-property name="schoolTerm"  type="java.lang.String" initial="" />
+			<form-property name="Data_name"   type="java.lang.String" initial="" />
+			<form-property name="ShareType"   type="java.lang.String" initial="" />	
+			<form-property name="FL_Oid"      type="java.lang.String" initial="" />		
+			<form-property name="FN_Unit"   type="java.lang.String" initial="" />	
+			<form-property name="FN_type"      type="java.lang.String" initial="" />
+			<form-property name="FD_ShareType"      type="java.lang.String" initial="" />
+			<form-property name="myImage"     type="org.apache.struts.upload.FormFile" />
+			<form-property name="check_CM"   type="java.lang.String" initial="" />	
+			<form-property name="CM_FN"   type="java.lang.String" initial="" />
+			<form-property name="SelKeyWords"   type="java.lang.String" initial="" />	
+			<form-property name="SelUnit"   type="java.lang.String" initial="" />
+		</form-bean>
+
+		<form-bean name="DeptCourseInfoForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="term" type="java.lang.String" initial="" />
+			<form-property name="campusInChargeC" type="java.lang.String" initial="" />
+	  		<form-property name="schoolInChargeC" type="java.lang.String" initial="" />
+	  		<form-property name="deptInChargeC" type="java.lang.String" initial="" />
+	  		<form-property name="classInChargeC" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<form-bean name="SkillStatisticsForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+		</form-bean>
+		
+		<form-bean name="AssessPaperForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="qty" type="java.lang.String" initial="" />
+		</form-bean>
+		
+		<!-- 行政人員服務滿意度調查 -->
+		<form-bean name="AssessPaperReplyForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="serviceNo" type="java.lang.String" initial=""/>
+			<form-property name="cname" type="java.lang.String" initial=""/>
+			<form-property name="unit" type="java.lang.String" initial=""/>
+			<form-property name="sdate" type="java.lang.String" initial=""/>
+			<form-property name="score" type="java.lang.String" initial=""/>
+			<form-property name="suggestion" type="java.lang.String" initial=""/>
+			<form-property name="srvTime" type="java.lang.String" initial=""/>
+			<form-property name="srvEvent" type="java.lang.String" initial=""/>
+			<form-property name="description" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+		<!-- 行政人員服務滿意度調查報表查詢列印 -->
+		<form-bean name="AssessPaperReportForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="reportType" type="java.lang.String" initial=""/>
+			<form-property name="unit" type="java.lang.String" initial=""/>
+			<form-property name="sdate" type="java.lang.String" initial=""/>
+			<form-property name="edate" type="java.lang.String" initial=""/>
+		</form-bean>
+		
+		<form-bean name="TechlimitManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="Oid" type="java.lang.String[]" initial=""/>
+			<form-property name="idno" type="java.lang.String[]" initial=""/>
+			<form-property name="codeEmpl" type="java.lang.String[]" initial=""/>
+			<form-property name="cname" type="java.lang.String[]" initial=""/>
+			<form-property name="time" type="java.lang.String[]" initial=""/>
+			<form-property name="time_over" type="java.lang.String[]" initial=""/>		
+		</form-bean>
+		
+		<form-bean name="AQManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="AQStart" type="java.lang.String" initial=""/>
+			<form-property name="AQEnd" type="java.lang.String" initial=""/>
+		</form-bean>
+
+	</form-beans>
+	
+	<global-exceptions />
+	<global-forwards />
+
+    <action-mappings>
+
+	    <action path="/Personnel/Directory"
+		   type="tw.edu.chit.struts.action.personnel.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Personnel/EmployeeInfo"
+	       name="EmployeeListForm" 
+		   type="tw.edu.chit.struts.action.personnel.EmployeeInfoAction" 
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Personnel/EmployeeInfoEdit"
+	       name="EmployeeEditForm" 
+		   type="tw.edu.chit.struts.action.personnel.EmployeeInfoEditAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+		   <forward name="success" path="/Personnel/EmployeeInfo.do?method=list"/>
+	    </action>	
+
+	    <action path="/Personnel/QuitEmployeeInfo"
+	       name="QuitEmployeeListForm" 
+		   type="tw.edu.chit.struts.action.personnel.QuitEmployeeInfoAction" 
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    <action path="/Personnel/QuitEmployeeInfoEdit"
+	       name="EmployeeEditForm" 
+		   type="tw.edu.chit.struts.action.personnel.QuitEmployeeInfoEditAction" 
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+		   <forward name="success" path="/Personnel/QuitEmployeeInfo.do?method=list"/>
+	    </action>	
+
+	    <action path="/Personnel/CodeMaintain"
+		   type="tw.edu.chit.struts.action.personnel.CodeMaintainAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 人事管理 -->
+		<action path="/Personnel/HRmanager"
+	       name="HRmanagerForm"
+		   type="tw.edu.chit.struts.action.personnel.HRmanagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 人事查核 -->
+		<action path="/Personnel/HRChecker"
+	       name="HRCheckerForm"
+		   type="tw.edu.chit.struts.action.personnel.HRCheckerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 聘書管理 -->
+		<action path="/Personnel/ContractManager"
+	       name="ContractManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.ContractManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 任職歷程 -->
+		<action path="/Personnel/JobHistManager"
+	       name="JobHistManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.JobHistManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+		   <forward name="returnOriginal" path="/Personnel/HRmanager"/>
+	    </action>
+	    
+	    <!-- 聘書管理 -->
+		<action path="/Personnel/ContractHistManager"
+	       name="ContractHistManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.ContractHistManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 學歷管理 -->
+		<action path="/Personnel/DegreeHistManager"
+	       name="DegreeHistManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.DegreeHistManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 實務經驗管理 -->
+		<action path="/Personnel/PehistManager"
+	       name="PehistManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.PehistManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 證照管理 -->
+		<action path="/Personnel/LicenceManager"
+	       name="LicenceManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.LicenceManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 進修管理 -->
+		<action path="/Personnel/PestudManager"
+	       name="PestudManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.PestudManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 薪資管理 -->
+	    <action path="/Salary/Directory"
+		   type="tw.edu.chit.struts.action.salary.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 新資設定管理 -->
+		<action path="/Salary/TemplateManager"
+	       name="TemplateManagerForm"
+		   type="tw.edu.chit.struts.action.salary.TemplateManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 扣繳稅額表管理 -->
+		<action path="/Salary/TaxtableManager"
+	       name="TaxtableManagerForm"
+		   type="tw.edu.chit.struts.action.salary.TaxtableManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 新給批次建檔 -->
+		<action path="/Salary/BatchSalyManager"
+	       name="BatchSalyManagerForm"
+		   type="tw.edu.chit.struts.action.salary.BatchSalyManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 連合服務中心索引(行政人員) -->
+	    <action path="/OnlineService/Directory"
+		   type="tw.edu.chit.struts.action.onlineService.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    	    
+	    <!-- 立即處理 -->
+	    <action path="/OnlineService/CaseManager"
+	    	name="CaseManagerForm"
+		   	type="tw.edu.chit.struts.action.onlineService.CaseManagerAction"
+	       	scope="session"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 狀態查詢 -->
+	    <action path="/OnlineService/CaseView"
+	    	name="CaseViewForm"
+		   	type="tw.edu.chit.struts.action.onlineService.CaseViewAction"
+	       	scope="session"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 服務設定 -->
+	    <action path="/OnlineService/WorkingManager"
+	    	name="WorkingManagerForm"
+		   	type="tw.edu.chit.struts.action.onlineService.WorkingManagerAction"
+	       	scope="session"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 個人資料管理 -->
+	    <action path="/Individual/EditProfile"
+	    	name="EditProfileForm"
+		   	type="tw.edu.chit.struts.action.personnel.EditProfileAction"
+	       	scope="session"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 學務列印 -->
+	    <action path="/Personnel/ReportPrintList"
+		   type="tw.edu.chit.struts.action.personnel.ReportPrintListAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 報表列印 -->
+	    <action path="/Personnel/ReportPrint"
+	       name="ReportPring4PForm"
+		   type="tw.edu.chit.struts.action.personnel.ReportPrintAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 留校時間設定 -->
+		<action path="/Personnel/StayTimeSetup"
+	    	name="StayTimeSetupForm"
+		   	type="tw.edu.chit.struts.action.personnel.StayTimeSetupAction" 
+	       	scope="request"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 留校時間產學減免維護 -->
+		<action path="/Personnel/StayTimeRelief"
+	    	name="StayTimeSetupForm"
+		   	type="tw.edu.chit.struts.action.personnel.StayTimeReliefAction"
+	       	scope="request"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 秘書室 -->
+	    <action path="/Secretary/Directory"
+		   type="tw.edu.chit.struts.action.secretary.DirectoryAction"
+	       scope="session"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 秘書室報表列印 -->
+	    <action path="/Secretary/ReportPrint"
+	       name="ReportPrintForm"
+		   type="tw.edu.chit.struts.action.secretary.ReportPrintAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 秘書室行事曆 -->
+	    <action path="/Secretary/SecretaryCalendar"
+	       name="CalendarForm"
+		   type="tw.edu.chit.struts.action.secretary.SecretaryCalendarAction"
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 秘書室行事曆管理 -->
+	    <action path="/Secretary/Calendar"
+	       name="CalendarForm"
+		   type="tw.edu.chit.struts.action.secretary.CalendarAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 會議/法規文件管理 -->
+	    <action path="/Secretary/File_Manager"	       
+		   type="tw.edu.chit.struts.action.secretary.File_ManagerAction"
+	       scope="request"
+	       input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 會議/法規文件審核 -->
+	    <action path="/Secretary/File_Approve"
+	       name="File_ApproveForm"
+		   type="tw.edu.chit.struts.action.secretary.File_ApproveAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 會議/法規-資料設定 -->
+	    <action path="/Secretary/File_Scheme"
+	       name="File_SchemeForm"
+		   type="tw.edu.chit.struts.action.secretary.File_SchemeAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 會議/法規-資料上傳 -->
+	    <action path="/Secretary/File_Upload"
+	       name="File_UploadForm"
+		   type="tw.edu.chit.struts.action.secretary.File_UploadAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 會議/法規-資料下載 -->
+	    <action path="/Secretary/File_Download"
+	       name="File_DownloadForm"
+		   type="tw.edu.chit.struts.action.secretary.File_DownloadAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 會議/法規-校外資料下載 -->
+	    <action path="/Secretary/File_OutDownload"
+	       name="File_OutDownloadForm"
+		   type="tw.edu.chit.struts.action.secretary.File_OutDownloadAction"
+	       scope="session"
+	       parameter="method">
+	       <forward name="File_OutDownload" path="/pages/FILE/File_OutDownload.jsp"/>
+	    </action>
+	    	    
+	    <!-- 體育室 -->
+	    <action path="/SportsRoom/Directory"
+		   type="tw.edu.chit.struts.action.sport.DirectoryAction"
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 體育室選課狀況 -->
+	    <action path="/SportsRoom/DeptCourseInfo"
+	    	name="DeptCourseInfoForm"
+		  	type="tw.edu.chit.struts.action.sport.DeptCourseInfoAction"
+	       	scope="session"
+	       	parameter="method"
+		   	input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 專長統計 -->
+		<action path="/Personnel/SkillStatistics"
+	       name="SkillStatisticsForm"
+		   type="tw.edu.chit.struts.action.personnel.SkillStatisticsAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 服務滿意度調查表列印 -->
+		<action path="/Personnel/AssessPaper"
+	       name="AssessPaperForm"
+		   type="tw.edu.chit.struts.action.personnel.AssessPaperAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+		   <forward name="back" path="/Individual/Directory.do"/>
+	    </action>
+
+	    <!-- 行政人員服務滿意度調查 -->
+		<action path="/Personnel/AssessPaperReply"
+	       name="AssessPaperReplyForm"
+		   type="tw.edu.chit.struts.action.personnel.AssessPaperReplyAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 行政人員服務滿意度調查報表查詢列印 -->
+		<action path="/Personnel/AssessPaperReport"
+	       name="AssessPaperReportForm"
+		   type="tw.edu.chit.struts.action.personnel.AssessPaperReportAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教時任教時數上限管理 -->
+		<action path="/Personnel/TechlimitManager"
+	       name="TechlimitManagerForm"
+		   type="tw.edu.chit.struts.action.personnel.TechlimitManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 秘書室問卷管理 -->
+	    <action path="/Secreatary/AQManager"
+	       name="AQManagerForm"
+		   type="tw.edu.chit.struts.action.secretary.AQManagerAction"
+	       scope="request"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    
+    </action-mappings>
+
+    <controller />
+
+    <!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.personnel" null="false" key="PSN" />
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+
+</struts-config>
+

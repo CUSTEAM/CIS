@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+
+    <form-bean name="SetSummerVactionForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+      <form-property name="Oid" type="java.lang.String[]" />
+      <form-property name="daynite" type="java.lang.String[]" />
+      <form-property name="seqno" type="java.lang.String[]" />
+      <form-property name="wdate" type="java.lang.String[]" />
+      <form-property name="dayniteName" type="java.lang.String[]" />
+	</form-bean>
+
+    <form-bean name="sOpenCourseForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+      <form-property name="seqno" type="java.lang.String" />
+      <form-property name="classLess" type="java.lang.String" />
+      <form-property name="departClass" type="java.lang.String" />
+      <form-property name="which" type="java.lang.String" />
+      <form-property name="teacherId" type="java.lang.String" /> <!-- techid -->
+      <form-property name="teacherName" type="java.lang.String" />
+      <form-property name="choseType" type="java.lang.String" /> <!-- opt -->
+      <form-property name="credit" type="java.lang.String" />
+      <form-property name="courseNumber" type="java.lang.String" /> <!-- cscode -->
+      <form-property name="courseName" type="java.lang.String" />
+      <form-property name="thour" type="java.lang.String" />
+      <form-property name="place" type="java.lang.String" />
+      <form-property name="day1" type="java.lang.String" />
+      <form-property name="day2" type="java.lang.String" />
+      <form-property name="day3" type="java.lang.String" />
+      <form-property name="day4" type="java.lang.String" />
+      <form-property name="day5" type="java.lang.String" />
+      <form-property name="day6" type="java.lang.String" />
+      <form-property name="day7" type="java.lang.String" />
+      <form-property name="stuSelect" type="java.lang.String" />
+      <form-property name="status" type="java.lang.String" />
+      <form-property name="oid" type="java.lang.String" />
+	</form-bean>
+
+	<form-bean name="inputTimeOffForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  
+	  <form-property name="studentName" type="java.lang.String" />
+	  <form-property name="courseNumber" type="java.lang.String" />
+	  <form-property name="courseName" type="java.lang.String" />
+	  <form-property name="departClass" type="java.lang.String" />
+	  <form-property name="classLess" type="java.lang.String" />
+	  <form-property name="daynite" type="java.lang.String" />
+	  <form-property name="stDepartClass" type="java.lang.String" />
+	  <form-property name="stClassLess" type="java.lang.String" />
+	  <form-property name="seqno" type="java.lang.String" />
+	  <form-property name="studentId" type="java.lang.String" />
+	  <form-property name="weekNo" type="java.lang.String" />
+	  <form-property name="weekDay" type="java.lang.String" />
+	  <form-property name="ddate" type="java.lang.String" />
+	  <form-property name="Oid" type="java.lang.String[]" />
+	  <form-property name="wseqno" type="java.lang.String[]" />	  
+	  <form-property name="wddate" type="java.lang.String[]" />
+	  <form-property name="wdepartClass" type="java.lang.String[]" />
+	  <form-property name="wcscode" type="java.lang.String[]" />
+	  <form-property name="studentNo" type="java.lang.String[]" />	  
+	  <form-property name="abs1" type="java.lang.String[]" />
+	  <form-property name="abs2" type="java.lang.String[]" />
+	  <form-property name="abs3" type="java.lang.String[]" />
+	  <form-property name="abs4" type="java.lang.String[]" />
+	  <form-property name="abs5" type="java.lang.String[]" />
+	  <form-property name="abs6" type="java.lang.String[]" />
+	  <form-property name="abs7" type="java.lang.String[]" />
+	  <form-property name="abs8" type="java.lang.String[]" />
+	  <form-property name="abs9" type="java.lang.String[]" />
+	  <form-property name="abs10" type="java.lang.String[]" />
+	  <form-property name="abs11" type="java.lang.String[]" />  
+	</form-bean>
+	
+	<form-bean name="OnlineClassSelectionForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  <form-property name="studentId" type="java.lang.String" />
+	  <form-property name="studentName" type="java.lang.String" />
+	  <form-property name="departClass" type="java.lang.String" />
+	  <form-property name="classLess" type="java.lang.String" />
+	  <form-property name="courseNumber" type="java.lang.String" />
+	  <form-property name="courseName" type="java.lang.String" /> 
+	  	
+	</form-bean>
+	
+	<form-bean name="SummerCheckOutForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  <form-property name="departClass" type="java.lang.String" />
+	  <form-property name="classLess" type="java.lang.String" />
+	  <form-property name="courseNumber" type="java.lang.String" />
+	  <form-property name="courseName" type="java.lang.String" />
+	  <form-property name="checkOpt" type="java.lang.String" />
+	  <form-property name="seqno" type="java.lang.String" />
+	  
+	  <form-property name="expLess" type="java.lang.String" />
+	  <form-property name="hourPay" type="java.lang.String" />
+	  <form-property name="creditPay" type="java.lang.String" />
+	</form-bean>
+	
+	<form-bean name="ClassManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+		<form-property name="aNo" type="java.lang.String" initial=""/>
+		<form-property name="aName" type="java.lang.String" initial=""/>
+		
+		<form-property name="Oid" type="java.lang.String[]" initial=""/>
+		<form-property name="no" type="java.lang.String[]" initial=""/>
+		<form-property name="name" type="java.lang.String[]" initial=""/>
+	</form-bean>
+	
+	</form-beans>
+
+    <action-mappings>
+
+    	<action path="/Summer/Directory"
+		   type="tw.edu.chit.struts.action.summer.DirectoryActionSummer"
+	       scope="session"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 暑修梯次設定 -->
+	    <action path="/Summer/SetSummerVaction"
+	       name="SetSummerVactionForm"
+		   type="tw.edu.chit.struts.action.summer.SetSummerVactionAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 暑修開課作業 -->
+		<action path="/Summer/sOpenCourse"
+	       name="sOpenCourseForm"
+		   type="tw.edu.chit.struts.action.summer.CoursesManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 暑修缺曠作業 -->
+		<action path="/Summer/inputTimeOff"
+	       name="inputTimeOffForm"
+		   type="tw.edu.chit.struts.action.summer.inputTimeOffAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 暑修加退選作業 -->
+		<action path="/Summer/OnlineClassSelection"
+	       name="OnlineClassSelectionForm"
+		   type="tw.edu.chit.struts.action.summer.OnlineClassSelection"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 暑修加查核作業 -->
+		<action path="/Summer/CheckOut"
+	       name="SummerCheckOutForm"
+		   type="tw.edu.chit.struts.action.summer.CheckOut"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 暑修班級管理 -->
+		<action path="/Summer/ClassManager"
+	       name="ClassManagerForm"
+		   type="tw.edu.chit.struts.action.summer.ClassManagerAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+	    </action>
+
+  </action-mappings>
+
+
+    <!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.course" null="false" key="SUM" />
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+</struts-config>
+
+

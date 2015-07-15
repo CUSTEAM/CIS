@@ -1,0 +1,88 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8" %>
+<%@ page import="org.apache.struts.Globals"%>
+<%@ include file="/taglibs.jsp"%>
+<%@ include file="Main/style.jsp"%>
+<!-- %@ include file="/pages/include/build.js" %-->
+<!-- %@ include file="/pages/include/build4LC.js" %-->
+<html:html locale="true">
+<head>
+	<html:base />
+	<title><bean:message key="LoginForm.title" /></title>
+	<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+	<meta HTTP-EQUIV="expires" CONTENT="-1">
+	<meta name="ROBOTS" content="none">
+	<link href="images/css/Istyle.css" type="text/css" rel="stylesheet">
+	<link href="images/css/<%=home%>.css" type="text/css" rel="stylesheet">
+	<link href="images/css/<%=decorate%>.css" type="text/css" rel="stylesheet">
+	<link href="images/css/global.css" type="text/css" rel="stylesheet">
+	<link href="score/chit.css" type="text/css" rel="stylesheet" media="screen">
+	<script language="javascript" src="include/OnlineMsg.js"></script>
+</head>
+
+
+<body>
+	<%@ include file="Main/init.jsp"%>
+
+	<table cellSpacing=0 cellPadding=0 width=100% border=0>
+		<tr>
+			<td width="100%">
+				<c:import url="/pages/InetMain4ParentHeader.jsp" />
+			</td>
+		</tr>
+	</table>
+
+	<table width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<!-- 選單區域 -->
+			<td vAlign="top" align="right" width="18%" nowrap>
+				<jsp:include page="Menu.jsp" />asdfasdfasdfasdfsadf
+			</td>
+
+			<!-- 主要區域 -->
+			<td align="left" valign="top" width="100%" style="padding:5px 5px 5px 0px;">				
+				
+				<table width="100%" cellspacing="0" cellpadding="0" border="0">
+					<tr>
+						<td style="padding:5px 0px 5px 0px;"><%@ include file="Login/message.jsp" %></td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" width="100%">							
+							<b class="xb1"></b>
+							<b class="xb2"></b>
+							<b class="xb3"></b>
+							<b class="xb4"></b>
+							<table width="100%" cellspacing="0" cellpadding="0" border="0">
+								<tr>
+									<td width="3" class="fullColorTable"></td>
+									<td height="100%" class="fullColorTableSub" align="left" valign="top">									
+										<!-- Here comes content page -->
+										<c:import url="${contentPage}" />										
+									</td>
+
+									<td width="3" class="fullColorTable"></td>
+								</tr>
+							</table>
+							
+							<b class="xb4"></b>
+							<b class="xb3"></b>
+							<b class="xb2"></b>
+							<b class="xb1"></b>
+
+						</td>
+					</tr>
+				</table>
+				
+				
+				
+				
+				<c:import url="floored.jsp" />
+			</td>
+		</tr>
+	</table>
+	
+</body>
+</html:html>
+
+
+

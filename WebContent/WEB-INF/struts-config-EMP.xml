@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+
+	</form-beans>
+	
+	<global-exceptions />
+	<global-forwards />
+
+    <action-mappings>
+
+	    <action path="/EmpEvaluate/Directory"
+		   type="tw.edu.chit.struts.action.employee.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教職員進修 -->
+	    <action path="/EmpTraining/Directory"
+		   type="tw.edu.chit.struts.action.employee.training.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教師教學評鑑施行細則 -->
+	    <action path="/EmpEvaluate/TeachEvaluateRule"
+		   type="tw.edu.chit.struts.action.employee.TeachEvaluateRuleAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教師服務評鑑施行細則 -->
+	    <action path="/EmpEvaluate/ServeEvaluateRule"
+		   type="tw.edu.chit.struts.action.employee.ServeEvaluateRuleAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教師研究評鑑施行細則 -->
+	    <action path="/EmpEvaluate/ResearchEvaluateRule"
+		   type="tw.edu.chit.struts.action.employee.ResearchEvaluateRuleAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    	    
+	    <!-- 職員工工作評量施行細則 -->
+	    <action path="/EmpEvaluate/EmpEvaluateRule"
+		   type="tw.edu.chit.struts.action.employee.EmpEvaluateRuleAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+
+	    <!-- 教師教學評分標準 -->
+	    <action path="/EmpEvaluate/TeachEvaluateStd"
+		   type="tw.edu.chit.struts.action.employee.TeachEvaluateStdAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教師服務評分標準 -->
+	    <action path="/EmpEvaluate/ServeEvaluateStd"
+		   type="tw.edu.chit.struts.action.employee.ServeEvaluateStdAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教師研究評分標準 -->
+	    <action path="/EmpEvaluate/ResearchEvaluateStd"
+		   type="tw.edu.chit.struts.action.employee.ResearchEvaluateStdAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 表單下載 -->
+	    <action path="/EmpEvaluate/FormDownload"
+		   type="tw.edu.chit.struts.action.employee.FormDownloadAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教職員進修 -->
+	    <action path="/EmpTraining/Training"
+		   type="tw.edu.chit.struts.action.employee.training.TrainingFormDownloadAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 教師考核 -->
+	    <action path="/EmpEvaluate/EmpEvaluate4T"
+		   type="tw.edu.chit.struts.action.employee.EmpEvaluate4TAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 職員工考核 -->
+	    <action path="/EmpEvaluate/EmpEvaluate4E"
+		   type="tw.edu.chit.struts.action.employee.EmpEvaluate4EAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 樣本下載 -->
+	    <action path="/TemplateDownload/Directory"
+		   type="tw.edu.chit.struts.action.employee.template.DirectoryAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 其他文件 -->
+	    <action path="/OtherDocument/Directory"
+		   type="tw.edu.chit.struts.action.employee.document.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 其他文件 -->
+	    <action path="/OtherDocument/Document"
+		   type="tw.edu.chit.struts.action.employee.document.DocumentDownloadAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    	    	    	    
+    </action-mappings>
+
+    <controller />
+
+    <!-- ================================ Message Resources Definitions -->
+
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+</struts-config>

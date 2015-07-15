@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+    
+		<form-bean name="CoanswReviewForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+			<form-property name="classLess" type="java.lang.String" />
+			<form-property name="schoolType" type="java.lang.String" />
+			<form-property name="dept" type="java.lang.String" />
+			<form-property name="teacherId" type="java.lang.String" />
+			
+			<form-property name="searchType" type="java.lang.String" />
+		</form-bean>
+		
+	</form-beans>
+	
+	<global-exceptions />
+	<global-forwards />
+
+    <action-mappings>
+
+	    <action path="/Chief/Directory"
+		   type="tw.edu.chit.struts.action.chief.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 系主任審評量 -->
+		<action path="/Chief/CoanswReview"
+	       name="CoanswReviewForm"
+		   type="tw.edu.chit.struts.action.chief.CoanswReviewAction"
+	       scope="session"
+	       parameter="method"
+	       input="/Welcome.do">
+		 
+	    </action>
+	    
+	    	    	    	    
+    </action-mappings>
+
+    <controller />
+
+    <!-- ================================ Message Resources Definitions -->
+
+
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+
+</struts-config>
+

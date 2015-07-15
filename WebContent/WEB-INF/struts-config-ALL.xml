@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<form-beans>
+    
+    	<form-bean name="OpinionSuggestionForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="name" type="java.lang.String" initial="" />
+	   		<form-property name="email" type="java.lang.String" initial="" />
+	   		<form-property name="topic" type="java.lang.String" initial="" />
+	   		<form-property name="who" type="java.lang.String[]" initial="{}" />
+	   		<form-property name="whoOidData" type="java.lang.String[]" initial="{}" />
+	   		<form-property name="whoOid" type="java.lang.String" initial="" />
+	   		<form-property name="place" type="java.lang.String" initial="" />
+			<form-property name="date" type="java.lang.String" initial="" />
+			<form-property name="suggestion" type="java.lang.String" initial="" />
+	   	</form-bean>
+    
+	</form-beans>
+
+    <!-- =================================== Global Exception Definitions -->
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <!-- =================================== Global Forward Definitions -->
+ 
+	<global-forwards>
+	
+ 	</global-forwards>
+
+    <!-- =================================== Action Mapping Definitions -->
+
+    <action-mappings>
+
+	    <action path="/GeneralQuery/Directory"
+		   type="tw.edu.chit.struts.action.genquery.DirectoryAction"
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>    
+	    
+	    <!-- 職員工意見反應 -->
+	    <action path="/OpinionSuggestion"
+	       name="OpinionSuggestionForm"
+		   type="tw.edu.chit.struts.action.OpinionSuggestionAction"
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    	    
+    </action-mappings>
+
+
+    <!-- ================================ Message Resources Definitions -->
+ 
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+</struts-config>
+
+

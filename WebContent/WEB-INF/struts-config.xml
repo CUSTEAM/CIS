@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>    
+    
+  		<form-bean
+	  		name="LoginForm" type="org.apache.struts.action.DynaActionForm">
+	  		<form-property name="username" type="java.lang.String" />
+	  		<form-property name="password" type="java.lang.String" />
+	  		<form-property name="rememberme" type="java.lang.String" />
+	  	</form-bean>
+	  	
+	  	<form-bean
+	  		name="ChPassForm" type="org.apache.struts.action.DynaActionForm">	  		
+	  		<form-property name="password" type="java.lang.String" />	  		
+	  	</form-bean>
+	  	
+	  	<form-bean
+	  		name="OnlineServiceLoginForm" type="org.apache.struts.action.DynaActionForm">
+	  		<form-property name="username" type="java.lang.String" />
+	  		<form-property name="password" type="java.lang.String" />
+	  		<form-property name="rememberme" type="java.lang.String" />
+	  	</form-bean>
+
+  		<form-bean
+	  		name="LoginForm4Parent" type="org.apache.struts.action.DynaActionForm">
+	  		<form-property name="idno" type="java.lang.String" />
+	  		<form-property name="birthdate" type="java.lang.String" />
+	  		<form-property name="parentName" type="java.lang.String" />
+	  	</form-bean>
+	  	
+	  <form-bean name="SearchToolForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	    <form-property name="tab0"  type="java.lang.String" initial="1"/>
+	  	<form-property name="cname" type="java.lang.String" />
+      	<form-property name="idno" type="java.lang.String" />
+      	<form-property name="cscode" type="java.lang.String" />
+      	<form-property name="chiName" type="java.lang.String" />
+      	<form-property name="pigsName" type="java.lang.String" />
+      	<form-property name="pigsMoudle" type="java.lang.String" />
+      	<form-property name="msgStart" type="java.lang.String" />
+      	<form-property name="msgEnd" type="java.lang.String" />
+      	<form-property name="pigsMsg" type="java.lang.String" />
+      	<form-property name="checkPmsg" type="java.lang.String[]" />
+      	<form-property name="pigId" type="java.lang.String" />
+      	<form-property name="pigPwd" type="java.lang.String" />
+      	<form-property name="pigNewPwd" type="java.lang.String" />
+      	<form-property name="pigNewPwd2" type="java.lang.String" />
+      	<form-property name="classInCharge2" type="java.lang.String" initial="" />
+      </form-bean>
+	  	    
+	  <form-bean name="ClassCourseSearchForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  	<form-property name="CampusNo" type="java.lang.String" initial="" />
+		<form-property name="SchoolNo" type="java.lang.String" initial="" />
+		<form-property name="DeptNo" type="java.lang.String" initial="" />
+		<form-property name="Grade" type="java.lang.String" initial="" />
+		<form-property name="ClassNo" type="java.lang.String" initial="" />			
+		<form-property name="cname" type="java.lang.String" initial="" />
+		<form-property name="week" type="java.lang.String" initial="" />
+		<form-property name="begin" type="java.lang.String" initial="" />
+		<form-property name="end" type="java.lang.String" initial="" />			
+		<form-property name="chi_name" type="java.lang.String" initial="" />
+		<form-property name="opt" type="java.lang.String" initial="" />
+		<form-property name="open" type="java.lang.String" initial="" />
+		<form-property name="elearning" type="java.lang.String" initial="" />
+	  </form-bean>
+	  
+	<form-bean name="TeacherCourseSearchForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+  		<form-property name="cname2" type="java.lang.String" initial="" />
+  		<form-property name="idNo2" type="java.lang.String" initial="" />
+  		<form-property name="category2" type="java.lang.String" initial="" />
+    </form-bean>
+    
+	<form-bean name="QueryByCourseNameForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+      <form-property name="campusInCharge"	type="java.lang.String"	initial="" />
+	  <form-property name="schoolInCharge"	type="java.lang.String"	initial="" />
+	  <form-property name="courseName"		type="java.lang.String"	initial="" />
+	</form-bean>
+	
+	<form-bean name="QueryByWeekTimeForm" 	type="tw.edu.chit.struts.BaseDynaActionForm">
+      <form-property name="campusInCharge"	type="java.lang.String"	initial="" />
+	  <form-property name="schoolInCharge"	type="java.lang.String"	initial="" />
+	  <form-property name="fweek"			type="java.lang.String"	initial="" />
+	  <form-property name="period"			type="java.lang.String"	initial="" />
+	</form-bean>
+	  	
+	<form-bean name="StudTimeOffQueryForm" 	type="tw.edu.chit.struts.BaseDynaActionForm">
+      <form-property name="mode"	type="java.lang.String"	initial="" />
+	  <form-property name="studentno"	type="java.lang.String"	initial="" />
+	</form-bean>
+	
+	<form-bean name="CreateAccountBySelfForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+      <form-property name="username" type="java.lang.String" initial="" />
+      <form-property name="checkOpen" type="java.lang.String" initial="" />
+	</form-bean>
+	
+	<form-bean name="MessageFeedbackActionForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+		<form-property name="content" type="java.lang.String" initial=""/>
+		<form-property name="StartDate" type="java.lang.String" initial=""/>
+		<form-property name="DueDate" type="java.lang.String" initial=""/>
+	  	<form-property name="message" type="java.lang.String[]" initial=""/>
+	  	<form-property name="Oid" type="java.lang.String[]" initial=""/>
+	  	
+	  	<form-property name="Category" type="java.lang.String" initial=""/>
+	  	<form-property name="title" type="java.lang.String" initial=""/>
+	  	<form-property name="receiver" type="java.lang.String" initial=""/>
+	  	<form-property name="unit" type="java.lang.String" initial=""/>
+	  	<form-property name="open" type="java.lang.String" initial=""/>
+	  	
+	  	<form-property name="image" type="org.apache.struts.upload.FormFile" /><!-- 照片 -->	
+	</form-bean>
+	
+	<!-- 校園導覽_課表查詢 LEO_20090408 -->
+	<form-bean name="ClassCourseSearch_guideForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  	<form-property name="campusInCharge2" type="java.lang.String" initial="" />
+	  	<form-property name="schoolInCharge2" type="java.lang.String"	initial="" />
+	  	<form-property name="deptInCharge2" type="java.lang.String" initial="" />
+	  	<form-property name="classInCharge2" type="java.lang.String" initial="" />
+	  	<form-property name="classInCharge" type="java.lang.String" initial="" />	  	
+	</form-bean>
+	
+	<form-bean name="FreshmanForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	  	<form-property name="field" type="java.lang.String[]" initial="" />
+	  	<form-property name="stdimage" type="org.apache.struts.upload.FormFile" />  	
+	</form-bean>
+	
+	  	
+	</form-beans>
+
+    <!-- =================================== Global Exception Definitions -->
+    <global-exceptions>
+       <!--exception key="error.required" type="java.lang.Exception" path="/dataAccessFailure.jsp"/>
+       <exception key="error.NullPointerException" type="java.lang.NullPointerException" 
+       		handler="tw.edu.chit.service.impl.exception.NullPointerExceptionHandler" 
+       		path="/Welcome.do" scope="request" />   
+       <exception key="error.NullPointerException" type="javax.servlet.ServletException" 
+       		handler="tw.edu.chit.service.impl.exception.NullPointerExceptionHandler" 
+       		path="/Welcome.do" scope="request" /--> 		      
+    </global-exceptions>
+
+    <!-- =================================== Global Forward Definitions -->
+
+	<global-forwards>
+	
+		<!-- 行政專區(校內使用) & 教師,學生(校外使用)-->
+		<forward name="Welcome" path="/Welcome.do"/>			
+		<forward name="Main" path="/pages/Main.jsp"/>
+		<forward name="Error" path="/pages/Error.jsp"/>
+		<forward name="NoData" path="/pages/NoData.jsp"/>
+		<forward name="MainNoMenu" path="/pages/MainBlank.jsp"/>
+		<forward name="Blank" path="/pages/Blank.jsp"/>		
+		<!-- 廢除不用2007/10/28 (教師,學生(校外使用)) -->
+		<!-- forward name="InetWelcome" path="/InetWelcome.do"/>
+		<forward name="Main" path="/pages/InetMain.jsp"/-->
+
+		<!-- 家長專區(校外使用) -->
+		<!-- forward name="InetWelcome4Parent" path="/InetWelcome4Parent.do"/-->
+		<!-- forward name="InetMain" path="/pages/InetMain4Parent.jsp"/-->
+		
+		<forward name="Search" path="/Search.do"/>
+		  	  
+ 	</global-forwards>
+
+    <!-- =================================== Action Mapping Definitions -->
+
+    <action-mappings>
+
+		<!-- 行政專區(校內使用) -->
+	    <!-- action path="/Welcome"
+	       name="LoginForm" 
+		   type="tw.edu.chit.struts.action.WelcomeAction" 
+	       scope="request"
+		   input="/Welcome.do">
+		   <forward name="continue" path="/pages/Login.jsp"/>
+	    </action>	    
+	    	
+	    <action path="/Login" 
+	       name="LoginForm" 
+		   type="tw.edu.chit.struts.action.LoginAction" 
+	       scope="request"
+		   input="/Welcome.do">
+		   <forward name="failure" path="/pages/Login.jsp"/>
+	    </action>
+	    
+	    <action path="/Logout" 
+		   type="tw.edu.chit.struts.action.LogoutAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action-->
+	    
+	    <!--不分校內外使用 -->	
+	    <action path="/Welcome"
+	       name="LoginForm" 
+		   type="tw.edu.chit.struts.action.WelcomeAction" 
+	       scope="request"
+		   input="/Welcome.do">
+		   <forward name="continue" path="/pages/Login.jsp"/>
+	    </action>
+	    
+	    <!--連合服務中心入口 -->	
+	    <action path="/OnlineServiceLogin" 
+	       name="OnlineServiceLoginForm" 
+		   type="tw.edu.chit.struts.action.OnlineServiceLoginAction" 
+	       scope="request"
+		   input="/Welcome.do">
+		   <forward name="failure" path="/pages/Login.jsp"/>
+	    </action>
+	    
+	    <!--e portfolio入口 -->	
+	    <action path="/EPortfolioLogin" 
+	       name="OnlineServiceLoginForm" 
+		   type="tw.edu.chit.struts.action.EPortfolioLoginAction" 
+	       scope="request"
+		   input="/Welcome.do">
+		   <forward name="failure" path="/pages/Login.jsp"/>
+	    </action>
+	    
+	    <!--刷卡機入口 -->	
+	    <action path="/CardLogin" 
+	       name="OnlineServiceLoginForm" 
+		   type="tw.edu.chit.struts.action.CardLoginAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!--新生修改資料入口 -->	
+		<action path="/Freshman"
+	       name="FreshmanForm"
+		   type="tw.edu.chit.struts.action.FreshmanAction"
+	       scope="session"
+	       parameter="method"
+		   input="/Welcome.do">
+		   <forward name="Freshman" path="/pages/Freshman.jsp"/>
+	    </action>
+	    	
+	    <action path="/Login" 
+	       name="LoginForm" 
+		   type="tw.edu.chit.struts.action.LoginReNewAction" 
+	       scope="request"
+		   input="/Welcome.do">
+		   <forward name="failure" path="/pages/Login.jsp"/>
+	    </action>
+	    
+	    <action path="/ChPass" 
+	       name="ChPassForm" 
+		   type="tw.edu.chit.struts.action.ChPassAction" 
+	       scope="request">
+	    </action>
+	    
+	    <action path="/Logout" 
+		   type="tw.edu.chit.struts.action.LogoutAction" 
+	       scope="request"
+	       input="/Welcome.do">
+	    </action>    
+	       	    
+		<!-- 家長專區(校外使用) -->
+		<action path="/InetWelcome4Parent"
+	       name="LoginForm4Parent" 
+		   type="tw.edu.chit.struts.action.InetWelcome4ParentAction" 
+	       scope="request"
+		   input="/InetWelcome4Parent.do">
+		   <forward name="continue" path="/pages/Login.jsp"/>
+	    </action>
+	    
+	    <action path="/InetLogin4Parent" 
+	       name="LoginForm4Parent" 
+		   type="tw.edu.chit.struts.action.InetLogin4ParentAction" 
+	       scope="request"
+		   input="/InetWelcome4Parent.do">
+		   <forward name="failure" path="/pages/Login.jsp"/>
+	    </action>	    
+	    
+	    <action path="/InetLogout4Parent" 
+		   type="tw.edu.chit.struts.action.InetLogout4ParentAction" 
+	       scope="request"
+		   input="/InetWelcome4Parent.do">
+	    </action>
+	    
+	    <!-- End 家長專區(校外使用) -->
+	    	    
+	    <action path="/AjaxLookupTool"
+	    	scope="request"
+	    	type="tw.edu.chit.struts.action.util.AjaxLookupToolAction"
+	    	parameter="method">
+	    </action>
+	    
+		<action path="/OpenSearchWindow" 
+			name="SearchToolForm"
+			scope="session"
+			parameter="method"
+			type="tw.edu.chit.struts.action.SearchToolAction">
+			<forward name="continue" path="/pages/SearchWindow.jsp"/>
+		</action>
+		
+		<action path="/Search"
+		   name="SearchToolForm" 
+		   type="tw.edu.chit.struts.action.SearchToolAction" 
+	       scope="session"
+	       parameter="method"
+		   input="/pages/SearchWindow.jsp">
+	    </action>
+	    
+	    <!-- 通用課程查詢 -->
+	    <action path="/ClassCourseSearch"
+		   name="ClassCourseSearchForm" 
+		   type="tw.edu.chit.struts.action.ClassCourseSearchAction" 
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/ClassCourseSearch.jsp" />
+	    </action>
+	    
+	    <!-- 通用課程查詢 -->
+	    <action path="/ClassCourseSearch"
+		   name="ClassCourseSearchForm" 
+		   type="tw.edu.chit.struts.action.ClassCourseSearchAction" 
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/ClassCourseSearch.jsp" />
+	    </action>
+	    
+	    <!-- 通用學分查詢 -->
+	    <action path="/getStdCredit"
+	    	type="tw.edu.chit.struts.action.getStdCreditAction" 
+	       scope="request"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/getStdCredit.jsp" />
+	    </action>
+	    
+	    <!-- 查詢通識課程上課地點 -->
+	    <action path="/LiteracyClassSearch"
+		   name="SearchToolForm" 
+		   type="tw.edu.chit.struts.action.LiteracyClassSearchAction" 
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/LiteracyClassSearch.jsp" />
+	    </action>
+	    
+	    <!-- 查詢開放選修科目 -->
+	    <action path="/OpenCourseSearch"
+		   name="SearchToolForm" 
+		   type="tw.edu.chit.struts.action.OpenCourseSearchAction" 
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/OpenCourseSearch.jsp" />
+	    </action>
+	    
+	    <!-- 查詢教師課表 -->
+	    <action path="/TeacherCourseSearch"
+		   name="TeacherCourseSearchForm" 
+		   type="tw.edu.chit.struts.action.TeacherCourseSearchAction" 
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/TeacherCourseSearch.jsp" />
+	    </action>
+	    
+	    <action path="/InformixLogin"
+		   type="tw.edu.chit.struts.action.InformixLoginAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 辦學績效系統 Kai 2013/02/19 -->
+	    <action path="/Performance"
+		   type="tw.edu.chit.struts.action.PerformanceAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+
+	    <!-- 二代健保系統 Kai 2012/12/11 -->
+	    <action path="/health2"
+		   type="tw.edu.chit.struts.action.health2Action" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 運動績優輔導系統 Kai 2012/09/24 -->
+	    <action path="/phyframe"
+		   type="tw.edu.chit.struts.action.phyframeAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 實驗室管理系統 LEO 2011/08/18 -->
+	    <action path="/LaboratoryManage"
+		   type="tw.edu.chit.struts.action.LaboratoryManageAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+
+	    <!-- 畢業資格審查 Moonwlaker 2012/04/25 -->
+	    <action path="/GradCheck"
+		   type="tw.edu.chit.struts.action.GradCheckAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 註冊繳費管理系統 LEO 2012/01/05 -->
+	    <action path="/RegisterManage"
+		   type="tw.edu.chit.struts.action.RegisterManageAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 薪資管理系統 LEO 2012/02/02 -->
+	    <action path="/SalypayManage"
+		   type="tw.edu.chit.struts.action.SalypayManageAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 薪資查詢系統 Kai 2012/03/15 -->
+	    <action path="/Salysearch"
+		   type="tw.edu.chit.struts.action.SalysearchAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 所得稅資訊系統 LEO 2012/02/10 -->
+	    <action path="/SalytaxLogin"
+		   type="tw.edu.chit.struts.action.SalytaxLoginAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <action path="/QueryByCourseName"
+	       name="QueryByCourseNameForm"
+		   type="tw.edu.chit.struts.action.QueryByCourseNameAction"
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/QueryByCourseName.jsp" />
+	    </action>
+
+	    <action path="/Parent/Directory"
+			type="tw.edu.chit.struts.action.parent.DirectoryAction"
+			scope="request" input="/Welcome.do">
+		</action>
+
+	    <action path="/QueryByWeekTime"
+	       name="QueryByWeekTimeForm"
+		   type="tw.edu.chit.struts.action.QueryByWeekTimeAction"
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/QueryByWeekTime.jsp" />
+	    </action>
+
+	    <action path="/StudTimeOffQuery"
+	       name="StudTimeOffQueryForm"
+		   type="tw.edu.chit.struts.action.StudTimeOffQueryAction"
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/StudTimeOffQuery.jsp" />
+	    </action>
+	    
+ 	    <action path="/NotImplement"
+		   type="tw.edu.chit.struts.action.NotImplementAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <action path="/ChangeColor" 
+		   type="tw.edu.chit.struts.action.ChangeColorAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <action path="/ChangeLanguage" 
+		   type="tw.edu.chit.struts.action.ChangeLanguageAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <action path="/MessageFeedback"
+	       name="MessageFeedbackActionForm"
+		   type="tw.edu.chit.struts.action.MessageFeedbackAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 校外查詢課程 -->
+	    <action path="/ClassCourseSearch_guide"
+		   name="ClassCourseSearch_guideForm" 
+		   type="tw.edu.chit.struts.action.ClassCourseSearch_guideAction" 
+	       scope="session"
+	       parameter="method">
+	       <forward name="index" path="/pages/global/ClassCourseSearch_guide.jsp" />
+	    </action>
+	    
+	    <!-- 功能導覽 -->
+	    <action path="/ShowMenu"		   
+		   type="tw.edu.chit.struts.action.ShowMenuAction" 
+	       scope="session"
+	       parameter="method">
+	    </action>
+	    
+	    <!-- 跨專案介接元件 -->
+	    <action path="/Redirect" 
+		   type="tw.edu.chit.struts.action.RedirectAction" 
+	       scope="request">
+	    </action>
+	    
+    </action-mappings>
+
+
+    <!-- ================================ Message Resources Definitions -->
+
+    <message-resources parameter="messages.GLOBAL" null="false" /> 	
+ 	<message-resources parameter="messages.pages" null="false" key="IND" />
+    <!-- ======================================= Plug Ins Configuration -->
+
+
+</struts-config>

@@ -1,0 +1,105 @@
+BODY {
+	BACKGROUND-COLOR: #ffffff;
+	COLOR: #333333;
+	FONT-FAMILY: 微軟正黑體, Arial, 新細明體, Tahoma, Verdana, sans-serif;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+td {
+	FONT-SIZE: 13.5px;
+}
+
+submit {
+	padding: 2 4 0 4;
+	font-size: 12px;
+	height: 23;
+	background-color: #ece9d8;
+	border-width: 1;
+}
+
+form {
+margin: 0;
+}
+
+input,textarea {
+	font-size: 13.5px;
+	border-width: 2px
+}
+
+select {
+	font-size: 13.5px;
+	border-width: 2px
+}
+
+.FocusText{
+	font: normal 12pt Arial;
+	border-style:solid; 
+	border-width:1px; 
+	border-color: #66dd55;
+	height: 24;
+	margin: auto;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.FocusTextBlue{
+	font: normal 12pt Arial;
+	border-style:solid; 
+	border-width:1px; 
+	border-color: #abb8c9;
+	height: 24;
+	margin: auto;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.FocusTextRed{
+	font: normal 12pt Arial;
+	border-style:solid; 
+	border-width:1px; 
+	border-color: #e9bac2;
+	height: 24;
+	margin: auto;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.btn_gl{
+	background-image:-ms-linear-gradient(top,#f5f5f5,#f1f1f1);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f5f5',EndColorStr='#f1f1f1');
+	background-color:#f5f5f5;
+	background-image:linear-gradient(top,#f5f5f5,#f1f1f1);
+	background-image:-o-linear-gradient(top,#f5f5f5,#f1f1f1);
+	border:1px solid #dcdcdc;
+	border:1px solid rgba(0, 0, 0, 0.1);
+	border-radius:2px;color:#666;
+	cursor:pointer;
+	font-size:11px;
+	font-weight:bold;
+	font-family:微軟正黑體;
+	height:29px;
+	line-height:27px;
+	margin:11px 6px;
+	min-width:54px;
+	padding:0 8px;
+	text-align:center;
+}
+
+.btn_gl:hover{
+	background-image:-ms-linear-gradient(top,#f8f8f8,#f1f1f1);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#f8f8f8',EndColorStr='#f1f1f1');
+	background-color:#f8f8f8;
+	background-image:linear-gradient(top,#f8f8f8,#f1f1f1);
+	background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1);
+	border:1px solid #c6c6c6;
+	box-shadow:0 1px 1px rgba(0,0,0,0.1);
+	color:#333;
+}
+
+.btn_gl:focus{
+	border:1px solid #4d90fe;
+	outline:none;
+}

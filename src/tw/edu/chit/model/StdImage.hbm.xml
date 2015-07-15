@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="tw.edu.chit.model.StdImage" table="StdImage" catalog="CIS">
+	
+		<id name="oid" type="java.lang.Integer" column="Oid">
+			<generator class="native">
+				<param name="sequence">stdImage_seq</param>
+			</generator>
+		</id>
+		
+		<property name="studentNo" column="StudentNo" type="java.lang.String" />
+		<property name="image" column="Image" type="java.sql.Blob" />
+		
+		<!--  one-to-one name="student" class="tw.edu.chit.model.Student" property-ref="image" /-->
+
+	</class>
+</hibernate-mapping>

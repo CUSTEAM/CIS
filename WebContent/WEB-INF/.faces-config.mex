@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JSFFlowViewLayout version="1.0">
+  <Drawing gridVisible="true" snapOn="true" />
+  <JSFFlowResource path="/pages/personnel/jsf/StudentJobManager.jsp" location="30,130" dimension="263,36" />
+  <JSFFlowNavigationCase id="/pages/personnel/jsf/StudentJobManager.jsp,/pages/personnel/jsf/StudentJobManager.jsp,StudentJobManager,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="161,148" />
+      <AbsolutePoint location="161,120" />
+      <AbsolutePoint location="20,120" />
+      <AbsolutePoint location="20,148" />
+      <AbsolutePoint location="161,148" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+</JSFFlowViewLayout>
+

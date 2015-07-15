@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+    	<form-bean name="TemplateManager" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+	   		<form-property name="checkTemplate" type="java.lang.String" />
+	   		<form-property name="userTemplate" type="java.lang.String" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="SiteManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+	   		<form-property name="Oid" type="java.lang.String" initial=""/>
+			<form-property name="siteName" type="java.lang.String" initial=""/>
+			<form-property name="siteDescript" type="java.lang.String" initial=""/>
+			
+			<form-property name="banner" type="java.lang.String" initial=""/>
+			<form-property name="bannerTemp" type="java.lang.String" initial=""/>			
+			<form-property name="headerStyle" type="java.lang.String" initial=""/>			
+			<form-property name="index" type="java.lang.String" initial=""/>
+			<form-property name="footStyle" type="java.lang.String" initial=""/>
+			<form-property name="timer" type="java.lang.String" initial=""/>
+			
+			<form-property name="path" type="java.lang.String" initial=""/>
+	   	</form-bean>	   	
+	   	
+	   	<form-bean name="PageManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="Oid" type="java.lang.String" />
+			<form-property name="Uid" type="java.lang.String" />
+			<form-property name="tag" type="java.lang.String" />			
+			<form-property name="newTag" type="java.lang.String" />
+			
+			<form-property name="checkNewTag" type="java.lang.String" />
+			
+			<form-property name="title" type="java.lang.String" />
+			<form-property name="content" type="java.lang.String" />
+			<form-property name="editime" type="java.lang.String" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="PortfolioManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="next" type="java.lang.String" initial="" />
+	   		<form-property name="table_oid" type="java.lang.String" initial="" />	   		
+	   		<form-property name="aContent" type="java.lang.String[]" initial="" />
+	   		<form-property name="field_oid" type="java.lang.String[]" initial="" />	   		
+	   		<form-property name="Oid" type="java.lang.String[]" initial="" />
+	   		<form-property name="contents" type="java.lang.String[]" initial="" />	   		
+	   	</form-bean>
+	   	
+	   	<form-bean name="EPortfolioManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="next" type="java.lang.String" initial="" />
+	   		<form-property name="table_oid" type="java.lang.String" initial="" />	   		
+	   		<form-property name="aContent" type="java.lang.String[]" initial="" />
+	   		<form-property name="field_oid" type="java.lang.String[]" initial="" />	   		
+	   		<form-property name="Oid" type="java.lang.String[]" initial="" />
+	   		<form-property name="contents" type="java.lang.String[]" initial="" />
+	   	</form-bean>
+	   	
+	   	<form-bean name="FreePortfolioManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	   		<form-property name="Oid" type="java.lang.String[]" initial="" />
+	   		<form-property name="tag" type="java.lang.String[]" initial="" />	   	
+	   		<form-property name="title" type="java.lang.String[]" initial="" />
+	   		<form-property name="content" type="java.lang.String[]" initial="" />
+	   		<form-property name="file" type="java.lang.String[]" initial="" />
+	   		
+	   		<form-property name="newTag" type="java.lang.String[]" initial="" />  		
+	   	</form-bean>
+    	
+    	<!-- 活動 -->
+    	<form-bean name="ActivitiesManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="Oid" type="java.lang.String[]" initial="" />
+    		<form-property name="delOid" type="java.lang.String[]" initial="" />
+			<form-property name="name" type="java.lang.String[]" initial="" />
+			<form-property name="sign_start" type="java.lang.String[]" initial="" />
+			<form-property name="sign_end" type="java.lang.String[]" initial="" />
+			<form-property name="judge_start" type="java.lang.String[]" initial="" />
+			<form-property name="judge_end" type="java.lang.String[]" initial="" />
+			<form-property name="end" type="java.lang.String[]" initial="" /> 		
+	   	</form-bean>
+	   	
+	   	<form-bean name="EvaluatorManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+	   		<form-property name="Oid" type="java.lang.String[]" initial="" />	   		
+	   		<form-property name="techid" type="java.lang.String" initial="" />
+	   		<form-property name="act_oid" type="java.lang.String" initial="" />	   	
+	   	</form-bean>
+	   	
+	   	<form-bean name="JoinpartyForm" type="tw.edu.chit.struts.BaseDynaActionForm">	   		
+	   		<form-property name="addOid" type="java.lang.String" initial="" />
+	   		<form-property name="delOid" type="java.lang.String[]" initial="" />	   	
+    	</form-bean>
+    	
+    	<form-bean name="DeptScoreForm" type="tw.edu.chit.struts.BaseDynaActionForm">    		   	
+    	</form-bean>
+    	
+    	<form-bean name="SingleScoreForm" type="tw.edu.chit.struts.BaseDynaActionForm">    		   	
+    	</form-bean>
+    	
+    	<form-bean name="ListMyStudentsForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="year" type="java.lang.String" initial="" />
+    		<form-property name="term" type="java.lang.String" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="MySkillForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="skillOid" type="java.lang.String[]" initial="" />
+    		<form-property name="level" type="java.lang.String[]" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="EditVitaeForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+    		<form-property name="ch" type="java.lang.String" initial="" />
+    		<form-property name="en" type="java.lang.String" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="AutoCreateForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	    	<form-property name="CampusNo" type="java.lang.String" initial="" />
+			<form-property name="SchoolNo" type="java.lang.String" initial="" />
+			<form-property name="DeptNo" type="java.lang.String" initial="" />
+			<form-property name="Grade" type="java.lang.String" initial="" />
+			<form-property name="ClassNo" type="java.lang.String" initial="" />
+			<form-property name="type" type="java.lang.String" initial="" />
+    	</form-bean>
+    	
+    	<form-bean name="UcanReportForm" type="tw.edu.chit.struts.BaseDynaActionForm">
+	    	<form-property name="CampusNo" type="java.lang.String" initial="" />
+			<form-property name="SchoolNo" type="java.lang.String" initial="" />
+			<form-property name="DeptNo" type="java.lang.String" initial="" />
+			<form-property name="Grade" type="java.lang.String" initial="" />
+			<form-property name="ClassNo" type="java.lang.String" initial="" />
+			<form-property name="type" type="java.lang.String" initial="" />
+			
+			<form-property name="begin" type="java.lang.String" initial="" />
+			<form-property name="end" type="java.lang.String" initial="" />
+    	</form-bean>
+    	
+    	
+    	
+    </form-beans>
+    
+    <action-mappings>    		     		
+	     
+	    <!-- 學習歷程索引頁 -->
+	    <action path="/Portfolio/Directory"
+			type="tw.edu.chit.struts.action.portfolio.DirectoryAction"
+			scope="request" input="/Welcome.do">
+		</action>		
+		
+		<!-- 部落格樣式管理 -->
+	    <action path="/Portfolio/TemplateManager"
+	    	name="TemplateManager"
+	    	type="tw.edu.chit.struts.action.portfolio.TemplateManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 部落格基本資料管理 -->
+	    <action path="/Portfolio/SiteManager"
+	    	name="SiteManagerForm"
+	    	type="tw.edu.chit.struts.action.portfolio.SiteManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 學習歷程管理 -->
+	    <action path="/Portfolio/PortfolioManager"
+	    	name="PortfolioManagerForm"
+	    	type="tw.edu.chit.struts.action.portfolio.PortfolioManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 頁面管理 -->
+	    <action path="/Portfolio/PageManager"
+	    	name="PageManagerForm"
+	    	type="tw.edu.chit.struts.action.portfolio.PageManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 學習歷程管理 -->
+	    <action path="/Portfolio/EPortfolioManager"
+	    	name="EPortfolioManagerForm"
+	    	type="tw.edu.chit.struts.action.portfolio.EPortfolioManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 學習歷程首頁 -->
+		<action forward="/pages/portfolio/REDirectory.jsp" path="/Portfolio/REDirectory" />
+		
+		<!-- 題庫系統 -->
+		<action path="/REDirectoryOT"
+	    	type="tw.edu.chit.struts.action.portfolio.REDirectoryOTAction"
+	    	scope="request"
+	    	parameter="method">
+	    	<forward name="REDirectoryOT" path="/pages/portfolio/REDirectoryOT.jsp"/>
+	    </action>
+		
+		<!-- 1111首頁 -->
+		<action forward="/pages/portfolio/REDirectory1111.jsp" path="/Portfolio/REDirectory1111" />
+		
+		<!-- 自由學習歷程管理 -->
+	    <action path="/Portfolio/FreePortfolioManager"
+	    	name="FreePortfolioManagerForm"
+	    	type="tw.edu.chit.struts.action.portfolio.FreePortfolioManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	       
+		<!-- 歷程設定管理索引 -->
+	    <action path="/Portfolio/SysManager"
+			type="tw.edu.chit.struts.action.portfolio.SysManager"
+			scope="request" input="/Welcome.do">
+		</action>
+		
+		<!-- 活動管理索引 -->
+	    <action path="/Portfolio/ActivitiesDir"
+		   type="tw.edu.chit.struts.action.portfolio.ActivitiesDir" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 部落格管理索引 -->
+	    <action path="/SysAdmin/PortfolioManager"
+		   type="tw.edu.chit.struts.action.sysadmin.PortfolioManagerAction" 
+	       scope="request"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 項目管理 -->
+	    <action path="/SysAdmin/PortfolioManager/TableManager"
+	       name="TableManagerForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.TableManager" 
+		   scope="request"
+		   parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 使用者管理 -->
+	    <action path="/SysAdmin/PortfolioManager/UserManager"
+	       name="AutoCreateForm" 
+		   type="tw.edu.chit.struts.action.sysadmin.UserManagerAction" 
+		   scope="request"
+		   parameter="method"
+		   input="/Welcome.do">
+	    </action>
+	    
+	    <!-- 活動管理 -->
+	    <action path="/Portfolio/ActivitiesManager"
+	    	name="ActivitiesManagerForm"
+	    	type="tw.edu.chit.struts.action.portfolio.ActivitiesManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 評審管理 -->
+	    <action path="/Portfolio/EvaluatorManager"
+	    	name="EvaluatorManagerForm"
+	    	type="tw.edu.chit.struts.action.portfolio.EvaluatorManagerAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 競賽報名 -->
+	    <action path="/Portfolio/Joinparty"
+	    	name="JoinpartyForm"
+	    	type="tw.edu.chit.struts.action.portfolio.JoinpartyAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 團隊成績 -->
+	    <action path="/Portfolio/DeptScore"
+	    	name="DeptScoreForm"
+	    	type="tw.edu.chit.struts.action.portfolio.DeptScoreAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 個人成績 -->
+	    <action path="/Portfolio/SingleScore"
+	    	name="SingleScoreForm"
+	    	type="tw.edu.chit.struts.action.portfolio.SingleScoreAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 學生列表 -->
+	    <action path="/Portfolio/ListMyStudents"
+	    	name="ListMyStudentsForm"
+	    	type="tw.edu.chit.struts.action.portfolio.teacher.ListMyStudentsAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 教師列表 -->
+	    <action path="/Portfolio/ListMyTeachers"
+	    	name="ListMyStudentsForm"
+	    	type="tw.edu.chit.struts.action.portfolio.student.ListMyTeachersAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 專長管理 -->
+	    <action path="/Portfolio/MySkill"
+	    	name="MySkillForm"
+	    	type="tw.edu.chit.struts.action.portfolio.teacher.MySkillAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 編輯學習歷程 -->
+	    <action path="/Portfolio/EditVitae"
+	    	name="EditVitaeForm"
+	    	type="tw.edu.chit.struts.action.portfolio.student.EditVitaeAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 自動建立 -->
+	    <action path="/Portfolio/AutoCreate"
+	    	name="AutoCreateForm"
+	    	type="tw.edu.chit.struts.action.portfolio.AutoCreateAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- 統計資料-->
+	    <action path="/Portfolio/Report"
+	    	name="AutoCreateForm"
+	    	type="tw.edu.chit.struts.action.portfolio.teacher.ReportAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+	    <!-- ucan單一登入-->
+	    <action path="/Portfolio/UcanLogin"	    	
+	    	type="tw.edu.chit.struts.action.portfolio.student.UcanLoginAction"
+	    	scope="request"
+	    	parameter="method">
+	    	<forward name="ucanlogin" path="/pages/portfolio/student/ucanlogin.jsp"/>
+	    </action>
+	    
+	    <!-- ucan統計資料-->
+	    <action path="/Portfolio/UcanReport"
+	    	name="UcanReportForm"
+	    	type="tw.edu.chit.struts.action.portfolio.teacher.UcanReportAction"
+	    	scope="request"
+	    	parameter="method">
+	    </action>
+	    
+  </action-mappings>
+
+</struts-config>

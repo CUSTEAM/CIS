@@ -1,0 +1,57 @@
+.username {
+	background-image: url(../user_go.png);
+	background-position: 4px 4px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	height: 28px;
+	font-size: 18px;
+	font-family: verdana, tahoma, sans-serif;	
+	ime-mode:disabled;	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #cccccc;
+}
+
+.username_on {
+	background-image: url(../user_go.png);
+	background-position: 4px 4px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	height: 28px;
+	font-size: 18px;
+	font-family: verdana, tahoma, sans-serif;	
+	ime-mode:disabled;	
+	border-width: 2px;	
+	border-style: solid;
+	border-color: #66dd55;
+}
+
+.password {
+	background-image: url(../key.png);
+	background-position: 4px 4px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	height: 28px;
+	font-size: 18px;
+	font-family: verdana, tahoma, sans-serif;	
+	ime-mode:disabled;	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #cccccc;
+	ime-mode:disabled;
+}
+
+.password_on {
+	background-image: url(../key.png);
+	background-position: 4px 4px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	height: 28px;
+	font-size: 18px;
+	font-family: verdana, tahoma, sans-serif;	
+	ime-mode:disabled;	
+	border-width: 2px;	
+	border-style: solid;
+	border-color: #66dd55;
+	ime-mode:disabled;
+}
