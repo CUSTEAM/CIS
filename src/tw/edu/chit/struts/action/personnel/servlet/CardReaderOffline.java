@@ -22,6 +22,11 @@ public class CardReaderOffline extends HttpServlet{
 		StringBuilder line=new StringBuilder(request.getParameter("line"));		
 		int dot=line.indexOf(",");
 		String idno=line.substring(0, dot);
+		//若以RFID讀入則轉換為username
+		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE username='"+idno+"'");
+		if(inco!=null){
+			idno=inco;
+		}		
 		line.delete(0, dot+1);		
 		dot=line.indexOf(",");
 		String date=line.substring(0, dot);

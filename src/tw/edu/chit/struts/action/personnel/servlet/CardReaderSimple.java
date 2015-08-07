@@ -32,7 +32,11 @@ public class CardReaderSimple extends HttpServlet{
 		String CardNo=request.getParameter("CardNo");
 		String day=request.getParameter("day");
 		String time=request.getParameter("time");
-		
+		//若以RFID讀入則轉換為username
+		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE username='"+CardNo+"'");
+		if(inco!=null){
+			CardNo=inco;
+		}
 		String cname=manager.ezGetString("SELECT cname FROM empl WHERE idno='"+CardNo+"'");
 		PrintWriter out=response.getWriter();
 		//Map today=manager.ezGetMap("SELECT * FROM AMS_Workdate WHERE wdate='"+day+"' AND idno='"+CardNo+"'");

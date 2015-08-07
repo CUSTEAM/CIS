@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.crystaldecisions.reports.reportdefinition.df;
+
 import tw.edu.chit.model.Csno;
 import tw.edu.chit.service.CourseManager;
 
@@ -31,7 +33,12 @@ public class CardReader extends HttpServlet{
 		String CardNo=request.getParameter("CardNo");
 		String day=request.getParameter("day");
 		String time=request.getParameter("time");
-		//String name1=new String(name.getBytes("iso-8859-1"),"utf-8"); 		
+		
+		//若以RFID讀入則轉換為username
+		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE username='"+CardNo+"'");
+		if(inco!=null){
+			CardNo=inco;
+		}		
 		
 		SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		PrintWriter out=response.getWriter();	
