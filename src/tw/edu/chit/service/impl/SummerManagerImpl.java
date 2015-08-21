@@ -372,6 +372,9 @@ public class SummerManagerImpl extends BaseManager implements SummerManager{
 	public List getScoreBy(String seqno, String departClass, String cscode) {
 		
 		int syear=ezGetInt("SELECT Value FROM Parameter WHERE name='School_year'");
+		int sterm=ezGetInt("SELECT Value FROM Parameter WHERE name='School_term'");
+		if(sterm==1)syear--;
+		
 		//TODO 暑修一定是下學期，寒假或隨時開的話再說
 		//int sterm=ezGetInt("SELECT Value FROM Parameter WHERE name='2'");
 		//int sterm=2;

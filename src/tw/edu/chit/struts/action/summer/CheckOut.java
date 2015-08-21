@@ -58,7 +58,11 @@ public class CheckOut extends BaseLookupDispatchAction{
 		//String departClass = (String) sform.get("departClass");
 		//String courseNumber = (String) sform.get("courseNumber");
 		//String seqno = (String) sform.get("seqno");		
-		String syear=manager.ezGetString("SELECT Value FROM Parameter WHERE name='School_year'");//暑修年度
+		//String syear=manager.ezGetString("SELECT Value FROM Parameter WHERE name='School_year'");//暑修年度
+		int syear=manager.ezGetInt("SELECT Value FROM Parameter WHERE name='School_year'");
+		int sterm=manager.ezGetInt("SELECT Value FROM Parameter WHERE name='School_term'");
+		if(sterm==1)syear--;
+		
 		//Integer sterm=2; //TODO 目前暑修成績均建入第二學期，若需要寒修是再建 Parameter.
 		
 		List setScores=getDtimEditList(request);		
@@ -84,7 +88,7 @@ public class CheckOut extends BaseLookupDispatchAction{
 						sh.setEvgrType("3");
 						sh.setOpt(((Map)setScores.get(i)).get("opt").toString());
 						sh.setSchoolTerm("2");
-						sh.setSchoolYear(Short.parseShort(syear));
+						sh.setSchoolYear(Short.parseShort(String.valueOf(syear)));
 						sh.setScore(Float.parseFloat(((Map)sseld.get(j)).get("score").toString()));
 						sh.setStudentNo(((Map)sseld.get(j)).get("student_no").toString());
 						sh.setStdepartClass(((Map)sseld.get(j)).get("stdepart_class").toString());

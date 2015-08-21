@@ -35,8 +35,8 @@ public class CardReader extends HttpServlet{
 		String time=request.getParameter("time");
 		
 		//若以RFID讀入則轉換為username
-		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE username='"+CardNo+"'");
-		if(inco!=null){
+		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE inco='"+CardNo+"'");
+		if(inco.length()>0){
 			CardNo=inco;
 		}		
 		

@@ -28,18 +28,16 @@ public class CardReaderSimple extends HttpServlet{
 		WebApplicationContext ctx=WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		
 		CourseManager manager=(CourseManager) ctx.getBean("courseManager");
-		//System.out.println("work");
 		String CardNo=request.getParameter("CardNo");
 		String day=request.getParameter("day");
 		String time=request.getParameter("time");
 		//若以RFID讀入則轉換為username
-		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE username='"+CardNo+"'");
-		if(inco!=null){
+		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE inco='"+CardNo+"'");
+		if(inco.length()>0){
 			CardNo=inco;
 		}
 		String cname=manager.ezGetString("SELECT cname FROM empl WHERE idno='"+CardNo+"'");
 		PrintWriter out=response.getWriter();
-		//Map today=manager.ezGetMap("SELECT * FROM AMS_Workdate WHERE wdate='"+day+"' AND idno='"+CardNo+"'");
 		Map today=null;
 		//如果資料庫查詢失敗時，直接回傳錯誤碼，不再繼續。
 		try{//TODO 判斷資料庫伺服器是否存活

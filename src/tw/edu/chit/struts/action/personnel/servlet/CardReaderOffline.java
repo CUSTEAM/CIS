@@ -23,8 +23,8 @@ public class CardReaderOffline extends HttpServlet{
 		int dot=line.indexOf(",");
 		String idno=line.substring(0, dot);
 		//若以RFID讀入則轉換為username
-		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE username='"+idno+"'");
-		if(inco!=null){
+		String inco=manager.ezGetString("SELECT username FROM wwpass WHERE inco='"+idno+"'");
+		if(inco.length()>0){
 			idno=inco;
 		}		
 		line.delete(0, dot+1);		
