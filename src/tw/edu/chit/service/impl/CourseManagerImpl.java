@@ -9776,9 +9776,9 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 		tmp=ezGetBy("SELECT student_no, student_name FROM stmd WHERE depart_class LIKE'"+classLess+"%'");
 		String cscode;
 		//取一人選課
-		for(int i=0; i<tmp.size(); i++){			
-			list=ezGetBy("SELECT * FROM Seld s, Dtime d WHERE s.Dtime_oid=d.Oid AND d.Sterm='"+term+"' AND " +
-			"s.student_no='"+((Map)tmp.get(i)).get("student_no")+"'");
+		for(int i=0; i<tmp.size(); i++){	
+			list=ezGetBy("SELECT * FROM Seld s, Csno c, Dtime d WHERE s.Dtime_oid=d.Oid AND c.cscode=s.cscode AND d.Sterm='"+term+"' AND " +
+					"s.student_no='"+((Map)tmp.get(i)).get("student_no")+"'");
 			
 			for(int j=0; j<list.size(); j++){
 				cscode=((Map)list.get(j)).get("cscode").toString();
@@ -9790,7 +9790,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 						map.put("student_no", ((Map)tmp.get(i)).get("student_no"));
 						map.put("student_name", ((Map)tmp.get(i)).get("student_name"));
 						map.put("cscode", cscode);
-						map.put("chi_name", "當期重複修: "+cscode);
+						map.put("chi_name", "當期重複修: "+((Map)list.get(j)).get("chi_name"));
 						map.put("school_year", year);
 						map.put("school_term", term);							
 						SelectException.add(map);
@@ -9808,7 +9808,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 					map.put("student_no", ((Map)tmp.get(i)).get("student_no"));
 					map.put("student_name", ((Map)tmp.get(i)).get("student_name"));
 					map.put("cscode", cscode);						
-					map.put("chi_name", "過去曾修: "+cscode+", 在"+reSelected(tmplist));						
+					map.put("chi_name", "過去曾修: "+((Map)list.get(j)).get("chi_name")+", 在"+reSelected(tmplist));						
 					map.put("school_year", year);
 					map.put("school_term", term);
 					SelectException.add(map);
