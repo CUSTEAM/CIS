@@ -215,6 +215,7 @@ public class Receipt4Student extends HttpServlet {
 					if(departClass.length()==7) nowdept=Integer.parseInt(departClass.substring(5, 6).toString());
 					else nowdept=Integer.parseInt(departClass.substring(4, 5).toString());
 					
+					/*
 					if(!departClass.substring(2, 3).toString().equals("G")){
 						if (nowdept > Integer.parseInt(departClass.substring(2, 3).toString())){
 							myInsurance = insurance;
@@ -223,9 +224,11 @@ public class Receipt4Student extends HttpServlet {
 							out.println("<td>0</td>");
 						}
 					}else {
-						out.println("<td>0</td>");
+						out.println("<td>" + myInsurance + "</td>");
 					}
-					
+					*/
+					myInsurance = insurance;
+					out.println("<td>" + myInsurance + "</td>");
 					
 					out.println("					</tr>");
 
