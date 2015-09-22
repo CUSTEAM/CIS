@@ -2802,26 +2802,23 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 	 * 實做以學號取得選課資訊
 	 */
 	@SuppressWarnings("unchecked")
-	private List getSeldBy(String studentNo, String sterm) {
-				
+	private List getSeldBy(String studentNo, String sterm) {				
 		String sql="SELECT s.Dtime_Oid, d.cscode, cs1.ClassName, c.chi_name, s.student_no, cs2.className as className2,st.student_name, ds.week, ds.begin, ds.end, d.thour "+
 				   "FROM Seld s, Dtime_class ds, Dtime d, Csno c, Class cs1, Class cs2, stmd st "+
 				   "WHERE s.Dtime_oid=d.Oid AND ds.Dtime_oid=s.Dtime_oid AND s.student_no='"+studentNo+"' AND sterm='"+sterm+"' AND "+
 				   "c.cscode=d.cscode AND d.depart_class=cs1.ClassNo AND st.depart_class=cs2.ClassNo AND st.student_no=s.student_no ORDER BY st.student_no";
-		List list=jdbcDao.StandardSqlQuery(sql);		
-		
+		List list=jdbcDao.StandardSqlQuery(sql);
 		// 2007/12/17 追加 getOtherSeld
-		List otherSeld=getOtherSeld(studentNo, sterm);
+		/*2015/9/22發現衝堂查核不需再虛擬加選周一第4節5000與T0001，那之前幾年為何沒人發現？
+		 * List otherSeld=getOtherSeld(studentNo, sterm);
 		if(otherSeld.size()>0){
 			list.addAll(otherSeld);
-		}
-		
+		}*/
 		return list;
 	}
 	
 	/**
 	 * 取得不產生選課, 但是要查衝堂的課 5000, T0001
-	 * 
 	 * @return
 	 */
 	private List getOtherSeld(String studentNo, String sterm){
@@ -2834,8 +2831,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 		"AND d.sterm='"+sterm+"' "+
 		// 目前2門
 		"AND d.cscode IN('50000', 'T0001' )" +
-		"ANd c.cscode=d.cscode AND d.depart_class=cs1.ClassNo AND st.depart_class=cs2.ClassNo AND ds.dtime_oid=d.Oid";		
-		
+		"ANd c.cscode=d.cscode AND d.depart_class=cs1.ClassNo AND st.depart_class=cs2.ClassNo AND ds.dtime_oid=d.Oid";
 		return jdbcDao.StandardSqlQuery(sql);
 	}
 	
@@ -2861,6 +2857,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 												((Map)seld[j]).get("end").toString(), sterm).toArray();
 					// 若查詢結果長度>0
 					if(reSeld.length>0){
+						System.out.println((Map)seld[j]);
 						// 將比對標的裝入錯誤清單
 						for(int k=0; k<reSeld.length; k++){
 							map = new HashMap();
@@ -2912,6 +2909,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 	 */
 	@SuppressWarnings("unchecked")
 	public List checkReSelds(String studentNo, String DtimeOid, String week, String begin, String end, String sterm){		
+		
 		return jdbcDao.StandardSqlQuery("SELECT s.Oid, s.Dtime_Oid, d.cscode, cs1.ClassName, c.chi_name, cs2.className as className2, ds.week, ds.begin, ds.end, d.thour "+
 		"FROM Seld s, Dtime_class ds, Dtime d, Csno c, Class cs1, Class cs2, stmd st "+
 		"WHERE s.Dtime_oid=d.Oid AND ds.Dtime_oid=s.Dtime_oid AND s.student_no='"+studentNo+"' AND sterm='"+sterm+"' AND "+
