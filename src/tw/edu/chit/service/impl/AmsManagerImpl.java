@@ -2997,7 +2997,14 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 				status, startCal.getTime(), endCal.getTime() });
 		return docList;
 	}
-
+/*
+ * 查是否有重覆的請單
+ * @param idno 身份證
+ * @param docType 假單類型
+ * @param startCal 開始日期
+ * @param endCal 結束日期
+ * @return 列出假單
+ */
 	public List<AmsDocApply> getDocApplyByDateRange(String idno, String docType,
 			Calendar startCal, Calendar endCal) {
 		AmsDocApply doc = null;
@@ -3034,7 +3041,8 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 			Date start = startCal.getTime();
 			Date end = endCal.getTime();
 
-			hql += "((? Between startDate And endDate) OR (? Between startDate And endDate) OR (? <= startDate And ?>=endDate))";
+			hql += "((startDate Between ? And ?) OR (endDate Between ? And ?))";
+			//hql += "((? Between startDate And endDate) OR (? Between startDate And endDate) OR (? <= startDate And ?>=endDate))";
 
 			Object[] parameters = new Object[] { idno, docType, start, end,
 					start, end };
