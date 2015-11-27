@@ -2,7 +2,7 @@
 <table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<td>
-		<table class="hairLineTable"	
+		<table class="hairLineTable">	
 			<tr>		
 				<td class="hairLineTdF">
 				<select name="Cidno" style="font-size:18px;">
@@ -252,6 +252,10 @@
 		<td class="fullColorTable" align="center">		
 		<input type="submit" name="method" value="<bean:message key='Query'/>" 
 		id="Query" class="gSubmit" onMouseOver="showHelpMessage('依照以上條件查詢', 'inline', this.id)" 
+		onMouseOut="showHelpMessage('', 'none', this.id)">
+		
+		<input type="submit" name="method" value="<bean:message key='Print'/>" 
+		id="Print" class="gSubmit" onMouseOver="showHelpMessage('依照以上條件列印', 'inline', this.id)" 
 		onMouseOut="showHelpMessage('', 'none', this.id)">
 					
 		<input type="submit" name="method" value="<bean:message key='Create'/>" 

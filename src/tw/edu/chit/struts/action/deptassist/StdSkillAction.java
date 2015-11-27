@@ -1,5 +1,6 @@
 package tw.edu.chit.struts.action.deptassist;
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -401,6 +402,99 @@ public class StdSkillAction extends BaseLookupDispatchAction {
 		session.removeAttribute("skilist");
 		return mapping.findForward("Main");
 	}
+	
+	public ActionForward print(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		
+		DynaActionForm dForm = (DynaActionForm) form;
+		CourseManager manager = (CourseManager) getBean("courseManager");
+		Date date=new Date();
+		//SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setContentType("application/vnd.ms-excel");
+		response.setHeader("Content-disposition","attachment;filename="+date.getTime()+".xls");		
+		PrintWriter out=response.getWriter();
+		
+		String classless=dForm.getString("Cidno")+dForm.getString("Sidno")+dForm.getString("Didno")+dForm.getString("Grade")+dForm.getString("ClassNo");
+		
+		List<Map>s=manager.ezGetBy("SELECT l.Type, l.Code, s.Oid, st.student_no, st.student_name, s.SchoolYear, s.SchoolTerm, " +
+				"c.ClassName, SUBSTR(l.Name, 1, 15)as name, l.Locale, SUBSTR(l.Level, 1, 15)as Level, " +
+				"SUBSTR(s.LicenseValidDate, 1,7)as LicenseValidDate, s.AmountDate, " +
+				"s.AmountType, s.Amount FROM StdSkill s, LicenseCode l, " +
+				"Class c, stmd st WHERE c.ClassNo=st.depart_class AND s.studentNo=st.student_no AND " +
+				"c.ClassNo LIKE'"+classless+"%' AND " +
+				"s.LicenseCode=l.Code AND s.licenseCode LIKE '"+dForm.getString("LicenseCode")+"%' AND " +
+				"st.student_no LIKE '"+dForm.getString("StudentNo")+"%' AND s.schoolYear LIKE'"+
+				dForm.getString("SchoolYear")+"%' AND s.schoolTerm LIKE '"+dForm.getString("SchoolTerm")+"%'");
+		
+		s.addAll(manager.ezGetBy("SELECT l.Type, l.Code, s.Oid, st.student_no, st.student_name, s.SchoolYear, s.SchoolTerm, " +
+				"c.ClassName, SUBSTR(l.Name, 1, 15)as name, l.Locale, SUBSTR(l.Level, 1, 15)as Level, " +
+				"SUBSTR(s.LicenseValidDate, 1,7)as LicenseValidDate, s.AmountDate, " +
+				"s.AmountType, s.Amount FROM StdSkill s, LicenseCode l, " +
+				"Class c, Gstmd st WHERE c.ClassNo=st.depart_class AND s.studentNo=st.student_no AND " +
+				"c.ClassNo LIKE'"+classless+"%' AND " +
+				"s.LicenseCode=l.Code AND s.licenseCode LIKE '"+dForm.getString("LicenseCode")+"%' AND " +
+				"st.student_no LIKE '"+dForm.getString("StudentNo")+"%' AND s.schoolYear LIKE'"+
+				dForm.getString("SchoolYear")+"%' AND s.schoolTerm LIKE '"+dForm.getString("SchoolTerm")+"%'"));
+		
+		for(int i=0; i<s.size(); i++){
+			s.get(i).put("Name", s.get(i).get("Code")+" "+((Map)s.get(i)).get("Name"));
+			s.get(i).put("termyear", s.get(i).get("SchoolYear")+" "+((Map)s.get(i)).get("SchoolTerm"));
+			s.get(i).put("Type", getType(s.get(i).get("Type"), "Type"));
+			s.get(i).put("AmountType", getType(s.get(i).get("AmountType"), "AmountType"));
+			
+		}
+		
+		
+		out.println ("<!DOCTYPE html>");
+		out.println ("<html>");
+		out.println ("  <head>");
+		out.println ("  <meta http-equiv='content-type' content='text/html; charset=UTF-8'>");
+		out.println ("  <style>table, th, td {border: 1px solid ;font-size:18px;}</style>");
+		out.println ("  </head>");
+		out.println ("  <body>");
+		out.println ("<table>");
+		out.println ("<tr>");		
+		out.println ("<td>學期</td>");
+		out.println ("<td>班級</td>");
+		out.println ("<td>學號</td>");
+		out.println ("<td>姓名</td>");
+		out.println ("<td>代碼/名稱</td>");
+		out.println ("<td>類別1</td>");
+		out.println ("<td>類別2</td>");
+		out.println ("<td>補助</td>");
+		out.println ("<td>補助日期</td>");
+		out.println ("</tr>");
+		
+		for(int i=0; i<s.size(); i++){
+			
+			out.println ("<tr>");		
+			out.println ("<td>"+s.get(i).get("SchoolYear")+s.get(i).get("SchoolTerm")+"</td>");
+			out.println ("<td>"+s.get(i).get("ClassName")+"</td>");
+			out.println ("<td>"+s.get(i).get("student_no")+"</td>");
+			out.println ("<td>"+s.get(i).get("student_name")+"</td>");
+			out.println ("<td>"+s.get(i).get("name")+"</td>");
+			out.println ("<td>"+s.get(i).get("Type")+"</td>");
+			out.println ("<td>"+s.get(i).get("AmountType")+"</td>");
+			out.println ("<td>"+s.get(i).get("Amount")+"</td>");
+			out.println ("<td>"+s.get(i).get("AmountDate")+"</td>");
+			out.println ("</tr>");
+			
+		}
+		
+		
+		
+		
+		
+		out.println ("  </body>");
+		out.println ("</html>");
+		
+		
+		
+		return null;
+	}
+	
 
 	@Override
 	protected Map<String, String> getKeyMethodMap() {
@@ -408,7 +502,8 @@ public class StdSkillAction extends BaseLookupDispatchAction {
 		map.put("Query", "query");		
 		map.put("Create", "add");
 		map.put("Modify", "edit");
-		map.put("Clear", "clear");		
+		map.put("Clear", "clear");
+		map.put("Print", "print");
 		return map;
 	}
 
