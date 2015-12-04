@@ -15,7 +15,7 @@
 		</td>
 		
 		<td onMouseOut="this.style.background='#222222'" onMouseOver="this.style.background='#555555'" style="padding:0px 5px; 0px; 5px;" nowrap><html:link page="/Personnel/ListCourse.do" style="font-size:18px; color:#ffffff;">課程查詢</html:link></td>
-		<td onMouseOut="this.style.background='#222222'" onMouseOver="this.style.background='#555555'" style="padding:0px 5px; 0px; 5px;" nowrap><html:link page="/Personnel/RooManager.do" style="font-size:18px; color:#ffffff;"></html:link></td>
+		<td onMouseOut="this.style.background='#222222'" onMouseOver="this.style.background='#555555'" style="padding:0px 5px; 0px; 5px;" nowrap><html:link page="/Student/MyOnlineServices4Reg.do" style="font-size:18px; color:#ffffff;">文件申請</html:link></td>
 		
 		
 		<td style="padding:0px 5px; 0px; 5px; font-size:18px; color:#ffffff;" width="100%" align="right">		
