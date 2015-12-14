@@ -174,6 +174,7 @@ span.spanHighElement {
                      		<option value="10">原住民獎學金</option>
                      		<option value="11">學產助學金</option>
                      		<option value="12">生活助學金</option>
+                     		<option value="13">土地銀行獎學金</option>
                      	</select>&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
 				</tr>

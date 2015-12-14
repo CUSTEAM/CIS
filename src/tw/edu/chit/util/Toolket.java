@@ -895,6 +895,9 @@ public class Toolket {
 				
 			case 12:
 				return "生活助學金";
+				
+			case 13:
+				return "土地銀行獎學金";
 
 			default:
 				return null;

@@ -147,12 +147,14 @@ function addCourseCheck() {
 	                     		<html:option value="4">退費</html:option>
 	                     		<html:option value="5">其他</html:option>
 	                     		<html:option value="6">獎學金</html:option>
-                     		    <html:option value="7">網路選課退費</html:option>
-                     		    <html:option value="8">住宿生保證金退費</html:option>
-                     		    <html:option value="9">新生獎學金發放</html:option>
+                     			<html:option value="7">網路選課退費</html:option>
+                     			<html:option value="8">住宿生保證金退費</html:option>
+                     			<html:option value="9">新生獎學金發放</html:option>
                      			<html:option value="10">原住民獎學金</html:option>
                      			<html:option value="11">學產助學金</html:option>
                      			<html:option value="12">生活助學金</html:option>
+                     			<html:option value="13">土地銀行獎學金</html:option>
+
 	                     	</html:select>
     					&nbsp;&nbsp;</span>
     					<span id="fail" style="display:none;">不及格名單類型: 
