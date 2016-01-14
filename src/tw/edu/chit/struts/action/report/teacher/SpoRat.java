@@ -74,8 +74,8 @@ public class SpoRat extends BaseAction{
 				.println("		<td align='center'>&nbsp;&nbsp;&nbsp;&nbsp;學號&nbsp;&nbsp;&nbsp;&nbsp;</td>");
 		out.println("		<td align='center'>姓名</td>");
 		out.println("		<td align='center'>術科成績(50%)</td>");
-		out.println("		<td align='center'>平時成績(30%)</td>");
-		out.println("		<td align='center'>學科成績(20%)</td>");
+		out.println("		<td align='center'>平時成績(40%)</td>");
+		out.println("		<td align='center'>學科成績(10%)</td>");
 		out.println("		<td align='center'>學期成績(100%)</td>");
 		out.println("	</tr>");
 
