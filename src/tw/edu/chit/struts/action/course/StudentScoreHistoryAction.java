@@ -450,7 +450,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 									// bFlag1)
 									// if (!isMend && bFlag1)
 									if (isMaster) {
-										if (isExempt
+										if (isExempt||isCross
 												|| "G"
 														.equalsIgnoreCase(StringUtils
 																.substring(
