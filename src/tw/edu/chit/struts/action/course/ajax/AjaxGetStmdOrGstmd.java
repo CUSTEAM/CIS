@@ -23,32 +23,33 @@ import tw.edu.chit.service.CourseManager;
 public class AjaxGetStmdOrGstmd extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setContentType("text/xml; charset=utf8");
 		WebApplicationContext ctx=WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		CourseManager manager=(CourseManager) ctx.getBean("courseManager");
-		response.setContentType("text/xml; charset=UTF-8");
+		
 		PrintWriter out=response.getWriter();
 		
 		String type=request.getParameter("type");
 		String nameOrNumber=request.getParameter("query");
-		String EnameOrNumber=new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8");
+		
+		System.out.println(nameOrNumber);
 				
 		StringBuffer gSql=new StringBuffer();
 		StringBuffer sSql=new StringBuffer();
 		
 		//以身分證學號混合查詢的情況
 		if(request.getParameter("table").equals("gstmdId")){			
-			List list=manager.ezGetBy("SELECT student_no as no, student_name as name FROM stmd WHERE student_no LIKE'"+nameOrNumber+"%' OR idno LIKE '"+nameOrNumber+"%' LIMIT 10");
+			List<Map>list=manager.ezGetBy("SELECT student_no as no, student_name as name FROM stmd WHERE student_no LIKE'"+nameOrNumber+"%' OR idno LIKE '"+nameOrNumber+"%' LIMIT 10");
 			list.addAll(manager.ezGetBy("SELECT student_no as no, student_name as name FROM Gstmd WHERE student_no LIKE'"+nameOrNumber+"%' OR idno LIKE '"+nameOrNumber+"%' LIMIT 10"));
 			out.println("<pront>");
 			if(list.size()<1){
 				out.println("<name>新同學</name>");
-				out.println("<no>"+EnameOrNumber+"</no>");
+				out.println("<no>"+nameOrNumber+"</no>");
 			}else{
 			
 				for(int i=0; i<list.size(); i++){
-					out.println("<name>"+((Map)list.get(i)).get("name")+"</name>");
-					out.println("<no>"+((Map)list.get(i)).get("no")+"</no>");
+					out.println("<name>"+list.get(i).get("name")+"</name>");
+					out.println("<no>"+list.get(i).get("no")+"</no>");
 				}			
 			}	
 			out.println("</pront>");
@@ -63,14 +64,14 @@ public class AjaxGetStmdOrGstmd extends HttpServlet{
 		//一般查詢學號
 		gSql.append("SELECT student_no as no, student_name as name FROM Gstmd WHERE ");
 		if(type.trim().equals("name")){
-			gSql.append("student_name LIKE '"+EnameOrNumber+"%'");
+			gSql.append("student_name LIKE '"+nameOrNumber+"%'");
 		}else{
 			gSql.append("student_no LIKE '"+nameOrNumber+"%'");
 		}
 		
 		sSql.append("SELECT student_no as no, student_name as name FROM stmd WHERE ");
 		if(type.trim().equals("name")){
-			sSql.append("student_name LIKE '"+EnameOrNumber+"%'");
+			sSql.append("student_name LIKE '"+nameOrNumber+"%'");
 		}else{
 			sSql.append("student_no LIKE '"+nameOrNumber+"%'");
 		}
@@ -78,7 +79,7 @@ public class AjaxGetStmdOrGstmd extends HttpServlet{
 		sSql.append("LIMIT 10");
 		gSql.append("LIMIT 10");
 		
-		List list=manager.ezGetBy(gSql.toString());
+		List<Map>list=manager.ezGetBy(gSql.toString());
 		list.addAll(manager.ezGetBy(sSql.toString()));
 		
 		
@@ -86,12 +87,13 @@ public class AjaxGetStmdOrGstmd extends HttpServlet{
 		out.println("<pront>");
 		if(list.size()<1){
 			out.println("<name>新同學</name>");
-			out.println("<no>"+EnameOrNumber+"</no>");
+			out.println("<no>"+nameOrNumber+"</no>");
 		}else{
 		
 			for(int i=0; i<list.size(); i++){
-				out.println("<name>"+((Map)list.get(i)).get("name")+"</name>");
-				out.println("<no>"+((Map)list.get(i)).get("no")+"</no>");
+				System.out.println(list.get(i));
+				out.println("<name>"+list.get(i).get("name")+"</name>");
+				out.println("<no>"+list.get(i).get("no")+"</no>");
 			}			
 		}	
 		out.println("</pront>");

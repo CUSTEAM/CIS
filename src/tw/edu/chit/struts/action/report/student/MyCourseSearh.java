@@ -30,7 +30,7 @@ public class MyCourseSearh extends BaseAction{
 		HttpSession session = request.getSession(false);
 		
 		UserCredential u = (UserCredential) session.getAttribute("Credential");
-		String name=new String(request.getParameter("name").getBytes("iso-8859-1"),"utf-8");
+		//String name=request.getParameter("name");
 		
 		Clazz c=(Clazz) session.getAttribute("myGrade");//初入時已計算的實體或虛擬年級資訊
 		
@@ -47,7 +47,7 @@ public class MyCourseSearh extends BaseAction{
 		"(o.Didno='"+c.getDeptNo()+"' OR o.Didno='*') AND " +
 		"(o.Grade<="+c.getGrade()+" OR o.Grade='*')AND " +
 		"d.cscode NOT IN(SELECT cscode FROM ScoreHist WHERE student_no='" +u.getStudent().getStudentNo()+"' AND score>=60) AND "+
-		"c.chi_name LIKE'"+name+"%' AND d.cscode!='50000' GROUP BY d.Oid ORDER BY dc.week, d.opt");
+		"c.chi_name LIKE'"+request.getParameter("name")+"%' AND d.cscode!='50000' GROUP BY d.Oid ORDER BY dc.week, d.opt");
 
 		//重修低年級課程
 		list.addAll(manager.ezGetBy("SELECT Select_Limit, (SELECT COUNT(*)FROM Seld WHERE Dtime_oid=d.Oid) as seled, " +
@@ -61,7 +61,7 @@ public class MyCourseSearh extends BaseAction{
 				"(cl.DeptNo='"+c.getDeptNo()+"')AND " +
 				"(cl.Grade<="+c.getGrade()+")AND " +
 				"d.cscode NOT IN(SELECT cscode FROM ScoreHist WHERE student_no='" +u.getStudent().getStudentNo()+"' AND score>=60) AND "+
-				"c.chi_name LIKE'" +name+"%' AND "+
+				"c.chi_name LIKE'" +request.getParameter("name")+"%' AND "+
 				"d.cscode!='50000' GROUP BY d.Oid ORDER BY dc.week, d.opt"));
 		
 		response.setContentType("text/xml; charset=UTF-8");

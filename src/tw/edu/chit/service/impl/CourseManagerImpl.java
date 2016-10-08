@@ -9125,15 +9125,6 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 	 * 
 	 */
 	public boolean DownloadFileFTPServer(String fileName, String DataName, String baseDir){				
-		/*
-		try {
-			fileName = new String(fileName.getBytes("utf-8"),"iso-8859-1");
-			DataName = new String(DataName.getBytes("utf-8"),"iso-8859-1");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}		
-		*/
 		String FTPHost= "";  
 		String username= "";
 		String password= "";
@@ -9772,12 +9763,14 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 		List list;
 		List SelectException=new ArrayList();
 		tmp=ezGetBy("SELECT student_no, student_name FROM stmd WHERE depart_class LIKE'"+classLess+"%'");
+		
 		String cscode;
 		//取一人選課
 		for(int i=0; i<tmp.size(); i++){	
-			list=ezGetBy("SELECT * FROM Seld s, Csno c, Dtime d WHERE s.Dtime_oid=d.Oid AND c.cscode=s.cscode AND d.Sterm='"+term+"' AND " +
+			list=ezGetBy("SELECT * FROM Seld s, Csno c, Dtime d WHERE s.Dtime_oid=d.Oid AND c.cscode=d.cscode AND d.Sterm='"+term+"' AND " +
 					"s.student_no='"+((Map)tmp.get(i)).get("student_no")+"'");
-			
+			System.out.println("SELECT * FROM Seld s, Csno c, Dtime d WHERE s.Dtime_oid=d.Oid AND c.cscode=s.cscode AND d.Sterm='"+term+"' AND " +
+					"s.student_no='"+((Map)tmp.get(i)).get("student_no")+"'");
 			for(int j=0; j<list.size(); j++){
 				cscode=((Map)list.get(j)).get("cscode").toString();
 				

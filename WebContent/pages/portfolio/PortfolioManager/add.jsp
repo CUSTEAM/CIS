@@ -23,12 +23,11 @@ value="${PortfolioManagerForm.map.table_oid}"
 		</td>
 	</tr>
 </table>
-
 <table class="hairLineTable" width="98%" style="display:inline;" id="add">
 	<c:forEach items="${format}" var="f" varStatus="ff">
 	<tr>
 		<td class="hairLineTdF" nowrap>												
-		${f.name}												
+		${f.name}
 		</td>
 		<td class="hairLineTdF" width="100%">						
 		<%@ include file="field4new.jsp"%>												

@@ -32,8 +32,7 @@ public class AjaxEmplsSearch extends HttpServlet {
 		AdminManager am = (AdminManager) ac
 				.getBean(IConstants.ADMIN_MANAGER_BEAN_NAME);
 
-		String idnoOrname = new String(request.getParameter("idno").getBytes(
-				"ISO-8859-1"), "UTF-8");
+		String idnoOrname=request.getParameter("idno");
 		response.setContentType("text/xml;charset=UTF-8");
 		response.setHeader("Cache-Control", "no-cache");
 

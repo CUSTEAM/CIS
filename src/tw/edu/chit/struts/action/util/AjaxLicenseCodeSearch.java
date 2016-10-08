@@ -34,8 +34,7 @@ public class AjaxLicenseCodeSearch extends HttpServlet {
 		AdminManager am = (AdminManager) ac
 				.getBean(IConstants.ADMIN_MANAGER_BEAN_NAME);
 
-		String licenseNameOrCode = new String(request.getParameter("code")
-				.getBytes("ISO-8859-1"), "UTF-8").replaceAll("\\|", "");
+		String licenseNameOrCode = request.getParameter("code").replaceAll("\\|", "");
 		int limit = StringUtils.isBlank(request.getParameter("l")) ? -1
 				: Integer.parseInt(request.getParameter("l"));
 		response.setContentType("text/xml;charset=UTF-8");

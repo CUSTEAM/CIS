@@ -22,9 +22,6 @@ public class getPrivateModule extends HttpServlet{
 			WebApplicationContext ctx=WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 			CourseManager manager=(CourseManager) ctx.getBean("courseManager");
 			
-			//System.out.println("work!");
-			//String nameOrNumber=request.getParameter("query");
-			//String EnameOrNumber=new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8");
 			String Oid=request.getParameter("Oid");
 				
 			List list=manager.ezGetBy("SELECT m.name, mp.content FROM module_private mp, module m WHERE m.Oid=mp.Mid AND mp.Oid='"+Oid+"'");

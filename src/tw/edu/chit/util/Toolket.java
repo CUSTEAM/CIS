@@ -2757,11 +2757,14 @@ public class Toolket {
 	}
 
 	public static String getDeptCode4Ntnu(String departClass) {
-		if (StringUtils.isBlank(departClass))
-			return "";
-
-		String deptCode = StringUtils.substring(departClass, 3, 4);
-		switch (deptCode.charAt(0)) {
+		if (StringUtils.isBlank(departClass))return "";
+		
+		String deptCode;
+		if(departClass.length()==6){
+			deptCode = StringUtils.substring(departClass, 3, 4);
+			switch (deptCode.charAt(0)) {
+			case '0':
+				return "999901";
 			case '1':
 				return "520201";
 			case '2':
@@ -2771,7 +2774,7 @@ public class Toolket {
 			case '4':
 				return "520601";
 			case '5':
-				return "580101";
+				return "580101";			
 			case '6':
 				return "520301";
 			case '7':
@@ -2802,17 +2805,28 @@ public class Toolket {
 				return "810202";
 			case 'K':
 				return "340307";
-			case 'L':
-				return "";
-			case 'M':
-				return "";
-			case 'N':
-				return "349902";
-			case 'P':
-				return "";
+			case 'U':
+				return "810224";
+			case 'V':
+				return "580101";
+			case 'W':
+				return "239904";
+			case 'X':
+				return "340120";
 			default:
 				return "";
+			}
+		}else{
+			deptCode = StringUtils.substring(departClass, 3, 5);
+			if(deptCode.equals("KA")){
+				return"340824";
+			}			
+			return"";
 		}
+		
+		
+		
+		
 	}
 
 	public static String getCampCode4Ntnu(String departClass) {

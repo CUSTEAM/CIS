@@ -29,8 +29,7 @@ public class AjaxRegisterSearch extends HttpServlet {
 		AdminManager am = (AdminManager) ac
 				.getBean(IConstants.ADMIN_MANAGER_BEAN_NAME);
 
-		String studentNoOrName = new String(request.getParameter("idno")
-				.getBytes("ISO-8859-1"), "UTF-8").replaceAll("\\|", "");
+		String studentNoOrName = request.getParameter("idno").replaceAll("\\|", "");
 		int limit = StringUtils.isBlank(request.getParameter("l")) ? 1000
 				: Integer.parseInt(request.getParameter("l"));
 		response.setContentType("text/xml;charset=UTF-8");

@@ -19,13 +19,13 @@
 						<img src="images/folder_lock.gif">
 					</td>
 					<td align="left">
-						&nbsp;學習歷程管理&nbsp;
+						&nbsp;學習歷程管理??&nbsp;
 					</td>
 					<td>
 						<table align="right">
 							<tr>							
 								<td width="1"><img src="images/icon/zoomout.gif"></td>
-								<td><a href="${myUrl}" target="_blank">立即檢視</a></td>
+								<td><a href="${myUrl}" target="_blank">立即檢視??</a></td>
 							</tr>
 						</table>
 					</td>

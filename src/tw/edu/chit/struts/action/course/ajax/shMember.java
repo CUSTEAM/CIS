@@ -34,7 +34,7 @@ public class shMember extends HttpServlet{
 		String type=request.getParameter("type");
 		
 		if(type.equals("s")){			
-			String stNameNo=new String(request.getParameter("stNameNo").getBytes("iso-8859-1"),"utf-8");
+			String stNameNo=request.getParameter("stNameNo");
 			String ClassNo=request.getParameter("Cidno")+request.getParameter("Sidno")+
 			request.getParameter("Didno")+request.getParameter("Grade")+request.getParameter("ClassNo");						
 			if(!stNameNo.equals("")){
@@ -50,8 +50,8 @@ public class shMember extends HttpServlet{
 		if(type.equals("e")){
 			String group=request.getParameter("group");	
 			String myGroup=request.getParameter("myGroup");			
-			String cname=new String(request.getParameter("cname").getBytes("iso-8859-1"),"utf-8");
-			String sname=new String(request.getParameter("sname").getBytes("iso-8859-1"),"utf-8");		
+			String cname=request.getParameter("cname");
+			String sname=request.getParameter("sname");		
 			String unit=request.getParameter("unit");	
 			String category=request.getParameter("category");	
 			String Tutor=request.getParameter("Tutor");

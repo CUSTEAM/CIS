@@ -25,7 +25,7 @@ public class getProject_name extends HttpServlet{
 		CourseManager manager=(CourseManager) ctx.getBean("courseManager");
 		
 		String project_name=request.getParameter("project_name");
-		project_name=new String(project_name.getBytes("iso-8859-1"));
+		
 		
 		List project = manager.ezGetBy("SELECT projname FROM Rcproj WHERE projname LIKE '"+project_name+"%'");
 		

@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <c:if test="${f.type=='0'}">
 <!-- 0=布林欄位-->
-<table cellspacing="0" cellpadding="0" align="left" width="${f.size-10}%">
+<table cellspacing="0" cellpadding="0" align="left">
 	<tr>
 		<td width="1"><img src="images/input_left.gif"/></td>
 		<td class="colorInput">

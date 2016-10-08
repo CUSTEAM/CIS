@@ -39,9 +39,9 @@
 					</tr>
 					
 					<tr class="hairLineTable" id="down${m.Oid}">
-						<td class="hairLineTdF">學年度</td>
-						<td class="hairLineTdF" width="30">${m.school_year}-${m.school_term}</td>										
-						<td class="hairLineTdF" width="80">學分: ${m.credit}</td>
+						<td class="hairLineTdF" nowrap>學年度</td>
+						<td class="hairLineTdF">${m.school_year}-${m.school_term}</td>										
+						<td class="hairLineTdF">學分: ${m.credit}</td>
 						<td class="hairLineTdF">成績: ${m.score} 
 						
 						<input type="hidden" size="1" id="simNote${m.Oid}" name="simNote" value="${m.note}" />

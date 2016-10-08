@@ -54,7 +54,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT ClassNo as no, ClassName as name FROM Class WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("ClassName LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%'");
+				sql.append("ClassName LIKE '"+nameOrNumber+"%'");
 			}else{
 				sql.append("ClassNo LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -66,7 +66,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT no, name FROM Sabbr WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("no LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -79,7 +79,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT cscode as no, chi_name as name FROM Csno WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("chi_name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("chi_name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("cscode LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -92,7 +92,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT e.cname as name, c.name as no FROM empl e LEFT OUTER JOIN CodeEmpl c ON e.unit=c.idno AND " +
 					"(c.category='Unit' OR c.category='UnitTeach')WHERE ");			
 			if(type.trim().equals("name")){
-				sql.append("cname LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("cname LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("idno LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -105,7 +105,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT idno as no, cname as name FROM empl WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("cname LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("cname LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("idno LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -118,7 +118,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT student_no as no, student_name as name FROM stmd WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("student_name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("student_name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("student_no LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -130,7 +130,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 		if(table.trim().equals("stmid")){
 			sql.append("SELECT student_no as no, student_name as name FROM stmd WHERE ");			
 			if(type.trim().equals("name")){
-				sql.append("student_name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("student_name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				
 				sql.append("(idno LIKE '"+nameOrNumber+"%' OR student_no LIKE'"+nameOrNumber+"%') limit 10");
@@ -140,7 +140,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			
 			sql=new StringBuffer("SELECT student_no as no, student_name as name FROM Gstmd WHERE ");			
 			if(type.trim().equals("name")){
-				sql.append("student_name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("student_name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				
 				sql.append("(idno LIKE '"+nameOrNumber+"%' OR student_no LIKE'"+nameOrNumber+"%') limit 10");
@@ -154,7 +154,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT Code as no, Name as name FROM LicenseCode WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("Code LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -167,7 +167,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT student_no as no, student_name as name FROM Gstmd WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("student_name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("student_name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("student_no LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -193,7 +193,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT idno as no, name as name FROM code5 WHERE category='Summer' AND");
 			
 			if(type.trim().equals("name")){
-				sql.append("name LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("name LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("idno LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -206,7 +206,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT no, name FROM Recruit_school WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("name LIKE '%"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%'");
+				sql.append("name LIKE '%"+nameOrNumber+"%'");
 			}else{
 				sql.append("no LIKE '"+nameOrNumber+"%'");
 			}
@@ -219,7 +219,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT room_id as no, name2 as name FROM Nabbr WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("name2 LIKE '"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("name2 LIKE '"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("room_id LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -232,7 +232,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT no , name FROM Zcode WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("name LIKE '%"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%' limit 10");
+				sql.append("name LIKE '%"+nameOrNumber+"%' limit 10");
 			}else{
 				sql.append("no LIKE '"+nameOrNumber+"%' limit 10");
 			}
@@ -245,7 +245,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT no, name FROM Recruit_school WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("name LIKE '%"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%'");
+				sql.append("name LIKE '%"+nameOrNumber+"%'");
 			}else{
 				sql.append("no LIKE '"+nameOrNumber+"%'");
 			}
@@ -258,7 +258,7 @@ public class AjaxGetNameOrNumber extends HttpServlet{
 			sql.append("SELECT Email as no, cname as name FROM empl WHERE ");
 			
 			if(type.trim().equals("name")){
-				sql.append("cname LIKE '%"+new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8")+"%'");
+				sql.append("cname LIKE '%"+nameOrNumber+"%'");
 			}else{
 				sql.append("Email LIKE '"+nameOrNumber+"%'");
 			}

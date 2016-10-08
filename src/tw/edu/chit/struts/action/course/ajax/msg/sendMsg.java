@@ -28,11 +28,11 @@ public class sendMsg extends HttpServlet{
 		CourseManager manager=(CourseManager) ctx.getBean("courseManager");
 
 		String studentNo=request.getParameter("studentNo");
-		String studentNo1=new String(studentNo.getBytes("iso-8859-1"),"utf-8");
-		String schoolYear=request.getParameter("schoolYear");
-		String schoolYear1=new String(schoolYear.getBytes("iso-8859-1"),"utf-8");
 		
-		List scoreHistory=manager.getScoreHistBy(studentNo1, schoolYear1);
+		String schoolYear=request.getParameter("schoolYear");
+		
+		
+		List scoreHistory=manager.getScoreHistBy(studentNo, schoolYear);
 		Map map;
 		response.setContentType("text/xml; charset=UTF-8");
 		PrintWriter out=response.getWriter();

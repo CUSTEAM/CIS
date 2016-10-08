@@ -88,7 +88,7 @@ public class FreePortfolioManagerAction extends BaseLookupDispatchAction{
 		request.setCharacterEncoding("UTF-8");		
 		String tag=(String)request.getAttribute("tag");		
 		if(tag==null){
-			tag=new String(request.getParameter("tag").getBytes("iso-8859-1"),"utf-8");
+			tag=request.getParameter("tag");
 		}
 		session.setAttribute("tag", tag);
 		request.setAttribute("freeTag", manager.ezGetBy("SELECT tag FROM Eps_free WHERE Uid='"+Uid+"' GROUP BY tag"));

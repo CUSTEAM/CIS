@@ -24,7 +24,6 @@ public class getProject_leader extends HttpServlet{
 		CourseManager manager=(CourseManager) ctx.getBean("courseManager");
 		
 		String project_leader=request.getParameter("project_leader");
-		project_leader=new String(project_leader.getBytes("iso-8859-1"), "utf-8");
 		List empl = manager.ezGetBy("SELECT e.cname, p.projname FROM empl e, Rcproj p WHERE e.idno=p.idno AND e.cname LIKE'"+project_leader+"%'");
 		
 		response.setContentType("text/xml; charset=utf-8");

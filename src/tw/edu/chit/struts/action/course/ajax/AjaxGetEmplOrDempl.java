@@ -31,7 +31,6 @@ public class AjaxGetEmplOrDempl extends HttpServlet{
 		//String table=request.getParameter("table");
 		
 		String nameOrNumber=request.getParameter("query");
-		String EnameOrNumber=new String(nameOrNumber.getBytes("iso-8859-1"),"utf-8");
 				
 		StringBuffer gSql=new StringBuffer();
 		StringBuffer sSql=new StringBuffer();
@@ -40,14 +39,14 @@ public class AjaxGetEmplOrDempl extends HttpServlet{
 		
 		gSql.append("SELECT idno as no, cname as name FROM dempl WHERE ");
 		if(type.trim().equals("name")){
-			gSql.append("cname LIKE '"+EnameOrNumber+"%' GROUP BY idno");
+			gSql.append("cname LIKE '"+nameOrNumber+"%' GROUP BY idno");
 		}else{
 			gSql.append("idno LIKE '"+nameOrNumber+"%' GROUP BY idno");
 		}
 		
 		sSql.append("SELECT idno as no, cname as name FROM empl WHERE ");
 		if(type.trim().equals("name")){
-			sSql.append("cname LIKE '"+EnameOrNumber+"%' GROUP BY idno");
+			sSql.append("cname LIKE '"+nameOrNumber+"%' GROUP BY idno");
 		}else{
 			sSql.append("idno LIKE '"+nameOrNumber+"%' GROUP BY idno");
 		}
@@ -61,7 +60,7 @@ public class AjaxGetEmplOrDempl extends HttpServlet{
 		out.println("<pront>");
 		if(list.size()<1){
 			out.println("<name>新同仁</name>");
-			out.println("<no>"+EnameOrNumber+"</no>");
+			out.println("<no>"+nameOrNumber+"</no>");
 		}else{
 		
 			for(int i=0; i<list.size(); i++){

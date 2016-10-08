@@ -35,10 +35,10 @@ public class editCalendar extends BaseAction{
 		String method=request.getParameter("method");
 		String start_date=request.getParameter("start_date");
 		String end_date=request.getParameter("end_date");
-		String details=new String(request.getParameter("details").getBytes("iso-8859-1"),"utf-8");
-		String members=new String(request.getParameter("members").getBytes("iso-8859-1"),"utf-8");
-		String rec_type=new String(request.getParameter("rec_type").getBytes("iso-8859-1"),"utf-8");
-		String name=new String(request.getParameter("name").getBytes("iso-8859-1"),"utf-8");
+		String details=request.getParameter("details");
+		String members=request.getParameter("members");
+		String rec_type=request.getParameter("rec_type");
+		String name=request.getParameter("name");
 		String event_length=request.getParameter("event_length");
 		String id=request.getParameter("id");
 		if(id.indexOf("#")>0){
