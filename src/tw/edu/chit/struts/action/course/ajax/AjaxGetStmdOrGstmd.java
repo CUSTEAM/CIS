@@ -32,7 +32,7 @@ public class AjaxGetStmdOrGstmd extends HttpServlet{
 		String type=request.getParameter("type");
 		String nameOrNumber=request.getParameter("query");
 		
-		System.out.println(nameOrNumber);
+		//System.out.println(nameOrNumber);
 				
 		StringBuffer gSql=new StringBuffer();
 		StringBuffer sSql=new StringBuffer();

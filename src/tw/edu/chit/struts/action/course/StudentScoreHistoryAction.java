@@ -126,22 +126,19 @@ public class StudentScoreHistoryAction extends BaseAction {
 				title = Toolket.getSchoolFormalName(departClass);
 				if (isOver) {
 					templateXLS = new File(
-							context
-									.getRealPath("/WEB-INF/reports/StudentScoreHistoryOver.xls"));
+							context.getRealPath("/WEB-INF/reports/StudentScoreHistoryOver.xls"));
 				} else {
 					// 93148066剛好第4學年成績過多,需要到第2頁才行
-					if ("93148066".equals(studentNo)
-							|| "912A005".equals(studentNo))
-						templateXLS = new File(
-								context
-										.getRealPath("/WEB-INF/reports/StudentScoreHistoryOver.xls"));
+					//TODO 王八蛋！程式是這樣改的嗎？john2016/10/17
+					if ("93148066".equals(studentNo)|| "912A005".equals(studentNo))
+						templateXLS = new File(context.getRealPath("/WEB-INF/reports/StudentScoreHistoryOver.xls"));
 					else
-						templateXLS = new File(
-								context
-										.getRealPath("/WEB-INF/reports/StudentScoreHistory.xls"));
+						templateXLS = new File(context.getRealPath("/WEB-INF/reports/StudentScoreHistory.xls"));
 				}
 			} else {
 				String masterId = StringUtils.substring(departClass, 1, 3);
+				
+				/*TODO 王八蛋寫這什麼東西*/
 				if ("1G".equals(masterId))
 					title = "日間部碩士班";
 				else if ("FG".equals(masterId))
@@ -149,10 +146,15 @@ public class StudentScoreHistoryAction extends BaseAction {
 				else if ("HG".equals(masterId))
 					title = "進修部產業研發碩士專班春季班";
 				else
-					title = "進修部碩士在職專班";
-				templateXLS = new File(
-						context
-								.getRealPath("/WEB-INF/reports/StudentScoreHistoryMaster.xls"));
+					title = "進修部碩士在職專班";				
+				//templateXLS = new File(
+						//context.getRealPath("/WEB-INF/reports/StudentScoreHistoryMaster.xls"));
+				if(isOver){//建立新Excel範本給不符合修業年限的碩班生John.2016/10/17
+					templateXLS = new File(
+							context.getRealPath("/WEB-INF/reports/StudentScoreHistoryMasterOver.xls"));
+				}else{
+					templateXLS = new File(context.getRealPath("/WEB-INF/reports/StudentScoreHistoryMaster.xls"));
+				}				
 			}
 
 			HSSFWorkbook workbook = Toolket.getHSSFWorkbook(templateXLS);
