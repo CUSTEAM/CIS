@@ -2,7 +2,7 @@
 <%@ include file="/taglibs.jsp" %>
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <!-- 標題 start -->
-<html:form action="/Portfolio/Report" method="post" onsubmit="init('處理中, 請稍後')">
+<html:form action="/Portfolio/AutoCreate" method="post" onsubmit="init('處理中, 請稍後')">
 	<tr height="30">
 		<td class="fullColorTable">		
 		<div style="float:left; padding:0 5 0 5;"><img src="images/icon_Member_add.gif"/></div>
@@ -77,8 +77,8 @@
 	</tr>
 	<tr height="30">
 		<td class="fullColorTable" align="center">
-		<INPUT type="submit"name="method"value="<bean:message key='Create'/>"class="gSubmit"
-		id="Established" onMouseOver="showHelpMessage('立即建立', 'inline', this.id)" onMouseOut="showHelpMessage('', 'none', this.id)">
+		<INPUT type="submit"name="method"value="<bean:message key='Query'/>"class="gSubmit"
+		id="Established">
 		
 		</td>
 	</tr>
@@ -106,28 +106,28 @@
 				<td class="hairLineTdF">${s.student_no}</td>
 				<td class="hairLineTdF">${s.student_name}</td>
 				<td class="hairLineTdF" align="center">
-					<a href="${portfolioServer}/myPortfolio?Uid=${s.student_no}" target="_blank">
+					<a href="${portfolioServer}/portfolio/myPortfolio?Uid=${s.student_no}" target="_blank">
 						<img border="0" src="images/chart_bar.gif"/>
 					</a>
 				</td>
 				<td class="hairLineTdF" align="center">
-					<a href="${portfolioServer}myPortfolio?Uid=${s.student_no}" target="_blank">
+					<a href="http://${portfolioServer}/portfolio/myPortfolio?Uid=${s.student_no}" target="_blank">
 						<img border="0" src="images/chart_line.gif"/>
 					</a>
 				</td>
 				<td class="hairLineTdF" align="center">
-					<a href="${portfolioServer}myPortfolio?Uid=${s.student_no}" target="_blank">
+					<a href="http://${portfolioServer}/portfolio/myPortfolio?Uid=${s.student_no}" target="_blank">
 						<img border="0" src="images/icon/chart_pie.gif"/>
 					</a>
 				</td>
 				<td class="hairLineTdF" align="center">
-					<a href="${portfolioServer}myPortfolio?Uid=${s.student_no}" target="_blank">
+					<a href="http://${portfolioServer}/portfolio/myPortfolio?Uid=${s.student_no}" target="_blank">
 						<img border="0" src="images/icon/folder_camera.gif"/>
 					</a>
 				</td>
 				
 				<td class="hairLineTdF" align="center">
-					<a href="${portfolioServer}myPortfolio?Uid=${s.student_no}" target="_blank">
+					<a href="http://${portfolioServer}/portfolio/myPortfolio?Uid=${s.student_no}" target="_blank">
 						<img border="0" src="images/icon/house.gif"/>
 					</a>
 				</td>

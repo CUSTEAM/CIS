@@ -54,19 +54,7 @@ public class AutoCreateAction extends BaseLookupDispatchAction{
 	
 		String portfolioServer=manager.ezGetString("SELECT Value FROM Parameter WHERE name='portfolioServer'");
 		
-		//EpsUser user;
-		List list=manager.ezGetBy("SELECT s.student_no, s.student_name FROM stmd s, " +
-				"Class c WHERE s.depart_class=c.ClassNo AND s.student_no NOT IN(SELECT Uid FROM Eps_user) " +
-				"AND s.depart_class LIKE'"+CampusNo+SchoolNo+DeptNo+Grade+ClassNo+"%' " +
-				"ORDER BY c.DeptNo, c.Grade, s.student_no");
 		
-		for(int i=0; i<list.size(); i++){			
-			
-			manager.checkNewPortfolio(((Map)list.get(i)).get("student_no").toString(), 
-			((Map)list.get(i)).get("student_name").toString()+"的學習歷程檔案", 
-			"", ((Map)list.get(i)).get("student_no").toString());
-			
-		}
 		
 		
 		List students=manager.ezGetBy("SELECT s.student_no, s.student_name, c.ClassNo, c.ClassName FROM stmd s, " +
@@ -77,15 +65,45 @@ public class AutoCreateAction extends BaseLookupDispatchAction{
 		request.setAttribute("students", students);
 		request.setAttribute("portfolioServer", portfolioServer);
 			
+		
+		return unspecified(mapping, form, request, response);
+	}
+	
+	public ActionForward create(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {	
+		DynaActionForm sForm = (DynaActionForm) form;
+		String CampusNo=sForm.getString("CampusNo"); 
+		String SchoolNo=sForm.getString("SchoolNo"); 
+		String DeptNo=sForm.getString("DeptNo"); 
+		String Grade=sForm.getString("Grade"); 
+		String ClassNo=sForm.getString("ClassNo");
+		CourseManager manager = (CourseManager) getBean("courseManager");
+		//EpsUser user;
+				List list=manager.ezGetBy("SELECT s.student_no, s.student_name FROM stmd s, " +
+						"Class c WHERE s.depart_class=c.ClassNo AND s.student_no NOT IN(SELECT Uid FROM Eps_user) " +
+						"AND s.depart_class LIKE'"+CampusNo+SchoolNo+DeptNo+Grade+ClassNo+"%' " +
+						"ORDER BY c.DeptNo, c.Grade, s.student_no");
+				
+				for(int i=0; i<list.size(); i++){			
+					
+					manager.checkNewPortfolio(((Map)list.get(i)).get("student_no").toString(), 
+					((Map)list.get(i)).get("student_name").toString()+"的學習歷程檔案", 
+					"", ((Map)list.get(i)).get("student_no").toString());
+					
+				}
+		
+		
 		ActionMessages msg = new ActionMessages();		//建立共用訊息
 		msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","建立完成"));
 		saveMessages(request, msg);	//完成
-		return unspecified(mapping, form, request, response);
+		return query(mapping, form, request, response);
 	}
 
 	@Override
 	protected Map getKeyMethodMap() {
 		Map map=new HashMap();
+		map.put("Create", "create");
 		map.put("Query", "query");
 		return map;
 	}
