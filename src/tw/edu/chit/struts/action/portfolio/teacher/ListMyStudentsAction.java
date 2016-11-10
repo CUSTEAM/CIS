@@ -81,26 +81,26 @@ public class ListMyStudentsAction extends BaseLookupDispatchAction{
 					String year=request.getParameter("year");
 					String term=request.getParameter("term");
 					
-					students=manager.ezGetBy("SELECT e.path, s.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
-							"ScoreHist s, stmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no " +
+					students=manager.ezGetBy("SELECT ev.file_name, e.path, s.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
+							"ScoreHist s, (stmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no)LEFT OUTER JOIN Eps_vitae ev ON st.student_no=ev.student_no " +
 							"WHERE s.student_no=st.student_no AND s.school_year='"+year+"' AND s.school_term='"+term+"' AND " +
 							"s.stdepart_class='"+depart_class+"' AND cscode='"+cscode+"' ORDER BY st.student_no");				
 					
-					students.addAll(manager.ezGetBy("SELECT e.path, s.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
-							"ScoreHist s, Gstmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no " +
+					students.addAll(manager.ezGetBy("SELECT ev.file_name, e.path, s.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
+							"ScoreHist s, (Gstmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no)LEFT OUTER JOIN Eps_vitae ev ON st.student_no=ev.student_no " +
 							"WHERE s.student_no=st.student_no AND s.school_year='"+year+"' AND s.school_term='"+term+"' AND " +
 							"s.stdepart_class='"+depart_class+"' AND cscode='"+cscode+"' ORDER BY st.student_no"));
 					
 				}else{//以開課
 					String depart_class=request.getParameter("depart_class");					
 					if(request.getParameter("tutor")==null){
-						students=manager.ezGetBy("SELECT e.path, st.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
-								"stmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no, Seld d WHERE d.student_no=st.student_no AND " +
+						students=manager.ezGetBy("SELECT ev.file_name, e.path, st.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
+								"(stmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no)LEFT OUTER JOIN Eps_vitae ev ON st.student_no=ev.student_no, Seld d WHERE d.student_no=st.student_no AND " +
 								"d.Dtime_oid='"+depart_class+"' ORDER BY st.student_no");
 					}else{
 						//以導師
-						students=manager.ezGetBy("SELECT e.path, st.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
-								"stmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no WHERE st.depart_class='"+depart_class+"' ORDER BY st.student_no");
+						students=manager.ezGetBy("SELECT ev.file_name,e.path, st.student_no, st.student_name, st.Email, st.entrance, st.schl_code FROM " +
+								"(stmd st LEFT OUTER JOIN Eps_user e ON e.Uid=st.student_no)LEFT OUTER JOIN Eps_vitae ev ON st.student_no=ev.student_no WHERE st.depart_class='"+depart_class+"' ORDER BY st.student_no");
 						
 					}					
 				}

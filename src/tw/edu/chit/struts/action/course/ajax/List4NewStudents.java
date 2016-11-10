@@ -82,11 +82,9 @@ public class List4NewStudents extends HttpServlet {
 		out.println("</tr>");
 
 		for (int i = 0; i < pageList.size(); i++) {
-			if (i % 2 == 1) {
-				out.println("  <tr bgcolor='#f0fcd7'>");
-			} else {
-				out.println("  <tr>");
-			}
+			
+			out.println("  <tr>");
+			
 
 			map = new HashMap();
 			map = (Map) manager
@@ -105,8 +103,7 @@ public class List4NewStudents extends HttpServlet {
 									+ ((Map) pageList.get(i)).get("student_no")
 									+ "'").get(0);
 
-			out
-					.println("<td align='center' style='mso-number-format:\\@' nowrap>"
+			out.println("<td align='center' style='mso-number-format:\\@' nowrap>"
 							+ String.valueOf(i + 1) + "</td>");
 			out.println("<td align='center' style='mso-number-format:\\@'>"
 					+ map.get("ClassName") + "</td>");

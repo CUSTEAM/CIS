@@ -91,7 +91,7 @@
 		<table class="hairLineTable" width="99%">
 			<tr>
 				<td class="hairLineTdF" style="font-size:18px;">
-				點選學生查看學習歷程檔案, 或 <a href=../Portfolio/DownloadPortfolio?depart_class=<%=request.getParameter("depart_class")%>><b>下載全班履歷表</b></a>, 或 <a href=javascript:history.back()><b>回到班級列表</b></a>
+				點選學生查看學習歷程檔案, 或 <a href=javascript:history.back()><b>回到班級列表</b></a>
 				</td>
 			</tr>
 		</table>
@@ -181,7 +181,10 @@
 				<td class="hairLineTdF" nowrap id="no${s.student_no}" align="center"
 				onMouseOver="showHelpMessage('<img src=/CIS/ShowImage?studentNo=${s.student_no} width=134>', 'inline', 'no${s.student_no}')" 
 				onMouseOut="showHelpMessage('', 'none', 'no${s.student_no}')">
-				<a href="../Portfolio/DownloadPortfolio?student_no=${s.student_no}"><img src="images/icon/script_edit.gif" border="0" /></a>
+				
+				<c:if test="${s.file_name!=null}">
+				<a href="/eis/getFtpFile?path=resume&file=${s.file_name}"><img src="images/icon/script_edit.gif" border="0" /></a>
+				</c:if>
 				</td>
 				
 				<!-- 空白 -->

@@ -147,9 +147,11 @@ public class List4NewStudents extends HttpServlet {
 
 			List students = (List) session.getAttribute("students");
 
-			StringBuilder sb = new StringBuilder(
-					"SELECT c.name, st.*, d.fname FROM dept d, stmd st LEFT OUTER JOIN code5 c ON c.category='Identity' AND st.ident=c.idno "
-							+ "WHERE (d.no=SUBSTRING(st.depart_class, -6, 4) OR d.no=SUBSTRING(st.depart_class, -7, 5)) AND st.student_no IN(");
+			StringBuilder sb = new StringBuilder("SELECT csi.name, st.*, "
+					+ "d.name as fname FROM Class cl, CODE_DEPT d, stmd st,"
+					+ "CODE_STMD_IDENT csi WHERE cl.DeptNo=d.id AND "
+					+ "cl.ClassNo=st.depart_class AND csi.id=st.ident "
+					+ "AND cl.Grade='1' AND st.student_no IN (");
 			for (int i = 0; i < students.size(); i++) {
 				sb.append("'" + ((Map) students.get(i)).get("student_no")
 						+ "', ");
@@ -159,7 +161,7 @@ public class List4NewStudents extends HttpServlet {
 			sb.append(") ORDER BY st.depart_class, st.student_no");
 			// System.out.println(sb);
 			students = manager.ezGetBy(sb.toString());
-			// System.out.println(sb);
+			System.out.println(sb);
 
 			// 左上學制名稱
 			if (students.size() > 0) {// 有人畢業的話
