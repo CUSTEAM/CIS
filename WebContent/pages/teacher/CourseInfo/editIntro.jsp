@@ -77,7 +77,7 @@ background: #FFFFFF;
 		<td class="hairLineTdF">科目英文名稱</td>
 	</tr>
 	<tr>
-		<td class="hairLineTdF"><input type="text" class="t_text" name=CsEnglishName readonly value="${CsEnglishName}" /></td>
+		<td class="hairLineTdF"><input type="text" class="t_text" name=CsEnglishName value="${CsEnglishName}" /></td>
 	</tr>
 </table>
 
