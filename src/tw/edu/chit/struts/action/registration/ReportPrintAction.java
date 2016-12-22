@@ -7968,6 +7968,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 		String schoolInCharge2 = (String) form.get("schoolInCharge2");
 		String deptInCharge2 = (String) form.get("deptInCharge2");
 		String departClass = (String) form.get("classInCharge2");
+		if(departClass!=null)return departClass;
 		schoolInCharge2 = schoolInCharge2.equalsIgnoreCase("All") ? ""
 				: schoolInCharge2;
 		deptInCharge2 = deptInCharge2.equalsIgnoreCase("All") ? ""
