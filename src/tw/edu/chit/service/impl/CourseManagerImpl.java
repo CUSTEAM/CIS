@@ -1663,7 +1663,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 			strBuf.append(dtimeOid[i]+", ");
 		}
 		strBuf.delete(strBuf.length()-2, strBuf.length()-1);
-		String sql="SELECT s.Oid as seldOid, d.Oid as dtimeOid, d.depart_class, d.credit, d.thour, d.opt, d.Sterm, c2.ClassName as ClassName2, st.student_no, st.student_name, " +
+		String sql="SELECT cl.Grade, cl.DeptNo, s.Oid as seldOid, d.Oid as dtimeOid, d.depart_class, d.credit, d.thour, d.opt, d.Sterm, c2.ClassName as ClassName2, st.student_no, st.student_name, " +
 					"cl.ClassNo, cl.ClassName, cl.Grade, c.cscode, c.chi_name FROM Seld s, stmd st, Csno c, Dtime d, Class cl, Class c2 " +
 					"WHERE s.Dtime_oid=d.Oid AND "+
 					"s.student_no=st.student_no AND d.cscode=c.cscode AND cl.ClassNo=st.depart_class AND c2.ClassNo=d.depart_class AND "+

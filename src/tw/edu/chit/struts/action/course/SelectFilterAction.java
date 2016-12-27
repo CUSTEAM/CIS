@@ -434,15 +434,15 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 		List displayTable=new ArrayList();
 		List displayChair=new ArrayList();
 
-		//學生篩選作業 - 優先順序篩選 - 抓到的dtime和seld都是選爆的了
+		//學生篩選作業 - 優先順序篩選 - 抓到的dtime和seld都是人數過多
 		if(session.getAttribute("filterType").equals("stu")){
 			//System.out.println("學生篩選作業開始進行...");
 
-			//交出一筆課程和該課程的選課學生********有選到的傢伙
+			//交出一筆課程和該課程的選課學生********中選
 			for(int i=0; i<selFilter.size(); i++){
 
-				List table=new ArrayList(); //中獎名單
-				List chair=new ArrayList(); //槓龜名單
+				List table=new ArrayList(); //中選名單
+				List chair=new ArrayList(); //篩選名單
 
 				dtime=(Dtime) selFilter.get(i);//課程
 				String []buf={dtime.getOid().toString()};
@@ -471,12 +471,17 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 					//System.out.println("走通識");
 					getLess=studentFilter4Opt23(dtime, students); // 走通識
 				}
-
+				//System.out.println(dtime.getChiName2());
 				table.addAll( (List) ((Map)getLess).get("table") );
 				chair.addAll( (List) ((Map)getLess).get("chair") );
-				manager.doFilter(chair, dtime.getOid().toString(), "F");
 				//System.out.println("本次中選人數"+table.size());
-				//System.out.println("本次槓龜人數"+chair.size());
+				//System.out.println("本次篩選人數"+chair.size());
+				try{
+					manager.doFilter(chair, dtime.getOid().toString(), "F");
+				}catch(Exception e){
+					//System.out.println(dtime.getChiName2());
+					continue;
+				}				
 				displayTable.addAll( (List) ((Map)getLess).get("table") );
 				displayChair.addAll( (List) ((Map)getLess).get("chair") );
 			}
@@ -500,23 +505,23 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 	/**
 	 * 對必修課程處理選課
 	 * @param dtime 一筆課程
-	 * @param students 槓龜的學生
-	 * @return 中獎和槓龜的名單 - map型態
+	 * @param students 篩選的學生
+	 * @return 中選和篩選的名單 - map型態
 	 */
 	private Map studentFilter(Dtime dtime, List students){
 		
 		CourseManager manager = (CourseManager) getBean("courseManager");
 		Map map;
-		List luckier=new ArrayList(); //中獎者
-		List gradeTmp;//各年級中獎暫存
+		List luckier=new ArrayList(); //中選者
+		List gradeTmp;//各年級中選暫存
 		//處理本班優先
 		//判斷本班人數超過的情形
-
+		String DeptNo=manager.ezGetString("SELECT DeptNo FROM Class WHERE ClassNo='"+dtime.getDepartClass()+"'");
 		//立即處理低修高 *保證準
 		int countIdiots=0;
 		List idiots=new ArrayList();
 		for(int i=0; i<students.size(); i++){//無條件加入idiots
-			int stGrade=manager.ezGetInt("SELECT Grade FROM Class WHERE ClassNo='"+((Map)students.get(i)).get("ClassNo")+"'"); //學生年級
+			int stGrade=Integer.parseInt(((Map)students.get(i)).get("Grade").toString()); //學生年級
 			//System.out.println(stGrade);
 			int csGrade=manager.ezGetInt("SELECT Grade FROM Class WHERE ClassNo='"+dtime.getDepartClass()+"'"); //課程年級
 			if(stGrade<csGrade){
@@ -546,13 +551,13 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				if(origin<students.size()){					
 					for(int i=0; i<students.size(); i++){						
 						if(((Map)students.get(i)).get("ClassNo").equals(dtime.getDepartClass())){
-							luckier.add(students.get(i)); //假裝本班全部中獎
+							luckier.add(students.get(i)); //假裝本班全部中選
 							students.set(i, "ImGone");
 						}
 					}
 				}else{
 					for(int i=0; i<students.size(); i++){						
-						luckier.add(students.get(i)); //假裝本班全部中獎
+						luckier.add(students.get(i)); //假裝本班全部中選
 						students.set(i, "ImGone");						
 					}
 				}
@@ -619,7 +624,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 			//開始處理本系優先
 			int deptTmp=0;
 			for(int i=0; i<students.size(); i++){//測試次數為剩下人數
-				if(((Map)students.get(i)).get("ClassNo").toString().subSequence(3, 4).equals(dtime.getDepartClass().subSequence(3, 4))){
+				if(((Map)students.get(i)).get("DeptNo").toString().equals(DeptNo)){	
 					deptTmp++;
 				}
 			}
@@ -627,13 +632,12 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 
 				//開始處理本系各年級人數
 				Map gradeMap=countGrade(students);
-				
 				//4年級
 				if( Integer.parseInt(gradeMap.get("four").toString()) <= dtime.getSelectLimit()-luckier.size()){
 					//如果本科系人數足夠填補剩下名額
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(3, 4).equals(dtime.getDepartClass().subSequence(3, 4))){
-							if(Integer.parseInt(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString())>=4){
+						if(((Map)students.get(i)).get("DeptNo").toString().equals(DeptNo)){
+							if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())>=4){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -644,9 +648,10 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 					int fourNum[]=getMath(Integer.parseInt(gradeMap.get("four").toString()), dtime.getSelectLimit()-luckier.size());
 					
 					gradeTmp=new ArrayList();
+					
 					for(int i=0; i<students.size(); i++){
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(3, 4).equals(dtime.getDepartClass().subSequence(3, 4))){
-							if(Integer.parseInt(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString())>=4){
+						if(((Map)students.get(i)).get("DeptNo").toString().equals(DeptNo)){
+							if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())>=4){
 								gradeTmp.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -673,14 +678,12 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 						students.remove(i);
 						i--;
 					}
-				}
-				//System.out.println("4年級處理完成，目前中獎人數為"+luckier.size());
-
+				}				
 				//3年級
 				if( Integer.parseInt(gradeMap.get("three").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(3, 4).equals(dtime.getDepartClass().subSequence(3, 4))){
-							if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("3")){
+						if(((Map)students.get(i)).get("DeptNo").toString().equals(DeptNo)){							
+							if(((Map)students.get(i)).get("Grade").equals("3")){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -691,15 +694,14 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 
 					gradeTmp=new ArrayList();
 					for(int i=0; i<students.size(); i++){
-						
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("3")){
+						if(((Map)students.get(i)).get("Grade").equals("3")){
 							gradeTmp.add(students.get(i));
 							students.set(i, "ImGone");
 						}
 					}
 
 					for(int i=0; i<fourNum.length; i++){
-						//若學生位置為亂數產位置相同則進入中獎名單
+						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
 						
 						gradeTmp.set(fourNum[i], "ImGone");
@@ -719,8 +721,8 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				//2年級
 				if( Integer.parseInt(gradeMap.get("two").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(3, 4).equals(dtime.getDepartClass().subSequence(3, 4))){
-							if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("2")){
+						if(((Map)students.get(i)).get("DeptNo").toString().equals(DeptNo)){	
+							if(((Map)students.get(i)).get("Grade").equals("2")){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -730,15 +732,16 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 					int fourNum[]=getMath(Integer.parseInt(gradeMap.get("two").toString()), dtime.getSelectLimit()-luckier.size());
 
 					gradeTmp=new ArrayList();
+					System.out.println(students.size());
 					for(int i=0; i<students.size(); i++){
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("2")){
+						if(((Map)students.get(i)).get("Grade").equals("2")){
 							gradeTmp.add(students.get(i));
 							students.set(i, "ImGone");
 						}
 					}
-
+					//System.out.println(gradeTmp.size());
 					for(int i=0; i<fourNum.length; i++){
-						//若學生位置為亂數產位置相同則進入中獎名單
+						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
 						gradeTmp.set(fourNum[i], "ImGone");
 					}
@@ -754,8 +757,8 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				//1年級
 				if( Integer.parseInt(gradeMap.get("one").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(3, 4).equals(dtime.getDepartClass().subSequence(3, 4))){
-							if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("1")){
+						if(((Map)students.get(i)).get("DeptNo").toString().equals(DeptNo)){	
+							if(((Map)students.get(i)).get("Grade").equals("1")){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -765,14 +768,14 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 					int fourNum[]=getMath(Integer.parseInt(gradeMap.get("one").toString()), dtime.getSelectLimit()-luckier.size());
 					gradeTmp=new ArrayList();
 					for(int i=0; i<students.size(); i++){
-						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("1")){
+						if(((Map)students.get(i)).get("Grade").equals("1")){
 							gradeTmp.add(students.get(i));
 							students.set(i, "ImGone");
 						}
 					}
 
 					for(int i=0; i<fourNum.length; i++){
-						//若學生位置為亂數產位置相同則進入中獎名單
+						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
 						gradeTmp.set(fourNum[i], "ImGone");
 					}
@@ -800,7 +803,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				}
 			if(schTmp>0){
 				/*
-				//本部人數足夠則全部中獎
+				//本部人數足夠則全部中選
 				if(schTmp<=dtime.getSelectLimit()-luckier.size()){
 					for(int i=0; i<students.size(); i++){
 						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(1, 3).equals(dtime.getDepartClass().subSequence(1, 3))){
@@ -833,13 +836,8 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				if( Integer.parseInt(gradeMap.get("four").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
 						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(1, 3).equals(dtime.getDepartClass().subSequence(1, 3))){
-							String Grade4;
-							if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-								Grade4=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-							}else{
-								Grade4=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-							}
-							if(Integer.parseInt(Grade4)>=4){
+							
+							if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())>=4){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -849,21 +847,15 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 					int fourNum[]=getMath(Integer.parseInt(gradeMap.get("four").toString()), dtime.getSelectLimit()-luckier.size());
 
 					gradeTmp=new ArrayList();
-					for(int i=0; i<students.size(); i++){
-						String Grade4;
-						if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-							Grade4=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-						}else{
-							Grade4=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-						}
-						if(Integer.parseInt(Grade4)>=4){
+					for(int i=0; i<students.size(); i++){						
+						if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())>=4){
 							gradeTmp.add(students.get(i));
 							students.set(i, "ImGone");
 						}
 					}
 
 					for(int i=0; i<fourNum.length; i++){
-						//若學生位置為亂數產位置相同則進入中獎名單
+						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
 						gradeTmp.set(fourNum[i], "ImGone");
 					}
@@ -883,13 +875,8 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				if( Integer.parseInt(gradeMap.get("three").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
 						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(1, 3).equals(dtime.getDepartClass().subSequence(1, 3))){
-							String Grade3;
-							if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-								Grade3=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-							}else{
-								Grade3=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-							}
-							if(Grade3.equals("3")){
+						
+							if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==3){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -901,20 +888,14 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 
 					gradeTmp=new ArrayList();
 					for(int i=0; i<students.size(); i++){
-						String Grade3;
-						if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-							Grade3=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-						}else{
-							Grade3=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-						}
-						if(Grade3.equals("3")){
+						if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==3){
 							gradeTmp.add(students.get(i));
 							students.set(i, "ImGone");
 						}
 					}
 
 					for(int i=0; i<fourNum.length; i++){
-						//若學生位置為亂數產位置相同則進入中獎名單
+						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
 						gradeTmp.set(fourNum[i], "ImGone");
 					}
@@ -934,13 +915,8 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				if( Integer.parseInt(gradeMap.get("two").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
 						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(1, 3).equals(dtime.getDepartClass().subSequence(1, 3))){
-							String Grade2;
-							if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-								Grade2=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-							}else{
-								Grade2=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-							}
-							if(Grade2.equals("2")){
+							
+							if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==2){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -950,20 +926,15 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 					int fourNum[]=getMath(Integer.parseInt(gradeMap.get("two").toString()), dtime.getSelectLimit()-luckier.size());
 					gradeTmp=new ArrayList();
 					for(int i=0; i<students.size(); i++){
-						String Grade2;
-						if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-							Grade2=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-						}else{
-							Grade2=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-						}
-						if(Grade2.equals("2")){
+						
+						if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==2){
 							gradeTmp.add(students.get(i));
 							students.set(i, "ImGone");
 						}
 					}
 
 					for(int i=0; i<fourNum.length; i++){
-						//若學生位置為亂數產位置相同則進入中獎名單
+						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
 						gradeTmp.set(fourNum[i], "ImGone");
 					}
@@ -983,13 +954,8 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				if( Integer.parseInt(gradeMap.get("one").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 					for(int i=0; i<students.size(); i++){//無條件加入luckier
 						if(((Map)students.get(i)).get("ClassNo").toString().subSequence(1, 3).equals(dtime.getDepartClass().subSequence(1, 3))){
-							String Grade1;
-							if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-								Grade1=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-							}else{
-								Grade1=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-							}
-							if(Grade1.equals("1")){
+							
+							if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==1){
 								luckier.add(students.get(i));
 								students.set(i, "ImGone");
 							}
@@ -1000,20 +966,15 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 
 					gradeTmp=new ArrayList();
 					for(int i=0; i<students.size(); i++){
-						String Grade1;
-						if(((Map)students.get(i)).get("ClassNo").toString().length()==7){
-							Grade1=((Map)students.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-						}else{
-							Grade1=((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-						}
-						if(Grade1.equals("1")){
+						
+						if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==1){
 							gradeTmp.add(students.get(i));
 							students.set(i, "ImGone");
 						}
 					}
 
 					for(int i=0; i<fourNum.length; i++){
-						//若學生位置為亂數產位置相同則進入中獎名單
+						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
 						gradeTmp.set(fourNum[i], "ImGone");
 					}
@@ -1041,7 +1002,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 
 				for(int i=0; i<students.size(); i++){//無條件加入luckier
 					
-					if(Integer.parseInt(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString())>=4){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())>=4){
 						luckier.add(students.get(i));
 						students.set(i, "ImGone");
 					}
@@ -1050,14 +1011,14 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				int fourNum[]=getMath(Integer.parseInt(gradeMap.get("four").toString()), dtime.getSelectLimit()-luckier.size());
 				gradeTmp=new ArrayList();
 				for(int i=0; i<students.size(); i++){
-					if(Integer.parseInt(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).toString())>=4){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())>=4){
 						gradeTmp.add(students.get(i));
 						students.set(i, "ImGone");
 					}
 				}
 
 				for(int i=0; i<fourNum.length; i++){
-					//若學生位置為亂數產位置相同則進入中獎名單
+					//若學生位置為亂數產位置相同則進入中選名單
 					luckier.add(students.get(fourNum[i]));
 					gradeTmp.set(fourNum[i], "ImGone");
 				}
@@ -1076,7 +1037,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 			//3年級
 			if( Integer.parseInt(gradeMap.get("three").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 				for(int i=0; i<students.size(); i++){//無條件加入luckier
-					if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("3")){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==3){
 						luckier.add(students.get(i));
 						students.set(i, "ImGone");
 					}
@@ -1085,14 +1046,14 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				int fourNum[]=getMath(Integer.parseInt(gradeMap.get("three").toString()), dtime.getSelectLimit()-luckier.size());
 				gradeTmp=new ArrayList();
 				for(int i=0; i<students.size(); i++){
-					if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("3")){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==3){
 						gradeTmp.add(students.get(i));
 						students.set(i, "ImGone");
 					}
 				}
 
 				for(int i=0; i<fourNum.length; i++){
-					//若學生位置為亂數產位置相同則進入中獎名單
+					//若學生位置為亂數產位置相同則進入中選名單
 					luckier.add(students.get(fourNum[i]));
 					gradeTmp.set(fourNum[i], "ImGone");
 				}
@@ -1111,7 +1072,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 			//2年級
 			if( Integer.parseInt(gradeMap.get("two").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 				for(int i=0; i<students.size(); i++){//無條件加入luckier
-					if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("2")){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==2){
 						luckier.add(students.get(i));
 						students.set(i, "ImGone");
 					}
@@ -1120,14 +1081,14 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				int fourNum[]=getMath(Integer.parseInt(gradeMap.get("two").toString()), dtime.getSelectLimit()-luckier.size());
 				gradeTmp=new ArrayList();
 				for(int i=0; i<students.size(); i++){
-					if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("2")){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==2){
 						gradeTmp.add(students.get(i));
 						students.set(i, "ImGone");
 					}
 				}
 
 				for(int i=0; i<fourNum.length; i++){
-					//若學生位置為亂數產位置相同則進入中獎名單
+					//若學生位置為亂數產位置相同則進入中選名單
 					luckier.add(students.get(fourNum[i]));
 					gradeTmp.set(fourNum[i], "ImGone");
 				}
@@ -1146,7 +1107,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 			//1年級
 			if( Integer.parseInt(gradeMap.get("one").toString()) <= dtime.getSelectLimit()-luckier.size()){//如果夠
 				for(int i=0; i<students.size(); i++){//無條件加入luckier
-					if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("1")){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==1){
 						luckier.add(students.get(i));
 						students.set(i, "ImGone");
 					}
@@ -1155,14 +1116,14 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				int fourNum[]=getMath(Integer.parseInt(gradeMap.get("one").toString()), dtime.getSelectLimit()-luckier.size());
 				gradeTmp=new ArrayList();
 				for(int i=0; i<students.size(); i++){
-					if(((Map)students.get(i)).get("ClassNo").toString().subSequence(4, 5).equals("1")){
+					if(Integer.parseInt(((Map)students.get(i)).get("Grade").toString())==1){
 						gradeTmp.add(students.get(i));
 						students.set(i, "ImGone");
 					}
 				}
 
 				for(int i=0; i<fourNum.length; i++){
-					//若學生位置為亂數產位置相同則進入中獎名單
+					//若學生位置為亂數產位置相同則進入中選名單
 					luckier.add(students.get(fourNum[i]));
 					gradeTmp.set(fourNum[i], "ImGone");
 				}
@@ -1192,7 +1153,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 	 * @param list
 	 * @return
 	 */
-	private List promotion(List list, String type){
+	private List promotion(List<Map>list, String type){
 		/*
 		if(type.trim().equals("p")){
 			System.out.println("昇級進行中...");
@@ -1200,7 +1161,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 			System.out.println("降級進行中...");
 		}
 		*/
-		for(int i=0; i<list.size(); i++){
+		/*for(int i=0; i<list.size(); i++){
 			String grade=new String(((Map)list.get(i)).get("ClassNo").toString());
 			StringBuffer gradeBuf=new StringBuffer(grade);
 
@@ -1222,9 +1183,17 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 			gradeBuf.setCharAt(4, newGrade.toString().charAt(0));
 			((Map)list.get(i)).put("ClassNo", gradeBuf.toString());
 
+		}*/
+		if(type.equals("d")){
+			for(int i=0; i<list.size(); i++){			
+				list.get(i).put("Grade", Integer.parseInt(list.get(i).get("Grade").toString())-1);
+			}
+		}else{
+			for(int i=0; i<list.size(); i++){			
+				list.get(i).put("Grade", Integer.parseInt(list.get(i).get("Grade").toString())+1);
+			}
 		}
-
-
+		
 		return list;
 	}
 
@@ -1242,22 +1211,17 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 		Map map=new HashMap();;
 
 		for(int i=0; i<tortoise.size(); i++){
-			String grade;
-			if(((Map)tortoise.get(i)).get("ClassNo").toString().length()==7){
-				grade=((Map)tortoise.get(i)).get("ClassNo").toString().subSequence(5, 6).toString();
-			}else{
-				grade=((Map)tortoise.get(i)).get("ClassNo").toString().subSequence(4, 5).toString();
-			}
-			if(Integer.parseInt(grade)>=4){
+			
+			if(Integer.parseInt(((Map)tortoise.get(i)).get("Grade").toString())>=4){
 				four++;
 			}
-			if(grade.trim().equals("3")){
+			if(Integer.parseInt(((Map)tortoise.get(i)).get("Grade").toString())==3){
 				three++;
 			}
-			if(grade.trim().equals("2")){
+			if(Integer.parseInt(((Map)tortoise.get(i)).get("Grade").toString())==2){
 				two++;
 			}
-			if(grade.trim().equals("1")){
+			if(Integer.parseInt(((Map)tortoise.get(i)).get("Grade").toString())==1){
 				one++;
 			}
 
