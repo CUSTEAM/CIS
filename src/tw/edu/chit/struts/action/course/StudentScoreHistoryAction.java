@@ -261,7 +261,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 			int rowIndex = 6;
 			int nextPageRowIndex = 43; // 第二頁起始Row Index
 			double justScore = 0.0D;
-			Float passCreditsSum = 0.0F, totalPassCredits = 0.0F, credit = null, score = null;
+			Float passCreditsSum = 0.0F, totalPassCredits = 0.0F, credit = 0.0f, score = null;
 			boolean nextPage = false, hasPassRecord = false, rowOver = false;
 			boolean isNotExemptAndMend = false, isExempt = false, isMend = false, pass = false;
 			boolean isAppend = false, isCross = false, isNotSameDepartCode = false;
@@ -442,6 +442,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 												.getChiName().trim();
 								isOver10Char = courseName.length() > 10;
 								isOver15Char = courseName.length() > 15;
+								if(hist.getCredit()!=null)
 								credit = hist.getCredit();
 								score = hist.getScore();
 								pass = (score == null ? 0.0F : score) >= passScore;
@@ -464,6 +465,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 										}
 									} else {
 										// 不于累加
+										//System.out.println(totalPassCredits);
 										totalPassCredits += credit;
 									}
 								}
@@ -502,7 +504,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 
 									if (isNotExemptAndMend) {
 										// 各科學分
-										String creditStr = credit.toString();
+										String creditStr = String.valueOf(credit);
 										if (!isMend && !isExempt)
 											creditStr = pass ? creditStr
 													: creditStr + "*";
