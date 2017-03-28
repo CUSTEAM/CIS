@@ -129,7 +129,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 							context.getRealPath("/WEB-INF/reports/StudentScoreHistoryOver.xls"));
 				} else {
 					// 93148066剛好第4學年成績過多,需要到第2頁才行
-					//TODO 王八蛋！程式是這樣改的嗎？john2016/10/17
+					//TODO 王八蛋！程式是這樣改的嗎？
 					if ("93148066".equals(studentNo)|| "912A005".equals(studentNo))
 						templateXLS = new File(context.getRealPath("/WEB-INF/reports/StudentScoreHistoryOver.xls"));
 					else
@@ -272,7 +272,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 			Gmark gmark = null;
 			String[] gmarkOids = null;
 			ScoreHist hist = null, target = null;
-			String[] formYear = { "一", "二", "三", "四", "五", "六", "七", "八" };
+			String[] formYear = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 			String evgrType = null, historyDepartCode = null, opt = "", cscode = null, courseName = null;
 			Map<String, String> position = null; // 儲存Opt資訊
 			Map<String, String> position1 = null; // 儲存cscode資訊
@@ -319,9 +319,8 @@ public class StudentScoreHistoryAction extends BaseAction {
 				}
 
 				// formYear內用j是希望可以正確顯示,用k+4會錯誤(以914C018測試)
-				Toolket.setCellValue(sheet, 2 + (nextPage ? nextPageRowIndex
-						: 0), k * 6, "第    " + formYear[(nextPage ? j : m)]
-						+ "    學    年");
+				System.out.println(j);
+				Toolket.setCellValue(sheet, 2 + (nextPage ? nextPageRowIndex: 0), k * 6, "第    " + formYear[(nextPage ? j : m)]+ "    學    年");
 				m++; // m完全是為formYear設計,避免與k相衝突
 				position = new HashMap<String, String>();
 				position1 = new HashMap<String, String>();

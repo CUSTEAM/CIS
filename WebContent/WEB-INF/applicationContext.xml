@@ -23,17 +23,18 @@
             <props>
                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                <prop key="hibernate.show_sql">false</prop>
-			   <prop key="hibernate.cache.provider_class">com.opensymphony.oscache.hibernate.OSCacheProvider</prop>
-			   <prop key="hibernate.cache.use_query_cache">true</prop>
+			   <!-- prop key="hibernate.cache.provider_class">com.opensymphony.oscache.hibernate.OSCacheProvider</prop-->
+			   <prop key="hibernate.cache.use_query_cache">false</prop>
+			   <prop key="hibernate.cache.use_second_level_cache">false</prop>
 			   <prop key="hibernate.jdbc.batch_size">100</prop>
-               <!-- prop key="hibernate.hbm2ddl.auto">update</prop>
+               <!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
 			   <prop key="hibernate.connection.release_mode">on_close</prop>
                <prop key="hibernate.c3p0.acquire_increment">1</prop>
                <prop key="hibernate.c3p0.minPoolSize">2</prop>
                <prop key="hibernate.c3p0.maxPoolSize">20</prop>
 			   <prop key="hibernate.c3p0.timeout">1800</prop>
 			   <prop key="hibernate.c3p0.max_statement">0</prop>
-			   <prop key="hibernate.c3p0.idle_test_period">600</prop-->
+			   <prop key="hibernate.c3p0.idle_test_period">600</prop>
 	     	</props>
         </property>
 
@@ -244,8 +245,8 @@
 
     <!-- Hibernate SessionFactory -->
 	<!-- if use hibernate3.0+ change the class to org.springframework.orm.hibernate3.LocalSessionFactoryBean -->
-    <bean id="blobSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-        <!-- property name="dataSource"><ref local="blobSource"/></property-->
+    <!-- bean id="blobSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref local="blobSource"/></property>
         <property name="hibernateProperties">
             <props>
                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -262,15 +263,15 @@
             	<value>tw/edu/chit/model/StudPublicDocUpload.hbm.xml</value>
              </list>
         </property>
-    </bean>
+    </bean-->
 
     <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory"><ref local="sessionFactory"/></property>
     </bean>
-    <bean id="blobTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    <!-- bean id="blobTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory"><ref local="blobSessionFactory"/></property>
-    </bean>
+    </bean-->
 
     <!-- JdbcDAO: JDBC direct support for none-OO data access -->
     <bean id="memberJdbcDAO" class="tw.edu.chit.dao.MemberJdbcDAO">
@@ -305,9 +306,9 @@
     <bean id="dao" class="tw.edu.chit.dao.hibernate.BaseDAOHibernate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="blobBaseDao" class="tw.edu.chit.dao.hibernate.BaseDAOHibernate">
+    <!--bean id="blobBaseDao" class="tw.edu.chit.dao.hibernate.BaseDAOHibernate">
         <property name="sessionFactory" ref="blobSessionFactory"/>
-    </bean>
+    </bean-->
 
 	<!-- MemberDAO: Hibernate implementation -->
     <bean id="memberDAO" class="tw.edu.chit.dao.hibernate.MemberDAOImpl" parent="dao"></bean>
@@ -329,7 +330,7 @@
     <bean id="amsDAO" class="tw.edu.chit.dao.hibernate.AmsDAOImpl" parent="dao"></bean>
 
 	<!-- blobDAO: Hibernate implementation -->
-    <bean id="blobDAO" class="tw.edu.chit.dao.hibernate.BlobDAOImpl" parent="blobBaseDao"></bean>
+    <!-- bean id="blobDAO" class="tw.edu.chit.dao.hibernate.BlobDAOImpl" parent="blobBaseDao"></bean-->
 
     <!-- Transaction template for Managers, from:
          http://blog.exis.com/colin/archives/2004/07/31/concise-transaction-definitions-spring-11/ -->
@@ -443,7 +444,7 @@
                 <property name="studAffairDAO" ref="studAffairDAO"/>
                 <property name="jdbcDAO"   ref="studAffairJdbcDAO"/>
                 <property name="scoreDAO"  ref="scoreDAO"/>
-                <property name="blobDAO"  ref="blobDAO"/>
+                <!-- property name="blobDAO"  ref="blobDAO"/-->
             </bean>
         </property>
         <!-- Override default transaction attributes of methods with name -->
