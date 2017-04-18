@@ -24,7 +24,7 @@
 		<table class="hairLineTable" width="99%">	
 			<tr>				
 				<td class="hairLineTdF" nowrap>				
-				<select id="s${v.count}" onChange="cp('beginTime${v.count}', this.id, 't${v.count}');" style="font-size:14pt;">				
+				<select id="ss${v.count}" onChange="cp('beginTime${v.count}', this.id, 'tt${v.count}');" style="font-size:14pt;">				
 				<option value="00:">凌晨  0時</option>
 				<option value="01:">凌晨  1時</option>
 				<option value="02:">凌晨  2時</option>
@@ -51,7 +51,7 @@
 				<option value="22:">晚上10時</option>
 				<option value="23:">晚上11時</option>				
 				</select>
-				<select style="display:inline;" id="t${v.count}" onChange="cp('beginTime${v.count}', 's${v.count}', this.id);" style="font-size:14pt;">
+				<select id="tt${v.count}" onChange="cp('beginTime${v.count}', 'ss${v.count}', this.id);" style="font-size:14pt;">
 					<option value="00">整點</option>
 					<option value="10">10分</option>
 					<option value="20">20分</option>
@@ -63,7 +63,7 @@
 				</td>
 				<td class="hairLineTdF" nowrap width="30">至</td>
 				<td class="hairLineTdF" nowrap width="100%">				
-				<select id="s1${v.count}" onChange="cp('endTime${v.count}', this.id, 't${v.count}');" style="font-size:14pt;">				
+				<select id="s1${v.count}" onChange="cp('endTime${v.count}', this.id, 't1${v.count}');" style="font-size:14pt;">				
 				<option value="00:">凌晨  0時</option>
 				<option value="01:">凌晨  1時</option>
 				<option value="02:">凌晨  2時</option>
