@@ -331,14 +331,11 @@ public class ScoreDAOImpl extends BaseDAOHibernate implements ScoreDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<ScoreHist> findScoreHistBy(ScoreHist scoreHist) {
-		Session session = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession();
+		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		
 		
 		
-		return session.createCriteria(ScoreHist.class).add(
-				Example.create(scoreHist)).addOrder(Order.asc("schoolYear"))
-				.list();
+		return session.createCriteria(ScoreHist.class).add(Example.create(scoreHist)).addOrder(Order.asc("schoolYear")).list();
 	}
 
 	/**

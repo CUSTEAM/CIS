@@ -91,10 +91,12 @@ public class StudentScoreHistoryAction extends BaseAction {
 
 			String[] excep = { "11G332" }; // 春季班學年要+1
 			boolean isSpringClass = false;
-			short firstYear = Short.parseShort(scoreHistList.get(0)
-					.getSchoolYear().toString());
-			short lastYear = Short.parseShort(scoreHistList.get(
-					scoreHistList.size() - 1).getSchoolYear().toString());
+			short firstYear = Short.parseShort(scoreHistList.get(0).getSchoolYear().toString());
+			short lastYear = Short.parseShort(scoreHistList.get(scoreHistList.size() - 1).getSchoolYear().toString());
+			
+			
+			
+			
 			boolean isOver = (lastYear - firstYear + 1) > 4;
 			// isOver = true;
 			String departCode = "";
@@ -272,12 +274,14 @@ public class StudentScoreHistoryAction extends BaseAction {
 			Gmark gmark = null;
 			String[] gmarkOids = null;
 			ScoreHist hist = null, target = null;
-			String[] formYear = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
+			String[] formYear = { "一", "二", "三", "四", "五", "六", "七", "八", "九" , "十", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
 			String evgrType = null, historyDepartCode = null, opt = "", cscode = null, courseName = null;
 			Map<String, String> position = null; // 儲存Opt資訊
 			Map<String, String> position1 = null; // 儲存cscode資訊
 
 			for (short year = firstYear; year <= lastYear; year++) {
+				
+				
 				// 判斷是否有歷年資料?可以9316D078為例測試
 				// 不做判斷會出現歷年中間有空白資料
 				scoreHist.setSchoolYear(year);
@@ -293,7 +297,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 				if (k >= 4) {
 					k = 0;
 					nextPage = true;
-					rowIndex = 49;
+					rowIndex += 49;
 				}
 
 				if (isSpringClass && year == lastYear) {
@@ -319,7 +323,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 				}
 
 				// formYear內用j是希望可以正確顯示,用k+4會錯誤(以914C018測試)
-				System.out.println(j);
+				//System.out.println(j);
 				Toolket.setCellValue(sheet, 2 + (nextPage ? nextPageRowIndex: 0), k * 6, "第    " + formYear[(nextPage ? j : m)]+ "    學    年");
 				m++; // m完全是為formYear設計,避免與k相衝突
 				position = new HashMap<String, String>();

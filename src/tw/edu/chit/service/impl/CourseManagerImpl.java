@@ -5548,7 +5548,11 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 			dtime.setThour(dtimeR.getThour());
 			dtime.setCoansw(0f);
 			// 還原開課記錄
-			courseDao.saveObject(dtime);
+			try{
+				courseDao.saveObject(dtime);
+			}catch(Exception e){
+				continue;
+			}
 
 			String hqlTmp="FROM SeldStuFilter WHERE dtimeOid='"+dtimeOid+"'";
 			List seldTmp=courseDao.StandardHqlQuery(hqlTmp);

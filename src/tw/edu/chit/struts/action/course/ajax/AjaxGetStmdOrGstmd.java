@@ -91,7 +91,7 @@ public class AjaxGetStmdOrGstmd extends HttpServlet{
 		}else{
 		
 			for(int i=0; i<list.size(); i++){
-				System.out.println(list.get(i));
+				//System.out.println(list.get(i));
 				out.println("<name>"+list.get(i).get("name")+"</name>");
 				out.println("<no>"+list.get(i).get("no")+"</no>");
 			}			

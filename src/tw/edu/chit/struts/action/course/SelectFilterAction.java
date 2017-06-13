@@ -452,6 +452,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				List students=new ArrayList();
 				//第二期需要將學生做模擬昇級作業
 				if(term.trim().equals("2")){
+					System.out.println("work?");
 					students=promotion(manager.getSeldBy(buf), "p"); //學生
 				}else{
 					students=manager.getSeldBy(buf);
@@ -522,7 +523,6 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 		List idiots=new ArrayList();
 		for(int i=0; i<students.size(); i++){//無條件加入idiots
 			int stGrade=Integer.parseInt(((Map)students.get(i)).get("Grade").toString()); //學生年級
-			//System.out.println(stGrade);
 			int csGrade=manager.ezGetInt("SELECT Grade FROM Class WHERE ClassNo='"+dtime.getDepartClass()+"'"); //課程年級
 			if(stGrade<csGrade){
 				idiots.add(students.get(i));
@@ -543,10 +543,10 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				origin++;
 			}
 		}
+		
 		if(origin>0){
 			// 如果本班(開課班)選課人數多於開課限制人數(課程人數上限不足應付本班人數)
 			if(origin>dtime.getSelectLimit()){	
-				
 				//扔掉非本班
 				if(origin<students.size()){					
 					for(int i=0; i<students.size(); i++){						
@@ -664,7 +664,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 							luckier.add(students.get(fourNum[i]));
 							gradeTmp.set(fourNum[i], "ImGone");
 						}catch(Exception e){
-							System.out.println("已略過問題");
+							//System.out.println("已略過問題");
 						}
 						
 					}
@@ -699,7 +699,8 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 							students.set(i, "ImGone");
 						}
 					}
-
+					
+					if(gradeTmp.size()>0)
 					for(int i=0; i<fourNum.length; i++){
 						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
@@ -732,7 +733,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 					int fourNum[]=getMath(Integer.parseInt(gradeMap.get("two").toString()), dtime.getSelectLimit()-luckier.size());
 
 					gradeTmp=new ArrayList();
-					System.out.println(students.size());
+					//System.out.println(students.size()+", "+fourNum.length);
 					for(int i=0; i<students.size(); i++){
 						if(((Map)students.get(i)).get("Grade").equals("2")){
 							gradeTmp.add(students.get(i));
@@ -740,6 +741,7 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 						}
 					}
 					//System.out.println(gradeTmp.size());
+					if(gradeTmp.size()>0)
 					for(int i=0; i<fourNum.length; i++){
 						//若學生位置為亂數產位置相同則進入中選名單
 						luckier.add(students.get(fourNum[i]));
@@ -1184,13 +1186,23 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 			((Map)list.get(i)).put("ClassNo", gradeBuf.toString());
 
 		}*/
+		CourseManager manager = (CourseManager) getBean("courseManager");
 		if(type.equals("d")){
+			
 			for(int i=0; i<list.size(); i++){			
 				list.get(i).put("Grade", Integer.parseInt(list.get(i).get("Grade").toString())-1);
 			}
 		}else{
-			for(int i=0; i<list.size(); i++){			
-				list.get(i).put("Grade", Integer.parseInt(list.get(i).get("Grade").toString())+1);
+			for(int i=0; i<list.size(); i++){	
+				Clazz c=(Clazz) manager.hqlGetBy("FROM Clazz WHERE ClassNo='"+list.get(i).get("ClassNo")+"'").get(0);
+				list.get(i).put("Grade", Integer.parseInt(c.getGrade())+1);
+				try{
+					list.get(i).put("ClassNo", manager.ezGetString("SELECT ClassNo FROM Class WHERE CampusNo='"+
+					c.getCampusNo()+"'AND SchoolNo='"+c.getSchoolNo()+"'AND DeptNo='"+
+					c.getDeptNo()+"'AND Grade='"+(Integer.parseInt(c.getGrade())+1)+"'AND SeqNo='"+c.getSeqNo()+"'"));
+				}catch(Exception e){
+					//
+				}
 			}
 		}
 		

@@ -17,11 +17,20 @@ public class Clazz extends ClazzBase implements java.io.Serializable {
 	private String shortName;
 	private String grade;
 	private String type;
+	private String SeqNo;
 
 	/** default constructor */
 	public Clazz() {
 	}
 	
+	public String getSeqNo() {
+		return SeqNo;
+	}
+
+	public void setSeqNo(String seqNo) {
+		SeqNo = seqNo;
+	}
+
 	public Clazz(String classNo) {
 		this.classNo = classNo;
 	}

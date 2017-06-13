@@ -37,5 +37,8 @@
         <property name="type" type="java.lang.String">
             <column name="Type" length="1" not-null="true" />
         </property>
+        <property name="SeqNo" type="java.lang.String">
+            <column name="SeqNo"/>
+        </property>
     </class>
 </hibernate-mapping>

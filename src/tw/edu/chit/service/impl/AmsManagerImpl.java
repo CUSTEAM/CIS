@@ -2471,7 +2471,11 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 			}
 		}
 
-		doc.setIsExpired(this.isExpireDoc(doc));
+		try{
+			doc.setIsExpired(this.isExpireDoc(doc));
+		}catch(Exception e){
+			
+		}
 	}
 
 	public AmsRevokedDoc getRevokedDoc(int oid) {
