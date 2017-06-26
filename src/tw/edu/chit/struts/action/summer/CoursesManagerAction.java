@@ -77,6 +77,7 @@ public class CoursesManagerAction extends BaseLookupDispatchAction {
 		String status=(String) sform.get("status");
 		
 		session.setAttribute("SdtimeList", manager.getSdtimeBy(seqno, opt, departClass, cscode, techid, status));
+		session.setAttribute("seqno", seqno);
 		msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","查詢完成"));
 		saveMessages(request, msg);
 		

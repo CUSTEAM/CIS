@@ -5324,6 +5324,8 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 		}
 
 		strBuf.append(" ORDER BY d.type, d.depart_class, c.cscode");
+		
+		System.out.println(strBuf);
 		List table = new ArrayList();
 		Map map;
 		Object[] dtimeList;

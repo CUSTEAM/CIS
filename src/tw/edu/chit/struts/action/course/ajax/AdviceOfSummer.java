@@ -127,6 +127,9 @@ public class AdviceOfSummer extends HttpServlet{
 						"day4, day5, day6, day7, d.depart_class FROM Sdtime d, Sabbr cl, Csno c " +
 						"WHERE cl.no=d.depart_class AND c.cscode=d.cscode AND d.techid='"+((Map)teachers.get(i)).get("idno")+"'");
 				
+				if(!session.getAttribute("seqno").equals(""))
+				sql.append("AND d.seqno='"+session.getAttribute("seqno")+"'");
+				
 				List classInfo=manager.ezGetBy(sql.toString());				
 
 				float[] widths = {0.1f, 0.2f, 0.3f, 0.1f, 0.2f, 0.1f};
