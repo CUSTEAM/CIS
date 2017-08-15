@@ -95,6 +95,8 @@
 	  <form-property name="expLess" type="java.lang.String" />
 	  <form-property name="hourPay" type="java.lang.String" />
 	  <form-property name="creditPay" type="java.lang.String" />
+	  
+	  <form-property name="syear" type="java.lang.String" />
 	</form-bean>
 	
 	<form-bean name="ClassManagerForm" type="tw.edu.chit.struts.BaseDynaActionForm">

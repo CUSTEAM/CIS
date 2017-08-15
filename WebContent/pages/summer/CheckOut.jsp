@@ -143,6 +143,9 @@
 						   value="<bean:message key='CourseCheckOpt'/>"
 						   class="gSubmit">
 				</td>
+				<td id="inyear" style="display:none">
+				
+				</td>
 			</tr>
 		</table>
 	</td>
@@ -213,6 +216,7 @@
 </tr>
 <tr height="40">
 	<td class="fullColorTable" align="center" width="100%">
+	匯入學年<input type="text" name="syear" onclick="this.value=''" size="3"> 
 	<INPUT type="submit"
 						   name="method" id="checkout"
 						   value="<bean:message key='FiledSummerScore'/>"
@@ -296,6 +300,7 @@ function showOpt(opt){
 		document.getElementById('expLess').style.display="inline";
 		document.getElementById('pay').style.display="none";
 		document.getElementById('checkout').disabled=false;
+			
 	}
 	
 	//查退費
@@ -311,6 +316,7 @@ function showOpt(opt){
 		document.getElementById('expLess').style.display="none";
 		document.getElementById('pay').style.display="none";
 		document.getElementById('checkout').disabled=false;
+		
 	}
 	
 	//查衝堂
@@ -318,12 +324,13 @@ function showOpt(opt){
 		document.getElementById('expLess').style.display="none";
 		document.getElementById('pay').style.display="none";
 		document.getElementById('checkout').disabled=false;
+		
 	}
 	
 	if(opt==''){
 		document.getElementById('expLess').style.display="none";
 		document.getElementById('pay').style.display="none";
-	
+		
 	}
 
 }

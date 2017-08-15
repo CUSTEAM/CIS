@@ -48,20 +48,27 @@ public class CheckOut extends BaseLookupDispatchAction{
 			throws Exception {
 		
 		//HttpSession session = request.getSession(false);
-		//DynaActionForm sform = (DynaActionForm) form;
+		DynaActionForm sform = (DynaActionForm) form;
 		CourseManager manager = (CourseManager) getBean("courseManager");
-		//SummerManager summerManager = (SummerManager) getBean("summerManager");	
 		
-		//ActionMessages msg = new ActionMessages();		//建立共用訊息
-		//ActionMessages error = new ActionMessages();	//建立共用錯誤訊息
+		String syear = (String) sform.get("syear");
+		//String sterm = (String) sform.get("sterm");
 		
-		//String departClass = (String) sform.get("departClass");
-		//String courseNumber = (String) sform.get("courseNumber");
-		//String seqno = (String) sform.get("seqno");		
-		//String syear=manager.ezGetString("SELECT Value FROM Parameter WHERE name='School_year'");//暑修年度
-		int syear=manager.ezGetInt("SELECT Value FROM Parameter WHERE name='School_year'");
-		int sterm=manager.ezGetInt("SELECT Value FROM Parameter WHERE name='School_term'");
-		if(sterm==1)syear--;
+		ActionMessages msg = new ActionMessages();
+		
+		if(syear.equals("")){
+			msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1", "請指定目標學年、學期"));
+			saveMessages(request, msg);		
+			return courseCheckOpt(mapping, form, request, response);
+			
+		}
+		
+		
+		
+		
+		//int syear=manager.ezGetInt("SELECT Value FROM Parameter WHERE name='School_year'");
+		//int sterm=manager.ezGetInt("SELECT Value FROM Parameter WHERE name='School_term'");
+		//if(sterm==1)syear--;
 		
 		//Integer sterm=2; //TODO 目前暑修成績均建入第二學期，若需要寒修是再建 Parameter.
 		
@@ -104,7 +111,7 @@ public class CheckOut extends BaseLookupDispatchAction{
 				}
 			}
 		}
-		ActionMessages msg = new ActionMessages();
+		
 		msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1", "歷史成績建檔完成, 共完成 "+count+"筆"));
 		saveMessages(request, msg);		
 		return courseCheckOpt(mapping, form, request, response);
