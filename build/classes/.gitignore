@@ -1,3 +1,15 @@
+/CRConfig.xml
+/c3p0.properties.OBS
+/displaytag.properties
+/displaytag_en.properties
+/displaytag_zh_TW.properties
+/fckeditor.properties
+/hibernate.cfg.xml
+/kaiu.ttf
+/log4j.properties
+/messages/
+/oscache.properties
+/pl.ttf
+/tw/
 /com/
 /org/
-/tw/

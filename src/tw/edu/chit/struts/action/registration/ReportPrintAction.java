@@ -489,7 +489,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 
 				if (!isMaster) {
 
-					if (studentCounts <= 30)
+					/*if (studentCounts <= 30)
 						fileName = "ClassStudentsScoreHistoryOver30.xls";
 					else if (studentCounts > 31 && studentCounts <= 40)
 						fileName = "ClassStudentsScoreHistoryOver40.xls";
@@ -501,8 +501,9 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 						fileName = "ClassStudentsScoreHistoryOver55.xls";
 					else
 						fileName = "ClassStudentsScoreHistoryOver60.xls";
-					
-					System.out.println(fileName);
+					*/
+					fileName = "ClassStudentsScoreHistoryOver60.xls";
+					//System.out.println(fileName);
 					title = Toolket.getSchoolFormalName(departClass);
 					if (isDelay) {
 						// Only 20 Sheets
@@ -2080,7 +2081,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 
 				if (!isMaster) {
 
-					if (studentCounts <= 30)
+					/*if (studentCounts <= 30)
 						fileName = "ClassStudentsScoreHistoryOver30.xls";
 					else if (studentCounts > 31 && studentCounts <= 40)
 						fileName = "ClassStudentsScoreHistoryOver40.xls";
@@ -2090,7 +2091,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 						fileName = "ClassStudentsScoreHistoryOver50.xls";
 					else if (studentCounts > 51 && studentCounts <= 55)
 						fileName = "ClassStudentsScoreHistoryOver55.xls";
-					else
+					else*/
 						fileName = "ClassStudentsScoreHistoryOver60.xls";
 
 					title = Toolket.getSchoolFormalName(departClass);
@@ -3680,7 +3681,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 
 				if (!isMaster) {
 
-					if (studentCounts <= 30)
+					/*if (studentCounts <= 30)
 						fileName = "ClassStudentsScoreHistoryOver30.xls";
 					else if (studentCounts > 31 && studentCounts <= 40)
 						fileName = "ClassStudentsScoreHistoryOver40.xls";
@@ -3690,7 +3691,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 						fileName = "ClassStudentsScoreHistoryOver50.xls";
 					else if (studentCounts > 51 && studentCounts <= 55)
 						fileName = "ClassStudentsScoreHistoryOver55.xls";
-					else
+					else*/
 						fileName = "ClassStudentsScoreHistoryOver60.xls";
 
 					title = Toolket.getSchoolFormalName(departClass);
