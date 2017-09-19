@@ -20,6 +20,7 @@ String date=sf.format(new Date());
 %>
 <html>
 <head>
+<style>body{background-color:#cccccc;}td{font-size:18px;color:#333333;font-family:新細明體;mso-number-format:\\@;}</style>
 </head>
 <body>
 <table>
@@ -28,36 +29,41 @@ String date=sf.format(new Date());
 		<td>
 			<table border="0" align="left" cellpadding="0" cellspacing="1" width="100%">
 			<tr>
-			<td colspan="6" align="center">
-			<font face="標楷體" size="+2">學分不足的學生清單</font>
+			<td colspan="6" align="center" bgcolor="#ffffff">
+			<font face="標楷體" size="+2">學分異常</font>
 			</td>
 			</tr>
 			<tr>
-			<td colspan="6" align="right">
-			<font size="-2">課程管理系統 <%=date%></font>
+			<td colspan="6" align="right" bgcolor="#ffffff">
+			<font size="-2"><%=date%></font>
 			</td>
 			</tr>
 			</table>
-			<table border="1" align="left" cellpadding="0" cellspacing="1" bgcolor="#CFE69F" width="100%">
+			<table border="1" align="left" cellpadding="0" cellspacing="1" width="100%">
 
-				<tr height="20">
-					<td align="center" bgcolor="#f0fcd7">學號</td>
-					<td align="center" bgcolor="#f0fcd7">姓名</td>
-					<td align="center" bgcolor="#f0fcd7">班級代碼</td>
-					<td align="center" bgcolor="#f0fcd7">班級名稱</td>
-					<td align="center" bgcolor="#f0fcd7">學分數</td>
-					<td align="center" bgcolor="#f0fcd7">時數</td>
+
+				<tr>
+					<td align="center">狀態</td>
+					<td align="center">學號</td>
+					<td align="center">姓名</td>
+					<td align="center">班級代碼</td>
+					<td align="center">班級名稱</td>
+					<td align="center">已選</td>
+					<td align="center">上限</td>
+					<td align="center">下限</td>
 				</tr>
 					<%int i=0;%>
 					<c:forEach items="${CheckCredit}" var="dl">
 					<%i=i+1;%>
-						<tr height="20">
-							<td align="left" style="mso-number-format:\@" <%if(i%2==1){%>bgcolor="#ffffff"<%}else{%> bgcolor="#f0fcd7" <%}%> >${dl.student_no}</td>
-							<td align="left" style="mso-number-format:\@" <%if(i%2==1){%>bgcolor="#ffffff"<%}else{%> bgcolor="#f0fcd7"<%}%>>${dl.student_name}</td>
-							<td align="left" style="mso-number-format:\@" <%if(i%2==1){%>bgcolor="#ffffff"<%}else{%> bgcolor="#f0fcd7"<%}%>>${dl.ClassNo}</td>
-							<td align="left" <%if(i%2==1){%>bgcolor="#ffffff"<%}else{%> bgcolor="#f0fcd7"<%}%>>${dl.ClassName}</td>
-							<td align="left" <%if(i%2==1){%>bgcolor="#ffffff"<%}else{%> bgcolor="#f0fcd7"<%}%>>${dl.creditLess}</td>
-							<td align="left" <%if(i%2==1){%>bgcolor="#ffffff"<%}else{%> bgcolor="#f0fcd7"<%}%>>${dl.thourLess}</td>
+						<tr bgcolor="#ffffff">
+							<td align="left" style="mso-number-format:\@">${dl.occur_status}</td>
+							<td align="left" style="mso-number-format:\@">${dl.student_no}</td>
+							<td align="left" style="mso-number-format:\@">${dl.student_name}</td>
+							<td align="left" style="mso-number-format:\@">${dl.ClassNo}</td>
+							<td align="left">${dl.ClassName}</td>
+							<td align="left">${dl.cnt}</td>
+							<td align="left">${dl.max}</td>
+							<td align="left">${dl.min}</td>
 						</tr>
 					</c:forEach>
 			</table>

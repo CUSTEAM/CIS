@@ -2,13 +2,19 @@
 <c:if test="${CheckCredit!=null}">
 <tr>
 	<td align="center">
-	<display:table name="${CheckCredit}" export="true" id="row" pagesize="10" sort="list" excludedParams="*" class="list">
+	<display:table name="${CheckCredit}" export="true" id="row" sort="list" excludedParams="*" class="list">
+		<display:column title="學號" property="occur_status" sortable="true" class="left" />
 		<display:column title="學號" property="student_no" sortable="true" class="left" />
 		<display:column title="姓名" property="student_name" sortable="true" class="left" />
 		<display:column title="班級代碼" property="ClassNo" sortable="true" class="left" />
 		<display:column title="班級名稱" property="ClassName" sortable="true" class="left" />
-		<display:column title="學分數" property="creditLess" sortable="true" class="left" />
-		<display:column title="時數" property="thourLess" sortable="true" class="left" />
+		<display:column title="已選" property="cnt" sortable="true" class="left" />
+		<display:column title="上限" property="max" sortable="true" class="left" />
+		<display:column title="下限" property="min" sortable="true" class="left" />
+		<display:column title="下限" property="ident_remark" sortable="true" class="left" />
+		
+		
+		
 	</display:table>
 
 
@@ -24,15 +30,13 @@
    					<table>
    						<tr>
    							<td>
-   							 選擇輸出格式:
+   							 列印:
    							</td>
    							<td>
    							<a href="course/export/list4CheckCredit.jsp?type=excel">
    							<img src="images/ico_file_excel.png" border="0"> Excel
    							</a>
-   							<a href="course/export/list4CheckCredit.jsp?type=word">
-   							<img src="images/ico_file_word.png" border="0"> Word
-   							</a>
+   							
    							</td>
    						</tr>
    					</table>

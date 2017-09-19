@@ -69,7 +69,7 @@
 			closeAll();
 			document.getElementById('helpMsg').innerHTML=('&nbsp;請選擇查核範圍, 並且在彈出的方塊中輸入下限數字 (目前尚未將各學制年級學分下限建檔儲存)');
 			//document.getElementById('pif').style.display='inline';
-			document.getElementById('checkCredit').style.display='inline';
+			//document.getElementById('checkCredit').style.display='inline';
 			document.getElementById('alert').style.display='inline';
 			document.getElementById('point').style.display='inline';
 
@@ -180,8 +180,8 @@
 
 <script>
 function closeAll(){
-			document.getElementById('checkCredit').style.display='none';
-			document.getElementById('checkCredit').style.display='none';
+			//document.getElementById('checkCredit').style.display='none';
+			//document.getElementById('checkCredit').style.display='none';
 			//document.getElementById('schoolType').style.display='none';
 			//document.getElementById('sidno').style.display='none';
 			document.getElementById('point').style.display='none';

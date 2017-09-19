@@ -138,8 +138,14 @@ public class CheckOutAction extends BaseLookupDispatchAction{
 			}
 			List checkCredit=manager.getCheckCredit(classLess, sterm, minimum);
 			session.setAttribute("CheckCredit", checkCredit);
+			
+			
+			
+			
+			
+			
 			if(checkCredit.size()>0){
-				msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1", "共有"+checkCredit.size()+"個學生學分不足 "+minimum+" 學分"));
+				msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1", "共有"+checkCredit.size()+"個學生學分異常"));
 			}else{
 				msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1", "沒有人"));
 			}

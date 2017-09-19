@@ -4573,7 +4573,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 	 * 學分數查核
 	 */
 	public List getCheckCredit(String departClass, String sterm, String minimum) {
-		String sql="SELECT s.student_no, s.student_name, c.ClassNo, c.ClassName  FROM stmd s, Class c WHERE s.depart_class=c.ClassNo AND " +
+		/*String sql="SELECT s.student_no, s.student_name, c.ClassNo, c.ClassName  FROM stmd s, Class c WHERE s.depart_class=c.ClassNo AND " +
 				   "depart_class LIKE '"+departClass+"%'";
 
 		List table=new ArrayList();
@@ -4619,9 +4619,12 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 				}
 				table.add(map);
 			}
-		}
+		}*/
 
-		return table;
+		return jdbcDao.StandardSqlQuery("SELECT st.ident_remark, css.name as occur_status, st.student_no,st.student_name,c.ClassNo, c.ClassName,(SELECT SUM(d.credit) FROM Seld s, Dtime d WHERE "
+				+ "s.Dtime_oid=d.Oid AND s.student_no=st.student_no)as cnt,sce.max, sce.min FROM stmd st LEFT OUTER JOIN CODE_STMD_STATUS css ON css.id=st.occur_status, Class c,"
+				+ "SYS_CALENDAR_ELECTIVE sce WHERE c.ClassNo=st.depart_class AND sce.depart=c.SchoolType AND "
+				+ "sce.grade=c.Grade AND st.depart_class LIKE'"+departClass+"%'HAVING cnt>sce.max OR cnt<sce.min;");
 	}
 	
 	/*

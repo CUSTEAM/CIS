@@ -11,7 +11,7 @@
 			<option value="">▉▉▉▉▉選課規則▉▉▉▉▉</option>
 			<option value="CheckSeld" <c:if test="${CheckOutForm.map.checkOpt=='CheckSeld'}">selected</c:if> >學生衝堂</option>
 			<option value="CheckHeight" <c:if test="${CheckOutForm.map.checkOpt=='CheckHeight'}">selected</c:if> >學生低修高</option>
-			<option value="CheckCredit" <c:if test="${CheckOutForm.map.checkOpt=='CheckCredit'}">selected</c:if> >學生學分不足</option>
+			<option value="CheckCredit" <c:if test="${CheckOutForm.map.checkOpt=='CheckCredit'}">selected</c:if> >學生學分異常</option>
 			<option value="ReSelectedNow" <c:if test="${CheckOutForm.map.checkOpt=='ReSelectedNow'}">selected</c:if> >重複選課(學期)</option>
 			<option value="ReSelected" <c:if test="${CheckOutForm.map.checkOpt=='ReSelected'}">selected</c:if> >重複修課(歷史)</option>			
 			<option value="CheckSelimit" <c:if test="${CheckOutForm.map.checkOpt=='CheckSelimit'}">selected</c:if> >課程人數不足</option>
@@ -47,8 +47,7 @@
 			
 		</SELECT>			
 		
-		<input type="text" name="checkCredit" id="checkCredit" <c:if test="${CheckOutForm.map.checkOpt!='CheckCredit'}">style="display:none;"</c:if> size="1" value="${CheckOutForm.map.checkCredit}"/><img id="point" style="display:none;" src="images/16-exc-mark.gif" />
-
+		
 		<!-- SELECT name="schoolType" <c:if test="${CheckOutForm.map.checkOpt!='CheckGist'}">style="display:none;"</c:if>
 		 onchange="document.getElementById('classLess').value='', document.getElementById('classLess').value=this.value"
 		 onclick="document.getElementById('pif').style.display='none'">
