@@ -679,8 +679,6 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		List list=(List)session.getAttribute("mdelete");
 		String departClass;
 		
-		
-		
 		List data;
 		for(int i=0; i<list.size(); i++){
 			departClass=null;
@@ -690,10 +688,10 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 				departClass=manager.ezGetString("SELECT depart_class FROM Gstmd WHERE student_no='"+((Map)list.get(i)).get("student_no")+"'");
 			}
 			//System.out.println("departClass="+departClass);
-			if(!checkMyStudent(departClass, request)){//||manager.ezGetInt("SELECT COUNT(*)FROM ScoreHist WHERE student_no='"+((Map)list.get(i)).get("student_no")+"'")>0){
+			/*if(!checkMyStudent(departClass, request)){//||manager.ezGetInt("SELECT COUNT(*)FROM ScoreHist WHERE student_no='"+((Map)list.get(i)).get("student_no")+"'")>0){
 				error.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","您沒有管理 "+departClass+" 的權限, 或是學生已有成績資料, 因此無法刪除 "+((Map)list.get(i)).get("student_no"))); 				
 			}else{
-				
+			*/	
 				
 				//選課
 				//data=(List) ((Map)list.get(i)).get("Seld");
@@ -750,10 +748,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 				session.removeAttribute("students");
 			}
 			
-		}		
-		
-		
-		
+		//}				
 		
 		if(!error.isEmpty()){
 			saveErrors(request, error);
@@ -1009,7 +1004,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		//String school_term=((Map)manager.ezGetBy("SELECT Value FROM Parameter WHERE Name='School_term'").get(0)).get("Value").toString();//學期
 
 		//檢查權限		
-		if(checkMyStudent(studentNo, request)){
+		/*if(checkMyStudent(studentNo, request)){
 			error.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","你不可以把別人的學生轉到 "+(String)stForm.get("classNo")+(String)stForm.get("className"))); 
 			saveErrors(request, error);			
 			return mapping.findForward("Main");
@@ -1019,7 +1014,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 			error.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","你沒有管理 "+(String)stForm.get("classNo")+(String)stForm.get("className")+" 的權限")); 
 			saveErrors(request, error);	
 			return mapping.findForward("Main");
-		}
+		}*/
 		//利用dynactionform來做(因為前面寫的是for dynactionform)
 		Map myForm = (Map)session.getAttribute("aStudent");
 		if(myForm.get("myImage")!=null && !myForm.get("myImage").toString().trim().equals("")){
@@ -1360,7 +1355,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		String studentNo=(String)stForm.get("studentNo");
 		
 		//檢查權限
-		if(stForm.get("occur_status").equals("5")){//若為轉班
+		/*if(stForm.get("occur_status").equals("5")){//若為轉班
 			if(checkMyStudentNo(studentNo, request)){
 				error.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","你不能把別人的學生轉到 "+(String)stForm.get("classNo")+(String)stForm.get("className"))); 
 				saveErrors(request, error);				
@@ -1373,7 +1368,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 				saveErrors(request, error);				
 				return mapping.findForward("Main");
 			}
-		}
+		}*/
 		//異動學年學期
 		String school_year=stForm.getString("occur_year");//頁面最後變更學年若空白給現在
 		String school_term=stForm.getString("occur_term");//頁面最後變更學期
@@ -2168,7 +2163,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 	 * @return
 	 */
 	private boolean checkMyStudent(String departClass, HttpServletRequest request){
-		HttpSession session = request.getSession(false);
+		/*HttpSession session = request.getSession(false);
 		UserCredential credential = (UserCredential) session.getAttribute("Credential");
 		Clazz[] classes = credential.getClassInChargeAry();
 		for(int i=0; i<classes.length; i++){
@@ -2176,7 +2171,8 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 				return true;
 			}
 		}
-		return false;
+		return false;*/
+		return true;
 	}
 	
 	/**
@@ -2186,7 +2182,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 	 * @return
 	 */
 	private boolean checkMyStudentNo(String studentNo, HttpServletRequest request){
-		HttpSession session = request.getSession(false);
+		/*HttpSession session = request.getSession(false);
 		CourseManager manager = (CourseManager) getBean("courseManager");
 		String departClass=manager.ezGetString("SELECT depart_class FROM stmd WHERE student_no='"+studentNo+"'");
 		
@@ -2200,8 +2196,8 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 			if(classes[i].getClassNo().equals(departClass)){
 				return false;
 			}
-		}
-		return true;
+		}*/
+		return false;
 	}
 	
 	/**

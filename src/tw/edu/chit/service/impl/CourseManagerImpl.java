@@ -4619,12 +4619,12 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 				}
 				table.add(map);
 			}
-		}*/
-
-		return jdbcDao.StandardSqlQuery("SELECT st.ident_remark, css.name as occur_status, st.student_no,st.student_name,c.ClassNo, c.ClassName,(SELECT SUM(d.credit) FROM Seld s, Dtime d WHERE "
-				+ "s.Dtime_oid=d.Oid AND s.student_no=st.student_no)as cnt,sce.max, sce.min FROM stmd st LEFT OUTER JOIN CODE_STMD_STATUS css ON css.id=st.occur_status, Class c,"
-				+ "SYS_CALENDAR_ELECTIVE sce WHERE c.ClassNo=st.depart_class AND sce.depart=c.SchoolType AND "
-				+ "sce.grade=c.Grade AND st.depart_class LIKE'"+departClass+"%'HAVING cnt>sce.max OR cnt<sce.min;");
+		}*/		
+		
+		return jdbcDao.StandardSqlQuery("SELECT st.ident_remark, css.name as occur_status, st.student_no,st.student_name,c.ClassNo, c.ClassName,IFNULL((SELECT SUM(d.credit) FROM Seld s, Dtime d WHERE "
+		+ "s.Dtime_oid=d.Oid AND s.student_no=st.student_no),0)as cnt,sce.max, sce.min FROM stmd st LEFT OUTER JOIN CODE_STMD_STATUS css ON css.id=st.occur_status, Class c,"
+		+ "SYS_CALENDAR_ELECTIVE sce WHERE c.ClassNo=st.depart_class AND sce.depart=c.SchoolType AND "
+		+ "sce.grade=c.Grade AND st.depart_class LIKE'"+departClass+"%'HAVING cnt>sce.max OR cnt<sce.min ORDER BY c.ClassNo,st.student_no;");
 	}
 	
 	/*
