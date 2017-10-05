@@ -1,5 +1,6 @@
 /CRConfig.xml
 /c3p0.properties.OBS
+/com/
 /displaytag.properties
 /displaytag_en.properties
 /displaytag_zh_TW.properties
@@ -8,8 +9,7 @@
 /kaiu.ttf
 /log4j.properties
 /messages/
+/org/
 /oscache.properties
 /pl.ttf
 /tw/
-/com/
-/org/

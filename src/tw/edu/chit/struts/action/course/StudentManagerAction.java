@@ -848,13 +848,13 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		String occur_status=(String)stForm.get("occur_status");//變更狀態
 		
 		//TODO 要做更好的頁面除錯
-		if( (deadOccur_status.equals("6")&&!occur_status.equals("6")) ||//畢業
+		/*if( (deadOccur_status.equals("6")&&!occur_status.equals("6")) ||//畢業
 			(deadOccur_status.equals("2")&&!occur_status.equals("2")) ||//退學
 			(deadOccur_status.equals("7")&&!occur_status.equals("7"))){//移轉
 			error.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","不可以這樣做！"));
 			saveErrors(request, error);
 			return mapping.findForward("Main");
-		}
+		}*/
 		
 		String deadStudentName=(String)stForm.get("deadStudentName");//原姓名
 		String studentName=(String)stForm.get("studentName");//變更姓名
@@ -866,13 +866,18 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		if(deadOccur_status.equals(occur_status)){
 			workType="異動資料";
 		}else{
-			workType=((Map)manager.ezGetBy("SELECT name FROM code5 WHERE category='Status' AND idno='"+occur_status+"'").get(0)).get("name").toString();
+			if(!occur_status.equals("")){
+				workType=((Map)manager.ezGetBy("SELECT name FROM code5 WHERE category='Status' AND idno='"+occur_status+"'").get(0)).get("name").toString();
+			}else{
+				workType="復學";
+			}
+			
 		}
-		if(!deadClassNo.substring(1, 3).equals(classNo.substring(1, 3))){//學制代碼必需相同
+		/*if(!deadClassNo.substring(1, 3).equals(classNo.substring(1, 3))){//學制代碼必需相同
 			error.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1","不可跨部制轉系"));
 			saveErrors(request, error);
 			return mapping.findForward("Main");	
-		}
+		}*/
 		session.setAttribute("workType", workType);// 顯示用		
 		//改名動作
 		Gmark gmark;//各種Gmark
@@ -912,7 +917,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		}
 		
 		//復學動作
-		if(occur_status.equals("4")){
+		if(occur_status.equals("4")||occur_status.equals("")){
 			//帳號
 			WwPass wwpass=new WwPass();
 			wwpass.setInformixPass((String)stForm.get("idno"));
@@ -999,7 +1004,9 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		
 		String studentName=(String)stForm.get("studentName");
 		String studentNo=(String)stForm.get("studentNo");
-		
+		List stmds=new ArrayList();
+		List gstmds=new ArrayList();
+		//List students=new ArrayList();//用以存放
 		//String school_year=((Map)manager.ezGetBy("SELECT Value FROM Parameter WHERE Name='School_year'").get(0)).get("Value").toString();//學年
 		//String school_term=((Map)manager.ezGetBy("SELECT Value FROM Parameter WHERE Name='School_term'").get(0)).get("Value").toString();//學期
 
@@ -1021,10 +1028,11 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 			saveImage((FormFile) myForm.get("myImage"), studentNo); //存照片
 		}
 		
-		if(stForm.get("occur_status").equals("4")){ //occur_status為4, 表示他要復學, 要幫他準備一些東西
+		if(stForm.get("occur_status").equals("4")||stForm.get("occur_status").equals("")){ //occur_status為4, 表示他要復學, 要幫他準備一些東西
 			Student stmd=saveStmd(myForm);
 			stmd.setOccurYear(Short.parseShort(stForm.getString("occur_year")));
 			stmd.setOccurTerm(stForm.getString("occur_term"));
+			
 			manager.updateObject(stmd);
 			manager.executeSql("DELETE FROM Gstmd WHERE student_no='"+stmd.getStudentNo()+"'");
 
@@ -1092,6 +1100,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 			if(session.getAttribute("quitresume")!=null){
 				manager.updateObject((QuitResume)session.getAttribute("quitresume"));
 			}
+			stmds=manager.getStudentInfo("stmd", stForm.getMap());
 			
 		}else{ //occur_status不為4，表示他只是異動資料
 			Graduate gstmd=(Graduate)manager.hqlGetBy("FROM Graduate WHERE Oid='"+(String)stForm.get("Oid")+"'").get(0); //一定有的啦
@@ -1101,6 +1110,8 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 			if(gmarkList.size()>0){
 				saveGmark(gmarkList);
 			}
+			
+			//gstmd.getStudentNo()
 			//建立tran
 			if(session.getAttribute("tran")!=null){
 				manager.updateObject((Tran)session.getAttribute("tran"));
@@ -1120,11 +1131,22 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 				}
 			}
 			*/
+			
+			gstmds=manager.getStudentInfo("Gstmd", stForm.getMap());
+		
 		}
 		
 		msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1",studentNo+studentName+"完成"));
 		saveMessages(request, msg);	//完成		
 		removeSessionForComplete(request, form);
+		
+		//students.addAll(stmds);
+		stmds.addAll(gstmds);
+		//students.addAll(stmds);
+		session.setAttribute("students", stmds);
+		
+		
+		//return Continue(mapping, form, request, response);
 		return mapping.findForward("Main");
 	}	
 	
@@ -1952,7 +1974,15 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		stmd.setTelephone((String)aStudent.get("telephone")); //連絡電話		
 		stmd.setPermPost((String)aStudent.get("perm_post")); //永久地址郵編
 		stmd.setPermAddr((String)aStudent.get("perm_addr")); //永久地址		
-		stmd.setOccurStatus((String)aStudent.get("occur_status")); //最後一次變更學籍的狀態		
+		
+		if(((String)aStudent.get("occur_status")).equals("")){
+			stmd.setOccurStatus(null); //最後一次變更學籍的狀態
+		}else{
+			stmd.setOccurStatus((String)aStudent.get("occur_status")); //最後一次變更學籍的狀態
+		}
+				
+		
+		
 		if(!aStudent.get("occur_year").equals("")&& aStudent.get("occur_year")!=null)
 		stmd.setOccurYear(Short.parseShort(aStudent.get("occur_year").toString())); //最後一次變更學籍的學年		
 		if(!aStudent.get("occur_term").equals("")&& aStudent.get("occur_term")!=null)
