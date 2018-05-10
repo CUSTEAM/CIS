@@ -1766,13 +1766,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 			doc.setTotalHour((short) 0);
 			doc.setTotalMinute((short) 0);
 			String sn = getNewDOcSN(docType, idno);
-			if (sn != null) {
-				doc.setSn(sn);
-			} else {
-				msgs.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage(
-						"MessageN1", "系統序號取得錯誤,超過99999!"));
-				return msgs;
-			}
+			doc.setSn(sn);
 			dao.saveObject(doc);
 
 			dao.reload(doc);
@@ -1927,13 +1921,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 				doc.setCreateDate(today.getTime());
 				doc.setReason(reason);
 				String sn = getNewDOcSN(docType, idno);
-				if (sn != null) {
-					doc.setSn(sn);
-				} else {
-					msgs.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage(
-							"MessageN1", "系統序號取得錯誤,超過99999!"));
-					return msgs;
-				}
+				doc.setSn(sn);
 				dao.saveObject(doc);
 			}
 		} else if (opmode.equals("add")) {
@@ -2089,13 +2077,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 				doc.setCreateDate(today.getTime());
 				doc.setReason(reason);
 				String sn = getNewDOcSN(docType, idno);
-				if (sn != null) {
-					doc.setSn(sn);
-				} else {
-					msgs.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage(
-							"MessageN1", "系統序號取得錯誤,超過99999!"));
-					return msgs;
-				}
+				doc.setSn(sn);
 				dao.saveObject(doc);
 
 				if (docType.equals(IConstants.AMSDocRevoke)) {
@@ -3552,10 +3534,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 
 		if (!retList.isEmpty()) {
 			String lastSn = ((Map) retList.get(0)).get("sn").toString();
-			number = Integer.parseInt(lastSn.substring(8)) + 1;
-			if (number > 99999) {
-				return null;
-			}
+			number = Integer.parseInt(lastSn.substring(8)) + 1;			
 		}
 
 		String snum = "" + number;

@@ -281,7 +281,7 @@ public class StudentScoreHistoryAction extends BaseAction {
 
 			for (short year = firstYear; year <= lastYear; year++) {
 				
-				
+				System.out.println(year);
 				// 判斷是否有歷年資料?可以9316D078為例測試
 				// 不做判斷會出現歷年中間有空白資料
 				scoreHist.setSchoolYear(year);

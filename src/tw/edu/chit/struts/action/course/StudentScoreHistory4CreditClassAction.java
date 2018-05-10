@@ -321,6 +321,8 @@ public class StudentScoreHistory4CreditClassAction extends BaseAction {
 			passCreditsSum = creditSum1 + creditSum2;
 			scoreHist.setEvgrType(null); // 免得只查到抵免的
 			k = 1; // 歷年成績從第2大欄開始
+			System.out.println("firstYear:"+firstYear);
+			System.out.println("lastYear:"+lastYear);
 			for (short year = firstYear; year <= lastYear; year++) {
 				// 判斷是否有歷年資料?可以9316D078為例測試
 				// 不做判斷會出現歷年中間有空白資料

@@ -50,20 +50,21 @@
 					</td>
   				
   					<td>
+  						<html:link href="/sris/ScorePrint" paramId="scoreHist" paramName="NO">
+						歷年成績表(新),
+						</html:link>
 						<html:link page="/Course/StudentScoreHistory.do" paramId="no" paramName="NO" onclick="return confirm('成績必須在所有成績均轉入歷年成績檔後才能產生正確資料')">
-						<img src="images/vcard.png" border="0"> 歷年成績表
+						&nbsp;歷年成績表,
 						</html:link>
 						<html:link page="/Course/StudentScoreHistoryEnglish.do">
-						<img src="images/vcard.png" border="0"> 英文歷年成績表
+						&nbsp;英文歷年成績表,
 						</html:link>
 						<html:link page="/Course/ForeignExchangeStudentScoreHistory.do">
-						<img src="images/vcard.png" border="0"> 交換學生歷年成績表
+						&nbsp;交換學生歷年成績表,
 						</html:link>
-						<html:link page="/Course/StudentDiploma.do" target="_blank">
-						<img src="images/vcard.png" border="0"> 學位證明書補發
-						</html:link>
+						
 						<html:link page="/Course/StudentScoreHistory4CreditClass.do" target="_blank">
-						<img src="images/vcard.png" border="0"> 歷年成績表(學院專用)
+						&nbsp;歷年成績表(學院專用)
 						</html:link>
 					</td>
 					

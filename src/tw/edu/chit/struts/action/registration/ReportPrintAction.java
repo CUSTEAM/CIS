@@ -505,7 +505,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 					fileName = "ClassStudentsScoreHistoryOver60.xls";
 					//System.out.println(fileName);
 					title = Toolket.getSchoolFormalName(departClass);
-					if (isDelay) {
+					/*if (isDelay) {
 						// Only 20 Sheets
 						templateXLS = new File(
 								context
@@ -513,7 +513,9 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 					} else {
 						templateXLS = new File(context
 								.getRealPath("/WEB-INF/reports/" + fileName));
-					}
+					}*/
+					templateXLS = new File(context
+							.getRealPath("/WEB-INF/reports/" + fileName));
 				} else {
 
 					if (studentCounts <= 15)
@@ -558,6 +560,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 					studentNo = student.getStudentNo();
 					//硬性規定人數上限為80
 					if(sheetIndex>79)sheetIndex=79;
+					
 					sheet = workbook.getSheetAt(sheetIndex);
 					workbook.setSheetName(sheetIndex++, studentNo.toUpperCase());
 					if (student == null) {

@@ -530,7 +530,7 @@ public class AjaxGlobal extends HttpServlet{
 		if(!Oid.equals("")){
 			AmsDocApply doc = ams.getDocApplyByOid(Integer.parseInt(Oid));
 
-			if(doc.getIdno().equals(idno) && !ams.isExpireDoc(doc)){
+			//if(doc.getIdno().equals(idno) && !ams.isExpireDoc(doc)){
 				ams.setDocExtraData(doc);
 				DateFormat dayf = new SimpleDateFormat("yy/MM/dd");
 				DateFormat dayflong = new SimpleDateFormat("yyyy/MM/dd");
@@ -896,7 +896,7 @@ public class AjaxGlobal extends HttpServlet{
 				
 			}
 			
-		}
+		//}
 	}
 	
 	private void StudDocAttachUpload(HttpServletRequest request, HttpServletResponse response) throws IOException, JSONException{
