@@ -931,7 +931,7 @@ public class CheckOutAction extends BaseLookupDispatchAction{
 		if(checkOpt.equals("ReSelectedNow")){
 			
 			saveMessages(request, msg);
-			session.setAttribute("reSelectNow", manager.checkReSelectedNow(classLess, manager.getSchoolYear().toString(), manager.getSchoolTerm().toString()));			
+			session.setAttribute("reSelectNow", manager.checkReSelectedNow(classLess, manager.getSchoolYear().toString(), sterm));			
 			msg.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("Course.messageN1", "查詢完成"));
 			saveMessages(request, msg);				
 		}

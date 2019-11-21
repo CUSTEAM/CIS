@@ -410,10 +410,11 @@ public class StudentScoreHistoryEnglishAction extends StudentScoreHistoryAction 
 								Toolket.setCellValue(sheet, rowIndex, 0,
 										courseName);
 								if (1 == term) {
-									Toolket.setCellValue(sheet, rowIndex, 5,
+									/*Toolket.setCellValue(sheet, rowIndex, 5,
 											StringUtils.substringBefore(hist
 													.getCredit().toString(),
-													"."));
+													"."));*/
+									Toolket.setCellValue(sheet, rowIndex, 5, hist.getCredit().toString());
 									Toolket
 											.setCellValue(
 													sheet,
@@ -429,10 +430,11 @@ public class StudentScoreHistoryEnglishAction extends StudentScoreHistoryAction 
 													: hist.getScore()) >= passScore)
 										totalPassCredits += hist.getCredit();
 								} else {
-									Toolket.setCellValue(sheet, rowIndex, 7,
+									/*Toolket.setCellValue(sheet, rowIndex, 7,
 											StringUtils.substringBefore(hist
 													.getCredit().toString(),
-													"."));
+													"."));*/
+									Toolket.setCellValue(sheet, rowIndex, 7, hist.getCredit().toString());
 									Toolket
 											.setCellValue(
 													sheet,

@@ -41,12 +41,7 @@ function check4Update() {
 			<table class="empty-border">
 				<tr>
 					<td><bean:message key="OpenCourse.label.classNumber" bundle="COU"/>:
-				   		<c:set var="campusSel" value="${ClassFeeForm.map.campusInCharge2}"/>
-	  			   		<c:set var="schoolSel" value="${ClassFeeForm.map.schoolInCharge2}"/>
-	  			   		<c:set var="deptSel" value="${ClassFeeForm.map.deptInCharge2}"/>
-	  			   		<c:set var="classSel" value="${ClassFeeForm.map.classInCharge2}"/>
-	  			   		<c:set var="classLess" value="${ClassFeeForm.map.classLess}"/>
-	  			   		<%@include file="/pages/include/ClassSelect5.jsp"%>
+				   		<%@include file="/pages/include/AllClassSelect2.jsp"%>
 	  			   		<table width="100%" id="alert" style="display:none">
 							<tr>
 								<td><br>

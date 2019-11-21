@@ -27,12 +27,8 @@ function check() {
 				<tr bgcolor="#f0fcd7">
 					<td class="hairlineTdF">&nbsp;&nbsp;班級&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td class="hairlineTdF" colspan="5">
-				   		<c:set var="campusSel" value="${ClassFeeForm.map.campusInCharge2}"/>
-	  			   		<c:set var="schoolSel" value="${ClassFeeForm.map.schoolInCharge2}"/>
-	  			   		<c:set var="deptSel" value="${ClassFeeForm.map.deptInCharge2}"/>
-	  			   		<c:set var="classSel" value="${ClassFeeForm.map.classInCharge2}"/>
-	  			   		<c:set var="classLess" value="${ClassFeeForm.map.classLess}"/>
-	  			   		<%@include file="/pages/include/ClassSelect5.jsp"%>
+				   		
+	  			   		<%@include file="/pages/include/ClassSelect4_dept4all.jsp"%>
 	  			   	</td>	
 				</tr>
 				<!--tr bgcolor="#f0fcd7">

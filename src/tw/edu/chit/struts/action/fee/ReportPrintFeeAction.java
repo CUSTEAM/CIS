@@ -175,7 +175,7 @@ public class ReportPrintFeeAction extends BaseLookupDispatchAction {
 			Student student = null;
 			List<Student> students = null;
 			NumberFormat nf = NumberFormat.getInstance();
-
+			System.out.println(diposts.size());
 			for (Dipost d : diposts) {
 
 				student = new Student();
@@ -201,10 +201,9 @@ public class ReportPrintFeeAction extends BaseLookupDispatchAction {
 					peopleCounts++;
 					moneyCounts += d.getMoney();
 				} else {
-					Graduate graduate = mm.findGraduateByStudentNo(d
-							.getStudentNo().toUpperCase().trim());
-					Toolket.setCellValue(sheet, index, 0, Toolket
-							.getClassFullName(graduate.getDepartClass()));
+					Graduate graduate = mm.findGraduateByStudentNo(d.getStudentNo().toUpperCase().trim());
+					if(graduate==null)continue;
+					Toolket.setCellValue(sheet, index, 0, Toolket .getClassFullName(graduate.getDepartClass()));
 					Toolket.setCellValue(sheet, index, 1, d.getStudentNo());
 					Toolket.setCellValue(sheet, index, 2, graduate
 							.getStudentName());

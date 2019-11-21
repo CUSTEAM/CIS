@@ -9751,6 +9751,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 								map.put("school_year", ((Map)reSelecTmp.get(k)).get("school_year"));
 								map.put("school_term", ((Map)reSelecTmp.get(k)).get("school_term"));
 								map.put("cscode", ((Map)reSelecTmp.get(k)).get("cscode"));
+								map.put("ClassName", ((Map)reSelecTmp.get(k)).get("ClassName"));
 								reSelect.add(map);
 							}
 						}							
@@ -9768,26 +9769,27 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 	 */
 	public List checkReSelectedNow(String classLess, String year, String term){
 		Map map;
-		List tmp;
-		List list;
-		List SelectException=new ArrayList();
-		tmp=ezGetBy("SELECT student_no, student_name FROM stmd WHERE depart_class LIKE'"+classLess+"%'");
+		List<Map>tmplist;
+		List<Map>tmp;
+		List<Map>list;
+		List<Map>SelectException=new ArrayList();
+		tmp=ezGetBy("SELECT c.ClassName, s.student_no, s.student_name FROM stmd s, Class c WHERE c.ClassNo=s.depart_class AND s.depart_class LIKE'"+classLess+"%'");
 		
 		String cscode;
 		//取一人選課
 		for(int i=0; i<tmp.size(); i++){	
-			list=ezGetBy("SELECT * FROM Seld s, Csno c, Dtime d WHERE s.Dtime_oid=d.Oid AND c.cscode=d.cscode AND d.Sterm='"+term+"' AND " +
-					"s.student_no='"+((Map)tmp.get(i)).get("student_no")+"'");
-			System.out.println("SELECT * FROM Seld s, Csno c, Dtime d WHERE s.Dtime_oid=d.Oid AND c.cscode=s.cscode AND d.Sterm='"+term+"' AND " +
-					"s.student_no='"+((Map)tmp.get(i)).get("student_no")+"'");
+			list=ezGetBy("SELECT * FROM Seld s, Csno c, Dtime d WHERE s.Dtime_oid=d.Oid AND "
+			+ "c.cscode=d.cscode AND d.Sterm='"+term+"' AND s.student_no='"+tmp.get(i).get("student_no")+"'");
+			
 			for(int j=0; j<list.size(); j++){
-				cscode=((Map)list.get(j)).get("cscode").toString();
+				cscode=list.get(j).get("cscode").toString();
 				
 				//查核當期與當期的重複
 				for(int k=0; k<list.size(); k++){//選課列表
-					if(((Map)list.get(k)).get("cscode").equals(cscode)&& !((Map)list.get(k)).get("Oid").equals(((Map)list.get(j)).get("Oid"))){							
+					if( list.get(k).get("cscode").equals(cscode) && !list.get(k).get("Oid").equals(list.get(j).get("Oid"))   ){							
 						map=new HashMap();
 						map.put("student_no", ((Map)tmp.get(i)).get("student_no"));
+						map.put("ClassName", ((Map)tmp.get(i)).get("ClassName"));
 						map.put("student_name", ((Map)tmp.get(i)).get("student_name"));
 						map.put("cscode", cscode);
 						map.put("chi_name", "當期重複修: "+((Map)list.get(j)).get("chi_name"));
@@ -9796,17 +9798,17 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 						SelectException.add(map);
 					}
 				}
-				/*
-				List tmplist=ezGetBy("SELECT * FROM ScoreHist WHERE student_no='"+((Map)tmp.get(i)).get("student_no")+"' AND " +
-						"cscode='"+((Map)list.get(j)).get("cscode")+"' AND score>=60 AND school_year<>'"+year+"' AND school_term<>'"+term+"'");
-				*/
+				
 				//改寫上面的SQL
-				List tmplist=ezGetBy("SELECT * FROM ScoreHist WHERE student_no='"+((Map)tmp.get(i)).get("student_no")+"' AND " +
-						"cscode='"+((Map)list.get(j)).get("cscode")+"' AND (evgr_type='6' OR score>=60)");
-				if(tmplist.size()>0){
+				tmplist=ezGetBy("SELECT * FROM ScoreHist WHERE student_no='"+tmp.get(i).get("student_no")+"' AND " +
+						"cscode='"+list.get(j).get("cscode")+"' AND (evgr_type='6' OR score>=60)");
+				
+				
+				if(tmplist.size()>0){					
 					map=new HashMap();
-					map.put("student_no", ((Map)tmp.get(i)).get("student_no"));
-					map.put("student_name", ((Map)tmp.get(i)).get("student_name"));
+					map.put("student_no", tmp.get(i).get("student_no"));
+					map.put("student_name", tmp.get(i).get("student_name"));
+					map.put("ClassName", tmp.get(i).get("ClassName"));
 					map.put("cscode", cscode);						
 					map.put("chi_name", "過去曾修: "+((Map)list.get(j)).get("chi_name")+", 在"+reSelected(tmplist));						
 					map.put("school_year", year);

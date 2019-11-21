@@ -215,10 +215,7 @@
 				<value>tw/edu/chit/model/DtimeReserve.hbm.xml</value>
 				<value>tw/edu/chit/model/DtimeReserveReady.hbm.xml</value>
 				<value>tw/edu/chit/model/EpsVitae.hbm.xml</value>
-				<value>tw/edu/chit/model/DtimeReserveClass.hbm.xml</value>
-				<value>tw/edu/chit/model/DtimeReserveTeacher.hbm.xml</value>
-				<value>tw/edu/chit/model/DtimeReserveOpencs.hbm.xml</value>
-				<value>tw/edu/chit/model/DtimeReserveClassFixed.hbm.xml</value>
+				
 				<value>tw/edu/chit/model/StdImage4t.hbm.xml</value>
 				<value>tw/edu/chit/model/Syllabu.hbm.xml</value>	
 				<value>tw/edu/chit/model/AqAnser.hbm.xml</value>

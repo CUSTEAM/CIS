@@ -155,6 +155,7 @@ function addCourseCheck() {
                      			<html:option value="12">生活助學金</html:option>
                      			<html:option value="13">土地銀行獎學金</html:option>
                      			<html:option value="14">教學助理費</html:option>
+                     			<html:option value="15">圓夢計畫</html:option>
 	                     	</html:select>
     					&nbsp;&nbsp;</span>
     					<span id="fail" style="display:none;">不及格名單類型: 

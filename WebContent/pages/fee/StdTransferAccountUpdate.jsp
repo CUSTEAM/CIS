@@ -88,6 +88,7 @@ function check() {
                      		<html:option value="12">生活助學金</html:option>
                      		<html:option value="13">土地銀行獎學金</html:option>
                      		<html:option value="14">教學助理費</html:option>
+                     		<option value="15">圓夢計畫</option>
                      	</html:select>&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
 				</tr>

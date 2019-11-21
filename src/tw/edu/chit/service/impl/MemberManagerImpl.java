@@ -493,7 +493,8 @@ public class MemberManagerImpl extends BaseManager implements MemberManager {
 				if (campusNo.equals(classAry[i].getCampusNo())) {
 					schoolNo = classAry[i].getSchoolNo();
 					existing = false;
-					for (int j = 0; j < schoolList.size(); j++) {
+					//去你媽的開機寫死，以後別人不知資料加哪怎麼辦
+					for (int j = 0; j < schoolList.size(); j++) {						
 						if (schoolNo.equals(schoolList.get(j).getIdno())) {
 							existing = true;
 							break;

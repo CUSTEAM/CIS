@@ -32,9 +32,6 @@ import tw.edu.chit.struts.action.BaseAction;
 import tw.edu.chit.struts.action.portfolio.FtpClient;
 import tw.edu.chit.struts.action.portfolio.ImageManager;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
-
 public class UploadStdImage extends BaseAction{
 	
 	public ActionForward unspecified(ActionMapping mapping, ActionForm form, HttpServletRequest request, 

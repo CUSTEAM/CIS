@@ -24,6 +24,7 @@ public class CardReaderSimple extends HttpServlet{
 	
 	//CourseManager manager = (CourseManager)getBean("courseManager");
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setHeader("Access-Control-Allow-Origin","*");
 		response.setContentType("text/xml; charset=UTF-8");
 		WebApplicationContext ctx=WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		

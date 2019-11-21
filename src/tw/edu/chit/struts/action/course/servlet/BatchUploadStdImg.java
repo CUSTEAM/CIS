@@ -3,6 +3,7 @@ package tw.edu.chit.struts.action.course.servlet;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Blob;
 
@@ -20,8 +21,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import tw.edu.chit.model.StdImage;
 import tw.edu.chit.service.CourseManager;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+
 
 public class BatchUploadStdImg extends HttpServlet{
 	
@@ -31,7 +31,7 @@ public class BatchUploadStdImg extends HttpServlet{
 		CourseManager manager=(CourseManager) ctx.getBean("courseManager");
 		//HttpSession session = request.getSession(false);		
 		//HttpSession session = request.getSession(false);
-		System.out.println("work");
+		//System.out.println("work");
 		//DynaActionForm Form = (DynaActionForm) form;
 	    FormFile upimage = (FormFile) request.getAttribute("Filedata");
 		//File file=new File(t);
@@ -72,8 +72,10 @@ public class BatchUploadStdImg extends HttpServlet{
 		
 		//將BufferedImage轉成byte[]
 		ByteArrayOutputStream os = new ByteArrayOutputStream();		
-		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);		
-		encoder.encode(destImage);
+		//JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);		
+		//FileOutputStream out = new FileOutputStream(os);  
+        ImageIO.write(destImage, "jpg", os);
+		//encoder.encode(destImage);
 		
 		//儲存byte[]
 		Blob photo = Hibernate.createBlob(os.toByteArray());

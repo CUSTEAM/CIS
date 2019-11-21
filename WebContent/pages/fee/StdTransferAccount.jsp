@@ -73,6 +73,7 @@ function check4Update() {
                      		<html:option value="12">生活助學金</html:option>
                      		<html:option value="13">土地銀行獎學金</html:option>
                      		<html:option value="14">教學助理費</html:option>
+                     		<html:option value="15">圓夢計畫</html:option>
 						</html:select>&nbsp;&nbsp;
 						<bean:message key="OpenCourse.label.classNumber" bundle="COU"/>:
 				   		<c:set var="campusSel" value="${StdTransferAccountForm.map.campusInCharge2}"/>

@@ -68,8 +68,7 @@ public class TutorManagerAction extends BaseLookupDispatchAction{
 				"c.DeptNo='"+allDept+"' GROUP BY s.depart_class ORDER BY c.DeptNo, c.ClassNo"));
 		*/
 		//改寫上面的SQL的語法
-		session.setAttribute("tutors", manager.ezGetBy("SELECT c.Oid,c.ClassNo,c.ClassName,e.Oid as EmpOid,e.idno,e.cname,c.tutor FROM stmd s , " +
-		        "(Class c LEFT OUTER JOIN empl e ON c.tutor=e.idno) WHERE s.depart_class=c.ClassNo and c.DeptNO = '"+allDept+"' GROUP BY s.depart_class"));
+		session.setAttribute("tutors", manager.ezGetBy("SELECT c.Oid,c.ClassNo,c.ClassName,e.Oid as EmpOid,e.idno,e.cname,c.tutor FROM Class c LEFT OUTER JOIN empl e ON c.tutor=e.idno WHERE c.DeptNO = '"+allDept+"'"));
 		
 		return mapping.findForward("Main");
 	}

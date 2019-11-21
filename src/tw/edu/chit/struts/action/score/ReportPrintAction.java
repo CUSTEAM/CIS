@@ -431,7 +431,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 
 		List stmds = manager
 				.ezGetBy("SELECT s.student_no, s.student_name, t.total_score, s.telephone,"
-						+ "c.ClassName, s.curr_addr, s.curr_post, s.parent_name FROM stmd s LEFT OUTER JOIN just t ON s.student_no=t.student_no, Class c WHERE "
+						+ "c.ClassName, s.curr_addr, s.curr_post, s.parent_name FROM stmd s LEFT OUTER JOIN Just t ON s.student_no=t.student_no, Class c WHERE "
 						+ "c.ClassNo=s.depart_class AND s.depart_class LIKE '"
 						+ classLess + "%'");
 
@@ -447,13 +447,13 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 		}
 		for (int i = 0; i < stmds.size(); i++) {
 			System.out.println("SELECT s.score, c.chi_name, d.credit, d.opt FROM Seld s, Csno c, Dtime d WHERE "
-					+ "s.Dtime_oid=d.Oid AND s.Dtime_oid=d.Oid AND c.cscode=d.cscode "
+					+ "s.Dtime_oid=d.Oid AND s.Dtime_oid=d.Oid AND c.cscode=d.cscode AND c.chi_name NOT LIKE'%論文%'"
 					+ "AND s.student_no='"
 					+ ((Map) stmds.get(i)).get("student_no")
 					+ "' AND d.Sterm='" + term + "'");
 			selds = manager
 					.ezGetBy("SELECT s.score, c.chi_name, d.credit, d.opt FROM Seld s, Csno c, Dtime d WHERE "
-							+ "s.Dtime_oid=d.Oid AND s.Dtime_oid=d.Oid AND c.cscode=d.cscode "
+							+ "s.Dtime_oid=d.Oid AND s.Dtime_oid=d.Oid AND c.cscode=d.cscode AND c.chi_name NOT LIKE'%論文%'"
 							+ "AND s.student_no='"
 							+ ((Map) stmds.get(i)).get("student_no")
 							+ "' AND d.Sterm='" + term + "'");

@@ -550,7 +550,11 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 			Empl empl = null;
 			for (AmsDocApply doc : docs) {
 
-				empl = mm.findEmplByIdno(doc.getIdno().toUpperCase().trim());
+				try{
+					empl = mm.findEmplByIdno(doc.getIdno().toUpperCase().trim());
+				}catch(Exception ex) {
+					
+				}
 				if (empl != null) {
 					Toolket.setCellValue(workbook, sheet, index, 0, empl
 							.getCname().trim(), fontSize12,
@@ -561,10 +565,16 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 					Toolket.setCellValue(workbook, sheet, index, 2, Toolket
 							.getAmsAskLeave(doc.getAskLeaveType()), fontSize12,
 							HSSFCellStyle.ALIGN_CENTER, true, 35.0F, null);
-					Toolket.setCellValue(workbook, sheet, index, 3, doc
-							.getReason().trim().toUpperCase().trim(),
-							fontSize12, HSSFCellStyle.ALIGN_LEFT, true, 35.0F,
-							null);
+					
+					
+					try{
+						Toolket.setCellValue(workbook, sheet, index, 3, doc.getReason().trim().toUpperCase().trim(),fontSize12, HSSFCellStyle.ALIGN_LEFT, true, 35.0F,null);
+					}catch(Exception ex) {
+						Toolket.setCellValue(workbook, sheet, index, 3, "",fontSize12, HSSFCellStyle.ALIGN_LEFT, true, 35.0F,null);
+					}
+					
+					
+					
 					Toolket.setCellValue(workbook, sheet, index, 4, doc
 							.getStartDate() == null ? "" : df1.format(doc
 							.getStartDate()), fontSize12,
@@ -1113,11 +1123,22 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 								.getEndDate() == null ? "" : df.format(a
 								.getEndDate()), fontSize12,
 								HSSFCellStyle.ALIGN_CENTER, true, 25.0F, null);
-						Toolket.setCellValue(workbook, sheet, index, 4, a
-								.getReason().trim(), fontSize12,
-								HSSFCellStyle.ALIGN_CENTER, true, 25.0F, null);
-						agentEmpl = mm.findEmplByIdno(a.getAgent()
-								.toUpperCase().trim());
+						
+						try{
+							Toolket.setCellValue(workbook, sheet, index, 4, a.getReason().trim(), fontSize12,HSSFCellStyle.ALIGN_CENTER, true, 25.0F, null);
+						}catch(Exception ex) {
+							Toolket.setCellValue(workbook, sheet, index, 4, a.getReason().trim(), fontSize12,HSSFCellStyle.ALIGN_CENTER, true, 25.0F, null);
+						}
+						
+						try {
+							agentEmpl = mm.findEmplByIdno(a.getAgent().toUpperCase().trim());
+						}catch(Exception ex) {
+							agentEmpl=new Empl();
+						}
+						
+						
+						
+						
 						Toolket.setCellValue(workbook, sheet, index, 5,
 								agentEmpl == null ? "" : agentEmpl.getCname(),
 								fontSize12, HSSFCellStyle.ALIGN_CENTER, true,
