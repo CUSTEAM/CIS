@@ -144,18 +144,22 @@ public class ReportPrintFeeAction extends BaseLookupDispatchAction {
 		String idno = getUserCredential(session).getMember().getIdno();
 		String kindCode = aForm.getString("kindCode");
 
-		Dipost dipost = new Dipost();
+		/*Dipost dipost = new Dipost();
 		dipost.setSchoolYear(year);
 		dipost.setSchoolTerm(term);
 		dipost.setKind(kindCode);
 		dipost.setModifier(idno.trim().toUpperCase());
-		Example example = Example.create(dipost).ignoreCase().enableLike(
-				MatchMode.EXACT);
+		Example example = Example.create(dipost).ignoreCase().enableLike(MatchMode.EXACT);
 		List<Order> orders = new LinkedList<Order>();
 		orders.add(Order.asc("studentNo"));
 		List<Dipost> diposts = (List<Dipost>) am.findSQLWithCriteria(
 				Dipost.class, example, null, orders, 20000);
-
+		*/
+		StringBuilder hql=new StringBuilder("FROM Dipost WHERE kind LIKE'"+kindCode+"%'");
+		if(!year.trim().equals(""))hql.append("AND schoolYear='"+year+"'");
+		if(!term.trim().equals(""))hql.append("AND schoolTerm='"+term+"'");
+		CourseManager manager = (CourseManager) getBean("courseManager");
+		List<Dipost> diposts=manager.hqlGetBy(hql.toString());
 		if (!diposts.isEmpty()) {
 
 			File templateXLS = new File(context

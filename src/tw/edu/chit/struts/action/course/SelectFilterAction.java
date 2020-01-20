@@ -621,6 +621,12 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				}
 			}
 
+			
+			
+			
+			
+			
+			
 			//開始處理本系優先
 			int deptTmp=0;
 			for(int i=0; i<students.size(); i++){//測試次數為剩下人數
@@ -794,6 +800,9 @@ public class SelectFilterAction extends BaseLookupDispatchAction{
 				}
 			}
 		}
+		
+		
+		
 		//開始處理同部制優先
 		if(dtime.getSelectLimit()>luckier.size()){
 			int schTmp=0;

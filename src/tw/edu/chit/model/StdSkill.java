@@ -14,7 +14,16 @@ public class StdSkill extends StdSkillBase implements java.io.Serializable {
 	private String schoolTerm;
 	private String studentNo;
 	private String licenseCode;
+	private String LicenseName;
 	private Integer amount = 0;
+	public String getLicenseName() {
+		return LicenseName;
+	}
+
+	public void setLicenseName(String licenseName) {
+		LicenseName = licenseName;
+	}
+
 	private String amountType;
 	private Date amountDate;
 	private String licenseNo;
@@ -33,13 +42,14 @@ public class StdSkill extends StdSkillBase implements java.io.Serializable {
 	}
 
 	public StdSkill(String schoolYear, String schoolTerm, String studentNo,
-			String licenseCode, Integer amount, String amountType,
+			String licenseCode, String LicenseName, Integer amount, String amountType,
 			Date licenseValidDate, String deptNo, String customNo,
 			Date lastModified) {
 		this.schoolYear = schoolYear;
 		this.schoolTerm = schoolTerm;
 		this.studentNo = studentNo;
 		this.licenseCode = licenseCode;
+		this.LicenseName=LicenseName;
 		this.amount = amount;
 		this.amountType = amountType;
 		this.licenseValidDate = licenseValidDate;
@@ -49,7 +59,7 @@ public class StdSkill extends StdSkillBase implements java.io.Serializable {
 	}
 
 	public StdSkill(String schoolYear, String schoolTerm, String studentNo,
-			String licenseCode, Integer amount, String amountType,
+			String licenseCode, String licenseName, Integer amount, String amountType,
 			Date amountDate, String licenseNo, Date licenseValidDate,
 			String deptNo, String cscode, String techIdno, String serialNo,
 			String customNo, Date lastModified) {
@@ -57,6 +67,7 @@ public class StdSkill extends StdSkillBase implements java.io.Serializable {
 		this.schoolTerm = schoolTerm;
 		this.studentNo = studentNo;
 		this.licenseCode = licenseCode;
+		this.LicenseName=LicenseName;
 		this.amount = amount;
 		this.amountType = amountType;
 		this.amountDate = amountDate;
