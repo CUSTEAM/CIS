@@ -4422,13 +4422,22 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 			k=0;
 			sb=new StringBuilder();			
 			if(((Map)list.get(i)).get("Introduction")!=null){
-				m=parseIntr(((Map)list.get(i)).get("Introduction").toString());
-				j=m.get("chi").toString().length();
-				k=m.get("eng").toString().length();
-				((Map)list.get(i)).put("chi", j);
-				((Map)list.get(i)).put("eng", k);
-				if(j==0)sb.append("中");
-				if(k==0)sb.append("英");
+				
+				try {
+					m=parseIntr(((Map)list.get(i)).get("Introduction").toString());
+					j=m.get("chi").toString().length();
+					k=m.get("eng").toString().length();
+					((Map)list.get(i)).put("chi", j);
+					((Map)list.get(i)).put("eng", k);
+					if(j==0)sb.append("中/");
+					if(k==0)sb.append("英/");
+				}catch(Exception e){
+					sb.append("中/英/");
+				}
+				
+			
+			
+			
 			}else{
 				((Map)list.get(i)).put("chi", 0);
 				((Map)list.get(i)).put("eng", 0);
@@ -4437,8 +4446,8 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 			((Map)list.get(i)).put("intr", "<a href='/CIS/Print/teacher/IntorDoc.do?Oid="+((Map)list.get(i)).get("Oid")+"'>檢視</a>");
 			
 			if(((Map)list.get(i)).get("syl")!=null){
-			if(Integer.parseInt(((Map)list.get(i)).get("syl").toString())<1){sb.append("大");}
-			}else{sb.append("大");}
+			if(Integer.parseInt(((Map)list.get(i)).get("syl").toString())<1){sb.append("大/");}
+			}else{sb.append("大/");}
 			
 			if(((Map)list.get(i)).get("syl_sub")!=null){
 			if(Integer.parseInt(((Map)list.get(i)).get("syl_sub").toString())<1){sb.append("週");}}
