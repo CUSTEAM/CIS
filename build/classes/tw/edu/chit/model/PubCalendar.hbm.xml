@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 丟棄實體資料表PubCalendar -->
+<hibernate-mapping>
+    <class name="tw.edu.chit.model.PubCalendar" table="Calendar" catalog="CIS">
+        <id name="oid" type="java.lang.Integer">
+            <column name="Oid" />
+            <generator class="identity" />
+        </id>
+        <property name="account" type="java.lang.String">
+            <column name="account" length="20">
+                <comment>使用者帳號</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="64">
+                <comment>活動名稱</comment>
+            </column>
+        </property>
+        <property name="place" type="java.lang.String">
+            <column name="place" length="64">
+                <comment>地點</comment>
+            </column>
+        </property>
+        <property name="begin" type="java.util.Date">
+            <column name="begin" length="0">
+                <comment>開始</comment>
+            </column>
+        </property>
+        <property name="end" type="java.util.Date">
+            <column name="end" length="0">
+                <comment>結束</comment>
+            </column>
+        </property>
+        <property name="members" type="java.lang.String">
+            <column name="members" length="65535">
+                <comment>參與者</comment>
+            </column>
+        </property>
+        <property name="note" type="java.lang.String">
+            <column name="note" length="65535">
+                <comment>備註</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="type" length="2">
+                <comment>自訂義型態</comment>
+            </column>
+        </property>
+        <property name="color" type="java.lang.String">
+            <column name="color" length="7">
+                <comment>定義顏色</comment>
+            </column>
+        </property>
+        <property name="no" type="java.lang.String">
+            <column name="no" length="20">
+                <comment>編號</comment>
+            </column>
+        </property>
+        <property name="sender" type="java.lang.String">
+            <column name="sender" length="20">
+                <comment>寄件人</comment>
+            </column>
+        </property>
+        <property name="rec_type" type="java.lang.String">
+            <column name="rec_type" length="20">
+                <comment>重複型態</comment>
+            </column>
+        </property>
+        <property name="rec_event_length" type="java.lang.Integer">
+            <column name="rec_event_length" length="20">
+                <comment>重複型態單1事件週期</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

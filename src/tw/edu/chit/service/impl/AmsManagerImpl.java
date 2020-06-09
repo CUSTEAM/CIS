@@ -523,7 +523,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 //					}
 //				}
 //			}
-
+			System.out.println(awi.getWdate());
 			if ("w".equalsIgnoreCase(awi.getDateType())) {
 				
 				if (awi.getRealIn() == null) {
@@ -767,7 +767,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 						cal = Calendar.getInstance();
 						cal.setTime(awi.getWdate());
 						cloneCal = (Calendar) cal.clone();
-
+						System.out.println("壞在這:"+awi.getWdate());
 						cloneCal.setTime(awi.getSetOut());
 						cloneCal.set(Calendar.YEAR, cal.get(Calendar.YEAR));
 						cloneCal.set(Calendar.MONTH, cal.get(Calendar.MONDAY));

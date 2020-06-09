@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="tw.edu.chit.model.SuggestionEmail" table="SuggestionEmail" catalog="CIS">
+    
+        <id name="oid" type="java.lang.Integer" column="Oid">
+			<generator class="native">
+				<param name="sequence">suggestionEmail_seq</param>
+			</generator>
+		</id>
+		
+        <property name="type" type="java.lang.String">
+            <column name="Type" length="1" not-null="true"/>
+        </property>
+        <property name="departName" type="java.lang.String">
+            <column name="DepartName" length="50" not-null="true"/>
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="Email" length="100" not-null="true"/>
+        </property>
+    </class>
+    
+</hibernate-mapping>
