@@ -177,13 +177,10 @@
 					
 					<input type="text" autocomplete="off" style="ime-mode:disabled" autocomplete="off"
 					name="czip" id="czipNo" size="3" value="${aEmpl.czip}"
-					onkeyup="getAny(this.value, 'czipNo', 'czipName', 'Zcode', 'no')" 
-					onMouseOver="showHelpMessage('這是郵遞區號', 'inline', this.id)" 
-  						onMouseOut="showHelpMessage('', 'none', this.id)" /><input 
-  						onMouseOver="showHelpMessage('這是地名', 'inline', this.id)" 
-  						onMouseOut="showHelpMessage('', 'none', this.id)"
+					 /><input 
+  						
 					type="text" id="czipName" size="3" style="display:none;"
-		 			onkeyup="getAny(this.value, 'czipName', 'czipNo', 'Zcode', 'name')" /><input type="text" size="16" name="caddr" 
+		 			/><input type="text" size="16" name="caddr" 
 		 			id="caddr" value="${aEmpl.caddr}"/>
 					
 					</td>

@@ -6813,7 +6813,7 @@ public class CourseManagerImpl extends BaseManager implements CourseManager {
 	
 	public List getStudyPath(String ClassNo, int SchoolYear){
 		Clazz clazz=(Clazz)hqlGetBy("FROM Clazz WHERE ClassNo LIKE '"+ClassNo+"'").get(0);			
-		// 本班歷年應修
+		// 本班每人歷年應修
 		
 		//Integer schoolYear=Integer.parseInt(getSchoolYear().toString());
 		Map map;

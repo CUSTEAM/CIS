@@ -179,13 +179,13 @@
 					
 					<input type="text" autocomplete="off" style="ime-mode:disabled" autocomplete="off"
 					name="pzip" id="pzipNo" size="3" value="${aEmpl.pzip}"
-					onkeyup="getAny(this.value, 'pzipNo', 'pzipName', 'Zcode', 'no')" 
-					onMouseOver="showHelpMessage('這是郵遞區號', 'inline', this.id)" 
-  						onMouseOut="showHelpMessage('', 'none', this.id)" /><input 
+					
+					
+  						 /><input 
 					
 					onMouseOver="showHelpMessage('這是地名', 'inline', this.id)" 
   						onMouseOut="showHelpMessage('', 'none', this.id)" type="text" id="pzipName" size="3" style="display:none;"
-		 			onkeyup="getAny(this.value, 'pzipName', 'pzipNo', 'Zcode', 'name')" /><input type="text" size="16" name="paddr" value="${aEmpl.paddr}"/>												
+		 			/><input type="text" size="16" name="paddr" value="${aEmpl.paddr}"/>												
 					
 					</td>
 					<td class="hairLineTdF" width="30" align="center">
@@ -204,13 +204,13 @@
 					
 					<input type="text" autocomplete="off" style="ime-mode:disabled" autocomplete="off"
 					name="czip" id="czipNo" size="3" value="${aEmpl.czip}"
-					onkeyup="getAny(this.value, 'czipNo', 'czipName', 'Zcode', 'no')" 
-					onMouseOver="showHelpMessage('這是郵遞區號', 'inline', this.id)" 
-  						onMouseOut="showHelpMessage('', 'none', this.id)" /><input 
-  						onMouseOver="showHelpMessage('這是地名', 'inline', this.id)" 
-  						onMouseOut="showHelpMessage('', 'none', this.id)"
+					
+					
+  						 /><input 
+  						
+  						
 					type="text" id="czipName" size="3" style="display:none;"
-		 			onkeyup="getAny(this.value, 'czipName', 'czipNo', 'Zcode', 'name')" /><input type="text" size="16" name="caddr" 
+		 			 /><input type="text" size="16" name="caddr" 
 		 			id="caddr" value="${aEmpl.caddr}"/>
 					
 					</td>
