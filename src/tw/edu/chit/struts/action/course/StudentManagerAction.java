@@ -2245,7 +2245,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 			ftp.setLocalDir(fullpath+"/");			
 			System.out.println(ftpinfo.get("path")+"/"+folder+"/");
 			ftp.setServerDir(ftpinfo.get("path")+"/"+folder+"/");			
-			ftp.put(stdNo+".jpg", true);
+			ftp.put(upimage.getFileName(), true);
 						
 		}catch(Exception e){
 			e.printStackTrace();				
