@@ -1,8 +1,10 @@
 package tw.edu.chit.struts.action.course;
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,6 +48,8 @@ import tw.edu.chit.model.domain.UserCredential;
 import tw.edu.chit.service.CourseManager;
 import tw.edu.chit.service.SummerManager;
 import tw.edu.chit.struts.action.BaseLookupDispatchAction;
+import tw.edu.chit.struts.action.portfolio.FtpClient;
+import tw.edu.chit.struts.action.portfolio.ImageManager;
 import tw.edu.chit.util.Toolket;
 
 /**
@@ -1025,7 +1029,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		//利用dynactionform來做(因為前面寫的是for dynactionform)
 		Map myForm = (Map)session.getAttribute("aStudent");
 		if(myForm.get("myImage")!=null && !myForm.get("myImage").toString().trim().equals("")){
-			saveImage((FormFile) myForm.get("myImage"), studentNo); //存照片
+			saveImage((FormFile) myForm.get("myImage"), studentNo, request); //存照片
 		}
 		
 		if(stForm.get("occur_status").equals("4")||stForm.get("occur_status").equals("")){ //occur_status為4, 表示他要復學, 要幫他準備一些東西
@@ -1404,7 +1408,7 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		Map myForm=(Map)session.getAttribute("aStudent");
 		// 如有上傳大頭照的動作
 		if(myForm.get("myImage")!=null && !myForm.get("myImage").toString().trim().equals("")){
-			saveImage((FormFile) myForm.get("myImage"), studentNo); //存照片
+			saveImage((FormFile) myForm.get("myImage"), studentNo, request); //存照片
 		}
 		//設狀態為畢業，但未給予畢業號
 		if(stForm.get("occur_status").equals("6")&& stForm.get("occur_graduate_no").toString().trim().equals("")){
@@ -2173,8 +2177,8 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	private void saveImage(FormFile myImage, String studentNo) throws FileNotFoundException, IOException{
-		CourseManager manager = (CourseManager) getBean("courseManager");
+	private void saveImage(FormFile upimage, String stdNo, HttpServletRequest request) throws FileNotFoundException, IOException{
+		/*CourseManager manager = (CourseManager) getBean("courseManager");
 		manager.executeSql("DELETE FROM StdImage WHERE studentNo='"+studentNo+"'"); //無論如何只殺不留
 		StdImage image=new StdImage();
 		InputStream stream= myImage.getInputStream();
@@ -2184,6 +2188,73 @@ public class StudentManagerAction extends BaseLookupDispatchAction{
 		manager.updateObject(image);
 		stream.close();
 		photo=null;
+		*/
+		HttpSession session = request.getSession(false);
+		CourseManager manager = (CourseManager) getBean("courseManager");
+		
+		
+		
+	       		
+	    StringBuffer studentNo=new StringBuffer(stdNo);
+		//studentNo.delete(studentNo.indexOf("."), studentNo.length());
+	    System.out.println(stdNo);
+		//if(manager.ezGetInt("SELECT COUNT(*)FROM stmd WHERE student_no='"+studentNo+"'")<1)return;
+		
+		//上傳至本機
+		String fullpath=session.getServletContext().getRealPath("/UserFiles/")+"/";		
+		if(upimage!=null){  
+           OutputStream fos=null;  
+            try {              	
+                fos=new FileOutputStream(fullpath+upimage.getFileName()); 
+                fos.write(upimage.getFileData(),0,upimage.getFileSize());  
+                fos.flush();  
+            } catch (Exception e) {  
+                // TODO Auto-generated catch block  
+                e.printStackTrace();  
+            }finally{  
+                try{  
+                	fos.close();  
+                }catch(Exception e){}  
+            }  
+        }  
+	    
+		//改變大小
+		ImageManager img=new ImageManager(fullpath+upimage.getFileName());		
+		int height=img.getHeight();
+		int width=img.getWidth();
+		if(width>140){
+			int ratio=img.getHeight()/140;
+			img.reduceImg(fullpath+upimage.getFileName(), height/ratio, width/ratio);			
+		}
+		
+		String folder;
+		if(studentNo.indexOf("10")==0){
+			folder=studentNo.substring(0, 3);
+		}else{
+			folder=studentNo.substring(0, 2);
+		}
+		
+		try{
+			String target="host_runtime";
+			if(!manager.testOnlineServer())target="host_debug";			
+			Map<String, String>ftpinfo=manager.ezGetMap("SELECT "+target+" as host, username, password, path FROM SYS_HOST WHERE useid='StdImage'");
+			fullpath=fullpath.replace("\\", "/");
+			FtpClient ftp=new FtpClient(ftpinfo.get("host"), ftpinfo.get("username"), ftpinfo.get("password"), null, null);				
+			ftp.connect();	
+			System.out.println(fullpath+"/");
+			ftp.setLocalDir(fullpath+"/");			
+			System.out.println(ftpinfo.get("path")+"/"+folder+"/");
+			ftp.setServerDir(ftpinfo.get("path")+"/"+folder+"/");			
+			ftp.put(stdNo+".jpg", true);
+						
+		}catch(Exception e){
+			e.printStackTrace();				
+		}
+		
+		
+		
+		
+		
 	}
 	
 	/**
