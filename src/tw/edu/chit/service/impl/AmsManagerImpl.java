@@ -430,11 +430,11 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 			meeting = new AmsMeeting();
 			meeting.setMeetingDate(awi.getWdate());
 			meetings = findAmsMeetingBy(meeting);
+			System.out.println(awi.getWdate());
 			if (!meetings.isEmpty()) {
 				awi.setMeeting("1");
 				for (AmsMeeting am : meetings) {
 					awi.setMeetingInfo(am.getName().trim() + "<br/>");
-
 					// 計算重要集會扣分
 					meetingHours = am.getEndNode() - am.getStartNode() + 1;
 					meetingAskLeave.setMeetingOid(am.getOid());
@@ -524,6 +524,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 //				}
 //			}
 			System.out.println(awi.getWdate());
+			System.out.println(awi.getWdate());
 			if ("w".equalsIgnoreCase(awi.getDateType())) {
 				
 				if (awi.getRealIn() == null) {
@@ -545,6 +546,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 						}
 					}
 				} else {
+					
 					t = (Time) awi.getSetIn().clone();
 					t1 = (Time) awi1.getSetIn().clone();
 					t1.setTime(t1.getTime()	+ (59 * 1000)); // 只要08:01就算不扣分遲到

@@ -471,11 +471,11 @@ public class MemberManagerImpl extends BaseManager implements MemberManager {
 		String deptNo;
 
 		boolean existing;
-
+		
 		for (int i = 0; i < classAry.length; i++) {
 			campusNo = classAry[i].getCampusNo();
 			existing = false;
-			for (int j = 0; j < campuses.size(); j++) {
+			for (int j = 0; j < campuses.size(); j++) {								
 				if (campusNo.equals(campuses.get(j).getIdno())) {
 					existing = true;
 					break;
@@ -522,6 +522,9 @@ public class MemberManagerImpl extends BaseManager implements MemberManager {
 						deptNo = classAry[i].getDeptNo();
 						existing = false;
 						for (int j = 0; j < deptList.size(); j++) {
+							System.out.println(deptNo+"找");
+							System.out.println(deptList.get(j).getIdno());
+							System.out.println("---------------------------------------");
 							if (deptNo.equals(deptList.get(j).getIdno())) {
 								existing = true;
 								break;

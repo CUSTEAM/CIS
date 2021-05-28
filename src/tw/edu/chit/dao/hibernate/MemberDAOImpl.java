@@ -486,7 +486,9 @@ public class MemberDAOImpl extends BaseDAOHibernate implements MemberDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Code5> findCode5ByCategory(String category) {
-
+		System.out.println("from Code5 c "
+				+ "where c.category = '"+category+"' AND idno IS NOT NULL AND name IS NOT NULL "
+				+ "order by c.sequence");
 		return getHibernateTemplate()
 				.find(
 						"from Code5 c "

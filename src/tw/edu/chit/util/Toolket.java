@@ -812,7 +812,7 @@ public class Toolket {
 	public static String getMasterDepartName(String departClass) {
 		if (StringUtils.isBlank(departClass))
 			return "";
-		System.out.println(departClass+"--"+departClass.length());
+		//System.out.println(departClass+"--"+departClass.length());
 		if(departClass.length()=='7')
 		return Global.MasterDept.getProperty(StringUtils.substring(departClass,
 				4, 5), "");

@@ -114,12 +114,7 @@ public class UploadStdImage extends BaseAction{
 	private boolean uploadImage2FTPServer(String FTPHost, String username, String password, String ServerDir, String LocalDir, String fileName){		
 		
 		
-		//String FTPHost=ezGetString("SELeCT Value FROM Parameter WHERE Category='ftp-empl-photo' AND Name='host'");
-		//String username=ezGetString("SELeCT Value FROM Parameter WHERE Category='ftp-empl-photo' AND Name='username'");
-		//String password=ezGetString("SELeCT Value FROM Parameter WHERE Category='ftp-empl-photo' AND Name='password'");
-		//String ServerDir=ezGetString("SELeCT Value FROM Parameter WHERE Category='ftp-empl-photo' AND Name='folder'");
 		
-		//System.out.println("fileName="+fileName);
 		try{
 			FtpClient ftp=new FtpClient(FTPHost, username, password, "", "");			
 			ftp.connect();

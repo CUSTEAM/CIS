@@ -87,10 +87,10 @@ public class Score4Personal extends HttpServlet{
 		try {
 			
 			//Image image=Image.getInstance("http://cap.chit.edu.tw/CIS/pages/images/2002chitWatermark_reg_d.jpg");
-			Image image=Image.getInstance("http://192.192.237.19/CIS/pages/images/art.gif");
+			//Image image=Image.getInstance("http://192.192.237.19/CIS/pages/images/art.gif");
 			//BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, 
 			        //BaseFont.WINANSI, BaseFont.EMBEDDED);
-			image.setAbsolutePosition(100, 100);
+			//image.setAbsolutePosition(100, 100);
 			//image.setWidthPercentage(50);
 			
 			
@@ -105,7 +105,7 @@ public class Score4Personal extends HttpServlet{
 		    
 			for(int i=0; i<500; i++){
 							
-			    writer.getDirectContentUnder().addImage(image);
+			    //writer.getDirectContentUnder().addImage(image);
 			    
 			    Table table=new Table(1);
 				table.setWidth(100);
