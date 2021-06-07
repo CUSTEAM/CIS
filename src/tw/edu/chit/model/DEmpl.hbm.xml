@@ -20,7 +20,7 @@
             <column name="insno" length="12" />
         </property>
         <property name="ename" type="java.lang.String">
-            <column name="ename" length="32" />
+            <column name="ename" length="255" />
         </property>
         <property name="sex" type="java.lang.String">
             <column name="sex" length="1" />
@@ -38,19 +38,19 @@
             <column name="pcode" length="4" />
         </property>
         <property name="sname" type="java.lang.String">
-            <column name="sname" length="32" />
+            <column name="sname" length="255" />
         </property>
         <property name="telephone" type="java.lang.String">
-            <column name="telephone" length="32" />
+            <column name="telephone" length="255" />
         </property>
         <property name="pzip" type="java.lang.String">
-            <column name="pzip" length="5" />
+            <column name="pzip" length="255" />
         </property>
         <property name="paddr" type="java.lang.String">
             <column name="paddr" length="128" />
         </property>
         <property name="czip" type="java.lang.String">
-            <column name="czip" length="5" />
+            <column name="czip" length="255" />
         </property>
         <property name="caddr" type="java.lang.String">
             <column name="caddr" length="128" />
