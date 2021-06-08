@@ -61,22 +61,22 @@
             </column>
         </property>
         <property name="telephone" type="java.lang.String">
-            <column name="telephone" length="30">
+            <column name="telephone" length="255">
                 <comment>住宅電話</comment>
             </column>
         </property>
         <property name="pzip" type="java.lang.String">
-            <column name="pzip" length="5">
+            <column name="pzip" length="255">
                 <comment>戶籍郵遞區號</comment>
             </column>
         </property>
         <property name="paddr" type="java.lang.String">
-            <column name="paddr" length="70">
+            <column name="paddr" length="255">
                 <comment>戶籍地址</comment>
             </column>
         </property>
         <property name="czip" type="java.lang.String">
-            <column name="czip" length="5">
+            <column name="czip" length="255">
                 <comment>現居郵遞區號</comment>
             </column>
         </property>
