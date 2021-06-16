@@ -1296,12 +1296,25 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 		String term = form.getString("sterm");
 		DateFormat df1 = new SimpleDateFormat("yyyy/MM/dd");
 		Date from = Toolket.parseNativeDate(form.getString("startDate"));
+		
+		String emplCategory=request.getParameter("cg");
+		
 		Date to = Toolket.parseNativeDate(form.getString("endDate"));
 
 		Empl empl = new Empl();
 		empl.setUnit("A".equalsIgnoreCase(form.getString("unitCode")) ? null
 				: form.getString("unitCode"));
+		
+		
+		//empl.setCategory(category);
+		
 		List<Empl> empls = mm.findEmplsBy(empl);
+		File tempDir = new File(context
+				.getRealPath("/WEB-INF/reports/temp/"
+						+ getUserCredential(session).getMember().getIdno()
+						+ (new SimpleDateFormat("yyyyMMdd")
+								.format(new java.util.Date()))));
+		
 		if (!empls.isEmpty()) {
 
 			HSSFWorkbook workbook = new HSSFWorkbook();
@@ -1404,7 +1417,7 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 			int index = 2;
 
 			for (Empl e : empls) {
-				
+				if(!e.getCategory().equals(emplCategory))continue;//非指定範圍不統計，否則會timeout
 				aw = new AmsWorkdateData();
 				aw.setIdno(e.getIdno().toUpperCase().trim());
 				ret = amsm.findAmsWorkdateDataBy(e, aw, from, to, Integer
@@ -1524,16 +1537,23 @@ public class ReportPrintAction extends BaseLookupDispatchAction {
 				}
 			}
 
-			File tempDir = new File(context
-					.getRealPath("/WEB-INF/reports/temp/"
-							+ getUserCredential(session).getMember().getIdno()
-							+ (new SimpleDateFormat("yyyyMMdd")
-									.format(new java.util.Date()))));
+			
 			if (!tempDir.exists())
 				tempDir.mkdirs();
 
 			File output = new File(tempDir, "EmplWorkdateListE.xls");
 			FileOutputStream fos = new FileOutputStream(output);
+			workbook.write(fos);
+			fos.close();
+
+			JasperReportUtils.printXlsToFrontEnd(response, output);
+			output.delete();
+			tempDir.delete();
+		}else {
+			
+			File output = new File(tempDir, "EmplWorkdateListE.xls");
+			FileOutputStream fos = new FileOutputStream(output);
+			HSSFWorkbook workbook = new HSSFWorkbook();
 			workbook.write(fos);
 			fos.close();
 

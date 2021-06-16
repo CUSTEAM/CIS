@@ -183,6 +183,7 @@
   			<form-property name="classLess" type="java.lang.String" />
   			<form-property name="year" type="java.lang.String[]" />
   	  		<form-property name="sterm" type="java.lang.String" />
+  	  		<form-property name="emplCategory" type="java.lang.String" />
   	  		<form-property name="printOpt" type="java.lang.String" />
   	  		<form-property name="campusInCharge2" type="java.lang.String" initial="" />
 	  		<form-property name="schoolInCharge2" type="java.lang.String" initial="" />
@@ -201,6 +202,7 @@
 	  		<form-property name="cname2" type="java.lang.String" initial="" />
 	  		<form-property name="conditionCode" type="java.lang.String" initial="" />
 	  		<form-property name="conditionTimes" type="java.lang.String" initial="" />
+	  		
 		</form-bean>
     	
     	<!-- 差勤設定維護_集會出席狀況維護 -->

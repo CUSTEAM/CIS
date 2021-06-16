@@ -322,7 +322,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 	public Map<String, Object> findAmsWorkdateDataBy(Empl empl,
 			AmsWorkdateData aw, Date from, Date to, Integer schoolYear)
 			throws DataAccessException, SQLException {
-
+		//if(!empl.getCategory().equals("3"))return null;
 		List<AmsWorkdateInfo> amsWorkdateDatas = dao.getAmsWorkdateDataBy(aw,
 				String.valueOf(schoolYear), from, to);
 
@@ -430,7 +430,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 			meeting = new AmsMeeting();
 			meeting.setMeetingDate(awi.getWdate());
 			meetings = findAmsMeetingBy(meeting);
-			System.out.println(awi.getWdate());
+			//System.out.println(awi.getWdate());
 			if (!meetings.isEmpty()) {
 				awi.setMeeting("1");
 				for (AmsMeeting am : meetings) {
@@ -523,8 +523,8 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 //					}
 //				}
 //			}
-			System.out.println(awi.getWdate());
-			System.out.println(awi.getWdate());
+			//System.out.println(awi.getWdate());
+			//System.out.println(awi.getWdate());
 			if ("w".equalsIgnoreCase(awi.getDateType())) {
 				
 				if (awi.getRealIn() == null) {
@@ -769,7 +769,7 @@ public class AmsManagerImpl extends BaseManager implements AmsManager {
 						cal = Calendar.getInstance();
 						cal.setTime(awi.getWdate());
 						cloneCal = (Calendar) cal.clone();
-						System.out.println("壞在這:"+awi.getWdate());
+						System.out.println("無實下但有假單時:"+awi.getIdno()+":"+awi.getWdate());
 						cloneCal.setTime(awi.getSetOut());
 						cloneCal.set(Calendar.YEAR, cal.get(Calendar.YEAR));
 						cloneCal.set(Calendar.MONTH, cal.get(Calendar.MONDAY));

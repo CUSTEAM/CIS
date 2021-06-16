@@ -60,7 +60,7 @@ function preview(isPreview) {
 		+ "&cnm=" + doc.cname2.value + "&cc=" + doc.conditionCode.value + "&ct=" + doc.conditionTimes.value;;
 	if (isPreview && bFlag) {	
 		// alert(str);
-		subwin = window.open("/CIS/AMS/ReportPrint.do?method=preview" + str, "預覽列印",
+		subwin = window.open("/CIS/AMS/ReportPrint.do?cg="+document.getElementById('emplCategory').value+"&method=preview" + str, "預覽列印",
 			"width=600,height=600,scrollbars=yes,resizable=yes");
 	}	
 }
@@ -124,6 +124,15 @@ function preview(isPreview) {
 	    						<html:option value="3">公假</html:option>
 	    						<html:option value="ai">補登</html:option>
 	    					</html:select>&nbsp;&nbsp;次數&nbsp;&nbsp;<html:text property="conditionTimes" size="3" maxlength="3" />
+	    				&nbsp;&nbsp;</span>
+	    				
+	    				<span id="category" style="display:none;">
+							<select name="emplCategory">
+	    						<option value="1">專任教師</option>
+	    						<option value="2">兼任教師</option>	    
+	    						<option value="3">職員工</option>
+	    						<option value="4">軍護教師</option>
+	    					</select>
 	    				&nbsp;&nbsp;</span>
     				</td>    				
 				</tr>
@@ -299,7 +308,14 @@ function showHelp(type) {
 		document.getElementById('helpMsg').innerHTML = ('&nbsp;<font color="red">時間範圍為必填欄位，謝謝！！</font>');
 	}
 	
-	if(type == 'EmplWorkdateList' || type == 'EmplWorkdateListE') {
+	if(type == 'EmplWorkdateListE'){
+		document.getElementById('category').style.display = 'inline';
+		document.getElementById('emplCategory').style.display = 'inline';
+	}else{
+		document.getElementById('emplCategory').style.display = 'none';
+	}
+	
+	if(type == 'EmplWorkdateList' || type == 'EmplWorkdateListE') {		
 		document.getElementById('checkCredit').style.display = 'none';
 		document.getElementById('schoolType').style.display = 'none';
 		document.getElementById('alert').style.display = 'inline';
